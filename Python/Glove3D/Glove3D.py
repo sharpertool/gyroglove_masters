@@ -14,10 +14,24 @@ modelDir = os.path.join(os.path.dirname(__file__), 'models')
 
 
 class World(ShowBase):
+
     def __init__(self):
         super().__init__(self)
+
+        # Initialize self variables
+        self.environ = None
+        self.bufsize = 2048
+        self.addr = None
+        self.my_socket = None
+        self.z = None
+        self.handmodel = None
+        self.hand = None
+        self.knuckle = None
+        self.tknuckle = None
+        self.thumb = None
+
         # This creates the on screen title that is in every tutorial
-        self.title = OnscreenText(text="IMU Glove",
+        self.title = OnscreenText(text="Gyro Glove",
                                   style=1, fg=(1, 1, 1, 1),
                                   pos=(0.87, -0.95), scale=.07)
 
@@ -31,28 +45,23 @@ class World(ShowBase):
         self.trackball.node().setPos(0, 30, -3)
         self.trackball.node().setHpr(-70, 0, 5)
 
-        self.drawGrid()
+        self.draw_grid()
 
-        self.frameNav = self.drawAxis(self.render, [0, 0, 0])
-        self.frameBody = self.drawAxis(self.render, [0, 0, 0])
+        self.frameNav = self.draw_axis(self.render, [0, 0, 0])
+        self.frameBody = self.draw_axis(self.render, [0, 0, 0])
 
-        self.loadModels()  # Load and position our models
+        self.load_models()  # Load and position our models
 
-        self.initSocket()
-        self.taskMgr.add(self.rollTask, "rollTask")
+        self.init_socket()
+        self.taskMgr.add(self.roll_task, "rollTask")
 
-        self.bufsize = 2048
-        self.addr = ("127.0.0.1", 5432)
-        self.ssocket = None
-        self.environ = None
-
-    def loadEnvironment(self):
+    def load_environment(self):
         self.environ = self.loader.loadModel("models/environment")
         self.environ.reparentTo(self.render)
         self.environ.setScale(0.25, 0.25, 0.25)
         self.environ.setPos(-8, 42, 0)
 
-    def drawGrid(self):
+    def draw_grid(self):
         raws1unit = 20
         rawsHALFunit = 100
 
@@ -110,7 +119,7 @@ class World(ShowBase):
             linesX.drawLines([[l1, l2], [l3, l4]])
         linesX.create()
 
-    def drawAxis(self, root, origin):
+    def draw_axis(self, root, origin):
         PX = origin[0]
         PY = origin[1]
         PZ = origin[2]
@@ -171,9 +180,9 @@ class World(ShowBase):
 
         return PIVOThandler
 
-    def rollTask(self, task):
+    def roll_task(self, task):
 
-        data = self.readData()
+        data = self.read_data()
         while data:
             # self.x = data[0]
             # self.y = data[1]
@@ -193,29 +202,29 @@ class World(ShowBase):
                 self.thumb.setPos(data[0], data[1], data[2])
                 self.thumb.setHpr(-data[5], data[3], -data[4])
 
-            data = self.readData()
+            data = self.read_data()
 
         return Task.cont
 
-    def readData(self):
+    def read_data(self):
         try:
-            data, addr = self.ssocket.recvfrom(self.bufsize)
+            data, addr = self.my_socket.recvfrom(self.bufsize)
             data = [float(x) for x in data.split(',')]
             return data
         except:
             return None
 
-    def initSocket(self):
+    def init_socket(self):
         print("Starting the socket listener")
         host = "127.0.0.1"
         port = 5432
         self.bufsize = 2048
         self.addr = (host, port)
-        self.ssocket = socket(AF_INET, SOCK_DGRAM)
-        self.ssocket.settimeout(0.0)
-        self.ssocket.bind(self.addr)
+        self.my_socket = socket(AF_INET, SOCK_DGRAM)
+        self.my_socket.settimeout(0.0)
+        self.my_socket.bind(self.addr)
 
-    def loadModels(self):
+    def load_models(self):
         self.handmodel = self.loader.loadModel(os.path.join(modelDir, "HandBase.egg"))
         self.handmodel.setPosHpr(-2, -1.35, -0.3, 0, 0, 0)
         self.hand = self.render.attachNewNode('hand')
@@ -266,8 +275,8 @@ class World(ShowBase):
 
         # self.hand.flattenLight()
 
-    def notifyPos(self, pos):
-        print("I received a notification.. and tried to process it:%d" % pos)
+    def notify_pos(self, pos):
+        print(f"I received a notification.. and tried to process it:{pos}")
         self.z = pos
         self.hand.set(pos)
 

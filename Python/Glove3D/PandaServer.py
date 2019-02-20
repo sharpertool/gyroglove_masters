@@ -43,7 +43,7 @@ class SocketListener(threading.Thread):
                     pos = int(m.group(1))
                     #wx.PostEvent(self._notify_window,PositionEvent(pos) )
                     #print ("Updated Position to %d" % pos)
-                    destClass.notifyPos(pos)
+                    destClass.notify_pos(pos)
                     cmdFound = True
                 m = re.search("load \"(.*)\"", data, re.IGNORECASE)
                 if m:
