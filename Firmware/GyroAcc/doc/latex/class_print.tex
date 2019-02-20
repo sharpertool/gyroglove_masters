@@ -1,0 +1,681 @@
+\hypertarget{class_print}{
+\subsection{Print Class Reference}
+\label{class_print}\index{Print@{Print}}
+}
+
+
+{\ttfamily \#include $<$Print.h$>$}
+
+Inheritance diagram for Print:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_print}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write} (uint8\_\-t)=0
+\item 
+virtual void \hyperlink{class_print_ae083258d224bae2e5d8a27a4f8338880}{write} (const char $\ast$str)
+\item 
+virtual void \hyperlink{class_print_a03094428e21f210e59cc1be63353225d}{write} (const uint8\_\-t $\ast$\hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}, size\_\-t size)
+\item 
+void \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print} (const char\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{class_print_ada24638921c2e86e13c5939c94cf67db}{print} (char, int=BYTE)
+\item 
+void \hyperlink{class_print_ad7778084a6fe96551d2ec9ce532c5164}{print} (unsigned char, int=BYTE)
+\item 
+void \hyperlink{class_print_a35a6196999c85e5afc5fd852d088e886}{print} (int, int=DEC)
+\item 
+void \hyperlink{class_print_a5f8df5d4f941b411ce9d660b48996bea}{print} (unsigned int, int=DEC)
+\item 
+void \hyperlink{class_print_afab3f8d07a58a8d37fec32d7fcb67b56}{print} (long, int=DEC)
+\item 
+void \hyperlink{class_print_a4be58e920bdddcaf5496d0ba2ae4ea81}{print} (unsigned long, int=DEC)
+\item 
+void \hyperlink{class_print_aa5fe80d3a3e8d2dc64f346eb08dcb43f}{print} (double, int=2)
+\item 
+void \hyperlink{class_print_a09db74a8d51c6b2420c478267f958a51}{println} (const char\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{class_print_a49bbefc9016ddda486edf3dddaaa07e9}{println} (char, int=BYTE)
+\item 
+void \hyperlink{class_print_a4eaaf09c278a5927ba2ddcffb6b01e64}{println} (unsigned char, int=BYTE)
+\item 
+void \hyperlink{class_print_a350bdfe3569acb05a2fdefb7c54e292d}{println} (int, int=DEC)
+\item 
+void \hyperlink{class_print_af0aeb581689c6e9c9f8331b342a91e20}{println} (unsigned int, int=DEC)
+\item 
+void \hyperlink{class_print_a1999020b07369721caa16c52fdba4341}{println} (long, int=DEC)
+\item 
+void \hyperlink{class_print_aacf64fb9630526fb6c666f038a9dc4e6}{println} (unsigned long, int=DEC)
+\item 
+void \hyperlink{class_print_a4302b58946b9355b0491118227beed07}{println} (double, int=2)
+\item 
+void \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println} (void)
+\end{DoxyCompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_print_ae6dc349a48650e771a4443e93bfa9c65}{printNumber} (unsigned long, uint8\_\-t)
+\item 
+void \hyperlink{class_print_afd7abd9d94aa5210d2d0f97e614e4625}{printFloat} (double, uint8\_\-t)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line \hyperlink{_print_8h_source_l00032}{32} of file \hyperlink{_print_8h_source}{Print.h}.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{
+\index{Print@{Print}!print@{print}}
+\index{print@{print}!Print@{Print}}
+\paragraph[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Print::print (
+\begin{DoxyParamCaption}
+\item[{const char}]{str\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00045}{45} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write()}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00068}{CmdProcessor::checkCommands()}, \hyperlink{_i_m_u_8cpp_source_l00651}{IMU::CheckIDs()}, \hyperlink{fifo_8cpp_source_l00110}{FifoTest()}, \hyperlink{_gyro_acc_8cpp_source_l00034}{main()}, \hyperlink{_print_8cpp_source_l00050}{print()}, \hyperlink{_print_8cpp_source_l00173}{printFloat()}, \hyperlink{_print_8cpp_source_l00096}{println()}, \hyperlink{_print_8cpp_source_l00152}{printNumber()}, \hyperlink{_i_m_u_8cpp_source_l00170}{IMU::SampleRate()}, \hyperlink{_i_m_u_8cpp_source_l00194}{IMU::Setup()}, and \hyperlink{_i_m_u_8cpp_source_l00776}{IMU::WrAsync()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(str);
+\}
+\end{DoxyCode}
+\hypertarget{class_print_ad7778084a6fe96551d2ec9ce532c5164}{
+\index{Print@{Print}!print@{print}}
+\index{print@{print}!Print@{Print}}
+\paragraph[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Print::print (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{b, }
+\item[{int}]{base = {\ttfamily BYTE}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_ad7778084a6fe96551d2ec9ce532c5164}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00055}{55} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}) b, base);
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a35a6196999c85e5afc5fd852d088e886}{
+\index{Print@{Print}!print@{print}}
+\index{print@{print}!Print@{Print}}
+\paragraph[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Print::print (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{base = {\ttfamily DEC}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_a35a6196999c85e5afc5fd852d088e886}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00060}{60} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}((\textcolor{keywordtype}{long}) n, base);
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a5f8df5d4f941b411ce9d660b48996bea}{
+\index{Print@{Print}!print@{print}}
+\index{print@{print}!Print@{Print}}
+\paragraph[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Print::print (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{n, }
+\item[{int}]{base = {\ttfamily DEC}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_a5f8df5d4f941b411ce9d660b48996bea}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00065}{65} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}) n, base);
+\}
+\end{DoxyCode}
+\hypertarget{class_print_afab3f8d07a58a8d37fec32d7fcb67b56}{
+\index{Print@{Print}!print@{print}}
+\index{print@{print}!Print@{Print}}
+\paragraph[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Print::print (
+\begin{DoxyParamCaption}
+\item[{long}]{n, }
+\item[{int}]{base = {\ttfamily DEC}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_afab3f8d07a58a8d37fec32d7fcb67b56}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00070}{70} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}, \hyperlink{_print_8cpp_source_l00152}{printNumber()}, and \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write()}.
+
+
+\begin{DoxyCode}
+\{
+  \textcolor{keywordflow}{if} (base == 0) \{
+    \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(n);
+  \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (base == 10) \{
+    \textcolor{keywordflow}{if} (n < 0) \{
+      \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{charliteral}{'-'});
+      n = -n;
+    \}
+    \hyperlink{class_print_ae6dc349a48650e771a4443e93bfa9c65}{printNumber}(n, 10);
+  \} \textcolor{keywordflow}{else} \{
+    \hyperlink{class_print_ae6dc349a48650e771a4443e93bfa9c65}{printNumber}(n, base);
+  \}
+\}
+\end{DoxyCode}
+\hypertarget{class_print_ada24638921c2e86e13c5939c94cf67db}{
+\index{Print@{Print}!print@{print}}
+\index{print@{print}!Print@{Print}}
+\paragraph[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Print::print (
+\begin{DoxyParamCaption}
+\item[{char}]{c, }
+\item[{int}]{base = {\ttfamily BYTE}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_ada24638921c2e86e13c5939c94cf67db}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00050}{50} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}((\textcolor{keywordtype}{long}) c, base);
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a4be58e920bdddcaf5496d0ba2ae4ea81}{
+\index{Print@{Print}!print@{print}}
+\index{print@{print}!Print@{Print}}
+\paragraph[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Print::print (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{n, }
+\item[{int}]{base = {\ttfamily DEC}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_a4be58e920bdddcaf5496d0ba2ae4ea81}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00085}{85} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00152}{printNumber()}, and \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write()}.
+
+
+\begin{DoxyCode}
+\{
+  \textcolor{keywordflow}{if} (base == 0) \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(n);
+  \textcolor{keywordflow}{else} \hyperlink{class_print_ae6dc349a48650e771a4443e93bfa9c65}{printNumber}(n, base);
+\}
+\end{DoxyCode}
+\hypertarget{class_print_aa5fe80d3a3e8d2dc64f346eb08dcb43f}{
+\index{Print@{Print}!print@{print}}
+\index{print@{print}!Print@{Print}}
+\paragraph[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Print::print (
+\begin{DoxyParamCaption}
+\item[{double}]{n, }
+\item[{int}]{digits = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_aa5fe80d3a3e8d2dc64f346eb08dcb43f}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00091}{91} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00173}{printFloat()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_afd7abd9d94aa5210d2d0f97e614e4625}{printFloat}(n, digits);
+\}
+\end{DoxyCode}
+\hypertarget{class_print_afd7abd9d94aa5210d2d0f97e614e4625}{
+\index{Print@{Print}!printFloat@{printFloat}}
+\index{printFloat@{printFloat}!Print@{Print}}
+\paragraph[{printFloat}]{\setlength{\rightskip}{0pt plus 5cm}void Print::printFloat (
+\begin{DoxyParamCaption}
+\item[{double}]{number, }
+\item[{uint8\_\-t}]{digits}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_print_afd7abd9d94aa5210d2d0f97e614e4625}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00173}{173} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}.
+
+
+
+Referenced by \hyperlink{_print_8cpp_source_l00091}{print()}.
+
+
+\begin{DoxyCode}
+\{ 
+  \textcolor{comment}{// Handle negative numbers}
+  \textcolor{keywordflow}{if} (number < 0.0)
+  \{
+     \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{charliteral}{'-'});
+     number = -number;
+  \}
+
+  \textcolor{comment}{// Round correctly so that print(1.999, 2) prints as "2.00"}
+  \textcolor{keywordtype}{double} rounding = 0.5;
+  \textcolor{keywordflow}{for} (uint8\_t i=0; i<digits; ++i)
+    rounding /= 10.0;
+  
+  number += rounding;
+
+  \textcolor{comment}{// Extract the integer part of the number and print it}
+  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} int\_part = (\textcolor{keywordtype}{unsigned} long)number;
+  \textcolor{keywordtype}{double} remainder = number - (double)int\_part;
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(int\_part);
+
+  \textcolor{comment}{// Print the decimal point, but only if there are digits beyond}
+  \textcolor{keywordflow}{if} (digits > 0)
+    \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{stringliteral}{"."}); 
+
+  \textcolor{comment}{// Extract digits from the remainder one at a time}
+  \textcolor{keywordflow}{while} (digits-- > 0)
+  \{
+    remainder *= 10.0;
+    \textcolor{keywordtype}{int} toPrint = int(remainder);
+    \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(toPrint);
+    remainder -= toPrint; 
+  \} 
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a1999020b07369721caa16c52fdba4341}{
+\index{Print@{Print}!println@{println}}
+\index{println@{println}!Print@{Print}}
+\paragraph[{println}]{\setlength{\rightskip}{0pt plus 5cm}void Print::println (
+\begin{DoxyParamCaption}
+\item[{long}]{n, }
+\item[{int}]{base = {\ttfamily DEC}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_a1999020b07369721caa16c52fdba4341}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00132}{132} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}, and \hyperlink{_print_8cpp_source_l00096}{println()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(n, base);
+  \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a525b37c566658ff8113a067f6e8d5bf1}{
+\index{Print@{Print}!println@{println}}
+\index{println@{println}!Print@{Print}}
+\paragraph[{println}]{\setlength{\rightskip}{0pt plus 5cm}void Print::println (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_a525b37c566658ff8113a067f6e8d5bf1}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00096}{96} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}.
+
+
+
+Referenced by \hyperlink{_print_8cpp_source_l00102}{println()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{charliteral}{'\(\backslash\)r'});
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{charliteral}{'\(\backslash\)n'});  
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a4eaaf09c278a5927ba2ddcffb6b01e64}{
+\index{Print@{Print}!println@{println}}
+\index{println@{println}!Print@{Print}}
+\paragraph[{println}]{\setlength{\rightskip}{0pt plus 5cm}void Print::println (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{b, }
+\item[{int}]{base = {\ttfamily BYTE}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_a4eaaf09c278a5927ba2ddcffb6b01e64}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00114}{114} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}, and \hyperlink{_print_8cpp_source_l00096}{println()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(b, base);
+  \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a4302b58946b9355b0491118227beed07}{
+\index{Print@{Print}!println@{println}}
+\index{println@{println}!Print@{Print}}
+\paragraph[{println}]{\setlength{\rightskip}{0pt plus 5cm}void Print::println (
+\begin{DoxyParamCaption}
+\item[{double}]{n, }
+\item[{int}]{digits = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_a4302b58946b9355b0491118227beed07}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00144}{144} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}, and \hyperlink{_print_8cpp_source_l00096}{println()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(n, digits);
+  \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+\}
+\end{DoxyCode}
+\hypertarget{class_print_af0aeb581689c6e9c9f8331b342a91e20}{
+\index{Print@{Print}!println@{println}}
+\index{println@{println}!Print@{Print}}
+\paragraph[{println}]{\setlength{\rightskip}{0pt plus 5cm}void Print::println (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{n, }
+\item[{int}]{base = {\ttfamily DEC}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_af0aeb581689c6e9c9f8331b342a91e20}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00126}{126} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}, and \hyperlink{_print_8cpp_source_l00096}{println()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(n, base);
+  \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+\}
+\end{DoxyCode}
+\hypertarget{class_print_aacf64fb9630526fb6c666f038a9dc4e6}{
+\index{Print@{Print}!println@{println}}
+\index{println@{println}!Print@{Print}}
+\paragraph[{println}]{\setlength{\rightskip}{0pt plus 5cm}void Print::println (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{n, }
+\item[{int}]{base = {\ttfamily DEC}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_aacf64fb9630526fb6c666f038a9dc4e6}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00138}{138} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}, and \hyperlink{_print_8cpp_source_l00096}{println()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(n, base);
+  \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a49bbefc9016ddda486edf3dddaaa07e9}{
+\index{Print@{Print}!println@{println}}
+\index{println@{println}!Print@{Print}}
+\paragraph[{println}]{\setlength{\rightskip}{0pt plus 5cm}void Print::println (
+\begin{DoxyParamCaption}
+\item[{char}]{c, }
+\item[{int}]{base = {\ttfamily BYTE}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_a49bbefc9016ddda486edf3dddaaa07e9}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00108}{108} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}, and \hyperlink{_print_8cpp_source_l00096}{println()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(c, base);
+  \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a09db74a8d51c6b2420c478267f958a51}{
+\index{Print@{Print}!println@{println}}
+\index{println@{println}!Print@{Print}}
+\paragraph[{println}]{\setlength{\rightskip}{0pt plus 5cm}void Print::println (
+\begin{DoxyParamCaption}
+\item[{const char}]{c\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_a09db74a8d51c6b2420c478267f958a51}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00102}{102} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}, and \hyperlink{_print_8cpp_source_l00096}{println()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(c);
+  \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a350bdfe3569acb05a2fdefb7c54e292d}{
+\index{Print@{Print}!println@{println}}
+\index{println@{println}!Print@{Print}}
+\paragraph[{println}]{\setlength{\rightskip}{0pt plus 5cm}void Print::println (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{base = {\ttfamily DEC}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_print_a350bdfe3569acb05a2fdefb7c54e292d}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00120}{120} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}, and \hyperlink{_print_8cpp_source_l00096}{println()}.
+
+
+\begin{DoxyCode}
+\{
+  \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(n, base);
+  \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+\}
+\end{DoxyCode}
+\hypertarget{class_print_ae6dc349a48650e771a4443e93bfa9c65}{
+\index{Print@{Print}!printNumber@{printNumber}}
+\index{printNumber@{printNumber}!Print@{Print}}
+\paragraph[{printNumber}]{\setlength{\rightskip}{0pt plus 5cm}void Print::printNumber (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{n, }
+\item[{uint8\_\-t}]{base}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_print_ae6dc349a48650e771a4443e93bfa9c65}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00152}{152} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{_print_8cpp_source_l00045}{print()}.
+
+
+
+Referenced by \hyperlink{_print_8cpp_source_l00070}{print()}.
+
+
+\begin{DoxyCode}
+\{
+  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} buf[8 * \textcolor{keyword}{sizeof}(long)]; \textcolor{comment}{// Assumes 8-bit chars. }
+  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} i = 0;
+
+  \textcolor{keywordflow}{if} (n == 0) \{
+    \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{charliteral}{'0'});
+    \textcolor{keywordflow}{return};
+  \} 
+
+  \textcolor{keywordflow}{while} (n > 0) \{
+    buf[i++] = n % base;
+    n /= base;
+  \}
+
+  \textcolor{keywordflow}{for} (; i > 0; i--)
+    \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}((\textcolor{keywordtype}{char}) (buf[i - 1] < 10 ?
+      \textcolor{charliteral}{'0'} + buf[i - 1] :
+      \textcolor{charliteral}{'A'} + buf[i - 1] - 10));
+\}
+\end{DoxyCode}
+\hypertarget{class_print_ad9393033793cfc17f3e37202ba244892}{
+\index{Print@{Print}!write@{write}}
+\index{write@{write}!Print@{Print}}
+\paragraph[{write}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Print::write (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_print_ad9393033793cfc17f3e37202ba244892}
+
+
+Implemented in \hyperlink{class_hardware_serial_aced05ab99953383a235ccfb366f5c98f}{HardwareSerial}.
+
+
+
+Referenced by \hyperlink{_print_8cpp_source_l00045}{print()}, and \hyperlink{_print_8cpp_source_l00032}{write()}.
+
+\hypertarget{class_print_ae083258d224bae2e5d8a27a4f8338880}{
+\index{Print@{Print}!write@{write}}
+\index{write@{write}!Print@{Print}}
+\paragraph[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Print::write (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_print_ae083258d224bae2e5d8a27a4f8338880}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00032}{32} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write()}.
+
+
+\begin{DoxyCode}
+\{
+  \textcolor{keywordflow}{while} (*str)
+    \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(*str++);
+\}
+\end{DoxyCode}
+\hypertarget{class_print_a03094428e21f210e59cc1be63353225d}{
+\index{Print@{Print}!write@{write}}
+\index{write@{write}!Print@{Print}}
+\paragraph[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Print::write (
+\begin{DoxyParamCaption}
+\item[{const uint8\_\-t $\ast$}]{buffer, }
+\item[{size\_\-t}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_print_a03094428e21f210e59cc1be63353225d}
+
+
+Definition at line \hyperlink{_print_8cpp_source_l00039}{39} of file \hyperlink{_print_8cpp_source}{Print.cpp}.
+
+
+
+References \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write()}.
+
+
+\begin{DoxyCode}
+\{
+  \textcolor{keywordflow}{while} (size--)
+    \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(*\hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer}++);
+\}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_print_8h}{Print.h}\item 
+\hyperlink{_print_8cpp}{Print.cpp}\end{DoxyCompactItemize}

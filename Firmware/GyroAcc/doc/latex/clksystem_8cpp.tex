@@ -1,0 +1,199 @@
+\hypertarget{clksystem_8cpp}{
+\subsection{clksystem.cpp File Reference}
+\label{clksystem_8cpp}\index{clksystem.cpp@{clksystem.cpp}}
+}
+{\ttfamily \#include $<$avr/io.h$>$}\par
+{\ttfamily \#include $<$util/delay.h$>$}\par
+{\ttfamily \#include $<$avr/interrupt.h$>$}\par
+{\ttfamily \#include $<$stdint.h$>$}\par
+{\ttfamily \#include $<$stdbool.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{clksystem_8cpp_a0a4fb62f9e69209c9c8c8e34ebb3df6f}{AVR\_\-ENTER\_\-CRITICAL\_\-REGION}()
+\begin{DoxyCompactList}\small\item\em This macro will protect the following code from interrupts. \item\end{DoxyCompactList}\item 
+\#define \hyperlink{clksystem_8cpp_a770b47b04eec57748be0826a3d23503b}{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION}()~SREG = saved\_\-sreg;
+\begin{DoxyCompactList}\small\item\em This macro must always be used in conjunction with AVR\_\-ENTER\_\-CRITICAL\_\-REGION so the interrupts are enabled again. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{clksystem_8cpp_aad4e162434c2cc7e0087bbc0ddfe266c}{CCPWrite} (volatile uint8\_\-t $\ast$address, uint8\_\-t value)
+\begin{DoxyCompactList}\small\item\em CCP write helper function written in assembly. \item\end{DoxyCompactList}\item 
+void \hyperlink{clksystem_8cpp_a098d30ebaad7a94505407605314930e5}{clksystem\_\-init} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\hypertarget{clksystem_8cpp_a0a4fb62f9e69209c9c8c8e34ebb3df6f}{
+\index{clksystem.cpp@{clksystem.cpp}!AVR\_\-ENTER\_\-CRITICAL\_\-REGION@{AVR\_\-ENTER\_\-CRITICAL\_\-REGION}}
+\index{AVR\_\-ENTER\_\-CRITICAL\_\-REGION@{AVR\_\-ENTER\_\-CRITICAL\_\-REGION}!clksystem.cpp@{clksystem.cpp}}
+\paragraph[{AVR\_\-ENTER\_\-CRITICAL\_\-REGION}]{\setlength{\rightskip}{0pt plus 5cm}\#define AVR\_\-ENTER\_\-CRITICAL\_\-REGION(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{clksystem_8cpp_a0a4fb62f9e69209c9c8c8e34ebb3df6f}
+{\bfseries Value:}
+\begin{DoxyCode}
+uint8\_t \textcolor{keyword}{volatile} saved\_sreg = SREG; \(\backslash\)
+                                     cli();
+\end{DoxyCode}
+
+
+This macro will protect the following code from interrupts. 
+
+
+
+Definition at line \hyperlink{clksystem_8cpp_source_l00010}{10} of file \hyperlink{clksystem_8cpp_source}{clksystem.cpp}.
+
+
+
+Referenced by \hyperlink{clksystem_8cpp_source_l00026}{CCPWrite()}.
+
+\hypertarget{clksystem_8cpp_a770b47b04eec57748be0826a3d23503b}{
+\index{clksystem.cpp@{clksystem.cpp}!AVR\_\-LEAVE\_\-CRITICAL\_\-REGION@{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION}}
+\index{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION@{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION}!clksystem.cpp@{clksystem.cpp}}
+\paragraph[{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION}]{\setlength{\rightskip}{0pt plus 5cm}\#define AVR\_\-LEAVE\_\-CRITICAL\_\-REGION(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~SREG = saved\_\-sreg;}\hfill}
+\label{clksystem_8cpp_a770b47b04eec57748be0826a3d23503b}
+
+
+This macro must always be used in conjunction with AVR\_\-ENTER\_\-CRITICAL\_\-REGION so the interrupts are enabled again. 
+
+
+
+Definition at line \hyperlink{clksystem_8cpp_source_l00016}{16} of file \hyperlink{clksystem_8cpp_source}{clksystem.cpp}.
+
+
+
+Referenced by \hyperlink{clksystem_8cpp_source_l00026}{CCPWrite()}.
+
+
+
+\subsubsection{Function Documentation}
+\hypertarget{clksystem_8cpp_aad4e162434c2cc7e0087bbc0ddfe266c}{
+\index{clksystem.cpp@{clksystem.cpp}!CCPWrite@{CCPWrite}}
+\index{CCPWrite@{CCPWrite}!clksystem.cpp@{clksystem.cpp}}
+\paragraph[{CCPWrite}]{\setlength{\rightskip}{0pt plus 5cm}void CCPWrite (
+\begin{DoxyParamCaption}
+\item[{volatile uint8\_\-t $\ast$}]{address, }
+\item[{uint8\_\-t}]{value}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{clksystem_8cpp_aad4e162434c2cc7e0087bbc0ddfe266c}
+
+
+CCP write helper function written in assembly. 
+
+This function is written in assembly because of the timecritial operation of writing to the registers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & A pointer to the address to write to. \\
+\hline
+{\em value} & The value to put in to the register. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \hyperlink{clksystem_8cpp_source_l00026}{26} of file \hyperlink{clksystem_8cpp_source}{clksystem.cpp}.
+
+
+
+References \hyperlink{clksystem_8cpp_source_l00010}{AVR\_\-ENTER\_\-CRITICAL\_\-REGION}, and \hyperlink{clksystem_8cpp_source_l00016}{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{clksystem_8cpp_a0a4fb62f9e69209c9c8c8e34ebb3df6f}{AVR_ENTER_CRITICAL_REGION}( );
+
+    \textcolor{keyword}{volatile} uint8\_t * tmpAddr = address;
+
+    \textcolor{keyword}{asm} \textcolor{keyword}{volatile}(
+        \textcolor{stringliteral}{"movw r30,  %0"}       \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)t"}
+        \textcolor{stringliteral}{"ldi  r16,  %2"}       \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)t"}
+        \textcolor{stringliteral}{"out   %3, r16"}       \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)t"}
+        \textcolor{stringliteral}{"st     Z,  %1"}       \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)t"}
+        :
+        : \textcolor{stringliteral}{"r"} (tmpAddr), \textcolor{stringliteral}{"r"} (value), \textcolor{stringliteral}{"M"} (0xD8), \textcolor{stringliteral}{"i"} (&CCP)
+        : \textcolor{stringliteral}{"r16"}, \textcolor{stringliteral}{"r30"}, \textcolor{stringliteral}{"r31"}
+    );
+
+    \hyperlink{clksystem_8cpp_a770b47b04eec57748be0826a3d23503b}{AVR_LEAVE_CRITICAL_REGION}( );
+\}
+\end{DoxyCode}
+\hypertarget{clksystem_8cpp_a098d30ebaad7a94505407605314930e5}{
+\index{clksystem.cpp@{clksystem.cpp}!clksystem\_\-init@{clksystem\_\-init}}
+\index{clksystem\_\-init@{clksystem\_\-init}!clksystem.cpp@{clksystem.cpp}}
+\paragraph[{clksystem\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void clksystem\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{clksystem_8cpp_a098d30ebaad7a94505407605314930e5}
+
+
+Definition at line \hyperlink{clksystem_8cpp_source_l00058}{58} of file \hyperlink{clksystem_8cpp_source}{clksystem.cpp}.
+
+
+
+Referenced by \hyperlink{_gyro_acc_8cpp_source_l00023}{init()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// This board does not have an external oscillator,}
+    \textcolor{comment}{// so we need to use the internal oscillator.}
+    \textcolor{comment}{// Enable the internal 32Mhz oscillator. Disables all the rest.}
+    OSC.CTRL = OSC\_RC32MEN\_bm | OSC\_RC2MEN\_bm | OSC\_RC32KEN\_bm;
+
+    \textcolor{comment}{//OSC.XOSCCTRL = 0; // we don't care, just set this to some value.}
+
+    \textcolor{comment}{// Wait for the external oscilator. Don't wait forever though.}
+    \textcolor{keywordtype}{int} maxWait = 100; \textcolor{comment}{// Wait 1 second}
+    \textcolor{keywordflow}{while} (--maxWait && !(OSC.STATUS & (OSC\_RC32MRDY\_bm | OSC\_RC32KRDY\_bm | OSC\_R
+      C2MRDY\_bm))) \{
+        \_delay\_loop\_2(10);
+    \}
+
+    OSC.DFLLCTRL = 0;
+    DFLLRC32M.CTRL = 0x1;
+    DFLLRC2M.CTRL = 0x1;
+
+    \textcolor{comment}{// If the external oscilator is running, then we can switch the PLL}
+    \textcolor{comment}{// over to it and wait for the PLL to stabilize.}
+    \textcolor{keywordflow}{if} (OSC.STATUS & ( OSC\_RC32MRDY\_bm | OSC\_RC2MRDY\_bm)) \{
+        \textcolor{comment}{// Setup the PLL to use the internal 32Mhz oscillator and a}
+        \textcolor{comment}{// factor of 4 to get a 128Mhz PLL Clock.}
+
+        \textcolor{comment}{// Make sure this is disabled before we try and configure it.}
+        OSC.CTRL &= ~OSC\_PLLEN\_bm;
+
+        OSC.PLLCTRL = OSC\_PLLSRC\_RC32M\_gc | (16 << OSC\_PLLFAC\_gp);
+
+        OSC.CTRL |= OSC\_PLLEN\_bm;
+
+        \textcolor{comment}{//OSC.CTRL = CLK\_PSADIV\_16\_gc;}
+        \textcolor{comment}{// Wait for OSC.STATUS to indicate that PLL is ready..}
+        \textcolor{keywordflow}{while} (!(OSC.STATUS & OSC\_PLLRDY\_bm)) \{
+        \}
+
+        \textcolor{comment}{// Okay, the PLL is up on the new clock. Set the prescalers then}
+        \textcolor{comment}{// switch over to the PLL.}
+
+        CCP = CCP\_IOREG\_gc;
+        CLK.PSCTRL = CLK\_PSADIV\_1\_gc | CLK\_PSBCDIV\_2\_2\_gc;
+        \textcolor{comment}{//CLK.PSCTRL = CLK\_PSADIV\_1\_gc | CLK\_PSBCDIV\_1\_1\_gc;}
+
+        \textcolor{comment}{// When all is done, make the PLL be the clock source for the system.}
+        CCP = CCP\_IOREG\_gc;
+        CLK.CTRL = CLK\_SCLKSEL\_PLL\_gc;
+        \textcolor{comment}{//CLK.CTRL = CLK\_SCLKSEL\_RC32M\_gc;}
+        \textcolor{comment}{//CLK.CTRL = CLK\_SCLKSEL\_RC2M\_gc;}
+    \}
+\}
+\end{DoxyCode}

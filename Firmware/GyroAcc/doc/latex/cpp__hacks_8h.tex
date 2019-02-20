@@ -1,0 +1,97 @@
+\hypertarget{cpp__hacks_8h}{
+\subsection{cpp\_\-hacks.h File Reference}
+\label{cpp__hacks_8h}\index{cpp\_\-hacks.h@{cpp\_\-hacks.h}}
+}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\_\-\_\-extension\_\-\_\- typedef int \_\-\_\-guard \hyperlink{cpp__hacks_8h_aa5aa60072f4063655d5283b6d7b7ab44}{\_\-\_\-attribute\_\-\_\-} ((mode(\_\-\_\-DI\_\-\_\-)))
+\item 
+int \hyperlink{cpp__hacks_8h_a239ddd7f6e7ee1b05b59b2e56d8afb40}{\_\-\_\-cxa\_\-guard\_\-acquire} (\_\-\_\-guard $\ast$)
+\item 
+void \hyperlink{cpp__hacks_8h_aab72c37f0b3e6fc38d293bd4f8dd61ed}{\_\-\_\-cxa\_\-guard\_\-release} (\_\-\_\-guard $\ast$)
+\item 
+void \hyperlink{cpp__hacks_8h_a357afb2dc20a652447f3a529dbda60e4}{\_\-\_\-cxa\_\-guard\_\-abort} (\_\-\_\-guard $\ast$)
+\item 
+void \hyperlink{cpp__hacks_8h_a4464d4205cf92370b8d5077d93bc48a6}{\_\-\_\-cxa\_\-pure\_\-virtual} (void)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{cpp__hacks_8h_aa5aa60072f4063655d5283b6d7b7ab44}{
+\index{cpp\_\-hacks.h@{cpp\_\-hacks.h}!\_\-\_\-attribute\_\-\_\-@{\_\-\_\-attribute\_\-\_\-}}
+\index{\_\-\_\-attribute\_\-\_\-@{\_\-\_\-attribute\_\-\_\-}!cpp_hacks.h@{cpp\_\-hacks.h}}
+\paragraph[{\_\-\_\-attribute\_\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-extension\_\-\_\- typedef int \_\-\_\-guard \_\-\_\-attribute\_\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(mode(\_\-\_\-DI\_\-\_\-))}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{cpp__hacks_8h_aa5aa60072f4063655d5283b6d7b7ab44}
+\hypertarget{cpp__hacks_8h_a357afb2dc20a652447f3a529dbda60e4}{
+\index{cpp\_\-hacks.h@{cpp\_\-hacks.h}!\_\-\_\-cxa\_\-guard\_\-abort@{\_\-\_\-cxa\_\-guard\_\-abort}}
+\index{\_\-\_\-cxa\_\-guard\_\-abort@{\_\-\_\-cxa\_\-guard\_\-abort}!cpp_hacks.h@{cpp\_\-hacks.h}}
+\paragraph[{\_\-\_\-cxa\_\-guard\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}void \_\-\_\-cxa\_\-guard\_\-abort (
+\begin{DoxyParamCaption}
+\item[{\_\-\_\-guard $\ast$}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{cpp__hacks_8h_a357afb2dc20a652447f3a529dbda60e4}
+
+
+Definition at line \hyperlink{cpp__hacks_8cpp_source_l00005}{5} of file \hyperlink{cpp__hacks_8cpp_source}{cpp\_\-hacks.cpp}.
+
+
+\begin{DoxyCode}
+\{\}; 
+\end{DoxyCode}
+\hypertarget{cpp__hacks_8h_a239ddd7f6e7ee1b05b59b2e56d8afb40}{
+\index{cpp\_\-hacks.h@{cpp\_\-hacks.h}!\_\-\_\-cxa\_\-guard\_\-acquire@{\_\-\_\-cxa\_\-guard\_\-acquire}}
+\index{\_\-\_\-cxa\_\-guard\_\-acquire@{\_\-\_\-cxa\_\-guard\_\-acquire}!cpp_hacks.h@{cpp\_\-hacks.h}}
+\paragraph[{\_\-\_\-cxa\_\-guard\_\-acquire}]{\setlength{\rightskip}{0pt plus 5cm}int \_\-\_\-cxa\_\-guard\_\-acquire (
+\begin{DoxyParamCaption}
+\item[{\_\-\_\-guard $\ast$}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{cpp__hacks_8h_a239ddd7f6e7ee1b05b59b2e56d8afb40}
+
+
+Definition at line \hyperlink{cpp__hacks_8cpp_source_l00003}{3} of file \hyperlink{cpp__hacks_8cpp_source}{cpp\_\-hacks.cpp}.
+
+
+\begin{DoxyCode}
+\{\textcolor{keywordflow}{return} !*(\textcolor{keywordtype}{char} *)(g);\}; 
+\end{DoxyCode}
+\hypertarget{cpp__hacks_8h_aab72c37f0b3e6fc38d293bd4f8dd61ed}{
+\index{cpp\_\-hacks.h@{cpp\_\-hacks.h}!\_\-\_\-cxa\_\-guard\_\-release@{\_\-\_\-cxa\_\-guard\_\-release}}
+\index{\_\-\_\-cxa\_\-guard\_\-release@{\_\-\_\-cxa\_\-guard\_\-release}!cpp_hacks.h@{cpp\_\-hacks.h}}
+\paragraph[{\_\-\_\-cxa\_\-guard\_\-release}]{\setlength{\rightskip}{0pt plus 5cm}void \_\-\_\-cxa\_\-guard\_\-release (
+\begin{DoxyParamCaption}
+\item[{\_\-\_\-guard $\ast$}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{cpp__hacks_8h_aab72c37f0b3e6fc38d293bd4f8dd61ed}
+
+
+Definition at line \hyperlink{cpp__hacks_8cpp_source_l00004}{4} of file \hyperlink{cpp__hacks_8cpp_source}{cpp\_\-hacks.cpp}.
+
+
+\begin{DoxyCode}
+\{*(\textcolor{keywordtype}{char} *)g = 1;\}; 
+\end{DoxyCode}
+\hypertarget{cpp__hacks_8h_a4464d4205cf92370b8d5077d93bc48a6}{
+\index{cpp\_\-hacks.h@{cpp\_\-hacks.h}!\_\-\_\-cxa\_\-pure\_\-virtual@{\_\-\_\-cxa\_\-pure\_\-virtual}}
+\index{\_\-\_\-cxa\_\-pure\_\-virtual@{\_\-\_\-cxa\_\-pure\_\-virtual}!cpp_hacks.h@{cpp\_\-hacks.h}}
+\paragraph[{\_\-\_\-cxa\_\-pure\_\-virtual}]{\setlength{\rightskip}{0pt plus 5cm}void \_\-\_\-cxa\_\-pure\_\-virtual (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{cpp__hacks_8h_a4464d4205cf92370b8d5077d93bc48a6}
+
+
+Definition at line \hyperlink{cpp__hacks_8cpp_source_l00007}{7} of file \hyperlink{cpp__hacks_8cpp_source}{cpp\_\-hacks.cpp}.
+
+
+\begin{DoxyCode}
+\{\}; 
+\end{DoxyCode}

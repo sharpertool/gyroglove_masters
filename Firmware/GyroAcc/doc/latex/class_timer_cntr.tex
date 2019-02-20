@@ -1,0 +1,669 @@
+\hypertarget{class_timer_cntr}{
+\subsection{TimerCntr Class Reference}
+\label{class_timer_cntr}\index{TimerCntr@{TimerCntr}}
+}
+
+
+{\ttfamily \#include $<$TimerCntr.h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_timer_cntr_ad03f5cb857585c26d62eee0667a3c37c}{TimerCntr} (TC0\_\-t $\ast$pTC)
+\item 
+\hyperlink{class_timer_cntr_a250ce8e521da601255ec0b631370a47c}{TimerCntr} (TC1\_\-t $\ast$pTC)
+\item 
+\hyperlink{class_timer_cntr_a5b19cb68e0fc19361854553031161544}{$\sim$TimerCntr} ()
+\item 
+void \hyperlink{class_timer_cntr_a71bf73ee43e8d344d1241695b553556b}{Notify} (\hyperlink{class_timer_notify}{TimerNotify} $\ast$pClient, uint8\_\-t id)
+\item 
+void \hyperlink{class_timer_cntr_ac2a4b19dfdb9f873075f405f242df698}{ovf} ()
+\item 
+void \hyperlink{class_timer_cntr_a98d639cbcb4ed28a75309870ae891d58}{err} ()
+\item 
+void \hyperlink{class_timer_cntr_a1966661facfcb11382471a214191d3f0}{ccx} (uint8\_\-t idx)
+\item 
+void \hyperlink{class_timer_cntr_a6e5c896a3f85311e011ee552534f1032}{ClkSel} (TC\_\-CLKSEL\_\-t clksel)
+\begin{DoxyCompactList}\small\item\em Set the clock source for this timer in CTRLA. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_timer_cntr_a7c3e5ae54af9a3431050d623d508cd2c}{CCEnable} (uint8\_\-t mask)
+\item 
+void \hyperlink{class_timer_cntr_ab5df59d94a8d1706f9282a695e43a9a1}{WaveformGenMode} (TC\_\-WGMODE\_\-t wgmode)
+\item 
+void \hyperlink{class_timer_cntr_a27f54d05be459f37793e98743325a614}{EventSetup} (TC\_\-EVACT\_\-t act, TC\_\-EVSEL\_\-t src)
+\item 
+void \hyperlink{class_timer_cntr_a3d9d3bca0c89f5dbc69b34406ef6c4be}{IntLvlA} (uint8\_\-t errlvl, uint8\_\-t ovflvl)
+\item 
+void \hyperlink{class_timer_cntr_a687162461b8b992093f3573356506a8c}{IntLvlB} (uint8\_\-t val)
+\item 
+void \hyperlink{class_timer_cntr_a483fd3e00603951991333699a1be67ea}{Counter} (uint16\_\-t newVal)
+\item 
+uint16\_\-t \hyperlink{class_timer_cntr_ae0b24888d24c907aad75ed985431f1a4}{Counter} ()
+\item 
+void \hyperlink{class_timer_cntr_a3f1c57b8f31a717b5de335cd56408029}{Period} (uint16\_\-t newPer)
+\item 
+uint16\_\-t \hyperlink{class_timer_cntr_a0b50451ff7454d77aff54ca3274c7b7c}{Period} ()
+\item 
+void \hyperlink{class_timer_cntr_a00b8456f413fc621b667bc0d2f825623}{SetRate} (uint32\_\-t rateHz)
+\item 
+void \hyperlink{class_timer_cntr_aa4cead09b55956ef48dd19fcf7a2dea0}{CCReg} (uint8\_\-t idx, uint16\_\-t newVal)
+\item 
+uint16\_\-t \hyperlink{class_timer_cntr_a8cedc6015da8a1082273071d2eb7c68b}{CCReg} (uint8\_\-t idx)
+\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TC0\_\-t $\ast$ \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{\_\-pTC}
+\item 
+bool \hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{\_\-bTC1}
+\item 
+\hyperlink{class_timer_notify}{TimerNotify} $\ast$ \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{\_\-pNotifyClient}
+\item 
+uint8\_\-t \hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{\_\-pNotifyClientID}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line \hyperlink{_timer_cntr_8h_source_l00013}{13} of file \hyperlink{_timer_cntr_8h_source}{TimerCntr.h}.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_timer_cntr_ad03f5cb857585c26d62eee0667a3c37c}{
+\index{TimerCntr@{TimerCntr}!TimerCntr@{TimerCntr}}
+\index{TimerCntr@{TimerCntr}!TimerCntr@{TimerCntr}}
+\paragraph[{TimerCntr}]{\setlength{\rightskip}{0pt plus 5cm}TimerCntr::TimerCntr (
+\begin{DoxyParamCaption}
+\item[{TC0\_\-t $\ast$}]{pTC}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_ad03f5cb857585c26d62eee0667a3c37c}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00116}{116} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00019}{\_\-bTC1}, \hyperlink{_timer_cntr_8h_source_l00020}{\_\-pNotifyClient}, \hyperlink{_timer_cntr_8h_source_l00021}{\_\-pNotifyClientID}, \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}, and \hyperlink{_hardware_serial_8cpp_source_l00061}{SetPointer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC} = pTC;
+    \hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} = \textcolor{keyword}{false};
+    \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient} = 0;
+    \hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID} = 0;
+    \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(pTC,\textcolor{keyword}{this});
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a250ce8e521da601255ec0b631370a47c}{
+\index{TimerCntr@{TimerCntr}!TimerCntr@{TimerCntr}}
+\index{TimerCntr@{TimerCntr}!TimerCntr@{TimerCntr}}
+\paragraph[{TimerCntr}]{\setlength{\rightskip}{0pt plus 5cm}TimerCntr::TimerCntr (
+\begin{DoxyParamCaption}
+\item[{TC1\_\-t $\ast$}]{pTC}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a250ce8e521da601255ec0b631370a47c}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00125}{125} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00019}{\_\-bTC1}, \hyperlink{_timer_cntr_8h_source_l00020}{\_\-pNotifyClient}, \hyperlink{_timer_cntr_8h_source_l00021}{\_\-pNotifyClientID}, \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}, and \hyperlink{_hardware_serial_8cpp_source_l00061}{SetPointer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC} = (TC0\_t*)pTC;
+    \hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} = \textcolor{keyword}{true};
+    \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient} = 0;
+    \hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID} = 0;
+    \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(pTC,\textcolor{keyword}{this});
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a5b19cb68e0fc19361854553031161544}{
+\index{TimerCntr@{TimerCntr}!$\sim$TimerCntr@{$\sim$TimerCntr}}
+\index{$\sim$TimerCntr@{$\sim$TimerCntr}!TimerCntr@{TimerCntr}}
+\paragraph[{$\sim$TimerCntr}]{\setlength{\rightskip}{0pt plus 5cm}TimerCntr::$\sim$TimerCntr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a5b19cb68e0fc19361854553031161544}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00134}{134} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00019}{\_\-bTC1}, \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}, and \hyperlink{_hardware_serial_8cpp_source_l00061}{SetPointer()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1}) \{
+        \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}((TC1\_t*)\hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC},0);
+    \} \textcolor{keywordflow}{else} \{
+        \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(\hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC},0);
+    \}
+\}
+\end{DoxyCode}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_timer_cntr_a7c3e5ae54af9a3431050d623d508cd2c}{
+\index{TimerCntr@{TimerCntr}!CCEnable@{CCEnable}}
+\index{CCEnable@{CCEnable}!TimerCntr@{TimerCntr}}
+\paragraph[{CCEnable}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::CCEnable (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{mask}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a7c3e5ae54af9a3431050d623d508cd2c}
+Set the state of the 4 CCxEN bits in CTRLB. The 4 lower bits of mask will enable D, C, B or A if set to 1 
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00150}{150} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00685}{IMU::SetTimer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLB = ((\hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLB & 0x0F) | (mask << 4));
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_aa4cead09b55956ef48dd19fcf7a2dea0}{
+\index{TimerCntr@{TimerCntr}!CCReg@{CCReg}}
+\index{CCReg@{CCReg}!TimerCntr@{TimerCntr}}
+\paragraph[{CCReg}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::CCReg (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx, }
+\item[{uint16\_\-t}]{newVal}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_aa4cead09b55956ef48dd19fcf7a2dea0}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00200}{200} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00019}{\_\-bTC1}, and \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (idx == 0) \{
+        \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCA = newVal;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (idx == 1) \{
+        \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCB = newVal;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} && idx == 2) \{
+        \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCC = newVal;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} && idx == 3) \{
+        \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCD = newVal;
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a8cedc6015da8a1082273071d2eb7c68b}{
+\index{TimerCntr@{TimerCntr}!CCReg@{CCReg}}
+\index{CCReg@{CCReg}!TimerCntr@{TimerCntr}}
+\paragraph[{CCReg}]{\setlength{\rightskip}{0pt plus 5cm}uint16\_\-t TimerCntr::CCReg (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a8cedc6015da8a1082273071d2eb7c68b}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00213}{213} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00019}{\_\-bTC1}, and \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (idx == 0) \{
+        \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCA;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (idx == 1) \{
+        \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCB;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} && idx == 2) \{
+        \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCC;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} && idx == 3) \{
+        \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCD;
+    \}
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a1966661facfcb11382471a214191d3f0}{
+\index{TimerCntr@{TimerCntr}!ccx@{ccx}}
+\index{ccx@{ccx}!TimerCntr@{TimerCntr}}
+\paragraph[{ccx}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::ccx (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a1966661facfcb11382471a214191d3f0}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00245}{245} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00020}{\_\-pNotifyClient}, \hyperlink{_timer_cntr_8h_source_l00021}{\_\-pNotifyClientID}, and \hyperlink{class_timer_notify_a2525b96a5e3ed4c4a039b296701f2b7e}{TimerNotify::ccx()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient}) 
+        \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient}->\hyperlink{class_timer_notify_a2525b96a5e3ed4c4a039b296701f2b7e}{ccx}(\hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID},idx);
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a6e5c896a3f85311e011ee552534f1032}{
+\index{TimerCntr@{TimerCntr}!ClkSel@{ClkSel}}
+\index{ClkSel@{ClkSel}!TimerCntr@{TimerCntr}}
+\paragraph[{ClkSel}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::ClkSel (
+\begin{DoxyParamCaption}
+\item[{TC\_\-CLKSEL\_\-t}]{clksel}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a6e5c896a3f85311e011ee552534f1032}
+
+
+Set the clock source for this timer in CTRLA. 
+
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00144}{144} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00685}{IMU::SetTimer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLA = clksel; 
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a483fd3e00603951991333699a1be67ea}{
+\index{TimerCntr@{TimerCntr}!Counter@{Counter}}
+\index{Counter@{Counter}!TimerCntr@{TimerCntr}}
+\paragraph[{Counter}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::Counter (
+\begin{DoxyParamCaption}
+\item[{uint16\_\-t}]{newVal}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a483fd3e00603951991333699a1be67ea}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00178}{178} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00702}{IMU::ResetTimer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CNT = newVal;
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_ae0b24888d24c907aad75ed985431f1a4}{
+\index{TimerCntr@{TimerCntr}!Counter@{Counter}}
+\index{Counter@{Counter}!TimerCntr@{TimerCntr}}
+\paragraph[{Counter}]{\setlength{\rightskip}{0pt plus 5cm}uint16\_\-t TimerCntr::Counter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_ae0b24888d24c907aad75ed985431f1a4}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00183}{183} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CNT;
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a98d639cbcb4ed28a75309870ae891d58}{
+\index{TimerCntr@{TimerCntr}!err@{err}}
+\index{err@{err}!TimerCntr@{TimerCntr}}
+\paragraph[{err}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::err (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a98d639cbcb4ed28a75309870ae891d58}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00233}{233} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00020}{\_\-pNotifyClient}, \hyperlink{_timer_cntr_8h_source_l00021}{\_\-pNotifyClientID}, and \hyperlink{class_timer_notify_a1b1d07d14c480883b6cda4d28b281978}{TimerNotify::err()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient})  
+        \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient}->\hyperlink{class_timer_notify_a1b1d07d14c480883b6cda4d28b281978}{err}(\hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID});
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a27f54d05be459f37793e98743325a614}{
+\index{TimerCntr@{TimerCntr}!EventSetup@{EventSetup}}
+\index{EventSetup@{EventSetup}!TimerCntr@{TimerCntr}}
+\paragraph[{EventSetup}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::EventSetup (
+\begin{DoxyParamCaption}
+\item[{TC\_\-EVACT\_\-t}]{act, }
+\item[{TC\_\-EVSEL\_\-t}]{src}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a27f54d05be459f37793e98743325a614}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00162}{162} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00685}{IMU::SetTimer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLD = act | src;
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a3d9d3bca0c89f5dbc69b34406ef6c4be}{
+\index{TimerCntr@{TimerCntr}!IntLvlA@{IntLvlA}}
+\index{IntLvlA@{IntLvlA}!TimerCntr@{TimerCntr}}
+\paragraph[{IntLvlA}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::IntLvlA (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{errlvl, }
+\item[{uint8\_\-t}]{ovflvl}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a3d9d3bca0c89f5dbc69b34406ef6c4be}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00168}{168} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00685}{IMU::SetTimer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->INTCTRLA = (errlvl & 0x3) << 2 | (ovflvl & 0x3);
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a687162461b8b992093f3573356506a8c}{
+\index{TimerCntr@{TimerCntr}!IntLvlB@{IntLvlB}}
+\index{IntLvlB@{IntLvlB}!TimerCntr@{TimerCntr}}
+\paragraph[{IntLvlB}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::IntLvlB (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{val}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a687162461b8b992093f3573356506a8c}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00173}{173} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00685}{IMU::SetTimer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->INTCTRLB = val;
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a71bf73ee43e8d344d1241695b553556b}{
+\index{TimerCntr@{TimerCntr}!Notify@{Notify}}
+\index{Notify@{Notify}!TimerCntr@{TimerCntr}}
+\paragraph[{Notify}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::Notify (
+\begin{DoxyParamCaption}
+\item[{{\bf TimerNotify} $\ast$}]{pClient, }
+\item[{uint8\_\-t}]{id}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a71bf73ee43e8d344d1241695b553556b}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00227}{227} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00020}{\_\-pNotifyClient}, and \hyperlink{_timer_cntr_8h_source_l00021}{\_\-pNotifyClientID}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00685}{IMU::SetTimer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient} = pClient;
+    \hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID} = id;
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_ac2a4b19dfdb9f873075f405f242df698}{
+\index{TimerCntr@{TimerCntr}!ovf@{ovf}}
+\index{ovf@{ovf}!TimerCntr@{TimerCntr}}
+\paragraph[{ovf}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::ovf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_ac2a4b19dfdb9f873075f405f242df698}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00239}{239} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00020}{\_\-pNotifyClient}, \hyperlink{_timer_cntr_8h_source_l00021}{\_\-pNotifyClientID}, and \hyperlink{class_timer_notify_a12081e2ac25688544b6f0c3de4bd412d}{TimerNotify::ovf()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient}) 
+        \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient}->\hyperlink{class_timer_notify_a12081e2ac25688544b6f0c3de4bd412d}{ovf}(\hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID});
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a3f1c57b8f31a717b5de335cd56408029}{
+\index{TimerCntr@{TimerCntr}!Period@{Period}}
+\index{Period@{Period}!TimerCntr@{TimerCntr}}
+\paragraph[{Period}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::Period (
+\begin{DoxyParamCaption}
+\item[{uint16\_\-t}]{newPer}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a3f1c57b8f31a717b5de335cd56408029}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00189}{189} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00707}{IMU::SetTimerPeriod()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->PER = newVal;
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a0b50451ff7454d77aff54ca3274c7b7c}{
+\index{TimerCntr@{TimerCntr}!Period@{Period}}
+\index{Period@{Period}!TimerCntr@{TimerCntr}}
+\paragraph[{Period}]{\setlength{\rightskip}{0pt plus 5cm}uint16\_\-t TimerCntr::Period (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a0b50451ff7454d77aff54ca3274c7b7c}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00194}{194} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->PER;
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_a00b8456f413fc621b667bc0d2f825623}{
+\index{TimerCntr@{TimerCntr}!SetRate@{SetRate}}
+\index{SetRate@{SetRate}!TimerCntr@{TimerCntr}}
+\paragraph[{SetRate}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::SetRate (
+\begin{DoxyParamCaption}
+\item[{uint32\_\-t}]{rateHz}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_a00b8456f413fc621b667bc0d2f825623}
+
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00251}{251} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+\begin{DoxyCode}
+                                      \{
+    \textcolor{comment}{//add an auto prescaler using 32 bit array}
+\}
+\end{DoxyCode}
+\hypertarget{class_timer_cntr_ab5df59d94a8d1706f9282a695e43a9a1}{
+\index{TimerCntr@{TimerCntr}!WaveformGenMode@{WaveformGenMode}}
+\index{WaveformGenMode@{WaveformGenMode}!TimerCntr@{TimerCntr}}
+\paragraph[{WaveformGenMode}]{\setlength{\rightskip}{0pt plus 5cm}void TimerCntr::WaveformGenMode (
+\begin{DoxyParamCaption}
+\item[{TC\_\-WGMODE\_\-t}]{wgmode}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_timer_cntr_ab5df59d94a8d1706f9282a695e43a9a1}
+Set the Waveform generator mode. Normal disables waveform generation. 
+
+Definition at line \hyperlink{_timer_cntr_8cpp_source_l00156}{156} of file \hyperlink{_timer_cntr_8cpp_source}{TimerCntr.cpp}.
+
+
+
+References \hyperlink{_timer_cntr_8h_source_l00018}{\_\-pTC}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00685}{IMU::SetTimer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLB = ((\hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLB & 0xF0) | wgmode);
+\}
+\end{DoxyCode}
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{
+\index{TimerCntr@{TimerCntr}!\_\-bTC1@{\_\-bTC1}}
+\index{\_\-bTC1@{\_\-bTC1}!TimerCntr@{TimerCntr}}
+\paragraph[{\_\-bTC1}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf TimerCntr::\_\-bTC1}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}
+
+
+Definition at line \hyperlink{_timer_cntr_8h_source_l00019}{19} of file \hyperlink{_timer_cntr_8h_source}{TimerCntr.h}.
+
+
+
+Referenced by \hyperlink{_timer_cntr_8cpp_source_l00200}{CCReg()}, \hyperlink{_timer_cntr_8cpp_source_l00116}{TimerCntr()}, and \hyperlink{_timer_cntr_8cpp_source_l00134}{$\sim$TimerCntr()}.
+
+\hypertarget{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{
+\index{TimerCntr@{TimerCntr}!\_\-pNotifyClient@{\_\-pNotifyClient}}
+\index{\_\-pNotifyClient@{\_\-pNotifyClient}!TimerCntr@{TimerCntr}}
+\paragraph[{\_\-pNotifyClient}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TimerNotify}$\ast$ {\bf TimerCntr::\_\-pNotifyClient}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}
+
+
+Definition at line \hyperlink{_timer_cntr_8h_source_l00020}{20} of file \hyperlink{_timer_cntr_8h_source}{TimerCntr.h}.
+
+
+
+Referenced by \hyperlink{_timer_cntr_8cpp_source_l00245}{ccx()}, \hyperlink{_timer_cntr_8cpp_source_l00233}{err()}, \hyperlink{_timer_cntr_8cpp_source_l00227}{Notify()}, \hyperlink{_timer_cntr_8cpp_source_l00239}{ovf()}, and \hyperlink{_timer_cntr_8cpp_source_l00116}{TimerCntr()}.
+
+\hypertarget{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{
+\index{TimerCntr@{TimerCntr}!\_\-pNotifyClientID@{\_\-pNotifyClientID}}
+\index{\_\-pNotifyClientID@{\_\-pNotifyClientID}!TimerCntr@{TimerCntr}}
+\paragraph[{\_\-pNotifyClientID}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf TimerCntr::\_\-pNotifyClientID}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}
+
+
+Definition at line \hyperlink{_timer_cntr_8h_source_l00021}{21} of file \hyperlink{_timer_cntr_8h_source}{TimerCntr.h}.
+
+
+
+Referenced by \hyperlink{_timer_cntr_8cpp_source_l00245}{ccx()}, \hyperlink{_timer_cntr_8cpp_source_l00233}{err()}, \hyperlink{_timer_cntr_8cpp_source_l00227}{Notify()}, \hyperlink{_timer_cntr_8cpp_source_l00239}{ovf()}, and \hyperlink{_timer_cntr_8cpp_source_l00116}{TimerCntr()}.
+
+\hypertarget{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{
+\index{TimerCntr@{TimerCntr}!\_\-pTC@{\_\-pTC}}
+\index{\_\-pTC@{\_\-pTC}!TimerCntr@{TimerCntr}}
+\paragraph[{\_\-pTC}]{\setlength{\rightskip}{0pt plus 5cm}TC0\_\-t$\ast$ {\bf TimerCntr::\_\-pTC}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}
+
+
+Definition at line \hyperlink{_timer_cntr_8h_source_l00018}{18} of file \hyperlink{_timer_cntr_8h_source}{TimerCntr.h}.
+
+
+
+Referenced by \hyperlink{_timer_cntr_8cpp_source_l00150}{CCEnable()}, \hyperlink{_timer_cntr_8cpp_source_l00200}{CCReg()}, \hyperlink{_timer_cntr_8cpp_source_l00144}{ClkSel()}, \hyperlink{_timer_cntr_8cpp_source_l00178}{Counter()}, \hyperlink{_timer_cntr_8cpp_source_l00162}{EventSetup()}, \hyperlink{_timer_cntr_8cpp_source_l00168}{IntLvlA()}, \hyperlink{_timer_cntr_8cpp_source_l00173}{IntLvlB()}, \hyperlink{_timer_cntr_8cpp_source_l00189}{Period()}, \hyperlink{_timer_cntr_8cpp_source_l00116}{TimerCntr()}, \hyperlink{_timer_cntr_8cpp_source_l00156}{WaveformGenMode()}, and \hyperlink{_timer_cntr_8cpp_source_l00134}{$\sim$TimerCntr()}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_timer_cntr_8h}{TimerCntr.h}\item 
+\hyperlink{_timer_cntr_8cpp}{TimerCntr.cpp}\end{DoxyCompactItemize}

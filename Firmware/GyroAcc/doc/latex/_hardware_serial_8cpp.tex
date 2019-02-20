@@ -1,0 +1,234 @@
+\hypertarget{_hardware_serial_8cpp}{
+\subsection{HardwareSerial.cpp File Reference}
+\label{_hardware_serial_8cpp}\index{HardwareSerial.cpp@{HardwareSerial.cpp}}
+}
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$inttypes.h$>$}\par
+{\ttfamily \#include $<$avr/io.h$>$}\par
+{\ttfamily \#include $<$avr/interrupt.h$>$}\par
+{\ttfamily \#include \char`\"{}HardwareSerial.h\char`\"{}}\par
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structring__buffer}{ring\_\-buffer}
+\end{DoxyCompactItemize}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_hardware_serial_8cpp_a739a2a1a0047c98ac1b18ecd25dac092}{RX\_\-BUFFER\_\-SIZE}~128
+\item 
+\#define \hyperlink{_hardware_serial_8cpp_a16a017d9862dd0b2fae7c5fd9d80780f}{SERIAL\_\-ISR\_\-DEF}(usart)
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_hardware_serial_8cpp_a686fbf2e87c792a175d8ef37f1464c23}{SERIAL\_\-ISR\_\-DEF} (USARTC0)
+\item 
+\hyperlink{_hardware_serial_8cpp_a88d300f67c4ffadae9d06355b195dccb}{SERIAL\_\-ISR\_\-DEF} (USARTC1)
+\item 
+\hyperlink{_hardware_serial_8cpp_adc288ae6c74681e69b1e357926c0a3e9}{SERIAL\_\-ISR\_\-DEF} (USARTD0)
+\item 
+\hyperlink{_hardware_serial_8cpp_ae92bc09145a7c575c384258f8c165d15}{SERIAL\_\-ISR\_\-DEF} (USARTD1)
+\item 
+\hyperlink{_hardware_serial_8cpp_acb9cda6603cb216480642b2a6c07b8dc}{SERIAL\_\-ISR\_\-DEF} (USARTE0)
+\item 
+\hyperlink{_hardware_serial_8cpp_a90ede4720358d6763ec23dc1f88e7d32}{SERIAL\_\-ISR\_\-DEF} (USARTE1)
+\item 
+\hyperlink{_hardware_serial_8cpp_a9dc131346dc4fc2529d04056dff35e02}{SERIAL\_\-ISR\_\-DEF} (USARTF0)
+\item 
+void \hyperlink{_hardware_serial_8cpp_ac661d0ebc0efa48a2b2aed9ccf86aa64}{store\_\-char} (unsigned char c, \hyperlink{structring__buffer}{ring\_\-buffer} $\ast$rx\_\-buffer)
+\item 
+static void \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer} (USART\_\-t $\ast$usart, \hyperlink{class_hardware_serial}{HardwareSerial} $\ast$p)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\hypertarget{_hardware_serial_8cpp_a739a2a1a0047c98ac1b18ecd25dac092}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!RX\_\-BUFFER\_\-SIZE@{RX\_\-BUFFER\_\-SIZE}}
+\index{RX\_\-BUFFER\_\-SIZE@{RX\_\-BUFFER\_\-SIZE}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{RX\_\-BUFFER\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define RX\_\-BUFFER\_\-SIZE~128}\hfill}
+\label{_hardware_serial_8cpp_a739a2a1a0047c98ac1b18ecd25dac092}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00014}{14} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00213}{HardwareSerial::available()}, \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial::HardwareSerial()}, \hyperlink{_hardware_serial_8cpp_source_l00218}{HardwareSerial::read()}, and \hyperlink{_hardware_serial_8cpp_source_l00047}{store\_\-char()}.
+
+\hypertarget{_hardware_serial_8cpp_a16a017d9862dd0b2fae7c5fd9d80780f}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}}
+\index{SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{SERIAL\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}\#define SERIAL\_\-ISR\_\-DEF(
+\begin{DoxyParamCaption}
+\item[{}]{usart}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_hardware_serial_8cpp_a16a017d9862dd0b2fae7c5fd9d80780f}
+{\bfseries Value:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} \hyperlink{class_hardware_serial}{HardwareSerial}*  usart##cp = 0;\(\backslash\)
+ISR(usart##\_RXC\_vect) \{\(\backslash\)
+    \textcolor{keywordflow}{if} (usart##cp) usart##cp->\hyperlink{class_hardware_serial_ac52002a727070c45b765d0dc55106cad}{rxc}();\(\backslash\)
+\}\(\backslash\)
+ISR(usart##\_DRE\_vect) \{\(\backslash\)
+    \textcolor{keywordflow}{if} (usart##cp) usart##cp->dre();\(\backslash\)
+\}\(\backslash\)
+ISR(usart##\_TXC\_vect) \{\(\backslash\)
+    \textcolor{keywordflow}{if} (usart##cp) usart##cp->txc();\(\backslash\)
+\}
+\end{DoxyCode}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00024}{24} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+\subsubsection{Function Documentation}
+\hypertarget{_hardware_serial_8cpp_a686fbf2e87c792a175d8ef37f1464c23}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}}
+\index{SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{SERIAL\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}SERIAL\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{USARTC0}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_hardware_serial_8cpp_a686fbf2e87c792a175d8ef37f1464c23}
+\hypertarget{_hardware_serial_8cpp_a88d300f67c4ffadae9d06355b195dccb}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}}
+\index{SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{SERIAL\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}SERIAL\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{USARTC1}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_hardware_serial_8cpp_a88d300f67c4ffadae9d06355b195dccb}
+\hypertarget{_hardware_serial_8cpp_ae92bc09145a7c575c384258f8c165d15}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}}
+\index{SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{SERIAL\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}SERIAL\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{USARTD1}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_hardware_serial_8cpp_ae92bc09145a7c575c384258f8c165d15}
+\hypertarget{_hardware_serial_8cpp_a9dc131346dc4fc2529d04056dff35e02}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}}
+\index{SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{SERIAL\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}SERIAL\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{USARTF0}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_hardware_serial_8cpp_a9dc131346dc4fc2529d04056dff35e02}
+\hypertarget{_hardware_serial_8cpp_a90ede4720358d6763ec23dc1f88e7d32}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}}
+\index{SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{SERIAL\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}SERIAL\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{USARTE1}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_hardware_serial_8cpp_a90ede4720358d6763ec23dc1f88e7d32}
+\hypertarget{_hardware_serial_8cpp_acb9cda6603cb216480642b2a6c07b8dc}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}}
+\index{SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{SERIAL\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}SERIAL\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{USARTE0}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_hardware_serial_8cpp_acb9cda6603cb216480642b2a6c07b8dc}
+\hypertarget{_hardware_serial_8cpp_adc288ae6c74681e69b1e357926c0a3e9}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}}
+\index{SERIAL\_\-ISR\_\-DEF@{SERIAL\_\-ISR\_\-DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{SERIAL\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}SERIAL\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{USARTD0}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_hardware_serial_8cpp_adc288ae6c74681e69b1e357926c0a3e9}
+\hypertarget{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!SetPointer@{SetPointer}}
+\index{SetPointer@{SetPointer}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{SetPointer}]{\setlength{\rightskip}{0pt plus 5cm}static void SetPointer (
+\begin{DoxyParamCaption}
+\item[{USART\_\-t $\ast$}]{usart, }
+\item[{{\bf HardwareSerial} $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill}
+\label{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00061}{61} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00173}{HardwareSerial::begin2x()}, \hyperlink{_hardware_serial_8cpp_source_l00203}{HardwareSerial::end()}, \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial::HardwareSerial()}, \hyperlink{_timer_cntr_8cpp_source_l00116}{TimerCntr::TimerCntr()}, \hyperlink{_hardware_serial_8cpp_source_l00130}{HardwareSerial::$\sim$HardwareSerial()}, and \hyperlink{_timer_cntr_8cpp_source_l00134}{TimerCntr::$\sim$TimerCntr()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// Register this object with the appropriate}
+    \textcolor{comment}{// pointer so that the ISR routines can call p}
+    \textcolor{comment}{// class.}
+    \textcolor{keywordflow}{if}(usart == &USARTC0) \{
+        USARTC0cp = p;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (usart == &USARTC1) \{
+        USARTC1cp = p;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (usart ==  &USARTD0) \{
+        USARTD0cp = p;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (usart ==  &USARTD1) \{
+        USARTD1cp = p;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (usart ==  &USARTE0) \{
+        USARTE0cp = p;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (usart ==  &USARTE1) \{
+        USARTE1cp = p;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (usart ==  &USARTF0) \{
+        USARTF0cp = p;
+\textcolor{preprocessor}{#if defined(USARTF1\_RXC\_vect)}
+\textcolor{preprocessor}{}    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (usart ==  &USARTF1) \{
+        USARTF1cp = p;
+\textcolor{preprocessor}{#endif}
+\textcolor{preprocessor}{}    \}
+\}
+\end{DoxyCode}
+\hypertarget{_hardware_serial_8cpp_ac661d0ebc0efa48a2b2aed9ccf86aa64}{
+\index{HardwareSerial.cpp@{HardwareSerial.cpp}!store\_\-char@{store\_\-char}}
+\index{store\_\-char@{store\_\-char}!HardwareSerial.cpp@{HardwareSerial.cpp}}
+\paragraph[{store\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}void store\_\-char (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{c, }
+\item[{{\bf ring\_\-buffer} $\ast$}]{rx\_\-buffer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}\hfill}
+\label{_hardware_serial_8cpp_ac661d0ebc0efa48a2b2aed9ccf86aa64}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00047}{47} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8cpp_source_l00017}{ring\_\-buffer::buffer}, \hyperlink{_hardware_serial_8cpp_source_l00018}{ring\_\-buffer::head}, \hyperlink{_hardware_serial_8cpp_source_l00014}{RX\_\-BUFFER\_\-SIZE}, and \hyperlink{_hardware_serial_8cpp_source_l00019}{ring\_\-buffer::tail}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00094}{HardwareSerial::rxc()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordtype}{int} i = (rx\_buffer->\hyperlink{structring__buffer_ac1b620f2e27c3af75e68bd1645a2f5f0}{head} + 1) % \hyperlink{_hardware_serial_8cpp_a739a2a1a0047c98ac1b18ecd25dac092}{RX_BUFFER_SIZE};
+    
+    \textcolor{comment}{// if we should be storing the received character into the location}
+    \textcolor{comment}{// just before the tail (meaning that the head would advance to the}
+    \textcolor{comment}{// current location of the tail), we're about to overflow the buffer}
+    \textcolor{comment}{// and so we don't write the character or advance the head.}
+    \textcolor{keywordflow}{if} (i != rx\_buffer->\hyperlink{structring__buffer_a4d06965736f37f64f15bbd0ca9457771}{tail}) \{
+        rx\_buffer->\hyperlink{structring__buffer_a11b70d4a150ea9750e4102706d6ee0b8}{buffer}[rx\_buffer->\hyperlink{structring__buffer_ac1b620f2e27c3af75e68bd1645a2f5f0}{head}] = c;
+        rx\_buffer->\hyperlink{structring__buffer_ac1b620f2e27c3af75e68bd1645a2f5f0}{head} = i;
+    \}
+\}
+\end{DoxyCode}

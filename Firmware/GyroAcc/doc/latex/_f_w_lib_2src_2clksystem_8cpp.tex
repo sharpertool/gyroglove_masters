@@ -1,0 +1,93 @@
+\hypertarget{_f_w_lib_2src_2clksystem_8cpp}{
+\section{FWLib/src/clksystem.cpp File Reference}
+\label{_f_w_lib_2src_2clksystem_8cpp}\index{FWLib/src/clksystem.cpp@{FWLib/src/clksystem.cpp}}
+}
+{\ttfamily \#include $<$avr/io.h$>$}\par
+{\ttfamily \#include $<$util/delay.h$>$}\par
+{\ttfamily \#include $<$avr/interrupt.h$>$}\par
+{\ttfamily \#include $<$stdint.h$>$}\par
+{\ttfamily \#include $<$stdbool.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_f_w_lib_2src_2clksystem_8cpp_a0a4fb62f9e69209c9c8c8e34ebb3df6f}{AVR\_\-ENTER\_\-CRITICAL\_\-REGION}()
+\begin{DoxyCompactList}\small\item\em This macro will protect the following code from interrupts. \item\end{DoxyCompactList}\item 
+\#define \hyperlink{_f_w_lib_2src_2clksystem_8cpp_a770b47b04eec57748be0826a3d23503b}{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION}()~SREG = saved\_\-sreg;
+\begin{DoxyCompactList}\small\item\em This macro must always be used in conjunction with AVR\_\-ENTER\_\-CRITICAL\_\-REGION so the interrupts are enabled again. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_f_w_lib_2src_2clksystem_8cpp_aad4e162434c2cc7e0087bbc0ddfe266c}{CCPWrite} (volatile uint8\_\-t $\ast$address, uint8\_\-t value)
+\begin{DoxyCompactList}\small\item\em CCP write helper function written in assembly. \item\end{DoxyCompactList}\item 
+void \hyperlink{_f_w_lib_2src_2clksystem_8cpp_a098d30ebaad7a94505407605314930e5}{clksystem\_\-init} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_f_w_lib_2src_2clksystem_8cpp_a0a4fb62f9e69209c9c8c8e34ebb3df6f}{
+\index{FWLib/src/clksystem.cpp@{FWLib/src/clksystem.cpp}!AVR\_\-ENTER\_\-CRITICAL\_\-REGION@{AVR\_\-ENTER\_\-CRITICAL\_\-REGION}}
+\index{AVR\_\-ENTER\_\-CRITICAL\_\-REGION@{AVR\_\-ENTER\_\-CRITICAL\_\-REGION}!FWLib/src/clksystem.cpp@{FWLib/src/clksystem.cpp}}
+\subsubsection[{AVR\_\-ENTER\_\-CRITICAL\_\-REGION}]{\setlength{\rightskip}{0pt plus 5cm}\#define AVR\_\-ENTER\_\-CRITICAL\_\-REGION(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_f_w_lib_2src_2clksystem_8cpp_a0a4fb62f9e69209c9c8c8e34ebb3df6f}
+{\bfseries Value:}
+\begin{DoxyCode}
+uint8_t volatile saved_sreg = SREG; \
+                                     cli();
+\end{DoxyCode}
+
+
+This macro will protect the following code from interrupts. 
+
+\hypertarget{_f_w_lib_2src_2clksystem_8cpp_a770b47b04eec57748be0826a3d23503b}{
+\index{FWLib/src/clksystem.cpp@{FWLib/src/clksystem.cpp}!AVR\_\-LEAVE\_\-CRITICAL\_\-REGION@{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION}}
+\index{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION@{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION}!FWLib/src/clksystem.cpp@{FWLib/src/clksystem.cpp}}
+\subsubsection[{AVR\_\-LEAVE\_\-CRITICAL\_\-REGION}]{\setlength{\rightskip}{0pt plus 5cm}\#define AVR\_\-LEAVE\_\-CRITICAL\_\-REGION(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~SREG = saved\_\-sreg;}}
+\label{_f_w_lib_2src_2clksystem_8cpp_a770b47b04eec57748be0826a3d23503b}
+
+
+This macro must always be used in conjunction with AVR\_\-ENTER\_\-CRITICAL\_\-REGION so the interrupts are enabled again. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_f_w_lib_2src_2clksystem_8cpp_aad4e162434c2cc7e0087bbc0ddfe266c}{
+\index{FWLib/src/clksystem.cpp@{FWLib/src/clksystem.cpp}!CCPWrite@{CCPWrite}}
+\index{CCPWrite@{CCPWrite}!FWLib/src/clksystem.cpp@{FWLib/src/clksystem.cpp}}
+\subsubsection[{CCPWrite}]{\setlength{\rightskip}{0pt plus 5cm}void CCPWrite (
+\begin{DoxyParamCaption}
+\item[{volatile uint8\_\-t $\ast$}]{address, }
+\item[{uint8\_\-t}]{value}
+\end{DoxyParamCaption}
+)}}
+\label{_f_w_lib_2src_2clksystem_8cpp_aad4e162434c2cc7e0087bbc0ddfe266c}
+
+
+CCP write helper function written in assembly. 
+
+This function is written in assembly because of the timecritial operation of writing to the registers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & A pointer to the address to write to. \\
+\hline
+{\em value} & The value to put in to the register. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_f_w_lib_2src_2clksystem_8cpp_a098d30ebaad7a94505407605314930e5}{
+\index{FWLib/src/clksystem.cpp@{FWLib/src/clksystem.cpp}!clksystem\_\-init@{clksystem\_\-init}}
+\index{clksystem\_\-init@{clksystem\_\-init}!FWLib/src/clksystem.cpp@{FWLib/src/clksystem.cpp}}
+\subsubsection[{clksystem\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void clksystem\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_f_w_lib_2src_2clksystem_8cpp_a098d30ebaad7a94505407605314930e5}

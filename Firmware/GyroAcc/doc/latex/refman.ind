@@ -1,0 +1,120 @@
+\begin{theindex}
+
+  \item {AC\_\discretionary {-}{}{}struct}, \hyperpage{5}
+  \item {ADC\_\discretionary {-}{}{}CH\_\discretionary {-}{}{}struct}, 
+		\hyperpage{5}
+  \item {ADC\_\discretionary {-}{}{}struct}, \hyperpage{6}
+  \item {AES\_\discretionary {-}{}{}struct}, \hyperpage{7}
+  \item {AWEX\_\discretionary {-}{}{}struct}, \hyperpage{7}
+
+  \indexspace
+
+  \item {CFADac}, \hyperpage{7}
+  \item {CLK\_\discretionary {-}{}{}struct}, \hyperpage{8}
+  \item {CmdProcessor}, \hyperpage{8}
+
+  \indexspace
+
+  \item {DAC\_\discretionary {-}{}{}struct}, \hyperpage{9}
+  \item {DFLL\_\discretionary {-}{}{}struct}, \hyperpage{9}
+  \item {DMA\_\discretionary {-}{}{}CH\_\discretionary {-}{}{}struct}, 
+		\hyperpage{10}
+  \item {DMA\_\discretionary {-}{}{}struct}, \hyperpage{10}
+
+  \indexspace
+
+  \item {EBI\_\discretionary {-}{}{}CS\_\discretionary {-}{}{}struct}, 
+		\hyperpage{11}
+  \item {EBI\_\discretionary {-}{}{}struct}, \hyperpage{11}
+  \item {EVSYS\_\discretionary {-}{}{}struct}, \hyperpage{12}
+
+  \indexspace
+
+  \item {Fifo}, \hyperpage{13}
+
+  \indexspace
+
+  \item {HardwareSerial}, \hyperpage{13}
+  \item {HIRES\_\discretionary {-}{}{}struct}, \hyperpage{14}
+
+  \indexspace
+
+  \item {I2C\_\discretionary {-}{}{}Master}, \hyperpage{14}
+  \item {I2CNotify}, \hyperpage{15}
+  \item {I2CTransaction}, \hyperpage{16}
+  \item {IMU}, \hyperpage{16}
+  \item {IMUBase}, \hyperpage{17}
+  \item {IMUDual}, \hyperpage{18}
+  \item {IMUManager}, \hyperpage{19}
+  \item {IRCOM\_\discretionary {-}{}{}struct}, \hyperpage{20}
+
+  \indexspace
+
+  \item {MCU\_\discretionary {-}{}{}struct}, \hyperpage{20}
+  \item {MyDriver}, \hyperpage{20}
+
+  \indexspace
+
+  \item {NVM\_\discretionary {-}{}{}FUSES\_\discretionary {-}{}{}struct}, 
+		\hyperpage{21}
+  \item {NVM\_\discretionary {-}{}{}LOCKBITS\_\discretionary {-}{}{}struct}, 
+		\hyperpage{21}
+  \item {NVM\_\discretionary {-}{}{}PROD\_\discretionary {-}{}{}SIGNATURES\_\discretionary {-}{}{}struct}, 
+		\hyperpage{21}
+  \item {NVM\_\discretionary {-}{}{}struct}, \hyperpage{23}
+
+  \indexspace
+
+  \item {OCD\_\discretionary {-}{}{}struct}, \hyperpage{24}
+  \item {OSC\_\discretionary {-}{}{}struct}, \hyperpage{24}
+
+  \indexspace
+
+  \item {PMIC\_\discretionary {-}{}{}struct}, \hyperpage{24}
+  \item {PORT\_\discretionary {-}{}{}struct}, \hyperpage{24}
+  \item {PORTCFG\_\discretionary {-}{}{}struct}, \hyperpage{25}
+  \item {PR\_\discretionary {-}{}{}struct}, \hyperpage{26}
+  \item {Print}, \hyperpage{26}
+
+  \indexspace
+
+  \item {QuadDecoder}, \hyperpage{27}
+
+  \indexspace
+
+  \item {ring\_\discretionary {-}{}{}buffer}, \hyperpage{27}
+  \item {RST\_\discretionary {-}{}{}struct}, \hyperpage{28}
+  \item {RTC\_\discretionary {-}{}{}struct}, \hyperpage{28}
+
+  \indexspace
+
+  \item {SLEEP\_\discretionary {-}{}{}struct}, \hyperpage{28}
+  \item {SPI}, \hyperpage{29}
+  \item {SPI\_\discretionary {-}{}{}hw}, \hyperpage{29}
+  \item {SPI\_\discretionary {-}{}{}struct}, \hyperpage{30}
+  \item {SPI\_\discretionary {-}{}{}sw}, \hyperpage{30}
+
+  \indexspace
+
+  \item {TC0\_\discretionary {-}{}{}struct}, \hyperpage{31}
+  \item {TC1\_\discretionary {-}{}{}struct}, \hyperpage{32}
+  \item {tmElements\_\discretionary {-}{}{}t}, \hyperpage{34}
+  \item {TWI\_\discretionary {-}{}{}MASTER\_\discretionary {-}{}{}struct}, 
+		\hyperpage{34}
+  \item {TWI\_\discretionary {-}{}{}SLAVE\_\discretionary {-}{}{}struct}, 
+		\hyperpage{34}
+  \item {TWI\_\discretionary {-}{}{}struct}, \hyperpage{35}
+
+  \indexspace
+
+  \item {USART\_\discretionary {-}{}{}struct}, \hyperpage{35}
+
+  \indexspace
+
+  \item {VPORT\_\discretionary {-}{}{}struct}, \hyperpage{36}
+
+  \indexspace
+
+  \item {WDT\_\discretionary {-}{}{}struct}, \hyperpage{36}
+
+\end{theindex}

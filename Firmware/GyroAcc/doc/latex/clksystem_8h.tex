@@ -1,0 +1,83 @@
+\hypertarget{clksystem_8h}{
+\subsection{clksystem.h File Reference}
+\label{clksystem_8h}\index{clksystem.h@{clksystem.h}}
+}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{clksystem_8h_a8e83774f95a168320aacc0f85718b483}{clksystem\_\-init} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{clksystem_8h_a8e83774f95a168320aacc0f85718b483}{
+\index{clksystem.h@{clksystem.h}!clksystem\_\-init@{clksystem\_\-init}}
+\index{clksystem\_\-init@{clksystem\_\-init}!clksystem.h@{clksystem.h}}
+\paragraph[{clksystem\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}int clksystem\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{clksystem_8h_a8e83774f95a168320aacc0f85718b483}
+
+
+Definition at line \hyperlink{clksystem_8cpp_source_l00058}{58} of file \hyperlink{clksystem_8cpp_source}{clksystem.cpp}.
+
+
+
+Referenced by \hyperlink{_gyro_acc_8cpp_source_l00023}{init()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// This board does not have an external oscillator,}
+    \textcolor{comment}{// so we need to use the internal oscillator.}
+    \textcolor{comment}{// Enable the internal 32Mhz oscillator. Disables all the rest.}
+    OSC.CTRL = OSC\_RC32MEN\_bm | OSC\_RC2MEN\_bm | OSC\_RC32KEN\_bm;
+
+    \textcolor{comment}{//OSC.XOSCCTRL = 0; // we don't care, just set this to some value.}
+
+    \textcolor{comment}{// Wait for the external oscilator. Don't wait forever though.}
+    \textcolor{keywordtype}{int} maxWait = 100; \textcolor{comment}{// Wait 1 second}
+    \textcolor{keywordflow}{while} (--maxWait && !(OSC.STATUS & (OSC\_RC32MRDY\_bm | OSC\_RC32KRDY\_bm | OSC\_R
+      C2MRDY\_bm))) \{
+        \_delay\_loop\_2(10);
+    \}
+
+    OSC.DFLLCTRL = 0;
+    DFLLRC32M.CTRL = 0x1;
+    DFLLRC2M.CTRL = 0x1;
+
+    \textcolor{comment}{// If the external oscilator is running, then we can switch the PLL}
+    \textcolor{comment}{// over to it and wait for the PLL to stabilize.}
+    \textcolor{keywordflow}{if} (OSC.STATUS & ( OSC\_RC32MRDY\_bm | OSC\_RC2MRDY\_bm)) \{
+        \textcolor{comment}{// Setup the PLL to use the internal 32Mhz oscillator and a}
+        \textcolor{comment}{// factor of 4 to get a 128Mhz PLL Clock.}
+
+        \textcolor{comment}{// Make sure this is disabled before we try and configure it.}
+        OSC.CTRL &= ~OSC\_PLLEN\_bm;
+
+        OSC.PLLCTRL = OSC\_PLLSRC\_RC32M\_gc | (16 << OSC\_PLLFAC\_gp);
+
+        OSC.CTRL |= OSC\_PLLEN\_bm;
+
+        \textcolor{comment}{//OSC.CTRL = CLK\_PSADIV\_16\_gc;}
+        \textcolor{comment}{// Wait for OSC.STATUS to indicate that PLL is ready..}
+        \textcolor{keywordflow}{while} (!(OSC.STATUS & OSC\_PLLRDY\_bm)) \{
+        \}
+
+        \textcolor{comment}{// Okay, the PLL is up on the new clock. Set the prescalers then}
+        \textcolor{comment}{// switch over to the PLL.}
+
+        CCP = CCP\_IOREG\_gc;
+        CLK.PSCTRL = CLK\_PSADIV\_1\_gc | CLK\_PSBCDIV\_2\_2\_gc;
+        \textcolor{comment}{//CLK.PSCTRL = CLK\_PSADIV\_1\_gc | CLK\_PSBCDIV\_1\_1\_gc;}
+
+        \textcolor{comment}{// When all is done, make the PLL be the clock source for the system.}
+        CCP = CCP\_IOREG\_gc;
+        CLK.CTRL = CLK\_SCLKSEL\_PLL\_gc;
+        \textcolor{comment}{//CLK.CTRL = CLK\_SCLKSEL\_RC32M\_gc;}
+        \textcolor{comment}{//CLK.CTRL = CLK\_SCLKSEL\_RC2M\_gc;}
+    \}
+\}
+\end{DoxyCode}

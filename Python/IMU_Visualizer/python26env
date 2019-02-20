@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export PYTHON_VERSION=`python2.6 -V 2>&1 | sed -e 's@\.@ @2' | awk '{ print $2}'`
+export PYTHON_ROOT=`which python2.6 | sed -e 's@/bin/python@@g'`
+export PYTHONPATH=${PYTHON_ROOT}/lib/python${PYTHON_VERSION}/site-packages
+
+if [ ${PYTHON_ROOT} != "/usr/include" ]; then
+	export PYTHONPATH=${PYTHONPATH}:/usr/local/lib/python${PYTHON_VERSION}/site-packages
+fi
+
+
+

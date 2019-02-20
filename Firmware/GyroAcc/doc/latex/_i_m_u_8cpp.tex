@@ -1,0 +1,48 @@
+\hypertarget{_i_m_u_8cpp}{
+\subsection{IMU.cpp File Reference}
+\label{_i_m_u_8cpp}\index{IMU.cpp@{IMU.cpp}}
+}
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$inttypes.h$>$}\par
+{\ttfamily \#include $<$util/delay.h$>$}\par
+{\ttfamily \#include $<$avr/io.h$>$}\par
+{\ttfamily \#include $<$avr/interrupt.h$>$}\par
+{\ttfamily \#include \char`\"{}HardwareSerial.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}IMUPacketFifo.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TimerCore.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}IMU.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Mark.h\char`\"{}}\par
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$ \hyperlink{_i_m_u_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}
+\item 
+static char \hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer} \mbox{[}128\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Variable Documentation}
+\hypertarget{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{
+\index{IMU.cpp@{IMU.cpp}!buffer@{buffer}}
+\index{buffer@{buffer}!IMU.cpp@{IMU.cpp}}
+\paragraph[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf buffer}\mbox{[}128\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill}
+\label{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00016}{16} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00651}{IMU::CheckIDs()}, \hyperlink{fifo_8cpp_source_l00110}{FifoTest()}, \hyperlink{_gyro_acc_8cpp_source_l00034}{main()}, \hyperlink{_i_m_u_8cpp_source_l00792}{IMU::ReadWord()}, and \hyperlink{_i_m_u_8cpp_source_l00776}{IMU::WrAsync()}.
+
+\hypertarget{_i_m_u_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{
+\index{IMU.cpp@{IMU.cpp}!pdbgserial@{pdbgserial}}
+\index{pdbgserial@{pdbgserial}!IMU.cpp@{IMU.cpp}}
+\paragraph[{pdbgserial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf HardwareSerial}$\ast$ {\bf pdbgserial}}\hfill}
+\label{_i_m_u_8cpp_a953e918236b1fd18b8f07bad1217ecbe}
+
+
+Definition at line \hyperlink{_gyro_acc_8cpp_source_l00031}{31} of file \hyperlink{_gyro_acc_8cpp_source}{GyroAcc.cpp}.
+

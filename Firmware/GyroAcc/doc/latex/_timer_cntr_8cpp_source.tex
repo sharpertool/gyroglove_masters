@@ -1,0 +1,262 @@
+\hypertarget{_timer_cntr_8cpp_source}{
+\subsection{TimerCntr.cpp}
+}
+
+\begin{DoxyCode}
+00001 
+00002 
+00003 \textcolor{preprocessor}{#include <avr/io.h>}
+00004 \textcolor{preprocessor}{#include <inttypes.h>}
+00005 \textcolor{preprocessor}{#include <avr/interrupt.h>}
+00006 
+00007 \textcolor{preprocessor}{#include "TimerCore.h"}
+00008 \textcolor{preprocessor}{#include "TimerCntr.h"}
+00009 
+00010 \textcolor{comment}{// Generate all of the ISR handlers.. hook them up to a class if/when a class}
+00011 \textcolor{comment}{// is instantiated for a particular USART.}
+\hypertarget{_timer_cntr_8cpp_source_l00012}{}\hyperlink{_timer_cntr_8cpp_a75b8174278ebbbe181f64d2fa6853ddf}{00012} \textcolor{preprocessor}{#define TC0\_ISR\_DEF(tc) \(\backslash\)}
+00013 \textcolor{preprocessor}{static TimerCntr*  tc##cp = 0;\(\backslash\)}
+00014 \textcolor{preprocessor}{ISR(tc##\_ERR\_vect) \{\(\backslash\)}
+00015 \textcolor{preprocessor}{    if (tc##cp) tc##cp->err();\(\backslash\)}
+00016 \textcolor{preprocessor}{\}\(\backslash\)}
+00017 \textcolor{preprocessor}{ISR(tc##\_OVF\_vect) \{\(\backslash\)}
+00018 \textcolor{preprocessor}{    if (tc##cp) tc##cp->ovf();\(\backslash\)}
+00019 \textcolor{preprocessor}{\}\(\backslash\)}
+00020 \textcolor{preprocessor}{ISR(tc##\_CCA\_vect) \{\(\backslash\)}
+00021 \textcolor{preprocessor}{    if (tc##cp) tc##cp->ccx(0);\(\backslash\)}
+00022 \textcolor{preprocessor}{\}\(\backslash\)}
+00023 \textcolor{preprocessor}{ISR(tc##\_CCB\_vect) \{\(\backslash\)}
+00024 \textcolor{preprocessor}{    if (tc##cp) tc##cp->ccx(1);\(\backslash\)}
+00025 \textcolor{preprocessor}{\}\(\backslash\)}
+00026 \textcolor{preprocessor}{ISR(tc##\_CCC\_vect) \{\(\backslash\)}
+00027 \textcolor{preprocessor}{    if (tc##cp) tc##cp->ccx(2);\(\backslash\)}
+00028 \textcolor{preprocessor}{\}\(\backslash\)}
+00029 \textcolor{preprocessor}{ISR(tc##\_CCD\_vect) \{\(\backslash\)}
+00030 \textcolor{preprocessor}{    if (tc##cp) tc##cp->ccx(3);\(\backslash\)}
+00031 \textcolor{preprocessor}{\}}
+00032 \textcolor{preprocessor}{}
+00033 \hyperlink{_timer_cntr_8cpp_a75b8174278ebbbe181f64d2fa6853ddf}{TC0_ISR_DEF}(TCC0);
+00034 \hyperlink{_timer_cntr_8cpp_a75b8174278ebbbe181f64d2fa6853ddf}{TC0_ISR_DEF}(TCD0);
+00035 
+00036 \textcolor{comment}{// The TimerCore.cpp will use TCE0 and TCE1 if}
+00037 \textcolor{comment}{// TCF1 is not defined.. Hence, I need to NOT define}
+00038 \textcolor{comment}{// It here. }
+00039 \textcolor{preprocessor}{#if not defined(TIMERCORE\_USE\_TCE0)}
+00040 \textcolor{preprocessor}{}\hyperlink{_timer_cntr_8cpp_a75b8174278ebbbe181f64d2fa6853ddf}{TC0_ISR_DEF}(TCE0);
+00041 \textcolor{preprocessor}{#endif}
+00042 \textcolor{preprocessor}{}
+00043 \textcolor{preprocessor}{#if not defined(TIMERCORE\_USE\_TCF0)}
+00044 \textcolor{preprocessor}{}\hyperlink{_timer_cntr_8cpp_a75b8174278ebbbe181f64d2fa6853ddf}{TC0_ISR_DEF}(TCF0);
+00045 \textcolor{preprocessor}{#endif}
+00046 \textcolor{preprocessor}{}
+\hypertarget{_timer_cntr_8cpp_source_l00047}{}\hyperlink{_timer_cntr_8cpp_a914f266c151bfa683140e5abec4cc682}{00047} \textcolor{preprocessor}{#define TC1\_ISR\_DEF(tc) \(\backslash\)}
+00048 \textcolor{preprocessor}{static TimerCntr*  tc##cp = 0;\(\backslash\)}
+00049 \textcolor{preprocessor}{ISR(tc##\_ERR\_vect) \{\(\backslash\)}
+00050 \textcolor{preprocessor}{    if (tc##cp) tc##cp->err();\(\backslash\)}
+00051 \textcolor{preprocessor}{\}\(\backslash\)}
+00052 \textcolor{preprocessor}{ISR(tc##\_OVF\_vect) \{\(\backslash\)}
+00053 \textcolor{preprocessor}{    if (tc##cp) tc##cp->ovf();\(\backslash\)}
+00054 \textcolor{preprocessor}{\}\(\backslash\)}
+00055 \textcolor{preprocessor}{ISR(tc##\_CCA\_vect) \{\(\backslash\)}
+00056 \textcolor{preprocessor}{    if (tc##cp) tc##cp->ccx(0);\(\backslash\)}
+00057 \textcolor{preprocessor}{\}\(\backslash\)}
+00058 \textcolor{preprocessor}{ISR(tc##\_CCB\_vect) \{\(\backslash\)}
+00059 \textcolor{preprocessor}{    if (tc##cp) tc##cp->ccx(1);\(\backslash\)}
+00060 \textcolor{preprocessor}{\}}
+00061 \textcolor{preprocessor}{}
+00062 \hyperlink{_timer_cntr_8cpp_a914f266c151bfa683140e5abec4cc682}{TC1_ISR_DEF}(TCC1);
+00063 \hyperlink{_timer_cntr_8cpp_a914f266c151bfa683140e5abec4cc682}{TC1_ISR_DEF}(TCD1);
+00064 \textcolor{preprocessor}{#if not defined(TIMERCORE\_USE\_TCE1)}
+00065 \textcolor{preprocessor}{}\hyperlink{_timer_cntr_8cpp_a914f266c151bfa683140e5abec4cc682}{TC1_ISR_DEF}(TCE1);
+00066 \textcolor{preprocessor}{#endif}
+00067 \textcolor{preprocessor}{}
+00068 \textcolor{preprocessor}{#if not defined(TIMERCORE\_USE\_TCF1)}
+00069 \textcolor{preprocessor}{}\textcolor{preprocessor}{#ifdef TCF1}
+00070 \textcolor{preprocessor}{}\hyperlink{_timer_cntr_8cpp_a914f266c151bfa683140e5abec4cc682}{TC1_ISR_DEF}(TCF1);
+00071 \textcolor{preprocessor}{#endif}
+00072 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00073 \textcolor{preprocessor}{}
+\hypertarget{_timer_cntr_8cpp_source_l00074}{}\hyperlink{_timer_cntr_8cpp_afb2d9165fd31c92b47af4ebc5adfc08a}{00074} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(TC0\_t* tc,\hyperlink{class_timer_cntr}{TimerCntr}* pTC)
+00075 \{
+00076     \textcolor{comment}{// Register this object with the appropriate}
+00077     \textcolor{comment}{// pointer so that the ISR routines can call p}
+00078     \textcolor{comment}{// class.}
+00079     \textcolor{keywordflow}{if} (tc == &TCC0) \{
+00080         TCC0cp = pTC;
+00081     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (tc == &TCD0) \{
+00082         TCD0cp = pTC;
+00083 \textcolor{preprocessor}{#if not defined(TIMERCORE\_USE\_TCE0)}
+00084 \textcolor{preprocessor}{}    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (tc == &TCE0) \{
+00085         TCE0cp = pTC;
+00086 \textcolor{preprocessor}{#endif}
+00087 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if not defined(TIMERCORE\_USE\_TCF0)}
+00088 \textcolor{preprocessor}{}    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (tc == &TCF0) \{
+00089         TCF0cp = pTC;
+00090 \textcolor{preprocessor}{#endif}
+00091 \textcolor{preprocessor}{}    \}
+00092 \}
+00093 
+\hypertarget{_timer_cntr_8cpp_source_l00094}{}\hyperlink{_timer_cntr_8cpp_acb2dde5ac0f74a08d831eb548afb26bd}{00094} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(TC1\_t* tc,\hyperlink{class_timer_cntr}{TimerCntr}* pTC)
+00095 \{
+00096     \textcolor{comment}{// Register this object with the appropriate}
+00097     \textcolor{comment}{// pointer so that the ISR routines can call p}
+00098     \textcolor{comment}{// class.}
+00099     \textcolor{keywordflow}{if} (tc == &TCC1) \{
+00100         TCC1cp = pTC;
+00101     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (tc == &TCD1) \{
+00102         TCD1cp = pTC;
+00103 \textcolor{preprocessor}{#if not defined(TIMERCORE\_USE\_TCE1)}
+00104 \textcolor{preprocessor}{}    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (tc == &TCE1) \{
+00105         TCE1cp = pTC;
+00106 \textcolor{preprocessor}{#endif}
+00107 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if not defined(TIMERCORE\_USE\_TCF1)}
+00108 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if defined(TCF1)}
+00109 \textcolor{preprocessor}{}    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (tc == &TCF1) \{
+00110         TCF1cp = pTC;
+00111 \textcolor{preprocessor}{#endif}
+00112 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00113 \textcolor{preprocessor}{}    \}
+00114 \}
+00115 
+\hypertarget{_timer_cntr_8cpp_source_l00116}{}\hyperlink{class_timer_cntr_ad03f5cb857585c26d62eee0667a3c37c}{00116} \hyperlink{class_timer_cntr_ad03f5cb857585c26d62eee0667a3c37c}{TimerCntr::TimerCntr}(TC0\_t*  pTC)
+00117 \{
+00118     \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC} = pTC;
+00119     \hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} = \textcolor{keyword}{false};
+00120     \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient} = 0;
+00121     \hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID} = 0;
+00122     \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(pTC,\textcolor{keyword}{this});
+00123 \}
+00124 
+\hypertarget{_timer_cntr_8cpp_source_l00125}{}\hyperlink{class_timer_cntr_a250ce8e521da601255ec0b631370a47c}{00125} \hyperlink{class_timer_cntr_ad03f5cb857585c26d62eee0667a3c37c}{TimerCntr::TimerCntr}(TC1\_t*  pTC)
+00126 \{
+00127     \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC} = (TC0\_t*)pTC;
+00128     \hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} = \textcolor{keyword}{true};
+00129     \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient} = 0;
+00130     \hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID} = 0;
+00131     \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(pTC,\textcolor{keyword}{this});
+00132 \}
+00133 
+\hypertarget{_timer_cntr_8cpp_source_l00134}{}\hyperlink{class_timer_cntr_a5b19cb68e0fc19361854553031161544}{00134} \hyperlink{class_timer_cntr_a5b19cb68e0fc19361854553031161544}{TimerCntr::~TimerCntr}()
+00135 \{
+00136     \textcolor{keywordflow}{if} (\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1}) \{
+00137         \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}((TC1\_t*)\hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC},0);
+00138     \} \textcolor{keywordflow}{else} \{
+00139         \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(\hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC},0);
+00140     \}
+00141 \}
+00142 
+00143 
+\hypertarget{_timer_cntr_8cpp_source_l00144}{}\hyperlink{class_timer_cntr_a6e5c896a3f85311e011ee552534f1032}{00144} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a6e5c896a3f85311e011ee552534f1032}{TimerCntr::ClkSel}(TC\_CLKSEL\_t clksel)
+00145 \{
+00146     \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLA = clksel; 
+00147 \}
+00148 
+00149 
+\hypertarget{_timer_cntr_8cpp_source_l00150}{}\hyperlink{class_timer_cntr_a7c3e5ae54af9a3431050d623d508cd2c}{00150} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a7c3e5ae54af9a3431050d623d508cd2c}{TimerCntr::CCEnable}(uint8\_t mask)
+00151 \{
+00152     \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLB = ((\hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLB & 0x0F) | (mask << 4));
+00153 \}
+00154 
+00155 
+\hypertarget{_timer_cntr_8cpp_source_l00156}{}\hyperlink{class_timer_cntr_ab5df59d94a8d1706f9282a695e43a9a1}{00156} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_ab5df59d94a8d1706f9282a695e43a9a1}{TimerCntr::WaveformGenMode}(TC\_WGMODE\_t wgmode)
+00157 \{
+00158     \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLB = ((\hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLB & 0xF0) | wgmode);
+00159 \}
+00160 
+00161 
+\hypertarget{_timer_cntr_8cpp_source_l00162}{}\hyperlink{class_timer_cntr_a27f54d05be459f37793e98743325a614}{00162} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a27f54d05be459f37793e98743325a614}{TimerCntr::EventSetup}(TC\_EVACT\_t act, TC\_EVSEL\_t src)
+00163 \{
+00164     \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CTRLD = act | src;
+00165 \}
+00166 
+00167 
+\hypertarget{_timer_cntr_8cpp_source_l00168}{}\hyperlink{class_timer_cntr_a3d9d3bca0c89f5dbc69b34406ef6c4be}{00168} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a3d9d3bca0c89f5dbc69b34406ef6c4be}{TimerCntr::IntLvlA}(uint8\_t errlvl, uint8\_t ovflvl)
+00169 \{
+00170     \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->INTCTRLA = (errlvl & 0x3) << 2 | (ovflvl & 0x3);
+00171 \}
+00172 
+\hypertarget{_timer_cntr_8cpp_source_l00173}{}\hyperlink{class_timer_cntr_a687162461b8b992093f3573356506a8c}{00173} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a687162461b8b992093f3573356506a8c}{TimerCntr::IntLvlB}(uint8\_t val)
+00174 \{
+00175     \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->INTCTRLB = val;
+00176 \}
+00177 
+\hypertarget{_timer_cntr_8cpp_source_l00178}{}\hyperlink{class_timer_cntr_a483fd3e00603951991333699a1be67ea}{00178} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_ae0b24888d24c907aad75ed985431f1a4}{TimerCntr::Counter}(uint16\_t newVal)
+00179 \{
+00180     \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CNT = newVal;
+00181 \}
+00182 
+\hypertarget{_timer_cntr_8cpp_source_l00183}{}\hyperlink{class_timer_cntr_ae0b24888d24c907aad75ed985431f1a4}{00183} uint16\_t \hyperlink{class_timer_cntr_ae0b24888d24c907aad75ed985431f1a4}{TimerCntr::Counter}()
+00184 \{
+00185     \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CNT;
+00186 \}
+00187 
+00188 
+\hypertarget{_timer_cntr_8cpp_source_l00189}{}\hyperlink{class_timer_cntr_a3f1c57b8f31a717b5de335cd56408029}{00189} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a0b50451ff7454d77aff54ca3274c7b7c}{TimerCntr::Period}(uint16\_t newVal)
+00190 \{
+00191     \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->PER = newVal;
+00192 \}
+00193 
+\hypertarget{_timer_cntr_8cpp_source_l00194}{}\hyperlink{class_timer_cntr_a0b50451ff7454d77aff54ca3274c7b7c}{00194} uint16\_t \hyperlink{class_timer_cntr_a0b50451ff7454d77aff54ca3274c7b7c}{TimerCntr::Period}()
+00195 \{
+00196     \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->PER;
+00197 \}
+00198 
+00199 
+\hypertarget{_timer_cntr_8cpp_source_l00200}{}\hyperlink{class_timer_cntr_aa4cead09b55956ef48dd19fcf7a2dea0}{00200} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_aa4cead09b55956ef48dd19fcf7a2dea0}{TimerCntr::CCReg}(uint8\_t idx, uint16\_t newVal)
+00201 \{
+00202     \textcolor{keywordflow}{if} (idx == 0) \{
+00203         \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCA = newVal;
+00204     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (idx == 1) \{
+00205         \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCB = newVal;
+00206     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} && idx == 2) \{
+00207         \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCC = newVal;
+00208     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} && idx == 3) \{
+00209         \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCD = newVal;
+00210     \}
+00211 \}
+00212 
+\hypertarget{_timer_cntr_8cpp_source_l00213}{}\hyperlink{class_timer_cntr_a8cedc6015da8a1082273071d2eb7c68b}{00213} uint16\_t \hyperlink{class_timer_cntr_aa4cead09b55956ef48dd19fcf7a2dea0}{TimerCntr::CCReg}(uint8\_t idx)
+00214 \{
+00215     \textcolor{keywordflow}{if} (idx == 0) \{
+00216         \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCA;
+00217     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (idx == 1) \{
+00218         \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCB;
+00219     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} && idx == 2) \{
+00220         \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCC;
+00221     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1} && idx == 3) \{
+00222         \textcolor{keywordflow}{return} \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC}->CCD;
+00223     \}
+00224     \textcolor{keywordflow}{return} 0;
+00225 \}
+00226 
+\hypertarget{_timer_cntr_8cpp_source_l00227}{}\hyperlink{class_timer_cntr_a71bf73ee43e8d344d1241695b553556b}{00227} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a71bf73ee43e8d344d1241695b553556b}{TimerCntr::Notify}(\hyperlink{class_timer_notify}{TimerNotify}* pClient,uint8\_t \textcolor{keywordtype}{id})
+00228 \{
+00229     \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient} = pClient;
+00230     \hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID} = id;
+00231 \}
+00232 
+\hypertarget{_timer_cntr_8cpp_source_l00233}{}\hyperlink{class_timer_cntr_a98d639cbcb4ed28a75309870ae891d58}{00233} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a98d639cbcb4ed28a75309870ae891d58}{TimerCntr::err}()
+00234 \{
+00235     \textcolor{keywordflow}{if} (\hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient})  
+00236         \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient}->\hyperlink{class_timer_notify_a1b1d07d14c480883b6cda4d28b281978}{err}(\hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID});
+00237 \}
+00238 
+\hypertarget{_timer_cntr_8cpp_source_l00239}{}\hyperlink{class_timer_cntr_ac2a4b19dfdb9f873075f405f242df698}{00239} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_ac2a4b19dfdb9f873075f405f242df698}{TimerCntr::ovf}()
+00240 \{
+00241     \textcolor{keywordflow}{if} (\hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient}) 
+00242         \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient}->\hyperlink{class_timer_notify_a12081e2ac25688544b6f0c3de4bd412d}{ovf}(\hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID});
+00243 \}
+00244 
+\hypertarget{_timer_cntr_8cpp_source_l00245}{}\hyperlink{class_timer_cntr_a1966661facfcb11382471a214191d3f0}{00245} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a1966661facfcb11382471a214191d3f0}{TimerCntr::ccx}(uint8\_t idx)
+00246 \{
+00247     \textcolor{keywordflow}{if} (\hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient}) 
+00248         \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient}->\hyperlink{class_timer_notify_a2525b96a5e3ed4c4a039b296701f2b7e}{ccx}(\hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID},idx);
+00249 \}
+00250 
+\hypertarget{_timer_cntr_8cpp_source_l00251}{}\hyperlink{class_timer_cntr_a00b8456f413fc621b667bc0d2f825623}{00251} \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a00b8456f413fc621b667bc0d2f825623}{TimerCntr::SetRate}(uint32\_t rateHz)\{
+00252     \textcolor{comment}{//add an auto prescaler using 32 bit array}
+00253 \}
+00254 
+00255 
+00256 
+\end{DoxyCode}

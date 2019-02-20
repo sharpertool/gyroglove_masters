@@ -1,0 +1,27 @@
+\hypertarget{_new_del_8cpp_source}{
+\subsection{NewDel.cpp}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "newdel.h"}
+00002 
+\hypertarget{_new_del_8cpp_source_l00003}{}\hyperlink{_new_del_8cpp_a205ed048fdf5259c2e8e0cb60ee8f719}{00003} \textcolor{keywordtype}{void} * \hyperlink{_new_del_8h_a205ed048fdf5259c2e8e0cb60ee8f719}{operator new}(\textcolor{keywordtype}{size\_t} size)
+00004 \{
+00005   \textcolor{keywordflow}{return} malloc(size);
+00006 \}
+00007 
+\hypertarget{_new_del_8cpp_source_l00008}{}\hyperlink{_new_del_8cpp_a3d97a7e2a0208075b4b37328c96ed390}{00008} \textcolor{keywordtype}{void} \hyperlink{_new_del_8h_a3d97a7e2a0208075b4b37328c96ed390}{operator delete}(\textcolor{keywordtype}{void} * ptr)
+00009 \{
+00010   free(ptr);
+00011 \} 
+00012 
+\hypertarget{_new_del_8cpp_source_l00013}{}\hyperlink{_new_del_8cpp_a63ce4f64887b9307317aee5baae6b18f}{00013} \textcolor{keywordtype}{void} * \hyperlink{_new_del_8cpp_a63ce4f64887b9307317aee5baae6b18f}{operator new[]}(\textcolor{keywordtype}{size\_t} size)
+00014 \{
+00015     \textcolor{keywordflow}{return} malloc(size);
+00016 \}
+00017 
+\hypertarget{_new_del_8cpp_source_l00018}{}\hyperlink{_new_del_8cpp_a1d8b2d6f17242ae0d182b0f7a98ba54f}{00018} \textcolor{keywordtype}{void} \hyperlink{_new_del_8cpp_a1d8b2d6f17242ae0d182b0f7a98ba54f}{operator delete[]}(\textcolor{keywordtype}{void} * ptr)
+00019 \{
+00020     free(ptr);
+00021 \} 
+\end{DoxyCode}

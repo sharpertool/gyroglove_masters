@@ -1,0 +1,308 @@
+# DO NOT DELETE
+
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/avr/interrupt.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/util/delay.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/util/delay_basic.h
+GyroAcc.o: /usr/local/CrossPack-AVR/avr/include/string.h
+GyroAcc.o: /usr/include/stddef.h /usr/include/_types.h
+GyroAcc.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+GyroAcc.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+GyroAcc.o: FWLib/inc/NewDel.h /usr/local/CrossPack-AVR/avr/include/stdlib.h
+GyroAcc.o: FWLib/inc/clksystem.h FWLib/inc/time.h FWLib/inc/HardwareSerial.h
+GyroAcc.o: FWLib/inc/Print.h /usr/local/CrossPack-AVR/avr/include/stdio.h
+GyroAcc.o: /usr/include/stdarg.h inc/GyroCmdProcessor.h
+GyroAcc.o: FWLib/inc/I2C_Master.h FWLib/inc/I2CTransaction.h inc/IMUManager.h
+GyroAcc.o: FWLib/inc/TimerCntr.h inc/IMU.h inc/IMUPacketFifo.h
+GyroAcc.o: inc/IMUPacket.h FWLib/inc/TimerCore.h FWLib/inc/DebugPort.h
+GyroAcc.o: FWLib/inc/Port.h FWLib/inc/CmdProcessor.h MyDriver.h Revision.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/stdio.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/stdint.h /usr/include/stdarg.h
+IMU.o: /usr/include/stddef.h /usr/include/_types.h /usr/include/sys/_types.h
+IMU.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+IMU.o: /usr/include/i386/_types.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/stdlib.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/string.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/util/delay.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/util/delay_basic.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+IMU.o: /usr/local/CrossPack-AVR/avr/include/avr/interrupt.h
+IMU.o: FWLib/inc/HardwareSerial.h FWLib/inc/Print.h inc/IMUPacketFifo.h
+IMU.o: inc/IMUPacket.h FWLib/inc/TimerCore.h inc/IMU.h FWLib/inc/I2C_Master.h
+IMU.o: FWLib/inc/I2CTransaction.h FWLib/inc/TimerCntr.h FWLib/inc/DebugPort.h
+IMU.o: FWLib/inc/Port.h inc/Mark.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/stdio.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+IMUManager.o: /usr/include/stdarg.h /usr/include/stddef.h
+IMUManager.o: /usr/include/_types.h /usr/include/sys/_types.h
+IMUManager.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+IMUManager.o: /usr/include/i386/_types.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/stdlib.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/string.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/util/delay.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/util/delay_basic.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+IMUManager.o: /usr/local/CrossPack-AVR/avr/include/avr/interrupt.h
+IMUManager.o: FWLib/inc/HardwareSerial.h FWLib/inc/Print.h
+IMUManager.o: FWLib/inc/TimerCore.h inc/IMU.h FWLib/inc/I2C_Master.h
+IMUManager.o: FWLib/inc/I2CTransaction.h inc/IMUPacketFifo.h inc/IMUPacket.h
+IMUManager.o: FWLib/inc/TimerCntr.h FWLib/inc/DebugPort.h FWLib/inc/Port.h
+IMUManager.o: inc/IMUManager.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/stdio.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+IMUPacketFifo.o: /usr/include/stdarg.h /usr/include/stddef.h
+IMUPacketFifo.o: /usr/include/_types.h /usr/include/sys/_types.h
+IMUPacketFifo.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+IMUPacketFifo.o: /usr/include/i386/_types.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/string.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/math.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/avr/interrupt.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+IMUPacketFifo.o: FWLib/inc/NewDel.h
+IMUPacketFifo.o: /usr/local/CrossPack-AVR/avr/include/stdlib.h
+IMUPacketFifo.o: inc/IMUPacketFifo.h inc/IMUPacket.h
+IMUPacketFifo.o: FWLib/inc/HardwareSerial.h FWLib/inc/Print.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/util/delay.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/util/delay_basic.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/avr/interrupt.h
+clksystem.o: /usr/include/stdbool.h
+clksystem.o: /usr/local/CrossPack-AVR/avr/include/stdlib.h
+clksystem.o: /usr/include/stddef.h /usr/include/_types.h
+clksystem.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+clksystem.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/string.h
+GyroCmdProcessor.o: /usr/include/stddef.h /usr/include/_types.h
+GyroCmdProcessor.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+GyroCmdProcessor.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+GyroCmdProcessor.o: inc/GyroCmdProcessor.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+GyroCmdProcessor.o: FWLib/inc/HardwareSerial.h FWLib/inc/Print.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/stdio.h
+GyroCmdProcessor.o: /usr/include/stdarg.h FWLib/inc/I2C_Master.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/stdlib.h
+GyroCmdProcessor.o: FWLib/inc/I2CTransaction.h inc/IMUManager.h
+GyroCmdProcessor.o: FWLib/inc/TimerCntr.h inc/IMU.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/util/delay.h
+GyroCmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/util/delay_basic.h
+GyroCmdProcessor.o: inc/IMUPacketFifo.h inc/IMUPacket.h FWLib/inc/TimerCore.h
+GyroCmdProcessor.o: FWLib/inc/DebugPort.h FWLib/inc/Port.h
+GyroCmdProcessor.o: FWLib/inc/CmdProcessor.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/stdlib.h
+FWlib/src/CmdProcessor.o: /usr/include/stddef.h /usr/include/_types.h
+FWlib/src/CmdProcessor.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+FWlib/src/CmdProcessor.o: /usr/include/machine/_types.h
+FWlib/src/CmdProcessor.o: /usr/include/i386/_types.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/string.h
+FWlib/src/CmdProcessor.o: FWLib/inc/CmdProcessor.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+FWlib/src/CmdProcessor.o: FWLib/inc/HardwareSerial.h FWLib/inc/Print.h
+FWlib/src/CmdProcessor.o: /usr/local/CrossPack-AVR/avr/include/stdio.h
+FWlib/src/CmdProcessor.o: /usr/include/stdarg.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/stdio.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+FWlib/src/HardwareSerial.o: /usr/include/stdarg.h /usr/include/stddef.h
+FWlib/src/HardwareSerial.o: /usr/include/_types.h /usr/include/sys/_types.h
+FWlib/src/HardwareSerial.o: /usr/include/sys/cdefs.h
+FWlib/src/HardwareSerial.o: /usr/include/machine/_types.h
+FWlib/src/HardwareSerial.o: /usr/include/i386/_types.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/stdlib.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/string.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+FWlib/src/HardwareSerial.o: /usr/local/CrossPack-AVR/avr/include/avr/interrupt.h
+FWlib/src/HardwareSerial.o: FWLib/inc/HardwareSerial.h FWLib/inc/Print.h
+FWlib/src/DebugPort.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+FWlib/src/DebugPort.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+FWlib/src/DebugPort.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+FWlib/src/DebugPort.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+FWlib/src/DebugPort.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+FWlib/src/DebugPort.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+FWlib/src/DebugPort.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+FWlib/src/DebugPort.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+FWlib/src/DebugPort.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+FWlib/src/DebugPort.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+FWlib/src/DebugPort.o: FWLib/inc/DebugPort.h FWLib/inc/Port.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/stdio.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+FWlib/src/I2C_Master.o: /usr/include/stdarg.h /usr/include/stddef.h
+FWlib/src/I2C_Master.o: /usr/include/_types.h /usr/include/sys/_types.h
+FWlib/src/I2C_Master.o: /usr/include/sys/cdefs.h
+FWlib/src/I2C_Master.o: /usr/include/machine/_types.h
+FWlib/src/I2C_Master.o: /usr/include/i386/_types.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/stdlib.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/string.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/util/delay.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/util/delay_basic.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+FWlib/src/I2C_Master.o: /usr/local/CrossPack-AVR/avr/include/avr/interrupt.h
+FWlib/src/I2C_Master.o: FWLib/inc/HardwareSerial.h FWLib/inc/Print.h
+FWlib/src/I2C_Master.o: FWLib/inc/I2C_Master.h FWLib/inc/I2CTransaction.h
+FWlib/src/NewDel.o: FWLib/inc/newdel.h
+FWlib/src/NewDel.o: /usr/local/CrossPack-AVR/avr/include/stdlib.h
+FWlib/src/NewDel.o: /usr/include/stddef.h /usr/include/_types.h
+FWlib/src/NewDel.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+FWlib/src/NewDel.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+FWlib/src/Print.o: /usr/local/CrossPack-AVR/avr/include/stdio.h
+FWlib/src/Print.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+FWlib/src/Print.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+FWlib/src/Print.o: /usr/include/stdarg.h /usr/include/stddef.h
+FWlib/src/Print.o: /usr/include/_types.h /usr/include/sys/_types.h
+FWlib/src/Print.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+FWlib/src/Print.o: /usr/include/i386/_types.h
+FWlib/src/Print.o: /usr/local/CrossPack-AVR/avr/include/string.h
+FWlib/src/Print.o: /usr/local/CrossPack-AVR/avr/include/math.h
+FWlib/src/Print.o: FWLib/inc/Print.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/avr/interrupt.h
+FWlib/src/Port.o: FWLib/inc/Port.h FWLib/inc/HardwareSerial.h
+FWlib/src/Port.o: FWLib/inc/Print.h
+FWlib/src/Port.o: /usr/local/CrossPack-AVR/avr/include/stdio.h
+FWlib/src/Port.o: /usr/include/stdarg.h /usr/include/stddef.h
+FWlib/src/Port.o: /usr/include/_types.h /usr/include/sys/_types.h
+FWlib/src/Port.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+FWlib/src/Port.o: /usr/include/i386/_types.h
+FWlib/src/cpp_hacks.o: FWLib/inc/cpp_hacks.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/stdio.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+FWlib/src/fifo.o: /usr/include/stdarg.h /usr/include/stddef.h
+FWlib/src/fifo.o: /usr/include/_types.h /usr/include/sys/_types.h
+FWlib/src/fifo.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+FWlib/src/fifo.o: /usr/include/i386/_types.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/string.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/math.h
+FWlib/src/fifo.o: FWLib/inc/NewDel.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/stdlib.h
+FWlib/src/fifo.o: FWLib/inc/fifo.h FWLib/inc/HardwareSerial.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+FWlib/src/fifo.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+FWlib/src/fifo.o: FWLib/inc/Print.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+FWlib/src/TimerCntr.o: /usr/local/CrossPack-AVR/avr/include/avr/interrupt.h
+FWlib/src/TimerCntr.o: FWLib/inc/TimerCntr.h
+FWlib/src/TimerCore.o: /usr/include/stddef.h /usr/include/_types.h
+FWlib/src/TimerCore.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+FWlib/src/TimerCore.o: /usr/include/machine/_types.h
+FWlib/src/TimerCore.o: /usr/include/i386/_types.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+FWlib/src/TimerCore.o: /usr/local/CrossPack-AVR/avr/include/avr/interrupt.h
+FWlib/src/Time.o: /usr/local/CrossPack-AVR/avr/include/avr/io.h
+FWlib/src/Time.o: /usr/local/CrossPack-AVR/avr/include/avr/sfr_defs.h
+FWlib/src/Time.o: /usr/local/CrossPack-AVR/avr/include/inttypes.h
+FWlib/src/Time.o: /usr/local/CrossPack-AVR/avr/include/stdint.h
+FWlib/src/Time.o: /usr/local/CrossPack-AVR/avr/include/avr/iox128a1.h
+FWlib/src/Time.o: /usr/local/CrossPack-AVR/avr/include/avr/portpins.h
+FWlib/src/Time.o: /usr/local/CrossPack-AVR/avr/include/avr/common.h
+FWlib/src/Time.o: /usr/local/CrossPack-AVR/avr/include/avr/version.h
+FWlib/src/Time.o: /usr/local/CrossPack-AVR/avr/include/avr/fuse.h
+FWlib/src/Time.o: /usr/local/CrossPack-AVR/avr/include/avr/lock.h
+FWlib/src/Time.o: FWLib/inc/Time.h FWLib/inc/TimerCore.h

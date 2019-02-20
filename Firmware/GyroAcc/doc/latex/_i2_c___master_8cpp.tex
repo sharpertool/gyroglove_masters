@@ -1,0 +1,103 @@
+\hypertarget{_i2_c___master_8cpp}{
+\section{FWLib/src/I2C\_\-Master.cpp File Reference}
+\label{_i2_c___master_8cpp}\index{FWLib/src/I2C\_\-Master.cpp@{FWLib/src/I2C\_\-Master.cpp}}
+}
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$inttypes.h$>$}\par
+{\ttfamily \#include $<$util/delay.h$>$}\par
+{\ttfamily \#include $<$avr/io.h$>$}\par
+{\ttfamily \#include $<$avr/interrupt.h$>$}\par
+{\ttfamily \#include \char`\"{}HardwareSerial.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}I2C\_\-Master.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_i2_c___master_8cpp_a7a5a32a606f1ca4e7e00c4bf645e59df}{I2C\_\-ISR\_\-DEF}(periph)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_i2_c___master_8cpp_ac7e5299cd48f74c3d1d7394359e005e0}{I2C\_\-ISR\_\-DEF} (TWIC)
+\item 
+\hyperlink{_i2_c___master_8cpp_a169168ae5216a61fb4140f100a1e8b48}{I2C\_\-ISR\_\-DEF} (TWID)
+\item 
+\hyperlink{_i2_c___master_8cpp_a06f164a131d542fbc84f2d327c3bf244}{I2C\_\-ISR\_\-DEF} (TWIE)
+\item 
+\hyperlink{_i2_c___master_8cpp_a8caaeb120d4dfa49e381b0351f96bf02}{I2C\_\-ISR\_\-DEF} (TWIF)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$ \hyperlink{_i2_c___master_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_i2_c___master_8cpp_a7a5a32a606f1ca4e7e00c4bf645e59df}{
+\index{I2C\_\-Master.cpp@{I2C\_\-Master.cpp}!I2C\_\-ISR\_\-DEF@{I2C\_\-ISR\_\-DEF}}
+\index{I2C\_\-ISR\_\-DEF@{I2C\_\-ISR\_\-DEF}!I2C_Master.cpp@{I2C\_\-Master.cpp}}
+\subsubsection[{I2C\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2C\_\-ISR\_\-DEF(
+\begin{DoxyParamCaption}
+\item[{}]{periph}
+\end{DoxyParamCaption}
+)}}
+\label{_i2_c___master_8cpp_a7a5a32a606f1ca4e7e00c4bf645e59df}
+{\bfseries Value:}
+\begin{DoxyCode}
+static I2C_Master*  periph##_master_cp = 0;\
+ISR(periph##_TWIM_vect) {\
+    if (periph##_master_cp) periph##_master_cp->master_int();\
+} \
+ISR(periph##_TWIS_vect) {\
+    if (periph##_master_cp) periph##_master_cp->slave_int();\
+}
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{_i2_c___master_8cpp_ac7e5299cd48f74c3d1d7394359e005e0}{
+\index{I2C\_\-Master.cpp@{I2C\_\-Master.cpp}!I2C\_\-ISR\_\-DEF@{I2C\_\-ISR\_\-DEF}}
+\index{I2C\_\-ISR\_\-DEF@{I2C\_\-ISR\_\-DEF}!I2C_Master.cpp@{I2C\_\-Master.cpp}}
+\subsubsection[{I2C\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}I2C\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{TWIC}]{}
+\end{DoxyParamCaption}
+)}}
+\label{_i2_c___master_8cpp_ac7e5299cd48f74c3d1d7394359e005e0}
+\hypertarget{_i2_c___master_8cpp_a169168ae5216a61fb4140f100a1e8b48}{
+\index{I2C\_\-Master.cpp@{I2C\_\-Master.cpp}!I2C\_\-ISR\_\-DEF@{I2C\_\-ISR\_\-DEF}}
+\index{I2C\_\-ISR\_\-DEF@{I2C\_\-ISR\_\-DEF}!I2C_Master.cpp@{I2C\_\-Master.cpp}}
+\subsubsection[{I2C\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}I2C\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{TWID}]{}
+\end{DoxyParamCaption}
+)}}
+\label{_i2_c___master_8cpp_a169168ae5216a61fb4140f100a1e8b48}
+\hypertarget{_i2_c___master_8cpp_a8caaeb120d4dfa49e381b0351f96bf02}{
+\index{I2C\_\-Master.cpp@{I2C\_\-Master.cpp}!I2C\_\-ISR\_\-DEF@{I2C\_\-ISR\_\-DEF}}
+\index{I2C\_\-ISR\_\-DEF@{I2C\_\-ISR\_\-DEF}!I2C_Master.cpp@{I2C\_\-Master.cpp}}
+\subsubsection[{I2C\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}I2C\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{TWIF}]{}
+\end{DoxyParamCaption}
+)}}
+\label{_i2_c___master_8cpp_a8caaeb120d4dfa49e381b0351f96bf02}
+\hypertarget{_i2_c___master_8cpp_a06f164a131d542fbc84f2d327c3bf244}{
+\index{I2C\_\-Master.cpp@{I2C\_\-Master.cpp}!I2C\_\-ISR\_\-DEF@{I2C\_\-ISR\_\-DEF}}
+\index{I2C\_\-ISR\_\-DEF@{I2C\_\-ISR\_\-DEF}!I2C_Master.cpp@{I2C\_\-Master.cpp}}
+\subsubsection[{I2C\_\-ISR\_\-DEF}]{\setlength{\rightskip}{0pt plus 5cm}I2C\_\-ISR\_\-DEF (
+\begin{DoxyParamCaption}
+\item[{TWIE}]{}
+\end{DoxyParamCaption}
+)}}
+\label{_i2_c___master_8cpp_a06f164a131d542fbc84f2d327c3bf244}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_i2_c___master_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{
+\index{I2C\_\-Master.cpp@{I2C\_\-Master.cpp}!pdbgserial@{pdbgserial}}
+\index{pdbgserial@{pdbgserial}!I2C_Master.cpp@{I2C\_\-Master.cpp}}
+\subsubsection[{pdbgserial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf HardwareSerial}$\ast$ {\bf pdbgserial}}}
+\label{_i2_c___master_8cpp_a953e918236b1fd18b8f07bad1217ecbe}

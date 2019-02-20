@@ -1,0 +1,10 @@
+Version: 0.1.0
+Just my first pretty much working copy.
+Serial: 115.2
+DSerial: 115.2
+Debug: defaults off
+Rate: 10hz
+
+Description:
+Does not have any fancy firmware fixes to make sure that the parts are fixed if they
+stop responding..

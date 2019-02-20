@@ -1,0 +1,366 @@
+\hypertarget{class_fifo}{
+\subsection{Fifo Class Reference}
+\label{class_fifo}\index{Fifo@{Fifo}}
+}
+
+
+\hyperlink{class_fifo}{Fifo} Class for unsigned 8 bit values.  
+
+
+
+
+{\ttfamily \#include $<$fifo.h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\_\-t \hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_fifo_a68ef51a0abbde28576475176bea5ee77}{Fifo} (uint8\_\-t size)
+\item 
+int8\_\-t \hyperlink{class_fifo_a56e69165c03aa37aa174505386737430}{push} (\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType} $\ast$)
+\item 
+int8\_\-t \hyperlink{class_fifo_aa5aa61cf236c38b141bd1bbeaf1addbd}{pop} (\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType} $\ast$pData)
+\item 
+uint8\_\-t \hyperlink{class_fifo_a0a741f582688e9f956fd9e8c4cd1da37}{count} ()
+\item 
+bool \hyperlink{class_fifo_a2b09a5751fc2a301a341245e98f1e44a}{full} ()
+\begin{DoxyCompactList}\small\item\em Return true if the fifo is full. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_fifo_af0223af74146f1e800aa0a7b44a2cfda}{empty} ()
+\begin{DoxyCompactList}\small\item\em Return true if the fifo is empty. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fifo_a61aa8164d2e6fbdb2718835755495c95}{clear} ()
+\begin{DoxyCompactList}\small\item\em Clear the fifo by resetting the start and end pointer. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType} $\ast$ \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{\_\-pdata}
+\item 
+\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType} $\ast$ \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{\_\-start}
+\item 
+\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType} $\ast$ \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{\_\-end}
+\item 
+uint8\_\-t \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{\_\-size}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\hyperlink{class_fifo}{Fifo} Class for unsigned 8 bit values. Construct a fifo and specify the number of elements to store. The fifo constructor will allocate memory for the specified number of values. The \hyperlink{class_fifo}{Fifo} class contains member functions for pusshing, popping and checking the status of the fifo. 
+
+Definition at line \hyperlink{fifo_8h_source_l00016}{16} of file \hyperlink{fifo_8h_source}{fifo.h}.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\hypertarget{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{
+\index{Fifo@{Fifo}!FifoType@{FifoType}}
+\index{FifoType@{FifoType}!Fifo@{Fifo}}
+\paragraph[{FifoType}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\_\-t {\bf Fifo::FifoType}}\hfill}
+\label{class_fifo_abc2a9e471beb538424db9e33955ec5f7}
+
+
+Definition at line \hyperlink{fifo_8h_source_l00020}{20} of file \hyperlink{fifo_8h_source}{fifo.h}.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_fifo_a68ef51a0abbde28576475176bea5ee77}{
+\index{Fifo@{Fifo}!Fifo@{Fifo}}
+\index{Fifo@{Fifo}!Fifo@{Fifo}}
+\paragraph[{Fifo}]{\setlength{\rightskip}{0pt plus 5cm}Fifo::Fifo (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{size}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_fifo_a68ef51a0abbde28576475176bea5ee77}
+Construct the fifo object. Allocate memory for the specified number of elements and set the internal value to indicate the size of the fifo. Reset the start and end data points to their clear state. The clear function is called to maintain consitency and insure that \hyperlink{class_fifo_a61aa8164d2e6fbdb2718835755495c95}{clear()} always does the right thing. 
+
+Definition at line \hyperlink{fifo_8cpp_source_l00014}{14} of file \hyperlink{fifo_8cpp_source}{fifo.cpp}.
+
+
+
+References \hyperlink{fifo_8h_source_l00023}{\_\-pdata}, \hyperlink{fifo_8h_source_l00026}{\_\-size}, and \hyperlink{fifo_8cpp_source_l00022}{clear()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size} = size;
+    \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata} = (\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}*)malloc(\hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size} * \textcolor{keyword}{sizeof}(\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}));
+    \hyperlink{class_fifo_a61aa8164d2e6fbdb2718835755495c95}{clear}();
+\}
+\end{DoxyCode}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_fifo_a61aa8164d2e6fbdb2718835755495c95}{
+\index{Fifo@{Fifo}!clear@{clear}}
+\index{clear@{clear}!Fifo@{Fifo}}
+\paragraph[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void Fifo::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_fifo_a61aa8164d2e6fbdb2718835755495c95}
+
+
+Clear the fifo by resetting the start and end pointer. 
+
+
+
+Definition at line \hyperlink{fifo_8cpp_source_l00022}{22} of file \hyperlink{fifo_8cpp_source}{fifo.cpp}.
+
+
+
+References \hyperlink{fifo_8h_source_l00025}{\_\-end}, \hyperlink{fifo_8h_source_l00023}{\_\-pdata}, and \hyperlink{fifo_8h_source_l00024}{\_\-start}.
+
+
+
+Referenced by \hyperlink{fifo_8cpp_source_l00014}{Fifo()}, and \hyperlink{fifo_8cpp_source_l00110}{FifoTest()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} = \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} = \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata};
+\}
+\end{DoxyCode}
+\hypertarget{class_fifo_a0a741f582688e9f956fd9e8c4cd1da37}{
+\index{Fifo@{Fifo}!count@{count}}
+\index{count@{count}!Fifo@{Fifo}}
+\paragraph[{count}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t Fifo::count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_fifo_a0a741f582688e9f956fd9e8c4cd1da37}
+Return the number of elements currently in the fifo if the end and start pointers are the same then the fifo is empty and count == 0. If they differ, then we need to check for wrap-\/around in order to properly determine the size. In the following examples a = marks empty spots, while an x marks filled spots. 
+
+
+\begin{DoxyPre}
+            s                       e                        
+     =======xxxxxxxxxxxxxxxxxxxxxxxxx=======================
+    \end{DoxyPre}
+ In this case end $>$ start, so count is equal to the distance between them or $end - start$.
+
+
+\begin{DoxyPre}
+            e                       s                       
+     xxxxxxxx=======================xxxxxxxxxxxxxxxxxxxxxxxx
+    \end{DoxyPre}
+ In this case end $<$ start, so data wraps around. The total count is equal to the size of the buffer, minus the number of blank spots, or $size - (start - end)$.
+
+The total number of possible elements that can be stored is size -\/1, so 
+
+Definition at line \hyperlink{fifo_8cpp_source_l00050}{50} of file \hyperlink{fifo_8cpp_source}{fifo.cpp}.
+
+
+
+References \hyperlink{fifo_8h_source_l00025}{\_\-end}, \hyperlink{fifo_8h_source_l00026}{\_\-size}, and \hyperlink{fifo_8h_source_l00024}{\_\-start}.
+
+
+
+Referenced by \hyperlink{fifo_8cpp_source_l00110}{FifoTest()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} == \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start}) \textcolor{keywordflow}{return} 0;
+    \textcolor{keywordflow}{if} (\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} > \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start}) \{
+        \textcolor{keywordflow}{return} \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} - \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start};
+    \}
+    \textcolor{keywordflow}{return} \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size} - (\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} - \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end});
+\}
+\end{DoxyCode}
+\hypertarget{class_fifo_af0223af74146f1e800aa0a7b44a2cfda}{
+\index{Fifo@{Fifo}!empty@{empty}}
+\index{empty@{empty}!Fifo@{Fifo}}
+\paragraph[{empty}]{\setlength{\rightskip}{0pt plus 5cm}bool Fifo::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_fifo_af0223af74146f1e800aa0a7b44a2cfda}
+
+
+Return true if the fifo is empty. 
+
+
+
+Definition at line \hyperlink{fifo_8cpp_source_l00066}{66} of file \hyperlink{fifo_8cpp_source}{fifo.cpp}.
+
+
+
+References \hyperlink{fifo_8h_source_l00025}{\_\-end}, and \hyperlink{fifo_8h_source_l00024}{\_\-start}.
+
+
+
+Referenced by \hyperlink{fifo_8cpp_source_l00092}{pop()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{return} (\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} == \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end});
+\}
+\end{DoxyCode}
+\hypertarget{class_fifo_a2b09a5751fc2a301a341245e98f1e44a}{
+\index{Fifo@{Fifo}!full@{full}}
+\index{full@{full}!Fifo@{Fifo}}
+\paragraph[{full}]{\setlength{\rightskip}{0pt plus 5cm}bool Fifo::full (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_fifo_a2b09a5751fc2a301a341245e98f1e44a}
+
+
+Return true if the fifo is full. 
+
+
+
+Definition at line \hyperlink{fifo_8cpp_source_l00060}{60} of file \hyperlink{fifo_8cpp_source}{fifo.cpp}.
+
+
+
+References \hyperlink{fifo_8h_source_l00025}{\_\-end}, \hyperlink{fifo_8h_source_l00026}{\_\-size}, and \hyperlink{fifo_8h_source_l00024}{\_\-start}.
+
+
+
+Referenced by \hyperlink{fifo_8cpp_source_l00074}{push()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{return} (\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} - \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end})  == 1 || (\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} - \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start}) == \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size};
+\}
+\end{DoxyCode}
+\hypertarget{class_fifo_aa5aa61cf236c38b141bd1bbeaf1addbd}{
+\index{Fifo@{Fifo}!pop@{pop}}
+\index{pop@{pop}!Fifo@{Fifo}}
+\paragraph[{pop}]{\setlength{\rightskip}{0pt plus 5cm}int8\_\-t Fifo::pop (
+\begin{DoxyParamCaption}
+\item[{{\bf FifoType} $\ast$}]{pD}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_fifo_aa5aa61cf236c38b141bd1bbeaf1addbd}
+Remove the top value from the \hyperlink{class_fifo}{Fifo}. We do not have exceptions in this simple C++ implementation, so this function is not able to do anything to indicate that the called tried to pop a value from an empty fifo. In that case, a zero value is returned, which is not unique so the caller will have to insure that pop is never called on an empty fifo. 
+
+Definition at line \hyperlink{fifo_8cpp_source_l00092}{92} of file \hyperlink{fifo_8cpp_source}{fifo.cpp}.
+
+
+
+References \hyperlink{fifo_8h_source_l00023}{\_\-pdata}, \hyperlink{fifo_8h_source_l00026}{\_\-size}, \hyperlink{fifo_8h_source_l00024}{\_\-start}, and \hyperlink{fifo_8cpp_source_l00066}{empty()}.
+
+
+
+Referenced by \hyperlink{fifo_8cpp_source_l00110}{FifoTest()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_fifo_af0223af74146f1e800aa0a7b44a2cfda}{empty}()) \{
+        \textcolor{keywordflow}{return} -1; \textcolor{comment}{// Nothing else to do}
+    \}
+    *pD = *(\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start}++);
+    \textcolor{keywordflow}{if} ((\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} - \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata}) > \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size}) \{
+        \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} = \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata};
+    \}
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+\hypertarget{class_fifo_a56e69165c03aa37aa174505386737430}{
+\index{Fifo@{Fifo}!push@{push}}
+\index{push@{push}!Fifo@{Fifo}}
+\paragraph[{push}]{\setlength{\rightskip}{0pt plus 5cm}int8\_\-t Fifo::push (
+\begin{DoxyParamCaption}
+\item[{{\bf FifoType} $\ast$}]{d}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_fifo_a56e69165c03aa37aa174505386737430}
+Push a new value onto the fifo. This function returns 0 if the operation succeeds, and a negative value if the operation fails. 
+
+Definition at line \hyperlink{fifo_8cpp_source_l00074}{74} of file \hyperlink{fifo_8cpp_source}{fifo.cpp}.
+
+
+
+References \hyperlink{fifo_8h_source_l00025}{\_\-end}, \hyperlink{fifo_8h_source_l00023}{\_\-pdata}, \hyperlink{fifo_8h_source_l00026}{\_\-size}, and \hyperlink{fifo_8cpp_source_l00060}{full()}.
+
+
+
+Referenced by \hyperlink{fifo_8cpp_source_l00110}{FifoTest()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_fifo_a2b09a5751fc2a301a341245e98f1e44a}{full}()) \textcolor{keywordflow}{return} -1;
+    *(\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end}++) = *d;
+    
+    \textcolor{comment}{// Wrap the end back to the beginning.}
+    \textcolor{keywordflow}{if} ((\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} - \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata}) > \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size}) \{
+        \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} = \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata};
+    \}
+
+        \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{
+\index{Fifo@{Fifo}!\_\-end@{\_\-end}}
+\index{\_\-end@{\_\-end}!Fifo@{Fifo}}
+\paragraph[{\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FifoType}$\ast$ {\bf Fifo::\_\-end}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}
+
+
+Definition at line \hyperlink{fifo_8h_source_l00025}{25} of file \hyperlink{fifo_8h_source}{fifo.h}.
+
+
+
+Referenced by \hyperlink{fifo_8cpp_source_l00022}{clear()}, \hyperlink{fifo_8cpp_source_l00050}{count()}, \hyperlink{fifo_8cpp_source_l00066}{empty()}, \hyperlink{fifo_8cpp_source_l00060}{full()}, and \hyperlink{fifo_8cpp_source_l00074}{push()}.
+
+\hypertarget{class_fifo_adb3c9f91291d0af42197c7b30a718506}{
+\index{Fifo@{Fifo}!\_\-pdata@{\_\-pdata}}
+\index{\_\-pdata@{\_\-pdata}!Fifo@{Fifo}}
+\paragraph[{\_\-pdata}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FifoType}$\ast$ {\bf Fifo::\_\-pdata}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_fifo_adb3c9f91291d0af42197c7b30a718506}
+
+
+Definition at line \hyperlink{fifo_8h_source_l00023}{23} of file \hyperlink{fifo_8h_source}{fifo.h}.
+
+
+
+Referenced by \hyperlink{fifo_8cpp_source_l00022}{clear()}, \hyperlink{fifo_8cpp_source_l00014}{Fifo()}, \hyperlink{fifo_8cpp_source_l00092}{pop()}, and \hyperlink{fifo_8cpp_source_l00074}{push()}.
+
+\hypertarget{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{
+\index{Fifo@{Fifo}!\_\-size@{\_\-size}}
+\index{\_\-size@{\_\-size}!Fifo@{Fifo}}
+\paragraph[{\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf Fifo::\_\-size}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_fifo_a0eb7824d54929e385223ef2e32c45c91}
+
+
+Definition at line \hyperlink{fifo_8h_source_l00026}{26} of file \hyperlink{fifo_8h_source}{fifo.h}.
+
+
+
+Referenced by \hyperlink{fifo_8cpp_source_l00050}{count()}, \hyperlink{fifo_8cpp_source_l00014}{Fifo()}, \hyperlink{fifo_8cpp_source_l00060}{full()}, \hyperlink{fifo_8cpp_source_l00092}{pop()}, and \hyperlink{fifo_8cpp_source_l00074}{push()}.
+
+\hypertarget{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{
+\index{Fifo@{Fifo}!\_\-start@{\_\-start}}
+\index{\_\-start@{\_\-start}!Fifo@{Fifo}}
+\paragraph[{\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FifoType}$\ast$ {\bf Fifo::\_\-start}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}
+
+
+Definition at line \hyperlink{fifo_8h_source_l00024}{24} of file \hyperlink{fifo_8h_source}{fifo.h}.
+
+
+
+Referenced by \hyperlink{fifo_8cpp_source_l00022}{clear()}, \hyperlink{fifo_8cpp_source_l00050}{count()}, \hyperlink{fifo_8cpp_source_l00066}{empty()}, \hyperlink{fifo_8cpp_source_l00060}{full()}, and \hyperlink{fifo_8cpp_source_l00092}{pop()}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{fifo_8h}{fifo.h}\item 
+\hyperlink{fifo_8cpp}{fifo.cpp}\end{DoxyCompactItemize}

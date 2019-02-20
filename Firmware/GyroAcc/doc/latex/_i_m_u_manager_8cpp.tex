@@ -1,0 +1,152 @@
+\hypertarget{_i_m_u_manager_8cpp}{
+\subsection{IMUManager.cpp File Reference}
+\label{_i_m_u_manager_8cpp}\index{IMUManager.cpp@{IMUManager.cpp}}
+}
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$inttypes.h$>$}\par
+{\ttfamily \#include $<$util/delay.h$>$}\par
+{\ttfamily \#include $<$avr/io.h$>$}\par
+{\ttfamily \#include $<$avr/interrupt.h$>$}\par
+{\ttfamily \#include \char`\"{}HardwareSerial.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TimerCore.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TimerCntr.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}IMU.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}IMUManager.h\char`\"{}}\par
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_i_m_u_manager_8cpp_a1ad801a60513fb69f99c2732ca068726}{ALL\_\-IMU}(func)
+\item 
+\#define \hyperlink{_i_m_u_manager_8cpp_a3264743b07dd4d954bcd87d271d09fd6}{ALL\_\-IMUP}(func, param)
+\item 
+\#define \hyperlink{_i_m_u_manager_8cpp_a828c5d30222c335baef3647758f6847e}{ALL\_\-IMURET}(func)
+\item 
+\#define \hyperlink{_i_m_u_manager_8cpp_a1aa43791b69a2c420aed0eae2d0f45dc}{ALL\_\-IMUBOOL}(func)
+\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$ \hyperlink{_i_m_u_manager_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}
+\item 
+static uint8\_\-t \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer} \mbox{[}255\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Define Documentation}
+\hypertarget{_i_m_u_manager_8cpp_a1ad801a60513fb69f99c2732ca068726}{
+\index{IMUManager.cpp@{IMUManager.cpp}!ALL\_\-IMU@{ALL\_\-IMU}}
+\index{ALL\_\-IMU@{ALL\_\-IMU}!IMUManager.cpp@{IMUManager.cpp}}
+\paragraph[{ALL\_\-IMU}]{\setlength{\rightskip}{0pt plus 5cm}\#define ALL\_\-IMU(
+\begin{DoxyParamCaption}
+\item[{}]{func}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_i_m_u_manager_8cpp_a1ad801a60513fb69f99c2732ca068726}
+{\bfseries Value:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x=0;x<4;x++) \{ \(\backslash\)
+        \textcolor{keywordflow}{if} (\_pIMU[x]) \{         \(\backslash\)
+            \_pIMU[x]->func();   \(\backslash\)
+        \}   \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Definition at line \hyperlink{_i_m_u_manager_8cpp_source_l00018}{18} of file \hyperlink{_i_m_u_manager_8cpp_source}{IMUManager.cpp}.
+
+\hypertarget{_i_m_u_manager_8cpp_a1aa43791b69a2c420aed0eae2d0f45dc}{
+\index{IMUManager.cpp@{IMUManager.cpp}!ALL\_\-IMUBOOL@{ALL\_\-IMUBOOL}}
+\index{ALL\_\-IMUBOOL@{ALL\_\-IMUBOOL}!IMUManager.cpp@{IMUManager.cpp}}
+\paragraph[{ALL\_\-IMUBOOL}]{\setlength{\rightskip}{0pt plus 5cm}\#define ALL\_\-IMUBOOL(
+\begin{DoxyParamCaption}
+\item[{}]{func}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_i_m_u_manager_8cpp_a1aa43791b69a2c420aed0eae2d0f45dc}
+{\bfseries Value:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{bool} bReady = \textcolor{keyword}{true}; \(\backslash\)
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0;x<4;x++) \{   \(\backslash\)
+        \textcolor{keywordflow}{if} (\_pIMU[x]) \{ \(\backslash\)
+            \textcolor{keywordflow}{if} (!\_pIMU[x]->func()) \{ \(\backslash\)
+                bReady = \textcolor{keyword}{false}; \(\backslash\)
+            \}   \(\backslash\)
+        \}   \(\backslash\)
+    \}   \(\backslash\)
+    \textcolor{keywordflow}{return} bReady;
+\end{DoxyCode}
+
+
+Definition at line \hyperlink{_i_m_u_manager_8cpp_source_l00044}{44} of file \hyperlink{_i_m_u_manager_8cpp_source}{IMUManager.cpp}.
+
+\hypertarget{_i_m_u_manager_8cpp_a3264743b07dd4d954bcd87d271d09fd6}{
+\index{IMUManager.cpp@{IMUManager.cpp}!ALL\_\-IMUP@{ALL\_\-IMUP}}
+\index{ALL\_\-IMUP@{ALL\_\-IMUP}!IMUManager.cpp@{IMUManager.cpp}}
+\paragraph[{ALL\_\-IMUP}]{\setlength{\rightskip}{0pt plus 5cm}\#define ALL\_\-IMUP(
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{param}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_i_m_u_manager_8cpp_a3264743b07dd4d954bcd87d271d09fd6}
+{\bfseries Value:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x=0;x<4;x++) \{ \(\backslash\)
+        \textcolor{keywordflow}{if} (\_pIMU[x]) \{         \(\backslash\)
+            \_pIMU[x]->func(param);   \(\backslash\)
+        \}   \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Definition at line \hyperlink{_i_m_u_manager_8cpp_source_l00025}{25} of file \hyperlink{_i_m_u_manager_8cpp_source}{IMUManager.cpp}.
+
+\hypertarget{_i_m_u_manager_8cpp_a828c5d30222c335baef3647758f6847e}{
+\index{IMUManager.cpp@{IMUManager.cpp}!ALL\_\-IMURET@{ALL\_\-IMURET}}
+\index{ALL\_\-IMURET@{ALL\_\-IMURET}!IMUManager.cpp@{IMUManager.cpp}}
+\paragraph[{ALL\_\-IMURET}]{\setlength{\rightskip}{0pt plus 5cm}\#define ALL\_\-IMURET(
+\begin{DoxyParamCaption}
+\item[{}]{func}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_i_m_u_manager_8cpp_a828c5d30222c335baef3647758f6847e}
+{\bfseries Value:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{int} retc =0; \(\backslash\)
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x=0;x<4;x++) \{ \(\backslash\)
+        \textcolor{keywordflow}{if} (\_pIMU[x]) \{         \(\backslash\)
+            retc = \_pIMU[x]->func();   \(\backslash\)
+            \textcolor{keywordflow}{if} (retc < 0) \{ \(\backslash\)
+                \textcolor{keywordflow}{return} retc;\(\backslash\)
+            \}\(\backslash\)
+        \}   \(\backslash\)
+    \}\(\backslash\)
+    \textcolor{keywordflow}{return} retc;
+\end{DoxyCode}
+
+
+Definition at line \hyperlink{_i_m_u_manager_8cpp_source_l00032}{32} of file \hyperlink{_i_m_u_manager_8cpp_source}{IMUManager.cpp}.
+
+
+
+\subsubsection{Variable Documentation}
+\hypertarget{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{
+\index{IMUManager.cpp@{IMUManager.cpp}!buffer@{buffer}}
+\index{buffer@{buffer}!IMUManager.cpp@{IMUManager.cpp}}
+\paragraph[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf buffer}\mbox{[}255\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}\hfill}
+\label{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}
+
+
+Definition at line \hyperlink{_i_m_u_manager_8cpp_source_l00016}{16} of file \hyperlink{_i_m_u_manager_8cpp_source}{IMUManager.cpp}.
+
+\hypertarget{_i_m_u_manager_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{
+\index{IMUManager.cpp@{IMUManager.cpp}!pdbgserial@{pdbgserial}}
+\index{pdbgserial@{pdbgserial}!IMUManager.cpp@{IMUManager.cpp}}
+\paragraph[{pdbgserial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf HardwareSerial}$\ast$ {\bf pdbgserial}}\hfill}
+\label{_i_m_u_manager_8cpp_a953e918236b1fd18b8f07bad1217ecbe}
+
+
+Definition at line \hyperlink{_gyro_acc_8cpp_source_l00031}{31} of file \hyperlink{_gyro_acc_8cpp_source}{GyroAcc.cpp}.
+

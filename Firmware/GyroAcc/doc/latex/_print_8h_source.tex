@@ -1,0 +1,68 @@
+\hypertarget{_print_8h_source}{
+\subsection{Print.h}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/*}
+00002 \textcolor{comment}{  Print.h - Base class that provides print() and println()}
+00003 \textcolor{comment}{  Copyright (c) 2008 David A. Mellis.  All right reserved.}
+00004 \textcolor{comment}{}
+00005 \textcolor{comment}{  This library is free software; you can redistribute it and/or}
+00006 \textcolor{comment}{  modify it under the terms of the GNU Lesser General Public}
+00007 \textcolor{comment}{  License as published by the Free Software Foundation; either}
+00008 \textcolor{comment}{  version 2.1 of the License, or (at your option) any later version.}
+00009 \textcolor{comment}{}
+00010 \textcolor{comment}{  This library is distributed in the hope that it will be useful,}
+00011 \textcolor{comment}{  but WITHOUT ANY WARRANTY; without even the implied warranty of}
+00012 \textcolor{comment}{  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU}
+00013 \textcolor{comment}{  Lesser General Public License for more details.}
+00014 \textcolor{comment}{}
+00015 \textcolor{comment}{  You should have received a copy of the GNU Lesser General Public}
+00016 \textcolor{comment}{  License along with this library; if not, write to the Free Software}
+00017 \textcolor{comment}{  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA}
+00018 \textcolor{comment}{*/}
+00019 
+00020 \textcolor{preprocessor}{#ifndef Print\_h}
+00021 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define Print\_h}
+00022 \textcolor{preprocessor}{}
+00023 \textcolor{preprocessor}{#include <inttypes.h>}
+00024 \textcolor{preprocessor}{#include <stdio.h>} \textcolor{comment}{// for size\_t}
+00025 
+\hypertarget{_print_8h_source_l00026}{}\hyperlink{_print_8h_afe38ec6126e35e40049e27fdf4586ba5}{00026} \textcolor{preprocessor}{#define DEC 10}
+\hypertarget{_print_8h_source_l00027}{}\hyperlink{_print_8h_a9075d93e0ab26ccd6e059fa06aa4e3de}{00027} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HEX 16}
+\hypertarget{_print_8h_source_l00028}{}\hyperlink{_print_8h_a904777e8f3d21de0a6679d2c9f0f1eec}{00028} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define OCT 8}
+\hypertarget{_print_8h_source_l00029}{}\hyperlink{_print_8h_a75267cdfa3fa9e52c7c1f1094f9387b7}{00029} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define BIN 2}
+\hypertarget{_print_8h_source_l00030}{}\hyperlink{_print_8h_aec93e83855ac17c3c25c55c37ca186dd}{00030} \textcolor{preprocessor}{}\textcolor{preprocessor}{#define BYTE 0}
+00031 \textcolor{preprocessor}{}
+\hypertarget{_print_8h_source_l00032}{}\hyperlink{class_print}{00032} \textcolor{keyword}{class }\hyperlink{class_print}{Print}
+00033 \{
+00034   \textcolor{keyword}{private}:
+00035     \textcolor{keywordtype}{void} \hyperlink{class_print_ae6dc349a48650e771a4443e93bfa9c65}{printNumber}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}, uint8\_t);
+00036     \textcolor{keywordtype}{void} \hyperlink{class_print_afd7abd9d94aa5210d2d0f97e614e4625}{printFloat}(\textcolor{keywordtype}{double}, uint8\_t);
+00037   \textcolor{keyword}{public}:
+00038     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(uint8\_t) = 0;
+00039     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str);
+00040     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(\textcolor{keyword}{const} uint8\_t *\hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer}, \textcolor{keywordtype}{size\_t} size);
+00041 
+00042     \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}[]);
+00043     \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{keywordtype}{char}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_aec93e83855ac17c3c25c55c37ca186dd}{BYTE});
+00044     \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_aec93e83855ac17c3c25c55c37ca186dd}{BYTE});
+00045     \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{keywordtype}{int}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_afe38ec6126e35e40049e27fdf4586ba5}{DEC});
+00046     \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_afe38ec6126e35e40049e27fdf4586ba5}{DEC});
+00047     \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{keywordtype}{long}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_afe38ec6126e35e40049e27fdf4586ba5}{DEC});
+00048     \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_afe38ec6126e35e40049e27fdf4586ba5}{DEC});
+00049     \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{keywordtype}{double}, \textcolor{keywordtype}{int} = 2);
+00050 
+00051     \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}[]);
+00052     \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}(\textcolor{keywordtype}{char}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_aec93e83855ac17c3c25c55c37ca186dd}{BYTE});
+00053     \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_aec93e83855ac17c3c25c55c37ca186dd}{BYTE});
+00054     \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}(\textcolor{keywordtype}{int}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_afe38ec6126e35e40049e27fdf4586ba5}{DEC});
+00055     \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_afe38ec6126e35e40049e27fdf4586ba5}{DEC});
+00056     \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}(\textcolor{keywordtype}{long}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_afe38ec6126e35e40049e27fdf4586ba5}{DEC});
+00057     \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}, \textcolor{keywordtype}{int} = \hyperlink{_print_8h_afe38ec6126e35e40049e27fdf4586ba5}{DEC});
+00058     \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}(\textcolor{keywordtype}{double}, \textcolor{keywordtype}{int} = 2);
+00059     \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}(\textcolor{keywordtype}{void});
+00060 \};
+00061 
+00062 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

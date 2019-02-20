@@ -1,0 +1,221 @@
+\hypertarget{class_i_m_u_manager}{
+\section{IMUManager Class Reference}
+\label{class_i_m_u_manager}\index{IMUManager@{IMUManager}}
+}
+
+
+{\ttfamily \#include $<$IMUManager.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_i_m_u_manager_aec0011e2e088e3b81d1f12a385c1a5af}{IMUManager} ()
+\item 
+int \hyperlink{class_i_m_u_manager_ae2c5bc34781f05fabb52b2398d99a478}{AddIMU} (\hyperlink{class_i_m_u_base}{IMUBase} $\ast$pIMU)
+\item 
+int \hyperlink{class_i_m_u_manager_aca76ad7b76af18f8d382f027d6071ed3}{Configure} ()
+\item 
+void \hyperlink{class_i_m_u_manager_a4c9b9022dde07117ce33e2f10777411f}{Reset} ()
+\item 
+int \hyperlink{class_i_m_u_manager_acb5d0ef42307637d0eb5c5353c7efd23}{loop} (\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$pSerial)
+\item 
+bool \hyperlink{class_i_m_u_manager_aa5359a75b1ab7abeb7fae4c11d68f02a}{FifosReady} ()
+\item 
+void \hyperlink{class_i_m_u_manager_aeadc2e5d9e90583fbd4907ae8bdf4abc}{InitFifos} ()
+\item 
+bool \hyperlink{class_i_m_u_manager_a3506c09a57713cb85f51faa53d815246}{FifosInitialized} ()
+\item 
+void \hyperlink{class_i_m_u_manager_a249db3fbf9175733b738f2bc9fb81a99}{Stream} (uint16\_\-t cnt)
+\item 
+void \hyperlink{class_i_m_u_manager_a204f4340443daab9789f3dcb6734823f}{StreamContinuous} (bool bEnable)
+\item 
+void \hyperlink{class_i_m_u_manager_a65c8ae71428a8a842f23fd2d198e6bed}{SampleRate} (uint16\_\-t rate)
+\item 
+bool \hyperlink{class_i_m_u_manager_a1ee81029862706bba5e98f7b6bda4ba0}{StartRead} ()
+\item 
+bool \hyperlink{class_i_m_u_manager_ab03f9a4181227a8eb12f0ab7109909df}{ReadDone} ()
+\item 
+void \hyperlink{class_i_m_u_manager_a77624434206fac559a9794f992dd0411}{SendPacket} (\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$pSerial)
+\item 
+void \hyperlink{class_i_m_u_manager_acc31490b7ece3d6370f4eace6ff85ccc}{Test} ()
+\item 
+void \hyperlink{class_i_m_u_manager_a514407f52e382ea03744aa7cf3a5074b}{ShowIMURegs} ()
+\item 
+void \hyperlink{class_i_m_u_manager_a88e559e9909cb9487322c2ed486dc6a2}{CheckIDs} (\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$pSerial)
+\item 
+void \hyperlink{class_i_m_u_manager_a06c62accdb69d373fecc38cd29f7e51e}{ResetDevices} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_i_m_u_manager_aec0011e2e088e3b81d1f12a385c1a5af}{
+\index{IMUManager@{IMUManager}!IMUManager@{IMUManager}}
+\index{IMUManager@{IMUManager}!IMUManager@{IMUManager}}
+\subsubsection[{IMUManager}]{\setlength{\rightskip}{0pt plus 5cm}IMUManager::IMUManager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_aec0011e2e088e3b81d1f12a385c1a5af}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_i_m_u_manager_ae2c5bc34781f05fabb52b2398d99a478}{
+\index{IMUManager@{IMUManager}!AddIMU@{AddIMU}}
+\index{AddIMU@{AddIMU}!IMUManager@{IMUManager}}
+\subsubsection[{AddIMU}]{\setlength{\rightskip}{0pt plus 5cm}int IMUManager::AddIMU (
+\begin{DoxyParamCaption}
+\item[{{\bf IMUBase} $\ast$}]{pIMU}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_ae2c5bc34781f05fabb52b2398d99a478}
+\hypertarget{class_i_m_u_manager_a88e559e9909cb9487322c2ed486dc6a2}{
+\index{IMUManager@{IMUManager}!CheckIDs@{CheckIDs}}
+\index{CheckIDs@{CheckIDs}!IMUManager@{IMUManager}}
+\subsubsection[{CheckIDs}]{\setlength{\rightskip}{0pt plus 5cm}void IMUManager::CheckIDs (
+\begin{DoxyParamCaption}
+\item[{{\bf HardwareSerial} $\ast$}]{pSerial}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_a88e559e9909cb9487322c2ed486dc6a2}
+\hypertarget{class_i_m_u_manager_aca76ad7b76af18f8d382f027d6071ed3}{
+\index{IMUManager@{IMUManager}!Configure@{Configure}}
+\index{Configure@{Configure}!IMUManager@{IMUManager}}
+\subsubsection[{Configure}]{\setlength{\rightskip}{0pt plus 5cm}int IMUManager::Configure (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_aca76ad7b76af18f8d382f027d6071ed3}
+\hypertarget{class_i_m_u_manager_a3506c09a57713cb85f51faa53d815246}{
+\index{IMUManager@{IMUManager}!FifosInitialized@{FifosInitialized}}
+\index{FifosInitialized@{FifosInitialized}!IMUManager@{IMUManager}}
+\subsubsection[{FifosInitialized}]{\setlength{\rightskip}{0pt plus 5cm}bool IMUManager::FifosInitialized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_a3506c09a57713cb85f51faa53d815246}
+\hypertarget{class_i_m_u_manager_aa5359a75b1ab7abeb7fae4c11d68f02a}{
+\index{IMUManager@{IMUManager}!FifosReady@{FifosReady}}
+\index{FifosReady@{FifosReady}!IMUManager@{IMUManager}}
+\subsubsection[{FifosReady}]{\setlength{\rightskip}{0pt plus 5cm}bool IMUManager::FifosReady (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_aa5359a75b1ab7abeb7fae4c11d68f02a}
+\hypertarget{class_i_m_u_manager_aeadc2e5d9e90583fbd4907ae8bdf4abc}{
+\index{IMUManager@{IMUManager}!InitFifos@{InitFifos}}
+\index{InitFifos@{InitFifos}!IMUManager@{IMUManager}}
+\subsubsection[{InitFifos}]{\setlength{\rightskip}{0pt plus 5cm}void IMUManager::InitFifos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_aeadc2e5d9e90583fbd4907ae8bdf4abc}
+\hypertarget{class_i_m_u_manager_acb5d0ef42307637d0eb5c5353c7efd23}{
+\index{IMUManager@{IMUManager}!loop@{loop}}
+\index{loop@{loop}!IMUManager@{IMUManager}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}int IMUManager::loop (
+\begin{DoxyParamCaption}
+\item[{{\bf HardwareSerial} $\ast$}]{pSerial}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_acb5d0ef42307637d0eb5c5353c7efd23}
+\hypertarget{class_i_m_u_manager_ab03f9a4181227a8eb12f0ab7109909df}{
+\index{IMUManager@{IMUManager}!ReadDone@{ReadDone}}
+\index{ReadDone@{ReadDone}!IMUManager@{IMUManager}}
+\subsubsection[{ReadDone}]{\setlength{\rightskip}{0pt plus 5cm}bool IMUManager::ReadDone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_ab03f9a4181227a8eb12f0ab7109909df}
+\hypertarget{class_i_m_u_manager_a4c9b9022dde07117ce33e2f10777411f}{
+\index{IMUManager@{IMUManager}!Reset@{Reset}}
+\index{Reset@{Reset}!IMUManager@{IMUManager}}
+\subsubsection[{Reset}]{\setlength{\rightskip}{0pt plus 5cm}void IMUManager::Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_a4c9b9022dde07117ce33e2f10777411f}
+\hypertarget{class_i_m_u_manager_a06c62accdb69d373fecc38cd29f7e51e}{
+\index{IMUManager@{IMUManager}!ResetDevices@{ResetDevices}}
+\index{ResetDevices@{ResetDevices}!IMUManager@{IMUManager}}
+\subsubsection[{ResetDevices}]{\setlength{\rightskip}{0pt plus 5cm}void IMUManager::ResetDevices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_a06c62accdb69d373fecc38cd29f7e51e}
+\hypertarget{class_i_m_u_manager_a65c8ae71428a8a842f23fd2d198e6bed}{
+\index{IMUManager@{IMUManager}!SampleRate@{SampleRate}}
+\index{SampleRate@{SampleRate}!IMUManager@{IMUManager}}
+\subsubsection[{SampleRate}]{\setlength{\rightskip}{0pt plus 5cm}void IMUManager::SampleRate (
+\begin{DoxyParamCaption}
+\item[{uint16\_\-t}]{rate}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_a65c8ae71428a8a842f23fd2d198e6bed}
+\hypertarget{class_i_m_u_manager_a77624434206fac559a9794f992dd0411}{
+\index{IMUManager@{IMUManager}!SendPacket@{SendPacket}}
+\index{SendPacket@{SendPacket}!IMUManager@{IMUManager}}
+\subsubsection[{SendPacket}]{\setlength{\rightskip}{0pt plus 5cm}void IMUManager::SendPacket (
+\begin{DoxyParamCaption}
+\item[{{\bf HardwareSerial} $\ast$}]{pSerial}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_a77624434206fac559a9794f992dd0411}
+\hypertarget{class_i_m_u_manager_a514407f52e382ea03744aa7cf3a5074b}{
+\index{IMUManager@{IMUManager}!ShowIMURegs@{ShowIMURegs}}
+\index{ShowIMURegs@{ShowIMURegs}!IMUManager@{IMUManager}}
+\subsubsection[{ShowIMURegs}]{\setlength{\rightskip}{0pt plus 5cm}void IMUManager::ShowIMURegs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_a514407f52e382ea03744aa7cf3a5074b}
+\hypertarget{class_i_m_u_manager_a1ee81029862706bba5e98f7b6bda4ba0}{
+\index{IMUManager@{IMUManager}!StartRead@{StartRead}}
+\index{StartRead@{StartRead}!IMUManager@{IMUManager}}
+\subsubsection[{StartRead}]{\setlength{\rightskip}{0pt plus 5cm}bool IMUManager::StartRead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_a1ee81029862706bba5e98f7b6bda4ba0}
+\hypertarget{class_i_m_u_manager_a249db3fbf9175733b738f2bc9fb81a99}{
+\index{IMUManager@{IMUManager}!Stream@{Stream}}
+\index{Stream@{Stream}!IMUManager@{IMUManager}}
+\subsubsection[{Stream}]{\setlength{\rightskip}{0pt plus 5cm}void IMUManager::Stream (
+\begin{DoxyParamCaption}
+\item[{uint16\_\-t}]{cnt}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_a249db3fbf9175733b738f2bc9fb81a99}
+\hypertarget{class_i_m_u_manager_a204f4340443daab9789f3dcb6734823f}{
+\index{IMUManager@{IMUManager}!StreamContinuous@{StreamContinuous}}
+\index{StreamContinuous@{StreamContinuous}!IMUManager@{IMUManager}}
+\subsubsection[{StreamContinuous}]{\setlength{\rightskip}{0pt plus 5cm}void IMUManager::StreamContinuous (
+\begin{DoxyParamCaption}
+\item[{bool}]{bEnable}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_a204f4340443daab9789f3dcb6734823f}
+\hypertarget{class_i_m_u_manager_acc31490b7ece3d6370f4eace6ff85ccc}{
+\index{IMUManager@{IMUManager}!Test@{Test}}
+\index{Test@{Test}!IMUManager@{IMUManager}}
+\subsubsection[{Test}]{\setlength{\rightskip}{0pt plus 5cm}void IMUManager::Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_manager_acc31490b7ece3d6370f4eace6ff85ccc}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+inc/\hyperlink{_i_m_u_manager_8h}{IMUManager.h}\item 
+\hyperlink{_i_m_u_manager_8cpp}{IMUManager.cpp}\end{DoxyCompactItemize}

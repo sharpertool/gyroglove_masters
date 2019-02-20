@@ -1,0 +1,1099 @@
+\hypertarget{class_i_m_u_dual}{
+\section{IMUDual Class Reference}
+\label{class_i_m_u_dual}\index{IMUDual@{IMUDual}}
+}
+
+
+{\ttfamily \#include $<$IMU.h$>$}
+
+Inheritance diagram for IMUDual:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_m_u_dual}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_i_m_u_dual_a2ed39a55c175fb30d7134e69ca52f843}{IMUDual} (I2C\_\-Master $\ast$pMas, uint8\_\-t gIDa, uint8\_\-t aIDa, uint8\_\-t gIDb, uint8\_\-t aIDb)
+\item 
+virtual int \hyperlink{class_i_m_u_dual_ae326dfce6b8c72be8a1b96fc3026433f}{Configure} ()
+\item 
+virtual void \hyperlink{class_i_m_u_dual_a16b0be8e87ddae48c0aff3f4a5163782}{Reset} ()
+\item 
+virtual void \hyperlink{class_i_m_u_dual_a3b8833e2319c7d9765d5e0fa8d3cad73}{SampleRate} (uint16\_\-t)
+\item 
+virtual int \hyperlink{class_i_m_u_dual_abebeced0d1a36d9d0b37a5dd02e76967}{StartRead} ()
+\item 
+virtual bool \hyperlink{class_i_m_u_dual_a12128daebec97b4c946cd29b784593c2}{ReadDone} ()
+\item 
+virtual bool \hyperlink{class_i_m_u_dual_ad36d7920ec4fbc369ee5327157f315f5}{Busy} ()
+\item 
+virtual bool \hyperlink{class_i_m_u_dual_a34fa8e7a4996a0857fed465744a2bbf6}{FifoReady} ()
+\item 
+virtual void \hyperlink{class_i_m_u_dual_afe0d19f1f62dfc9f293521323ef5ad69}{InitFifo} ()
+\item 
+virtual bool \hyperlink{class_i_m_u_dual_ac33359e3c7d79338c22c89571849c8eb}{FifoInitialized} ()
+\item 
+virtual void \hyperlink{class_i_m_u_dual_a7305a65feb3b8da6e835aaced51946a1}{I2CWriteDone} ()
+\item 
+virtual void \hyperlink{class_i_m_u_dual_a2ebf9da7dc74187623f4594c795b601f}{I2CReadDone} ()
+\item 
+virtual uint8\_\-t $\ast$ \hyperlink{class_i_m_u_dual_aec32a1b0299d51446d3dbfd3ef4c1da5}{ReadData} (uint8\_\-t $\ast$)
+\item 
+virtual void \hyperlink{class_i_m_u_dual_aed63de656cce83f805a9aa7a1ea81316}{ShowRegs} ()
+\item 
+virtual void \hyperlink{class_i_m_u_dual_a84d1495f1ddcaecedf0d63a18ca63e04}{CheckIDs} (\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$pSerial)
+\item 
+virtual void \hyperlink{class_i_m_u_dual_a7116532b2c043e0ab6cf8637f10fe40a}{ResetDevices} ()
+\item 
+virtual void \hyperlink{class_i_m_u_dual_a8de7c76490e9e6dba85b89cdb1acbaae}{FifoReset} ()
+\item 
+virtual void \hyperlink{class_i_m_u_dual_ad80ad278357955e7c4f0c51f47c257e3}{EnableFifos} ()
+\item 
+virtual void \hyperlink{class_i_m_u_dual_aa706d010bb2b1f4f2d353feb24e1f77f}{SendStop} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_i_m_u_dual_a928628c54fe67f896fa9834ecf5b987c}{StartRead} (uint8\_\-t idx)
+\item 
+void \hyperlink{class_i_m_u_dual_a09f6c845e4bb6d87ef434973eec21f92}{SaveFifoData} (uint8\_\-t idx)
+\item 
+int \hyperlink{class_i_m_u_dual_a41115fb579ed56da574cf8a3dea4cc48}{Wr} (uint8\_\-t ID, uint8\_\-t addr, uint8\_\-t data)
+\item 
+int \hyperlink{class_i_m_u_dual_aa9379ac87a98fad0dfba875b15d46342}{Rd} (uint8\_\-t ID, uint8\_\-t addr, uint8\_\-t cnt, uint8\_\-t $\ast$pData)
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130}{StateType} \{ \hyperlink{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130ae97f67f10b368c8def8f3d6d3af451e4}{sIdle}, 
+\hyperlink{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130aac9c953c0f73be153d44739fec823482}{sRead1}, 
+\hyperlink{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130a8c3de54a355ac16e3138c4affc319167}{sRead2}, 
+\hyperlink{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130a6d6e56fa69cf9f745b252fc4d619f4d1}{sReadDone}
+ \}
+\item 
+typedef enum \hyperlink{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130}{IMUDual::StateType} \hyperlink{class_i_m_u_dual_aab61cd505dbf9488df565a47e16575c2}{StateType}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130}{StateType} \hyperlink{class_i_m_u_dual_a6184224433fae8f33293b892f57cae3b}{\_\-State}
+\item 
+I2C\_\-Master $\ast$ \hyperlink{class_i_m_u_dual_a6e458f7bb91f9c057741019e42ae196d}{\_\-pMas}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_dual_a79c9ddf3a83582dbd9e9e4192361d3a4}{\_\-gID} \mbox{[}2\mbox{]}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_dual_a093961f13f8477da2ce6c9cdc16f1157}{\_\-aID} \mbox{[}2\mbox{]}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_dual_a7778bbcb689a8f8c2fdfbea9f1b6d79f}{\_\-DLPF}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_dual_a5d84d161adb012a2f92d50257fa6a74b}{\_\-FullScale}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_dual_a4ed556add0ea74046369ce6d8ba46023}{\_\-ClkSel}
+\item 
+uint16\_\-t \hyperlink{class_i_m_u_dual_af258a53def9b232203afc862c03a69af}{\_\-Rate}
+\item 
+bool \hyperlink{class_i_m_u_dual_ab1fe39075227813321890dfd4dd52335}{\_\-bInTransaction}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_dual_a9829db814da67788dd4250d95784c730}{\_\-fifoData} \mbox{[}2\mbox{]}\mbox{[}20\mbox{]}
+\item 
+bool \hyperlink{class_i_m_u_dual_ac66a95d57cefcdbe0acbde0f3678de70}{\_\-bFifosInitialized}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 84 of file IMU.h.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_i_m_u_dual_aab61cd505dbf9488df565a47e16575c2}{
+\index{IMUDual@{IMUDual}!StateType@{StateType}}
+\index{StateType@{StateType}!IMUDual@{IMUDual}}
+\subsubsection[{StateType}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf IMUDual::StateType}  {\bf IMUDual::StateType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_aab61cd505dbf9488df565a47e16575c2}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130}{
+\index{IMUDual@{IMUDual}!StateType@{StateType}}
+\index{StateType@{StateType}!IMUDual@{IMUDual}}
+\subsubsection[{StateType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf IMUDual::StateType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{sIdle@{sIdle}!IMUDual@{IMUDual}}\index{IMUDual@{IMUDual}!sIdle@{sIdle}}\item[{\em 
+\hypertarget{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130ae97f67f10b368c8def8f3d6d3af451e4}{
+sIdle}
+\label{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130ae97f67f10b368c8def8f3d6d3af451e4}
+}]\index{sRead1@{sRead1}!IMUDual@{IMUDual}}\index{IMUDual@{IMUDual}!sRead1@{sRead1}}\item[{\em 
+\hypertarget{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130aac9c953c0f73be153d44739fec823482}{
+sRead1}
+\label{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130aac9c953c0f73be153d44739fec823482}
+}]\index{sRead2@{sRead2}!IMUDual@{IMUDual}}\index{IMUDual@{IMUDual}!sRead2@{sRead2}}\item[{\em 
+\hypertarget{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130a8c3de54a355ac16e3138c4affc319167}{
+sRead2}
+\label{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130a8c3de54a355ac16e3138c4affc319167}
+}]\index{sReadDone@{sReadDone}!IMUDual@{IMUDual}}\index{IMUDual@{IMUDual}!sReadDone@{sReadDone}}\item[{\em 
+\hypertarget{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130a6d6e56fa69cf9f745b252fc4d619f4d1}{
+sReadDone}
+\label{class_i_m_u_dual_a7378a5e321c03f3ef77e4f4f710f0130a6d6e56fa69cf9f745b252fc4d619f4d1}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 87 of file IMU.h.
+
+
+\begin{DoxyCode}
+                           {
+        sIdle, sRead1, sRead2, sReadDone
+    } StateType;
+\end{DoxyCode}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_i_m_u_dual_a2ed39a55c175fb30d7134e69ca52f843}{
+\index{IMUDual@{IMUDual}!IMUDual@{IMUDual}}
+\index{IMUDual@{IMUDual}!IMUDual@{IMUDual}}
+\subsubsection[{IMUDual}]{\setlength{\rightskip}{0pt plus 5cm}IMUDual::IMUDual (
+\begin{DoxyParamCaption}
+\item[{I2C\_\-Master $\ast$}]{pMas, }
+\item[{uint8\_\-t}]{gIDa, }
+\item[{uint8\_\-t}]{aIDa, }
+\item[{uint8\_\-t}]{gIDb, }
+\item[{uint8\_\-t}]{aIDb}
+\end{DoxyParamCaption}
+)}}
+\label{class_i_m_u_dual_a2ed39a55c175fb30d7134e69ca52f843}
+
+
+Definition at line 15 of file IMUDual.cpp.
+
+
+
+References \_\-aID, \_\-ClkSel, \_\-DLPF, \_\-FullScale, \_\-gID, \_\-pMas, \_\-Rate, \_\-State, and sIdle.
+
+
+\begin{DoxyCode}
+{
+    _gID[0]     = gIDa;
+    _aID[0]     = aIDa;
+    _gID[1]     = gIDb;
+    _aID[1]     = aIDb;
+    _pMas       = pMas;
+    _DLPF       = 0x1;
+    _FullScale  = 0x1;
+    _ClkSel     = 0x1;
+    _Rate       = 10;
+    _State      = sIdle;
+    _pMas->NotifyMe(this);
+}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_i_m_u_dual_ad36d7920ec4fbc369ee5327157f315f5}{
+\index{IMUDual@{IMUDual}!Busy@{Busy}}
+\index{Busy@{Busy}!IMUDual@{IMUDual}}
+\subsubsection[{Busy}]{\setlength{\rightskip}{0pt plus 5cm}bool IMUDual::Busy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_ad36d7920ec4fbc369ee5327157f315f5}
+
+
+Implements \hyperlink{class_i_m_u_base_adb8539af8660d291fdde1f38b3d644f3}{IMUBase}.
+
+
+
+Definition at line 109 of file IMUDual.cpp.
+
+
+
+References \_\-State, and sIdle.
+
+
+\begin{DoxyCode}
+{
+    return _State != sIdle;
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a84d1495f1ddcaecedf0d63a18ca63e04}{
+\index{IMUDual@{IMUDual}!CheckIDs@{CheckIDs}}
+\index{CheckIDs@{CheckIDs}!IMUDual@{IMUDual}}
+\subsubsection[{CheckIDs}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::CheckIDs (
+\begin{DoxyParamCaption}
+\item[{{\bf HardwareSerial} $\ast$}]{pSerial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_a84d1495f1ddcaecedf0d63a18ca63e04}
+
+
+Implements \hyperlink{class_i_m_u_base_ab920218bb6630f9e91ef7d0f07599203}{IMUBase}.
+
+
+
+Definition at line 279 of file IMUDual.cpp.
+
+
+
+References \_\-aID, \_\-gID, \_\-pMas, buffer, Print::print(), and Wr().
+
+
+\begin{DoxyCode}
+{
+    char buffer[50];
+    for (int x=0;x<2;x++) {
+        int retc = _pMas->CheckID(_gID[x]);
+        if (retc == 0) {
+            pSerial->print("Gyro:Ack.\n");
+        } else {
+            sprintf(buffer,"Gyro:NAck (%d).\n",retc);
+            pSerial->print(buffer);
+        }
+        Wr(_gID[x], 0x3D, 0x8);
+        retc = _pMas->CheckID(_aID[x]);
+        if (retc == 0) {
+            pSerial->print("Acc:Ack.\n");
+        } else {
+            sprintf(buffer,"Acc:NAck (%d).\n",retc);
+            pSerial->print(buffer);
+        }
+    }
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_ae326dfce6b8c72be8a1b96fc3026433f}{
+\index{IMUDual@{IMUDual}!Configure@{Configure}}
+\index{Configure@{Configure}!IMUDual@{IMUDual}}
+\subsubsection[{Configure}]{\setlength{\rightskip}{0pt plus 5cm}int IMUDual::Configure (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_ae326dfce6b8c72be8a1b96fc3026433f}
+
+
+Implements \hyperlink{class_i_m_u_base_acfba657b3180a5f4fa33c77aea70bdea}{IMUBase}.
+
+
+
+Definition at line 60 of file IMUDual.cpp.
+
+
+
+References \_\-aID, \_\-ClkSel, \_\-DLPF, \_\-FullScale, \_\-gID, \_\-Rate, and Wr().
+
+
+\begin{DoxyCode}
+{
+    uint16_t gval = 1000/_Rate;
+    gval = gval - 1;
+    for (int x=0;x<2;x++) {
+        // set IMU3000 Passthrough
+        Wr(_gID[x], 0x3D, 0x8);
+        
+        // Setup the LIS331
+        Wr(_aID[x], 0x20, 0x37);
+        Wr(_aID[x], 0x21, 0x0);
+        Wr(_aID[x], 0x22, 0x0);
+        Wr(_aID[x], 0x23, 0x80 | 0x40);
+        Wr(_aID[x], 0x24, 0x00);
+        
+        // Configure the IMU3000
+        uint8_t addr;
+        for (addr = 0x12;addr < 0x18;addr++) {
+            Wr(_gID[x],addr,0x0);
+        }
+        
+        Wr(_gID[x], 0x12,0xff);         // Enable all outputs to to the fifo
+        Wr(_gID[x], 0x13,0x00);
+        Wr(_gID[x], 0x14,_aID[x] >> 1);    // Set slave address of ACC
+        //Wr(_gID[x], 0x15,4);            // Set sample rate to 200Hz
+        Wr(_gID[x], 0x15,gval);            // Set sample rate to 10Hz for testing
+      .
+        Wr(_gID[x], 0x16,_DLPF | _FullScale << 3);
+        Wr(_gID[x], 0x18,0x80 | 0x28);  // Set burst address for Accelerometer, e
+      nable auto addr increment.
+        Wr(_gID[x], 0x3E,_ClkSel);
+    
+        // Turn off passthrough    
+        Wr(_gID[x], 0x3D,0x28);
+    }
+
+        return 0;
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_ad80ad278357955e7c4f0c51f47c257e3}{
+\index{IMUDual@{IMUDual}!EnableFifos@{EnableFifos}}
+\index{EnableFifos@{EnableFifos}!IMUDual@{IMUDual}}
+\subsubsection[{EnableFifos}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::EnableFifos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_ad80ad278357955e7c4f0c51f47c257e3}
+
+
+Implements \hyperlink{class_i_m_u_base_a4c0e8d0b889e29738a268cc71296862a}{IMUBase}.
+
+
+
+Definition at line 316 of file IMUDual.cpp.
+
+
+
+References \_\-gID, and Wr().
+
+
+\begin{DoxyCode}
+{
+    for (int x=0;x<2;x++) {
+        
+        Wr(_gID[x], 0x3D, 0x62);
+    }
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_ac33359e3c7d79338c22c89571849c8eb}{
+\index{IMUDual@{IMUDual}!FifoInitialized@{FifoInitialized}}
+\index{FifoInitialized@{FifoInitialized}!IMUDual@{IMUDual}}
+\subsubsection[{FifoInitialized}]{\setlength{\rightskip}{0pt plus 5cm}bool IMUDual::FifoInitialized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_ac33359e3c7d79338c22c89571849c8eb}
+
+
+Implements \hyperlink{class_i_m_u_base_a348707fb32602948fd865f3179e854b7}{IMUBase}.
+
+
+
+Definition at line 225 of file IMUDual.cpp.
+
+
+
+References \_\-bFifosInitialized, \_\-gID, FifoReady(), Print::print(), and Rd().
+
+
+\begin{DoxyCode}
+{
+    bool    bReady = _bFifosInitialized;
+    if (!bReady) {
+        if (FifoReady()) {
+            uint8_t  data[14];
+            Rd(_gID[0], 0x3C, 14,&data[0]); 
+            Rd(_gID[1], 0x3C, 14,&data[0]); 
+            bReady = true;
+            _bFifosInitialized = true;
+            pdbgserial->print("Fifo Initialized\n");
+        }
+    }
+    return bReady;
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a34fa8e7a4996a0857fed465744a2bbf6}{
+\index{IMUDual@{IMUDual}!FifoReady@{FifoReady}}
+\index{FifoReady@{FifoReady}!IMUDual@{IMUDual}}
+\subsubsection[{FifoReady}]{\setlength{\rightskip}{0pt plus 5cm}bool IMUDual::FifoReady (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_a34fa8e7a4996a0857fed465744a2bbf6}
+
+
+Implements \hyperlink{class_i_m_u_base_a32f6d0c3785c0449c1a5fed912fed7af}{IMUBase}.
+
+
+
+Definition at line 176 of file IMUDual.cpp.
+
+
+
+References \_\-gID, and Rd().
+
+
+
+Referenced by FifoInitialized().
+
+
+\begin{DoxyCode}
+{
+    uint16_t    fifoCnt[2];
+    uint8_t     rdData[2];
+    bool        bReady = false;
+    
+    // Not checking return, assume both work!
+    Rd(_gID[0],0x3A, 2, &rdData[0]); 
+    fifoCnt[0] = (rdData[0] & 0x3) << 8 | rdData[1];
+    Rd(_gID[1],0x3A, 2, &rdData[0]);
+    fifoCnt[1] = (rdData[0] & 0x3) << 8 | rdData[1];
+    
+    //sprintf(buffer,"FifoCnt: %x %x\n",fifoCnt[0], fifoCnt[1]);
+    //pdbgserial->print(buffer);
+    
+    //_bFifosInitialized ?
+    //    bReady = (fifoCnt[0] > 15 && fifoCnt[1] > 15) : 
+    //    bReady = (fifoCnt[0] > 13 && fifoCnt[1] > 13); 
+    bReady = (fifoCnt[0] > 15 && fifoCnt[1] > 15);
+
+    return bReady;
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a8de7c76490e9e6dba85b89cdb1acbaae}{
+\index{IMUDual@{IMUDual}!FifoReset@{FifoReset}}
+\index{FifoReset@{FifoReset}!IMUDual@{IMUDual}}
+\subsubsection[{FifoReset}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::FifoReset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_a8de7c76490e9e6dba85b89cdb1acbaae}
+
+
+Implements \hyperlink{class_i_m_u_base_a65271ff98650f98af2ae752bf3a79f69}{IMUBase}.
+
+
+
+Definition at line 306 of file IMUDual.cpp.
+
+
+
+References \_\-gID, Rd(), and Wr().
+
+
+\begin{DoxyCode}
+{
+    uint8_t rdData;
+    for (int x=0;x<2;x++) {
+        
+        Wr(_gID[x], 0x3D, 0x1f); // Turn off fifo, reset.
+        Rd(_gID[x], 0x1A, 1, &rdData);
+    }
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a2ebf9da7dc74187623f4594c795b601f}{
+\index{IMUDual@{IMUDual}!I2CReadDone@{I2CReadDone}}
+\index{I2CReadDone@{I2CReadDone}!IMUDual@{IMUDual}}
+\subsubsection[{I2CReadDone}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::I2CReadDone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_a2ebf9da7dc74187623f4594c795b601f}
+
+
+Definition at line 251 of file IMUDual.cpp.
+
+
+
+References \_\-State, Print::print(), SaveFifoData(), sIdle, sRead1, sRead2, sReadDone, and StartRead().
+
+
+\begin{DoxyCode}
+{
+    switch(_State) {
+    case sRead1:
+        // The first part of the read finished, start part 2
+        // and set the state.
+        SaveFifoData(0);
+        _State = sRead2;
+        if (StartRead(1) == 0) {
+            pdbgserial->print("IMUDual State => sRead2\n");
+        } else {
+            _State = sIdle; // not sure what else to do???
+            pdbgserial->print("Bad Start, going to Idle\n");
+
+        }
+        break;
+    case sRead2:
+        // Both reads are done now...
+        _State = sReadDone;
+        SaveFifoData(1);
+        pdbgserial->print("IMUDual State => sReadDone\n");
+        break;
+    default:
+        break;
+    }
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a7305a65feb3b8da6e835aaced51946a1}{
+\index{IMUDual@{IMUDual}!I2CWriteDone@{I2CWriteDone}}
+\index{I2CWriteDone@{I2CWriteDone}!IMUDual@{IMUDual}}
+\subsubsection[{I2CWriteDone}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::I2CWriteDone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_a7305a65feb3b8da6e835aaced51946a1}
+
+
+Definition at line 243 of file IMUDual.cpp.
+
+
+\begin{DoxyCode}
+{
+    // We don't really do anything here.. we do not have
+    // any asynchronous write routines.
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_afe0d19f1f62dfc9f293521323ef5ad69}{
+\index{IMUDual@{IMUDual}!InitFifo@{InitFifo}}
+\index{InitFifo@{InitFifo}!IMUDual@{IMUDual}}
+\subsubsection[{InitFifo}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::InitFifo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_afe0d19f1f62dfc9f293521323ef5ad69}
+
+
+Implements \hyperlink{class_i_m_u_base_a99b174cbf4a7829c4152ec304cd050c6}{IMUBase}.
+
+
+
+Definition at line 203 of file IMUDual.cpp.
+
+
+
+References \_\-bFifosInitialized, \_\-gID, buffer, Print::print(), Rd(), and Wr().
+
+
+\begin{DoxyCode}
+{
+    Wr(_gID[0], 0x3D, 0x62);
+    Wr(_gID[1], 0x3D, 0x62);
+    
+    _bFifosInitialized = false;
+    
+#ifdef DEBUG
+    // This was for debug.. not needed normally.
+    uint8_t rddata[2];
+    Rd(_gID[0], 0x3D, 1,&rddata[0]); 
+    Rd(_gID[1], 0x3D, 1,&rddata[1]); 
+    sprintf(buffer,"Fifo Init: 0x3D is 0x%x 0x%x\n",
+        rddata[0],rddata[1]);
+    pdbgserial->print(buffer);
+#endif
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_aa9379ac87a98fad0dfba875b15d46342}{
+\index{IMUDual@{IMUDual}!Rd@{Rd}}
+\index{Rd@{Rd}!IMUDual@{IMUDual}}
+\subsubsection[{Rd}]{\setlength{\rightskip}{0pt plus 5cm}int IMUDual::Rd (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{ID, }
+\item[{uint8\_\-t}]{addr, }
+\item[{uint8\_\-t}]{cnt, }
+\item[{uint8\_\-t $\ast$}]{pData}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_i_m_u_dual_aa9379ac87a98fad0dfba875b15d46342}
+
+
+Definition at line 40 of file IMUDual.cpp.
+
+
+
+References \_\-pMas.
+
+
+
+Referenced by FifoInitialized(), FifoReady(), FifoReset(), and InitFifo().
+
+
+\begin{DoxyCode}
+{
+    // Only a single write, the address, then read data.
+    int retc = _pMas->WriteReadSync(ID, &addr, 1, cnt);
+    if ( retc < 0 ) {
+        return retc;
+    }
+    return _pMas->ReadData(pData,cnt);
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_aec32a1b0299d51446d3dbfd3ef4c1da5}{
+\index{IMUDual@{IMUDual}!ReadData@{ReadData}}
+\index{ReadData@{ReadData}!IMUDual@{IMUDual}}
+\subsubsection[{ReadData}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t $\ast$ IMUDual::ReadData (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t $\ast$}]{pData}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_aec32a1b0299d51446d3dbfd3ef4c1da5}
+
+
+Implements \hyperlink{class_i_m_u_base_a647e91a419a864f9e48a79a80cc1d486}{IMUBase}.
+
+
+
+Definition at line 148 of file IMUDual.cpp.
+
+
+
+References \_\-fifoData.
+
+
+\begin{DoxyCode}
+{
+    //*pData++ = 14;
+    *pData++ = 0xa5;
+    *pData++ = 0x5a;
+    memcpy(pData,&_fifoData[0][0],18);
+    pData += 18;
+    //*pData++ = 14;
+    *pData++ = 0xa5;
+    *pData++ = 0x5a;
+    memcpy(pData,&_fifoData[1][0],18);
+    pData += 18;
+    return pData;
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a12128daebec97b4c946cd29b784593c2}{
+\index{IMUDual@{IMUDual}!ReadDone@{ReadDone}}
+\index{ReadDone@{ReadDone}!IMUDual@{IMUDual}}
+\subsubsection[{ReadDone}]{\setlength{\rightskip}{0pt plus 5cm}bool IMUDual::ReadDone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_a12128daebec97b4c946cd29b784593c2}
+
+
+Implements \hyperlink{class_i_m_u_base_ad4de430f52eb88e699053c2b45e263cf}{IMUBase}.
+
+
+
+Definition at line 164 of file IMUDual.cpp.
+
+
+
+References \_\-State, and sReadDone.
+
+
+\begin{DoxyCode}
+{
+    if (_State == sReadDone) {
+        return true;
+    }
+    return false;
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a16b0be8e87ddae48c0aff3f4a5163782}{
+\index{IMUDual@{IMUDual}!Reset@{Reset}}
+\index{Reset@{Reset}!IMUDual@{IMUDual}}
+\subsubsection[{Reset}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_a16b0be8e87ddae48c0aff3f4a5163782}
+
+
+Implements \hyperlink{class_i_m_u_base_a27fdd96992dfa8867943407fc400d071}{IMUBase}.
+
+
+
+Definition at line 97 of file IMUDual.cpp.
+
+
+
+References \_\-pMas, \_\-State, and sIdle.
+
+
+\begin{DoxyCode}
+{
+    _pMas->end();
+    _pMas->begin(400e3);
+    _pMas->NotifyMe(this);
+    _State      = sIdle;
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a7116532b2c043e0ab6cf8637f10fe40a}{
+\index{IMUDual@{IMUDual}!ResetDevices@{ResetDevices}}
+\index{ResetDevices@{ResetDevices}!IMUDual@{IMUDual}}
+\subsubsection[{ResetDevices}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::ResetDevices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_a7116532b2c043e0ab6cf8637f10fe40a}
+
+
+Implements \hyperlink{class_i_m_u_base_a78622fbfb40a5bbee5e83bb8a0780d04}{IMUBase}.
+
+
+
+Definition at line 301 of file IMUDual.cpp.
+
+
+
+References \_\-pMas.
+
+
+\begin{DoxyCode}
+{
+    _pMas->Stop();
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a3b8833e2319c7d9765d5e0fa8d3cad73}{
+\index{IMUDual@{IMUDual}!SampleRate@{SampleRate}}
+\index{SampleRate@{SampleRate}!IMUDual@{IMUDual}}
+\subsubsection[{SampleRate}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::SampleRate (
+\begin{DoxyParamCaption}
+\item[{uint16\_\-t}]{rate}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_a3b8833e2319c7d9765d5e0fa8d3cad73}
+
+
+Implements \hyperlink{class_i_m_u_base_ad4f6b6562edc0e2b76591d0deca191d7}{IMUBase}.
+
+
+
+Definition at line 51 of file IMUDual.cpp.
+
+
+
+References \_\-gID, \_\-Rate, and Wr().
+
+
+\begin{DoxyCode}
+{
+    _Rate = rate;
+    uint16_t gval = 1000/rate;
+    gval = gval - 1;
+    Wr(_gID[0], 0x15,gval);
+    Wr(_gID[1], 0x15,gval);
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a09f6c845e4bb6d87ef434973eec21f92}{
+\index{IMUDual@{IMUDual}!SaveFifoData@{SaveFifoData}}
+\index{SaveFifoData@{SaveFifoData}!IMUDual@{IMUDual}}
+\subsubsection[{SaveFifoData}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::SaveFifoData (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_i_m_u_dual_a09f6c845e4bb6d87ef434973eec21f92}
+
+
+Definition at line 143 of file IMUDual.cpp.
+
+
+
+References \_\-fifoData, and \_\-pMas.
+
+
+
+Referenced by I2CReadDone().
+
+
+\begin{DoxyCode}
+{
+    _pMas->ReadData(&_fifoData[idx][0],18);
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_aa706d010bb2b1f4f2d353feb24e1f77f}{
+\index{IMUDual@{IMUDual}!SendStop@{SendStop}}
+\index{SendStop@{SendStop}!IMUDual@{IMUDual}}
+\subsubsection[{SendStop}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::SendStop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_aa706d010bb2b1f4f2d353feb24e1f77f}
+
+
+Implements \hyperlink{class_i_m_u_base_adc39497c112af769c077b9990d94c158}{IMUBase}.
+
+
+
+Definition at line 324 of file IMUDual.cpp.
+
+
+
+References \_\-pMas.
+
+
+\begin{DoxyCode}
+{
+    _pMas->Stop();
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_aed63de656cce83f805a9aa7a1ea81316}{
+\index{IMUDual@{IMUDual}!ShowRegs@{ShowRegs}}
+\index{ShowRegs@{ShowRegs}!IMUDual@{IMUDual}}
+\subsubsection[{ShowRegs}]{\setlength{\rightskip}{0pt plus 5cm}void IMUDual::ShowRegs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_aed63de656cce83f805a9aa7a1ea81316}
+
+
+Implements \hyperlink{class_i_m_u_base_a5e625d43a8a6152d871cc3601e8e6d02}{IMUBase}.
+
+
+
+Definition at line 105 of file IMUDual.cpp.
+
+
+\begin{DoxyCode}
+{
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_abebeced0d1a36d9d0b37a5dd02e76967}{
+\index{IMUDual@{IMUDual}!StartRead@{StartRead}}
+\index{StartRead@{StartRead}!IMUDual@{IMUDual}}
+\subsubsection[{StartRead}]{\setlength{\rightskip}{0pt plus 5cm}int IMUDual::StartRead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_i_m_u_dual_abebeced0d1a36d9d0b37a5dd02e76967}
+
+
+Implements \hyperlink{class_i_m_u_base_a167a59e44c642d113e44fb2aa9677330}{IMUBase}.
+
+
+
+Definition at line 118 of file IMUDual.cpp.
+
+
+
+References \_\-State, Print::print(), sIdle, and sRead1.
+
+
+
+Referenced by I2CReadDone().
+
+
+\begin{DoxyCode}
+{
+    _State  = sRead1;
+    if (StartRead(0) == 0) {
+        pdbgserial->print("StartRead Ok\n");
+    } else {
+        _State = sIdle;
+        pdbgserial->print("StartRead Failed\n");
+    }
+
+        return 0;
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a928628c54fe67f896fa9834ecf5b987c}{
+\index{IMUDual@{IMUDual}!StartRead@{StartRead}}
+\index{StartRead@{StartRead}!IMUDual@{IMUDual}}
+\subsubsection[{StartRead}]{\setlength{\rightskip}{0pt plus 5cm}int IMUDual::StartRead (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_i_m_u_dual_a928628c54fe67f896fa9834ecf5b987c}
+
+
+Definition at line 131 of file IMUDual.cpp.
+
+
+
+References \_\-gID, and \_\-pMas.
+
+
+\begin{DoxyCode}
+{
+    uint8_t addr = 0x3A; // Fifo Data Address.
+    int retc = _pMas->WriteRead(_gID[idx], &addr, 1, 18);
+    //sprintf(buffer,"StartRead %d\n",idx);
+    //pdbgserial->print(buffer);
+
+    return retc;
+}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_dual_a41115fb579ed56da574cf8a3dea4cc48}{
+\index{IMUDual@{IMUDual}!Wr@{Wr}}
+\index{Wr@{Wr}!IMUDual@{IMUDual}}
+\subsubsection[{Wr}]{\setlength{\rightskip}{0pt plus 5cm}int IMUDual::Wr (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{ID, }
+\item[{uint8\_\-t}]{addr, }
+\item[{uint8\_\-t}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_i_m_u_dual_a41115fb579ed56da574cf8a3dea4cc48}
+
+
+Definition at line 32 of file IMUDual.cpp.
+
+
+
+References \_\-pMas.
+
+
+
+Referenced by CheckIDs(), Configure(), EnableFifos(), FifoReset(), InitFifo(), and SampleRate().
+
+
+\begin{DoxyCode}
+{
+    static uint8_t  bytes[2];
+    bytes[0] = addr;
+    bytes[1] = data;
+    return _pMas->WriteSync(ID, &bytes[0],2);
+}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_i_m_u_dual_a093961f13f8477da2ce6c9cdc16f1157}{
+\index{IMUDual@{IMUDual}!\_\-aID@{\_\-aID}}
+\index{\_\-aID@{\_\-aID}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-aID}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMUDual::\_\-aID}\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_a093961f13f8477da2ce6c9cdc16f1157}
+
+
+Definition at line 94 of file IMU.h.
+
+
+
+Referenced by CheckIDs(), Configure(), and IMUDual().
+
+\hypertarget{class_i_m_u_dual_ac66a95d57cefcdbe0acbde0f3678de70}{
+\index{IMUDual@{IMUDual}!\_\-bFifosInitialized@{\_\-bFifosInitialized}}
+\index{\_\-bFifosInitialized@{\_\-bFifosInitialized}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-bFifosInitialized}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf IMUDual::\_\-bFifosInitialized}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_ac66a95d57cefcdbe0acbde0f3678de70}
+
+
+Definition at line 101 of file IMU.h.
+
+
+
+Referenced by FifoInitialized(), and InitFifo().
+
+\hypertarget{class_i_m_u_dual_ab1fe39075227813321890dfd4dd52335}{
+\index{IMUDual@{IMUDual}!\_\-bInTransaction@{\_\-bInTransaction}}
+\index{\_\-bInTransaction@{\_\-bInTransaction}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-bInTransaction}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf IMUDual::\_\-bInTransaction}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_ab1fe39075227813321890dfd4dd52335}
+
+
+Definition at line 99 of file IMU.h.
+
+\hypertarget{class_i_m_u_dual_a4ed556add0ea74046369ce6d8ba46023}{
+\index{IMUDual@{IMUDual}!\_\-ClkSel@{\_\-ClkSel}}
+\index{\_\-ClkSel@{\_\-ClkSel}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-ClkSel}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMUDual::\_\-ClkSel}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_a4ed556add0ea74046369ce6d8ba46023}
+
+
+Definition at line 97 of file IMU.h.
+
+
+
+Referenced by Configure(), and IMUDual().
+
+\hypertarget{class_i_m_u_dual_a7778bbcb689a8f8c2fdfbea9f1b6d79f}{
+\index{IMUDual@{IMUDual}!\_\-DLPF@{\_\-DLPF}}
+\index{\_\-DLPF@{\_\-DLPF}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-DLPF}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMUDual::\_\-DLPF}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_a7778bbcb689a8f8c2fdfbea9f1b6d79f}
+
+
+Definition at line 95 of file IMU.h.
+
+
+
+Referenced by Configure(), and IMUDual().
+
+\hypertarget{class_i_m_u_dual_a9829db814da67788dd4250d95784c730}{
+\index{IMUDual@{IMUDual}!\_\-fifoData@{\_\-fifoData}}
+\index{\_\-fifoData@{\_\-fifoData}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-fifoData}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMUDual::\_\-fifoData}\mbox{[}2\mbox{]}\mbox{[}20\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_a9829db814da67788dd4250d95784c730}
+
+
+Definition at line 100 of file IMU.h.
+
+
+
+Referenced by ReadData(), and SaveFifoData().
+
+\hypertarget{class_i_m_u_dual_a5d84d161adb012a2f92d50257fa6a74b}{
+\index{IMUDual@{IMUDual}!\_\-FullScale@{\_\-FullScale}}
+\index{\_\-FullScale@{\_\-FullScale}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-FullScale}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMUDual::\_\-FullScale}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_a5d84d161adb012a2f92d50257fa6a74b}
+
+
+Definition at line 96 of file IMU.h.
+
+
+
+Referenced by Configure(), and IMUDual().
+
+\hypertarget{class_i_m_u_dual_a79c9ddf3a83582dbd9e9e4192361d3a4}{
+\index{IMUDual@{IMUDual}!\_\-gID@{\_\-gID}}
+\index{\_\-gID@{\_\-gID}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-gID}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMUDual::\_\-gID}\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_a79c9ddf3a83582dbd9e9e4192361d3a4}
+
+
+Definition at line 93 of file IMU.h.
+
+
+
+Referenced by CheckIDs(), Configure(), EnableFifos(), FifoInitialized(), FifoReady(), FifoReset(), IMUDual(), InitFifo(), SampleRate(), and StartRead().
+
+\hypertarget{class_i_m_u_dual_a6e458f7bb91f9c057741019e42ae196d}{
+\index{IMUDual@{IMUDual}!\_\-pMas@{\_\-pMas}}
+\index{\_\-pMas@{\_\-pMas}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-pMas}]{\setlength{\rightskip}{0pt plus 5cm}I2C\_\-Master$\ast$ {\bf IMUDual::\_\-pMas}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_a6e458f7bb91f9c057741019e42ae196d}
+
+
+Definition at line 92 of file IMU.h.
+
+
+
+Referenced by CheckIDs(), IMUDual(), Rd(), Reset(), ResetDevices(), SaveFifoData(), SendStop(), StartRead(), and Wr().
+
+\hypertarget{class_i_m_u_dual_af258a53def9b232203afc862c03a69af}{
+\index{IMUDual@{IMUDual}!\_\-Rate@{\_\-Rate}}
+\index{\_\-Rate@{\_\-Rate}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}uint16\_\-t {\bf IMUDual::\_\-Rate}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_af258a53def9b232203afc862c03a69af}
+
+
+Definition at line 98 of file IMU.h.
+
+
+
+Referenced by Configure(), IMUDual(), and SampleRate().
+
+\hypertarget{class_i_m_u_dual_a6184224433fae8f33293b892f57cae3b}{
+\index{IMUDual@{IMUDual}!\_\-State@{\_\-State}}
+\index{\_\-State@{\_\-State}!IMUDual@{IMUDual}}
+\subsubsection[{\_\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf StateType} {\bf IMUDual::\_\-State}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_i_m_u_dual_a6184224433fae8f33293b892f57cae3b}
+
+
+Definition at line 90 of file IMU.h.
+
+
+
+Referenced by Busy(), I2CReadDone(), IMUDual(), ReadDone(), Reset(), and StartRead().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_i_m_u_8h}{IMU.h}\item 
+\hyperlink{_i_m_u_dual_8cpp}{IMUDual.cpp}\end{DoxyCompactItemize}

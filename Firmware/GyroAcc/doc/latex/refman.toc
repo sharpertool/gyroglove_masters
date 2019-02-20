@@ -1,0 +1,505 @@
+\contentsline {section}{\numberline {1}Main Page}{2}{section.1}
+\contentsline {section}{\numberline {2}Class Index}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Class Hierarchy}{3}{subsection.2.1}
+\contentsline {section}{\numberline {3}Class Index}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Class List}{3}{subsection.3.1}
+\contentsline {section}{\numberline {4}File Index}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}File List}{4}{subsection.4.1}
+\contentsline {section}{\numberline {5}Class Documentation}{5}{section.5}
+\contentsline {subsection}{\numberline {5.1}CmdProcessor Class Reference}{5}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Detailed Description}{7}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Constructor \& Destructor Documentation}{7}{subsubsection.5.1.2}
+\contentsline {paragraph}{\numberline {5.1.2.1}CmdProcessor}{7}{paragraph.5.1.2.1}
+\contentsline {paragraph}{\numberline {5.1.2.2}$\sim $CmdProcessor}{8}{paragraph.5.1.2.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Member Function Documentation}{8}{subsubsection.5.1.3}
+\contentsline {paragraph}{\numberline {5.1.3.1}checkCommands}{8}{paragraph.5.1.3.1}
+\contentsline {paragraph}{\numberline {5.1.3.2}cmdDelim}{8}{paragraph.5.1.3.2}
+\contentsline {paragraph}{\numberline {5.1.3.3}cmdDelim}{9}{paragraph.5.1.3.3}
+\contentsline {paragraph}{\numberline {5.1.3.4}cmdTerm}{9}{paragraph.5.1.3.4}
+\contentsline {paragraph}{\numberline {5.1.3.5}cmdTerm}{9}{paragraph.5.1.3.5}
+\contentsline {paragraph}{\numberline {5.1.3.6}getCmd}{10}{paragraph.5.1.3.6}
+\contentsline {paragraph}{\numberline {5.1.3.7}getParam}{10}{paragraph.5.1.3.7}
+\contentsline {paragraph}{\numberline {5.1.3.8}getParam}{10}{paragraph.5.1.3.8}
+\contentsline {paragraph}{\numberline {5.1.3.9}getParam}{10}{paragraph.5.1.3.9}
+\contentsline {paragraph}{\numberline {5.1.3.10}getParam}{11}{paragraph.5.1.3.10}
+\contentsline {paragraph}{\numberline {5.1.3.11}getParam}{11}{paragraph.5.1.3.11}
+\contentsline {paragraph}{\numberline {5.1.3.12}getParam}{11}{paragraph.5.1.3.12}
+\contentsline {paragraph}{\numberline {5.1.3.13}paramCnt}{12}{paragraph.5.1.3.13}
+\contentsline {paragraph}{\numberline {5.1.3.14}processCmd}{12}{paragraph.5.1.3.14}
+\contentsline {paragraph}{\numberline {5.1.3.15}resetCmd}{13}{paragraph.5.1.3.15}
+\contentsline {subsubsection}{\numberline {5.1.4}Member Data Documentation}{13}{subsubsection.5.1.4}
+\contentsline {paragraph}{\numberline {5.1.4.1}\_\discretionary {-}{}{}cmdPos}{13}{paragraph.5.1.4.1}
+\contentsline {paragraph}{\numberline {5.1.4.2}\_\discretionary {-}{}{}paramCnt}{13}{paragraph.5.1.4.2}
+\contentsline {paragraph}{\numberline {5.1.4.3}\_\discretionary {-}{}{}pCmd}{13}{paragraph.5.1.4.3}
+\contentsline {paragraph}{\numberline {5.1.4.4}\_\discretionary {-}{}{}pCmdDelim}{13}{paragraph.5.1.4.4}
+\contentsline {paragraph}{\numberline {5.1.4.5}\_\discretionary {-}{}{}pCmdString}{14}{paragraph.5.1.4.5}
+\contentsline {paragraph}{\numberline {5.1.4.6}\_\discretionary {-}{}{}pCmdTerm}{14}{paragraph.5.1.4.6}
+\contentsline {paragraph}{\numberline {5.1.4.7}\_\discretionary {-}{}{}pHW}{14}{paragraph.5.1.4.7}
+\contentsline {paragraph}{\numberline {5.1.4.8}\_\discretionary {-}{}{}pTokens}{14}{paragraph.5.1.4.8}
+\contentsline {paragraph}{\numberline {5.1.4.9}\_\discretionary {-}{}{}validCmd}{14}{paragraph.5.1.4.9}
+\contentsline {subsection}{\numberline {5.2}Fifo Class Reference}{15}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Detailed Description}{15}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Member Typedef Documentation}{16}{subsubsection.5.2.2}
+\contentsline {paragraph}{\numberline {5.2.2.1}FifoType}{16}{paragraph.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.3}Constructor \& Destructor Documentation}{16}{subsubsection.5.2.3}
+\contentsline {paragraph}{\numberline {5.2.3.1}Fifo}{16}{paragraph.5.2.3.1}
+\contentsline {subsubsection}{\numberline {5.2.4}Member Function Documentation}{16}{subsubsection.5.2.4}
+\contentsline {paragraph}{\numberline {5.2.4.1}clear}{16}{paragraph.5.2.4.1}
+\contentsline {paragraph}{\numberline {5.2.4.2}count}{16}{paragraph.5.2.4.2}
+\contentsline {paragraph}{\numberline {5.2.4.3}empty}{17}{paragraph.5.2.4.3}
+\contentsline {paragraph}{\numberline {5.2.4.4}full}{17}{paragraph.5.2.4.4}
+\contentsline {paragraph}{\numberline {5.2.4.5}pop}{18}{paragraph.5.2.4.5}
+\contentsline {paragraph}{\numberline {5.2.4.6}push}{18}{paragraph.5.2.4.6}
+\contentsline {subsubsection}{\numberline {5.2.5}Member Data Documentation}{19}{subsubsection.5.2.5}
+\contentsline {paragraph}{\numberline {5.2.5.1}\_\discretionary {-}{}{}end}{19}{paragraph.5.2.5.1}
+\contentsline {paragraph}{\numberline {5.2.5.2}\_\discretionary {-}{}{}pdata}{19}{paragraph.5.2.5.2}
+\contentsline {paragraph}{\numberline {5.2.5.3}\_\discretionary {-}{}{}size}{19}{paragraph.5.2.5.3}
+\contentsline {paragraph}{\numberline {5.2.5.4}\_\discretionary {-}{}{}start}{19}{paragraph.5.2.5.4}
+\contentsline {subsection}{\numberline {5.3}HardwareSerial Class Reference}{19}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Detailed Description}{20}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Constructor \& Destructor Documentation}{21}{subsubsection.5.3.2}
+\contentsline {paragraph}{\numberline {5.3.2.1}HardwareSerial}{21}{paragraph.5.3.2.1}
+\contentsline {paragraph}{\numberline {5.3.2.2}$\sim $HardwareSerial}{21}{paragraph.5.3.2.2}
+\contentsline {subsubsection}{\numberline {5.3.3}Member Function Documentation}{21}{subsubsection.5.3.3}
+\contentsline {paragraph}{\numberline {5.3.3.1}available}{21}{paragraph.5.3.3.1}
+\contentsline {paragraph}{\numberline {5.3.3.2}begin}{22}{paragraph.5.3.3.2}
+\contentsline {paragraph}{\numberline {5.3.3.3}begin2x}{22}{paragraph.5.3.3.3}
+\contentsline {paragraph}{\numberline {5.3.3.4}dre}{23}{paragraph.5.3.3.4}
+\contentsline {paragraph}{\numberline {5.3.3.5}enable}{23}{paragraph.5.3.3.5}
+\contentsline {paragraph}{\numberline {5.3.3.6}end}{23}{paragraph.5.3.3.6}
+\contentsline {paragraph}{\numberline {5.3.3.7}flush}{24}{paragraph.5.3.3.7}
+\contentsline {paragraph}{\numberline {5.3.3.8}read}{24}{paragraph.5.3.3.8}
+\contentsline {paragraph}{\numberline {5.3.3.9}rxc}{24}{paragraph.5.3.3.9}
+\contentsline {paragraph}{\numberline {5.3.3.10}txc}{25}{paragraph.5.3.3.10}
+\contentsline {paragraph}{\numberline {5.3.3.11}write}{25}{paragraph.5.3.3.11}
+\contentsline {subsubsection}{\numberline {5.3.4}Member Data Documentation}{25}{subsubsection.5.3.4}
+\contentsline {paragraph}{\numberline {5.3.4.1}\_\discretionary {-}{}{}baudrate}{25}{paragraph.5.3.4.1}
+\contentsline {paragraph}{\numberline {5.3.4.2}\_\discretionary {-}{}{}bEn}{25}{paragraph.5.3.4.2}
+\contentsline {paragraph}{\numberline {5.3.4.3}\_\discretionary {-}{}{}bscale}{26}{paragraph.5.3.4.3}
+\contentsline {paragraph}{\numberline {5.3.4.4}\_\discretionary {-}{}{}bsel}{26}{paragraph.5.3.4.4}
+\contentsline {paragraph}{\numberline {5.3.4.5}\_\discretionary {-}{}{}in\_\discretionary {-}{}{}bm}{26}{paragraph.5.3.4.5}
+\contentsline {paragraph}{\numberline {5.3.4.6}\_\discretionary {-}{}{}out\_\discretionary {-}{}{}bm}{26}{paragraph.5.3.4.6}
+\contentsline {paragraph}{\numberline {5.3.4.7}\_\discretionary {-}{}{}port}{26}{paragraph.5.3.4.7}
+\contentsline {paragraph}{\numberline {5.3.4.8}\_\discretionary {-}{}{}rx\_\discretionary {-}{}{}buffer}{26}{paragraph.5.3.4.8}
+\contentsline {paragraph}{\numberline {5.3.4.9}\_\discretionary {-}{}{}usart}{26}{paragraph.5.3.4.9}
+\contentsline {subsection}{\numberline {5.4}I2C\_\discretionary {-}{}{}Master Class Reference}{27}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Detailed Description}{29}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}Member Typedef Documentation}{29}{subsubsection.5.4.2}
+\contentsline {paragraph}{\numberline {5.4.2.1}ErrorType}{29}{paragraph.5.4.2.1}
+\contentsline {subsubsection}{\numberline {5.4.3}Member Enumeration Documentation}{29}{subsubsection.5.4.3}
+\contentsline {paragraph}{\numberline {5.4.3.1}DriverResult}{29}{paragraph.5.4.3.1}
+\contentsline {paragraph}{\numberline {5.4.3.2}DriverState}{29}{paragraph.5.4.3.2}
+\contentsline {paragraph}{\numberline {5.4.3.3}ErrorType}{30}{paragraph.5.4.3.3}
+\contentsline {subsubsection}{\numberline {5.4.4}Constructor \& Destructor Documentation}{31}{subsubsection.5.4.4}
+\contentsline {paragraph}{\numberline {5.4.4.1}I2C\_\discretionary {-}{}{}Master}{31}{paragraph.5.4.4.1}
+\contentsline {paragraph}{\numberline {5.4.4.2}$\sim $I2C\_\discretionary {-}{}{}Master}{31}{paragraph.5.4.4.2}
+\contentsline {subsubsection}{\numberline {5.4.5}Member Function Documentation}{31}{subsubsection.5.4.5}
+\contentsline {paragraph}{\numberline {5.4.5.1}ArbHandler}{31}{paragraph.5.4.5.1}
+\contentsline {paragraph}{\numberline {5.4.5.2}begin}{31}{paragraph.5.4.5.2}
+\contentsline {paragraph}{\numberline {5.4.5.3}busState}{31}{paragraph.5.4.5.3}
+\contentsline {paragraph}{\numberline {5.4.5.4}busy}{31}{paragraph.5.4.5.4}
+\contentsline {paragraph}{\numberline {5.4.5.5}CheckID}{31}{paragraph.5.4.5.5}
+\contentsline {paragraph}{\numberline {5.4.5.6}CleanRegs}{31}{paragraph.5.4.5.6}
+\contentsline {paragraph}{\numberline {5.4.5.7}dumpregs}{31}{paragraph.5.4.5.7}
+\contentsline {paragraph}{\numberline {5.4.5.8}end}{32}{paragraph.5.4.5.8}
+\contentsline {paragraph}{\numberline {5.4.5.9}ErrorHandler}{32}{paragraph.5.4.5.9}
+\contentsline {paragraph}{\numberline {5.4.5.10}ForceStartStop}{32}{paragraph.5.4.5.10}
+\contentsline {paragraph}{\numberline {5.4.5.11}IsIdle}{32}{paragraph.5.4.5.11}
+\contentsline {paragraph}{\numberline {5.4.5.12}isReserved}{32}{paragraph.5.4.5.12}
+\contentsline {paragraph}{\numberline {5.4.5.13}loop}{32}{paragraph.5.4.5.13}
+\contentsline {paragraph}{\numberline {5.4.5.14}master\_\discretionary {-}{}{}int}{32}{paragraph.5.4.5.14}
+\contentsline {paragraph}{\numberline {5.4.5.15}MasterFinished}{32}{paragraph.5.4.5.15}
+\contentsline {paragraph}{\numberline {5.4.5.16}NotifyMe}{33}{paragraph.5.4.5.16}
+\contentsline {paragraph}{\numberline {5.4.5.17}nReadBytes}{33}{paragraph.5.4.5.17}
+\contentsline {paragraph}{\numberline {5.4.5.18}Read}{33}{paragraph.5.4.5.18}
+\contentsline {paragraph}{\numberline {5.4.5.19}ReadData}{33}{paragraph.5.4.5.19}
+\contentsline {paragraph}{\numberline {5.4.5.20}ReadData}{33}{paragraph.5.4.5.20}
+\contentsline {paragraph}{\numberline {5.4.5.21}ReadHandler}{33}{paragraph.5.4.5.21}
+\contentsline {paragraph}{\numberline {5.4.5.22}ReadSync}{33}{paragraph.5.4.5.22}
+\contentsline {paragraph}{\numberline {5.4.5.23}Reserve}{33}{paragraph.5.4.5.23}
+\contentsline {paragraph}{\numberline {5.4.5.24}Result}{33}{paragraph.5.4.5.24}
+\contentsline {paragraph}{\numberline {5.4.5.25}showstate}{33}{paragraph.5.4.5.25}
+\contentsline {paragraph}{\numberline {5.4.5.26}slave\_\discretionary {-}{}{}int}{34}{paragraph.5.4.5.26}
+\contentsline {paragraph}{\numberline {5.4.5.27}State}{34}{paragraph.5.4.5.27}
+\contentsline {paragraph}{\numberline {5.4.5.28}Stop}{34}{paragraph.5.4.5.28}
+\contentsline {paragraph}{\numberline {5.4.5.29}testack}{34}{paragraph.5.4.5.29}
+\contentsline {paragraph}{\numberline {5.4.5.30}WigglePin}{34}{paragraph.5.4.5.30}
+\contentsline {paragraph}{\numberline {5.4.5.31}Write}{34}{paragraph.5.4.5.31}
+\contentsline {paragraph}{\numberline {5.4.5.32}WriteHandler}{34}{paragraph.5.4.5.32}
+\contentsline {paragraph}{\numberline {5.4.5.33}WriteRead}{34}{paragraph.5.4.5.33}
+\contentsline {paragraph}{\numberline {5.4.5.34}WriteReadSync}{34}{paragraph.5.4.5.34}
+\contentsline {paragraph}{\numberline {5.4.5.35}WriteSync}{35}{paragraph.5.4.5.35}
+\contentsline {subsubsection}{\numberline {5.4.6}Member Data Documentation}{35}{subsubsection.5.4.6}
+\contentsline {paragraph}{\numberline {5.4.6.1}\_\discretionary {-}{}{}bEnabled}{35}{paragraph.5.4.6.1}
+\contentsline {paragraph}{\numberline {5.4.6.2}\_\discretionary {-}{}{}DeviceID}{35}{paragraph.5.4.6.2}
+\contentsline {paragraph}{\numberline {5.4.6.3}\_\discretionary {-}{}{}IDList}{35}{paragraph.5.4.6.3}
+\contentsline {paragraph}{\numberline {5.4.6.4}\_\discretionary {-}{}{}idScanCurrent}{35}{paragraph.5.4.6.4}
+\contentsline {paragraph}{\numberline {5.4.6.5}\_\discretionary {-}{}{}nBytesRead}{35}{paragraph.5.4.6.5}
+\contentsline {paragraph}{\numberline {5.4.6.6}\_\discretionary {-}{}{}nBytesWritten}{35}{paragraph.5.4.6.6}
+\contentsline {paragraph}{\numberline {5.4.6.7}\_\discretionary {-}{}{}nReadBytes}{36}{paragraph.5.4.6.7}
+\contentsline {paragraph}{\numberline {5.4.6.8}\_\discretionary {-}{}{}nWriteBytes}{36}{paragraph.5.4.6.8}
+\contentsline {paragraph}{\numberline {5.4.6.9}\_\discretionary {-}{}{}pNotifyClient}{36}{paragraph.5.4.6.9}
+\contentsline {paragraph}{\numberline {5.4.6.10}\_\discretionary {-}{}{}pReserved}{36}{paragraph.5.4.6.10}
+\contentsline {paragraph}{\numberline {5.4.6.11}\_\discretionary {-}{}{}rdBufferLen}{36}{paragraph.5.4.6.11}
+\contentsline {paragraph}{\numberline {5.4.6.12}\_\discretionary {-}{}{}ReadData}{36}{paragraph.5.4.6.12}
+\contentsline {paragraph}{\numberline {5.4.6.13}\_\discretionary {-}{}{}Result}{36}{paragraph.5.4.6.13}
+\contentsline {paragraph}{\numberline {5.4.6.14}\_\discretionary {-}{}{}ScanComplete}{36}{paragraph.5.4.6.14}
+\contentsline {paragraph}{\numberline {5.4.6.15}\_\discretionary {-}{}{}State}{37}{paragraph.5.4.6.15}
+\contentsline {paragraph}{\numberline {5.4.6.16}\_\discretionary {-}{}{}twi}{37}{paragraph.5.4.6.16}
+\contentsline {paragraph}{\numberline {5.4.6.17}\_\discretionary {-}{}{}twiPort}{37}{paragraph.5.4.6.17}
+\contentsline {paragraph}{\numberline {5.4.6.18}\_\discretionary {-}{}{}wrBufferLen}{37}{paragraph.5.4.6.18}
+\contentsline {paragraph}{\numberline {5.4.6.19}\_\discretionary {-}{}{}WriteData}{37}{paragraph.5.4.6.19}
+\contentsline {subsection}{\numberline {5.5}I2CNotify Class Reference}{37}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}Detailed Description}{38}{subsubsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.2}Member Function Documentation}{38}{subsubsection.5.5.2}
+\contentsline {paragraph}{\numberline {5.5.2.1}I2CArbLost}{38}{paragraph.5.5.2.1}
+\contentsline {paragraph}{\numberline {5.5.2.2}I2CBusError}{38}{paragraph.5.5.2.2}
+\contentsline {paragraph}{\numberline {5.5.2.3}I2CNack}{38}{paragraph.5.5.2.3}
+\contentsline {paragraph}{\numberline {5.5.2.4}I2CReadDone}{38}{paragraph.5.5.2.4}
+\contentsline {paragraph}{\numberline {5.5.2.5}I2CWriteDone}{38}{paragraph.5.5.2.5}
+\contentsline {subsection}{\numberline {5.6}IMU Class Reference}{39}{subsection.5.6}
+\contentsline {subsubsection}{\numberline {5.6.1}Detailed Description}{42}{subsubsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.2}Member Typedef Documentation}{42}{subsubsection.5.6.2}
+\contentsline {paragraph}{\numberline {5.6.2.1}FailType}{42}{paragraph.5.6.2.1}
+\contentsline {paragraph}{\numberline {5.6.2.2}PosType}{42}{paragraph.5.6.2.2}
+\contentsline {paragraph}{\numberline {5.6.2.3}RegWriteType}{42}{paragraph.5.6.2.3}
+\contentsline {paragraph}{\numberline {5.6.2.4}StateType}{42}{paragraph.5.6.2.4}
+\contentsline {subsubsection}{\numberline {5.6.3}Member Enumeration Documentation}{42}{subsubsection.5.6.3}
+\contentsline {paragraph}{\numberline {5.6.3.1}FailType}{42}{paragraph.5.6.3.1}
+\contentsline {paragraph}{\numberline {5.6.3.2}PosType}{43}{paragraph.5.6.3.2}
+\contentsline {paragraph}{\numberline {5.6.3.3}ProcessType}{43}{paragraph.5.6.3.3}
+\contentsline {paragraph}{\numberline {5.6.3.4}StateType}{44}{paragraph.5.6.3.4}
+\contentsline {subsubsection}{\numberline {5.6.4}Constructor \& Destructor Documentation}{44}{subsubsection.5.6.4}
+\contentsline {paragraph}{\numberline {5.6.4.1}IMU}{44}{paragraph.5.6.4.1}
+\contentsline {paragraph}{\numberline {5.6.4.2}IMU}{45}{paragraph.5.6.4.2}
+\contentsline {paragraph}{\numberline {5.6.4.3}IMU}{46}{paragraph.5.6.4.3}
+\contentsline {subsubsection}{\numberline {5.6.5}Member Function Documentation}{46}{subsubsection.5.6.5}
+\contentsline {paragraph}{\numberline {5.6.5.1}BeginRead}{46}{paragraph.5.6.5.1}
+\contentsline {paragraph}{\numberline {5.6.5.2}Busy}{47}{paragraph.5.6.5.2}
+\contentsline {paragraph}{\numberline {5.6.5.3}BusyTimeout}{47}{paragraph.5.6.5.3}
+\contentsline {paragraph}{\numberline {5.6.5.4}ccx}{47}{paragraph.5.6.5.4}
+\contentsline {paragraph}{\numberline {5.6.5.5}CheckIDs}{47}{paragraph.5.6.5.5}
+\contentsline {paragraph}{\numberline {5.6.5.6}Configure}{48}{paragraph.5.6.5.6}
+\contentsline {paragraph}{\numberline {5.6.5.7}DataReady}{49}{paragraph.5.6.5.7}
+\contentsline {paragraph}{\numberline {5.6.5.8}err}{50}{paragraph.5.6.5.8}
+\contentsline {paragraph}{\numberline {5.6.5.9}FailRecovery}{50}{paragraph.5.6.5.9}
+\contentsline {paragraph}{\numberline {5.6.5.10}ForceStartStop}{51}{paragraph.5.6.5.10}
+\contentsline {paragraph}{\numberline {5.6.5.11}GetPacketData}{51}{paragraph.5.6.5.11}
+\contentsline {paragraph}{\numberline {5.6.5.12}I2CArbLost}{52}{paragraph.5.6.5.12}
+\contentsline {paragraph}{\numberline {5.6.5.13}I2CBusError}{53}{paragraph.5.6.5.13}
+\contentsline {paragraph}{\numberline {5.6.5.14}I2CNack}{53}{paragraph.5.6.5.14}
+\contentsline {paragraph}{\numberline {5.6.5.15}I2CReadDone}{54}{paragraph.5.6.5.15}
+\contentsline {paragraph}{\numberline {5.6.5.16}I2CWriteDone}{55}{paragraph.5.6.5.16}
+\contentsline {paragraph}{\numberline {5.6.5.17}MarkPos}{55}{paragraph.5.6.5.17}
+\contentsline {paragraph}{\numberline {5.6.5.18}NextIMU}{55}{paragraph.5.6.5.18}
+\contentsline {paragraph}{\numberline {5.6.5.19}ovf}{55}{paragraph.5.6.5.19}
+\contentsline {paragraph}{\numberline {5.6.5.20}ProcessTransaction}{56}{paragraph.5.6.5.20}
+\contentsline {paragraph}{\numberline {5.6.5.21}PushData}{57}{paragraph.5.6.5.21}
+\contentsline {paragraph}{\numberline {5.6.5.22}QueryChannels}{57}{paragraph.5.6.5.22}
+\contentsline {paragraph}{\numberline {5.6.5.23}Rd}{58}{paragraph.5.6.5.23}
+\contentsline {paragraph}{\numberline {5.6.5.24}RdAsync}{58}{paragraph.5.6.5.24}
+\contentsline {paragraph}{\numberline {5.6.5.25}ReadWord}{58}{paragraph.5.6.5.25}
+\contentsline {paragraph}{\numberline {5.6.5.26}Reset}{58}{paragraph.5.6.5.26}
+\contentsline {paragraph}{\numberline {5.6.5.27}ResetBusyTime}{59}{paragraph.5.6.5.27}
+\contentsline {paragraph}{\numberline {5.6.5.28}ResetDevices}{59}{paragraph.5.6.5.28}
+\contentsline {paragraph}{\numberline {5.6.5.29}ResetFailStats}{59}{paragraph.5.6.5.29}
+\contentsline {paragraph}{\numberline {5.6.5.30}ResetTimer}{60}{paragraph.5.6.5.30}
+\contentsline {paragraph}{\numberline {5.6.5.31}Run}{60}{paragraph.5.6.5.31}
+\contentsline {paragraph}{\numberline {5.6.5.32}SampleRate}{61}{paragraph.5.6.5.32}
+\contentsline {paragraph}{\numberline {5.6.5.33}SetDebugPort}{61}{paragraph.5.6.5.33}
+\contentsline {paragraph}{\numberline {5.6.5.34}SetDebugPort2}{62}{paragraph.5.6.5.34}
+\contentsline {paragraph}{\numberline {5.6.5.35}SetState}{62}{paragraph.5.6.5.35}
+\contentsline {paragraph}{\numberline {5.6.5.36}SetTimer}{62}{paragraph.5.6.5.36}
+\contentsline {paragraph}{\numberline {5.6.5.37}SetTimerPeriod}{63}{paragraph.5.6.5.37}
+\contentsline {paragraph}{\numberline {5.6.5.38}Setup}{63}{paragraph.5.6.5.38}
+\contentsline {paragraph}{\numberline {5.6.5.39}Start}{64}{paragraph.5.6.5.39}
+\contentsline {paragraph}{\numberline {5.6.5.40}StartTransaction}{65}{paragraph.5.6.5.40}
+\contentsline {paragraph}{\numberline {5.6.5.41}Stop}{65}{paragraph.5.6.5.41}
+\contentsline {paragraph}{\numberline {5.6.5.42}StoreAccData}{66}{paragraph.5.6.5.42}
+\contentsline {paragraph}{\numberline {5.6.5.43}StoreGyroData}{66}{paragraph.5.6.5.43}
+\contentsline {paragraph}{\numberline {5.6.5.44}UseGyro}{66}{paragraph.5.6.5.44}
+\contentsline {paragraph}{\numberline {5.6.5.45}Wr}{67}{paragraph.5.6.5.45}
+\contentsline {paragraph}{\numberline {5.6.5.46}WrAsync}{67}{paragraph.5.6.5.46}
+\contentsline {subsubsection}{\numberline {5.6.6}Member Data Documentation}{67}{subsubsection.5.6.6}
+\contentsline {paragraph}{\numberline {5.6.6.1}\_\discretionary {-}{}{}aID}{67}{paragraph.5.6.6.1}
+\contentsline {paragraph}{\numberline {5.6.6.2}\_\discretionary {-}{}{}bDataReady}{67}{paragraph.5.6.6.2}
+\contentsline {paragraph}{\numberline {5.6.6.3}\_\discretionary {-}{}{}bDualChan}{68}{paragraph.5.6.6.3}
+\contentsline {paragraph}{\numberline {5.6.6.4}\_\discretionary {-}{}{}bFailDetected}{68}{paragraph.5.6.6.4}
+\contentsline {paragraph}{\numberline {5.6.6.5}\_\discretionary {-}{}{}bRun}{68}{paragraph.5.6.6.5}
+\contentsline {paragraph}{\numberline {5.6.6.6}\_\discretionary {-}{}{}bUseGyro}{68}{paragraph.5.6.6.6}
+\contentsline {paragraph}{\numberline {5.6.6.7}\_\discretionary {-}{}{}busyWaitTime}{68}{paragraph.5.6.6.7}
+\contentsline {paragraph}{\numberline {5.6.6.8}\_\discretionary {-}{}{}ClkSel}{68}{paragraph.5.6.6.8}
+\contentsline {paragraph}{\numberline {5.6.6.9}\_\discretionary {-}{}{}configOkay}{69}{paragraph.5.6.6.9}
+\contentsline {paragraph}{\numberline {5.6.6.10}\_\discretionary {-}{}{}dataBuffer}{69}{paragraph.5.6.6.10}
+\contentsline {paragraph}{\numberline {5.6.6.11}\_\discretionary {-}{}{}DLPF}{69}{paragraph.5.6.6.11}
+\contentsline {paragraph}{\numberline {5.6.6.12}\_\discretionary {-}{}{}failCount}{69}{paragraph.5.6.6.12}
+\contentsline {paragraph}{\numberline {5.6.6.13}\_\discretionary {-}{}{}failType}{69}{paragraph.5.6.6.13}
+\contentsline {paragraph}{\numberline {5.6.6.14}\_\discretionary {-}{}{}FullScale}{69}{paragraph.5.6.6.14}
+\contentsline {paragraph}{\numberline {5.6.6.15}\_\discretionary {-}{}{}gID}{69}{paragraph.5.6.6.15}
+\contentsline {paragraph}{\numberline {5.6.6.16}\_\discretionary {-}{}{}nackCount}{70}{paragraph.5.6.6.16}
+\contentsline {paragraph}{\numberline {5.6.6.17}\_\discretionary {-}{}{}numChans}{70}{paragraph.5.6.6.17}
+\contentsline {paragraph}{\numberline {5.6.6.18}\_\discretionary {-}{}{}pDBGPort}{70}{paragraph.5.6.6.18}
+\contentsline {paragraph}{\numberline {5.6.6.19}\_\discretionary {-}{}{}pDBGPort2}{70}{paragraph.5.6.6.19}
+\contentsline {paragraph}{\numberline {5.6.6.20}\_\discretionary {-}{}{}pMas}{70}{paragraph.5.6.6.20}
+\contentsline {paragraph}{\numberline {5.6.6.21}\_\discretionary {-}{}{}pNextIMU}{71}{paragraph.5.6.6.21}
+\contentsline {paragraph}{\numberline {5.6.6.22}\_\discretionary {-}{}{}previousState}{71}{paragraph.5.6.6.22}
+\contentsline {paragraph}{\numberline {5.6.6.23}\_\discretionary {-}{}{}pTimer}{71}{paragraph.5.6.6.23}
+\contentsline {paragraph}{\numberline {5.6.6.24}\_\discretionary {-}{}{}Rate}{71}{paragraph.5.6.6.24}
+\contentsline {paragraph}{\numberline {5.6.6.25}\_\discretionary {-}{}{}State}{71}{paragraph.5.6.6.25}
+\contentsline {subsection}{\numberline {5.7}IMUBase Class Reference}{71}{subsection.5.7}
+\contentsline {subsubsection}{\numberline {5.7.1}Detailed Description}{72}{subsubsection.5.7.1}
+\contentsline {subsubsection}{\numberline {5.7.2}Member Function Documentation}{72}{subsubsection.5.7.2}
+\contentsline {paragraph}{\numberline {5.7.2.1}BeginRead}{72}{paragraph.5.7.2.1}
+\contentsline {paragraph}{\numberline {5.7.2.2}Busy}{72}{paragraph.5.7.2.2}
+\contentsline {paragraph}{\numberline {5.7.2.3}CheckIDs}{73}{paragraph.5.7.2.3}
+\contentsline {paragraph}{\numberline {5.7.2.4}DataReady}{73}{paragraph.5.7.2.4}
+\contentsline {paragraph}{\numberline {5.7.2.5}ForceStartStop}{73}{paragraph.5.7.2.5}
+\contentsline {paragraph}{\numberline {5.7.2.6}GetPacketData}{73}{paragraph.5.7.2.6}
+\contentsline {paragraph}{\numberline {5.7.2.7}NextIMU}{73}{paragraph.5.7.2.7}
+\contentsline {paragraph}{\numberline {5.7.2.8}Reset}{73}{paragraph.5.7.2.8}
+\contentsline {paragraph}{\numberline {5.7.2.9}ResetDevices}{73}{paragraph.5.7.2.9}
+\contentsline {paragraph}{\numberline {5.7.2.10}ResetTimer}{73}{paragraph.5.7.2.10}
+\contentsline {paragraph}{\numberline {5.7.2.11}SampleRate}{74}{paragraph.5.7.2.11}
+\contentsline {paragraph}{\numberline {5.7.2.12}Setup}{74}{paragraph.5.7.2.12}
+\contentsline {paragraph}{\numberline {5.7.2.13}Start}{74}{paragraph.5.7.2.13}
+\contentsline {paragraph}{\numberline {5.7.2.14}Stop}{74}{paragraph.5.7.2.14}
+\contentsline {paragraph}{\numberline {5.7.2.15}UseGyro}{74}{paragraph.5.7.2.15}
+\contentsline {subsection}{\numberline {5.8}Port Class Reference}{74}{subsection.5.8}
+\contentsline {subsubsection}{\numberline {5.8.1}Detailed Description}{75}{subsubsection.5.8.1}
+\contentsline {subsubsection}{\numberline {5.8.2}Constructor \& Destructor Documentation}{75}{subsubsection.5.8.2}
+\contentsline {paragraph}{\numberline {5.8.2.1}Port}{75}{paragraph.5.8.2.1}
+\contentsline {paragraph}{\numberline {5.8.2.2}$\sim $Port}{75}{paragraph.5.8.2.2}
+\contentsline {subsubsection}{\numberline {5.8.3}Member Function Documentation}{76}{subsubsection.5.8.3}
+\contentsline {paragraph}{\numberline {5.8.3.1}GetPins}{76}{paragraph.5.8.3.1}
+\contentsline {paragraph}{\numberline {5.8.3.2}int0}{76}{paragraph.5.8.3.2}
+\contentsline {paragraph}{\numberline {5.8.3.3}int1}{76}{paragraph.5.8.3.3}
+\contentsline {paragraph}{\numberline {5.8.3.4}InterruptLevel}{77}{paragraph.5.8.3.4}
+\contentsline {paragraph}{\numberline {5.8.3.5}InterruptMask}{77}{paragraph.5.8.3.5}
+\contentsline {paragraph}{\numberline {5.8.3.6}Notify}{77}{paragraph.5.8.3.6}
+\contentsline {paragraph}{\numberline {5.8.3.7}PinControl}{77}{paragraph.5.8.3.7}
+\contentsline {paragraph}{\numberline {5.8.3.8}SetDir}{78}{paragraph.5.8.3.8}
+\contentsline {paragraph}{\numberline {5.8.3.9}SetPinsAsInput}{78}{paragraph.5.8.3.9}
+\contentsline {paragraph}{\numberline {5.8.3.10}SetPinsAsOutput}{78}{paragraph.5.8.3.10}
+\contentsline {paragraph}{\numberline {5.8.3.11}SetPinsHigh}{79}{paragraph.5.8.3.11}
+\contentsline {paragraph}{\numberline {5.8.3.12}SetPinsLow}{79}{paragraph.5.8.3.12}
+\contentsline {subsubsection}{\numberline {5.8.4}Member Data Documentation}{79}{subsubsection.5.8.4}
+\contentsline {paragraph}{\numberline {5.8.4.1}\_\discretionary {-}{}{}pNotifyClient}{79}{paragraph.5.8.4.1}
+\contentsline {paragraph}{\numberline {5.8.4.2}\_\discretionary {-}{}{}pNotifyID}{79}{paragraph.5.8.4.2}
+\contentsline {paragraph}{\numberline {5.8.4.3}\_\discretionary {-}{}{}pPort}{79}{paragraph.5.8.4.3}
+\contentsline {subsection}{\numberline {5.9}PortNotify Class Reference}{80}{subsection.5.9}
+\contentsline {subsubsection}{\numberline {5.9.1}Detailed Description}{80}{subsubsection.5.9.1}
+\contentsline {subsubsection}{\numberline {5.9.2}Member Function Documentation}{80}{subsubsection.5.9.2}
+\contentsline {paragraph}{\numberline {5.9.2.1}PortISR0}{80}{paragraph.5.9.2.1}
+\contentsline {paragraph}{\numberline {5.9.2.2}PortISR1}{80}{paragraph.5.9.2.2}
+\contentsline {subsection}{\numberline {5.10}Print Class Reference}{81}{subsection.5.10}
+\contentsline {subsubsection}{\numberline {5.10.1}Detailed Description}{81}{subsubsection.5.10.1}
+\contentsline {subsubsection}{\numberline {5.10.2}Member Function Documentation}{82}{subsubsection.5.10.2}
+\contentsline {paragraph}{\numberline {5.10.2.1}print}{82}{paragraph.5.10.2.1}
+\contentsline {paragraph}{\numberline {5.10.2.2}print}{82}{paragraph.5.10.2.2}
+\contentsline {paragraph}{\numberline {5.10.2.3}print}{82}{paragraph.5.10.2.3}
+\contentsline {paragraph}{\numberline {5.10.2.4}print}{82}{paragraph.5.10.2.4}
+\contentsline {paragraph}{\numberline {5.10.2.5}print}{83}{paragraph.5.10.2.5}
+\contentsline {paragraph}{\numberline {5.10.2.6}print}{83}{paragraph.5.10.2.6}
+\contentsline {paragraph}{\numberline {5.10.2.7}print}{83}{paragraph.5.10.2.7}
+\contentsline {paragraph}{\numberline {5.10.2.8}print}{83}{paragraph.5.10.2.8}
+\contentsline {paragraph}{\numberline {5.10.2.9}printFloat}{84}{paragraph.5.10.2.9}
+\contentsline {paragraph}{\numberline {5.10.2.10}println}{84}{paragraph.5.10.2.10}
+\contentsline {paragraph}{\numberline {5.10.2.11}println}{85}{paragraph.5.10.2.11}
+\contentsline {paragraph}{\numberline {5.10.2.12}println}{85}{paragraph.5.10.2.12}
+\contentsline {paragraph}{\numberline {5.10.2.13}println}{85}{paragraph.5.10.2.13}
+\contentsline {paragraph}{\numberline {5.10.2.14}println}{85}{paragraph.5.10.2.14}
+\contentsline {paragraph}{\numberline {5.10.2.15}println}{86}{paragraph.5.10.2.15}
+\contentsline {paragraph}{\numberline {5.10.2.16}println}{86}{paragraph.5.10.2.16}
+\contentsline {paragraph}{\numberline {5.10.2.17}println}{86}{paragraph.5.10.2.17}
+\contentsline {paragraph}{\numberline {5.10.2.18}println}{86}{paragraph.5.10.2.18}
+\contentsline {paragraph}{\numberline {5.10.2.19}printNumber}{87}{paragraph.5.10.2.19}
+\contentsline {paragraph}{\numberline {5.10.2.20}write}{87}{paragraph.5.10.2.20}
+\contentsline {paragraph}{\numberline {5.10.2.21}write}{87}{paragraph.5.10.2.21}
+\contentsline {paragraph}{\numberline {5.10.2.22}write}{88}{paragraph.5.10.2.22}
+\contentsline {subsection}{\numberline {5.11}IMU::regWrite Struct Reference}{88}{subsection.5.11}
+\contentsline {subsubsection}{\numberline {5.11.1}Detailed Description}{88}{subsubsection.5.11.1}
+\contentsline {subsubsection}{\numberline {5.11.2}Member Data Documentation}{88}{subsubsection.5.11.2}
+\contentsline {paragraph}{\numberline {5.11.2.1}Addr}{88}{paragraph.5.11.2.1}
+\contentsline {paragraph}{\numberline {5.11.2.2}Data}{88}{paragraph.5.11.2.2}
+\contentsline {paragraph}{\numberline {5.11.2.3}ID}{88}{paragraph.5.11.2.3}
+\contentsline {subsection}{\numberline {5.12}ring\_\discretionary {-}{}{}buffer Struct Reference}{89}{subsection.5.12}
+\contentsline {subsubsection}{\numberline {5.12.1}Detailed Description}{89}{subsubsection.5.12.1}
+\contentsline {subsubsection}{\numberline {5.12.2}Member Data Documentation}{89}{subsubsection.5.12.2}
+\contentsline {paragraph}{\numberline {5.12.2.1}buffer}{89}{paragraph.5.12.2.1}
+\contentsline {paragraph}{\numberline {5.12.2.2}head}{89}{paragraph.5.12.2.2}
+\contentsline {paragraph}{\numberline {5.12.2.3}tail}{89}{paragraph.5.12.2.3}
+\contentsline {subsection}{\numberline {5.13}TimerCntr Class Reference}{90}{subsection.5.13}
+\contentsline {subsubsection}{\numberline {5.13.1}Detailed Description}{90}{subsubsection.5.13.1}
+\contentsline {subsubsection}{\numberline {5.13.2}Constructor \& Destructor Documentation}{91}{subsubsection.5.13.2}
+\contentsline {paragraph}{\numberline {5.13.2.1}TimerCntr}{91}{paragraph.5.13.2.1}
+\contentsline {paragraph}{\numberline {5.13.2.2}TimerCntr}{91}{paragraph.5.13.2.2}
+\contentsline {paragraph}{\numberline {5.13.2.3}$\sim $TimerCntr}{91}{paragraph.5.13.2.3}
+\contentsline {subsubsection}{\numberline {5.13.3}Member Function Documentation}{92}{subsubsection.5.13.3}
+\contentsline {paragraph}{\numberline {5.13.3.1}CCEnable}{92}{paragraph.5.13.3.1}
+\contentsline {paragraph}{\numberline {5.13.3.2}CCReg}{92}{paragraph.5.13.3.2}
+\contentsline {paragraph}{\numberline {5.13.3.3}CCReg}{92}{paragraph.5.13.3.3}
+\contentsline {paragraph}{\numberline {5.13.3.4}ccx}{93}{paragraph.5.13.3.4}
+\contentsline {paragraph}{\numberline {5.13.3.5}ClkSel}{93}{paragraph.5.13.3.5}
+\contentsline {paragraph}{\numberline {5.13.3.6}Counter}{93}{paragraph.5.13.3.6}
+\contentsline {paragraph}{\numberline {5.13.3.7}Counter}{93}{paragraph.5.13.3.7}
+\contentsline {paragraph}{\numberline {5.13.3.8}err}{94}{paragraph.5.13.3.8}
+\contentsline {paragraph}{\numberline {5.13.3.9}EventSetup}{94}{paragraph.5.13.3.9}
+\contentsline {paragraph}{\numberline {5.13.3.10}IntLvlA}{94}{paragraph.5.13.3.10}
+\contentsline {paragraph}{\numberline {5.13.3.11}IntLvlB}{95}{paragraph.5.13.3.11}
+\contentsline {paragraph}{\numberline {5.13.3.12}Notify}{95}{paragraph.5.13.3.12}
+\contentsline {paragraph}{\numberline {5.13.3.13}ovf}{95}{paragraph.5.13.3.13}
+\contentsline {paragraph}{\numberline {5.13.3.14}Period}{95}{paragraph.5.13.3.14}
+\contentsline {paragraph}{\numberline {5.13.3.15}Period}{96}{paragraph.5.13.3.15}
+\contentsline {paragraph}{\numberline {5.13.3.16}SetRate}{96}{paragraph.5.13.3.16}
+\contentsline {paragraph}{\numberline {5.13.3.17}WaveformGenMode}{96}{paragraph.5.13.3.17}
+\contentsline {subsubsection}{\numberline {5.13.4}Member Data Documentation}{96}{subsubsection.5.13.4}
+\contentsline {paragraph}{\numberline {5.13.4.1}\_\discretionary {-}{}{}bTC1}{96}{paragraph.5.13.4.1}
+\contentsline {paragraph}{\numberline {5.13.4.2}\_\discretionary {-}{}{}pNotifyClient}{96}{paragraph.5.13.4.2}
+\contentsline {paragraph}{\numberline {5.13.4.3}\_\discretionary {-}{}{}pNotifyClientID}{97}{paragraph.5.13.4.3}
+\contentsline {paragraph}{\numberline {5.13.4.4}\_\discretionary {-}{}{}pTC}{97}{paragraph.5.13.4.4}
+\contentsline {subsection}{\numberline {5.14}TimerNotify Class Reference}{97}{subsection.5.14}
+\contentsline {subsubsection}{\numberline {5.14.1}Detailed Description}{97}{subsubsection.5.14.1}
+\contentsline {subsubsection}{\numberline {5.14.2}Member Function Documentation}{98}{subsubsection.5.14.2}
+\contentsline {paragraph}{\numberline {5.14.2.1}ccx}{98}{paragraph.5.14.2.1}
+\contentsline {paragraph}{\numberline {5.14.2.2}err}{98}{paragraph.5.14.2.2}
+\contentsline {paragraph}{\numberline {5.14.2.3}ovf}{98}{paragraph.5.14.2.3}
+\contentsline {section}{\numberline {6}File Documentation}{98}{section.6}
+\contentsline {subsection}{\numberline {6.1}clksystem.cpp File Reference}{98}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Define Documentation}{99}{subsubsection.6.1.1}
+\contentsline {paragraph}{\numberline {6.1.1.1}AVR\_\discretionary {-}{}{}ENTER\_\discretionary {-}{}{}CRITICAL\_\discretionary {-}{}{}REGION}{99}{paragraph.6.1.1.1}
+\contentsline {paragraph}{\numberline {6.1.1.2}AVR\_\discretionary {-}{}{}LEAVE\_\discretionary {-}{}{}CRITICAL\_\discretionary {-}{}{}REGION}{99}{paragraph.6.1.1.2}
+\contentsline {subsubsection}{\numberline {6.1.2}Function Documentation}{99}{subsubsection.6.1.2}
+\contentsline {paragraph}{\numberline {6.1.2.1}CCPWrite}{99}{paragraph.6.1.2.1}
+\contentsline {paragraph}{\numberline {6.1.2.2}clksystem\_\discretionary {-}{}{}init}{100}{paragraph.6.1.2.2}
+\contentsline {subsection}{\numberline {6.2}clksystem.cpp}{101}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}clksystem.h File Reference}{103}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Function Documentation}{103}{subsubsection.6.3.1}
+\contentsline {paragraph}{\numberline {6.3.1.1}clksystem\_\discretionary {-}{}{}init}{103}{paragraph.6.3.1.1}
+\contentsline {subsection}{\numberline {6.4}clksystem.h}{104}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}CmdProcessor.cpp File Reference}{104}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}CmdProcessor.cpp}{104}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}CmdProcessor.h File Reference}{107}{subsection.6.7}
+\contentsline {subsection}{\numberline {6.8}CmdProcessor.h}{107}{subsection.6.8}
+\contentsline {subsection}{\numberline {6.9}cpp\_\discretionary {-}{}{}hacks.cpp File Reference}{108}{subsection.6.9}
+\contentsline {subsubsection}{\numberline {6.9.1}Function Documentation}{108}{subsubsection.6.9.1}
+\contentsline {paragraph}{\numberline {6.9.1.1}\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}abort}{108}{paragraph.6.9.1.1}
+\contentsline {paragraph}{\numberline {6.9.1.2}\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}acquire}{108}{paragraph.6.9.1.2}
+\contentsline {paragraph}{\numberline {6.9.1.3}\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}release}{108}{paragraph.6.9.1.3}
+\contentsline {paragraph}{\numberline {6.9.1.4}\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}pure\_\discretionary {-}{}{}virtual}{109}{paragraph.6.9.1.4}
+\contentsline {subsection}{\numberline {6.10}cpp\_\discretionary {-}{}{}hacks.cpp}{109}{subsection.6.10}
+\contentsline {subsection}{\numberline {6.11}cpp\_\discretionary {-}{}{}hacks.h File Reference}{109}{subsection.6.11}
+\contentsline {subsubsection}{\numberline {6.11.1}Function Documentation}{109}{subsubsection.6.11.1}
+\contentsline {paragraph}{\numberline {6.11.1.1}\_\discretionary {-}{}{}\_\discretionary {-}{}{}attribute\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{109}{paragraph.6.11.1.1}
+\contentsline {paragraph}{\numberline {6.11.1.2}\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}abort}{109}{paragraph.6.11.1.2}
+\contentsline {paragraph}{\numberline {6.11.1.3}\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}acquire}{109}{paragraph.6.11.1.3}
+\contentsline {paragraph}{\numberline {6.11.1.4}\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}release}{110}{paragraph.6.11.1.4}
+\contentsline {paragraph}{\numberline {6.11.1.5}\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}pure\_\discretionary {-}{}{}virtual}{110}{paragraph.6.11.1.5}
+\contentsline {subsection}{\numberline {6.12}cpp\_\discretionary {-}{}{}hacks.h}{110}{subsection.6.12}
+\contentsline {subsection}{\numberline {6.13}Documentation.html File Reference}{110}{subsection.6.13}
+\contentsline {subsection}{\numberline {6.14}Documentation.html}{110}{subsection.6.14}
+\contentsline {subsection}{\numberline {6.15}fifo.cpp File Reference}{110}{subsection.6.15}
+\contentsline {subsubsection}{\numberline {6.15.1}Function Documentation}{111}{subsubsection.6.15.1}
+\contentsline {paragraph}{\numberline {6.15.1.1}FifoTest}{111}{paragraph.6.15.1.1}
+\contentsline {subsection}{\numberline {6.16}fifo.cpp}{111}{subsection.6.16}
+\contentsline {subsection}{\numberline {6.17}fifo.h File Reference}{113}{subsection.6.17}
+\contentsline {subsubsection}{\numberline {6.17.1}Function Documentation}{113}{subsubsection.6.17.1}
+\contentsline {paragraph}{\numberline {6.17.1.1}FifoTest}{113}{paragraph.6.17.1.1}
+\contentsline {subsection}{\numberline {6.18}fifo.h}{114}{subsection.6.18}
+\contentsline {subsection}{\numberline {6.19}GyroAcc.cpp File Reference}{115}{subsection.6.19}
+\contentsline {subsubsection}{\numberline {6.19.1}Function Documentation}{116}{subsubsection.6.19.1}
+\contentsline {paragraph}{\numberline {6.19.1.1}init}{116}{paragraph.6.19.1.1}
+\contentsline {paragraph}{\numberline {6.19.1.2}main}{116}{paragraph.6.19.1.2}
+\contentsline {paragraph}{\numberline {6.19.1.3}processCmd}{118}{paragraph.6.19.1.3}
+\contentsline {paragraph}{\numberline {6.19.1.4}timer\_\discretionary {-}{}{}init}{118}{paragraph.6.19.1.4}
+\contentsline {subsubsection}{\numberline {6.19.2}Variable Documentation}{118}{subsubsection.6.19.2}
+\contentsline {paragraph}{\numberline {6.19.2.1}pdbgport}{118}{paragraph.6.19.2.1}
+\contentsline {paragraph}{\numberline {6.19.2.2}pdbgserial}{119}{paragraph.6.19.2.2}
+\contentsline {subsection}{\numberline {6.20}GyroAcc.cpp}{119}{subsection.6.20}
+\contentsline {subsection}{\numberline {6.21}HardwareSerial.cpp File Reference}{121}{subsection.6.21}
+\contentsline {subsubsection}{\numberline {6.21.1}Define Documentation}{122}{subsubsection.6.21.1}
+\contentsline {paragraph}{\numberline {6.21.1.1}RX\_\discretionary {-}{}{}BUFFER\_\discretionary {-}{}{}SIZE}{122}{paragraph.6.21.1.1}
+\contentsline {paragraph}{\numberline {6.21.1.2}SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{122}{paragraph.6.21.1.2}
+\contentsline {subsubsection}{\numberline {6.21.2}Function Documentation}{122}{subsubsection.6.21.2}
+\contentsline {paragraph}{\numberline {6.21.2.1}SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{122}{paragraph.6.21.2.1}
+\contentsline {paragraph}{\numberline {6.21.2.2}SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{123}{paragraph.6.21.2.2}
+\contentsline {paragraph}{\numberline {6.21.2.3}SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{123}{paragraph.6.21.2.3}
+\contentsline {paragraph}{\numberline {6.21.2.4}SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{123}{paragraph.6.21.2.4}
+\contentsline {paragraph}{\numberline {6.21.2.5}SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{123}{paragraph.6.21.2.5}
+\contentsline {paragraph}{\numberline {6.21.2.6}SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{123}{paragraph.6.21.2.6}
+\contentsline {paragraph}{\numberline {6.21.2.7}SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{123}{paragraph.6.21.2.7}
+\contentsline {paragraph}{\numberline {6.21.2.8}SetPointer}{123}{paragraph.6.21.2.8}
+\contentsline {paragraph}{\numberline {6.21.2.9}store\_\discretionary {-}{}{}char}{124}{paragraph.6.21.2.9}
+\contentsline {subsection}{\numberline {6.22}HardwareSerial.cpp}{124}{subsection.6.22}
+\contentsline {subsection}{\numberline {6.23}HardwareSerial.h File Reference}{128}{subsection.6.23}
+\contentsline {subsection}{\numberline {6.24}HardwareSerial.h}{129}{subsection.6.24}
+\contentsline {subsection}{\numberline {6.25}I2C\_\discretionary {-}{}{}Master.h File Reference}{129}{subsection.6.25}
+\contentsline {subsection}{\numberline {6.26}I2C\_\discretionary {-}{}{}Master.h}{130}{subsection.6.26}
+\contentsline {subsection}{\numberline {6.27}IMU.cpp File Reference}{132}{subsection.6.27}
+\contentsline {subsubsection}{\numberline {6.27.1}Variable Documentation}{133}{subsubsection.6.27.1}
+\contentsline {paragraph}{\numberline {6.27.1.1}buffer}{133}{paragraph.6.27.1.1}
+\contentsline {paragraph}{\numberline {6.27.1.2}pdbgserial}{133}{paragraph.6.27.1.2}
+\contentsline {subsection}{\numberline {6.28}IMU.cpp}{133}{subsection.6.28}
+\contentsline {subsection}{\numberline {6.29}IMU.h File Reference}{145}{subsection.6.29}
+\contentsline {subsection}{\numberline {6.30}IMU.h}{146}{subsection.6.30}
+\contentsline {subsection}{\numberline {6.31}IMUManager.cpp File Reference}{149}{subsection.6.31}
+\contentsline {subsubsection}{\numberline {6.31.1}Define Documentation}{150}{subsubsection.6.31.1}
+\contentsline {paragraph}{\numberline {6.31.1.1}ALL\_\discretionary {-}{}{}IMU}{150}{paragraph.6.31.1.1}
+\contentsline {paragraph}{\numberline {6.31.1.2}ALL\_\discretionary {-}{}{}IMUBOOL}{150}{paragraph.6.31.1.2}
+\contentsline {paragraph}{\numberline {6.31.1.3}ALL\_\discretionary {-}{}{}IMUP}{150}{paragraph.6.31.1.3}
+\contentsline {paragraph}{\numberline {6.31.1.4}ALL\_\discretionary {-}{}{}IMURET}{151}{paragraph.6.31.1.4}
+\contentsline {subsubsection}{\numberline {6.31.2}Variable Documentation}{151}{subsubsection.6.31.2}
+\contentsline {paragraph}{\numberline {6.31.2.1}buffer}{151}{paragraph.6.31.2.1}
+\contentsline {paragraph}{\numberline {6.31.2.2}pdbgserial}{151}{paragraph.6.31.2.2}
+\contentsline {subsection}{\numberline {6.32}IMUManager.cpp}{151}{subsection.6.32}
+\contentsline {subsection}{\numberline {6.33}NewDel.cpp File Reference}{159}{subsection.6.33}
+\contentsline {subsubsection}{\numberline {6.33.1}Function Documentation}{159}{subsubsection.6.33.1}
+\contentsline {paragraph}{\numberline {6.33.1.1}operator delete}{159}{paragraph.6.33.1.1}
+\contentsline {paragraph}{\numberline {6.33.1.2}operator delete[]}{159}{paragraph.6.33.1.2}
+\contentsline {paragraph}{\numberline {6.33.1.3}operator new}{159}{paragraph.6.33.1.3}
+\contentsline {paragraph}{\numberline {6.33.1.4}operator new[]}{160}{paragraph.6.33.1.4}
+\contentsline {subsection}{\numberline {6.34}NewDel.cpp}{160}{subsection.6.34}
+\contentsline {subsection}{\numberline {6.35}NewDel.h File Reference}{160}{subsection.6.35}
+\contentsline {subsubsection}{\numberline {6.35.1}Function Documentation}{160}{subsubsection.6.35.1}
+\contentsline {paragraph}{\numberline {6.35.1.1}operator delete}{160}{paragraph.6.35.1.1}
+\contentsline {paragraph}{\numberline {6.35.1.2}operator new}{161}{paragraph.6.35.1.2}
+\contentsline {subsection}{\numberline {6.36}NewDel.h}{161}{subsection.6.36}
+\contentsline {subsection}{\numberline {6.37}Port.cpp File Reference}{161}{subsection.6.37}
+\contentsline {subsubsection}{\numberline {6.37.1}Define Documentation}{162}{subsubsection.6.37.1}
+\contentsline {paragraph}{\numberline {6.37.1.1}PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{162}{paragraph.6.37.1.1}
+\contentsline {subsubsection}{\numberline {6.37.2}Function Documentation}{162}{subsubsection.6.37.2}
+\contentsline {paragraph}{\numberline {6.37.2.1}PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{162}{paragraph.6.37.2.1}
+\contentsline {paragraph}{\numberline {6.37.2.2}PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{162}{paragraph.6.37.2.2}
+\contentsline {paragraph}{\numberline {6.37.2.3}PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{162}{paragraph.6.37.2.3}
+\contentsline {paragraph}{\numberline {6.37.2.4}PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{162}{paragraph.6.37.2.4}
+\contentsline {paragraph}{\numberline {6.37.2.5}PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{162}{paragraph.6.37.2.5}
+\contentsline {paragraph}{\numberline {6.37.2.6}PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{162}{paragraph.6.37.2.6}
+\contentsline {paragraph}{\numberline {6.37.2.7}SetPointer}{163}{paragraph.6.37.2.7}
+\contentsline {subsubsection}{\numberline {6.37.3}Variable Documentation}{163}{subsubsection.6.37.3}
+\contentsline {paragraph}{\numberline {6.37.3.1}pdbgserial}{163}{paragraph.6.37.3.1}
+\contentsline {subsection}{\numberline {6.38}Port.cpp}{163}{subsection.6.38}
+\contentsline {subsection}{\numberline {6.39}Port.h File Reference}{166}{subsection.6.39}
+\contentsline {subsection}{\numberline {6.40}Port.h}{166}{subsection.6.40}
+\contentsline {subsection}{\numberline {6.41}Print.cpp File Reference}{167}{subsection.6.41}
+\contentsline {subsection}{\numberline {6.42}Print.cpp}{167}{subsection.6.42}
+\contentsline {subsection}{\numberline {6.43}Print.h File Reference}{170}{subsection.6.43}
+\contentsline {subsubsection}{\numberline {6.43.1}Define Documentation}{171}{subsubsection.6.43.1}
+\contentsline {paragraph}{\numberline {6.43.1.1}BIN}{171}{paragraph.6.43.1.1}
+\contentsline {paragraph}{\numberline {6.43.1.2}BYTE}{171}{paragraph.6.43.1.2}
+\contentsline {paragraph}{\numberline {6.43.1.3}DEC}{171}{paragraph.6.43.1.3}
+\contentsline {paragraph}{\numberline {6.43.1.4}HEX}{171}{paragraph.6.43.1.4}
+\contentsline {paragraph}{\numberline {6.43.1.5}OCT}{171}{paragraph.6.43.1.5}
+\contentsline {subsection}{\numberline {6.44}Print.h}{172}{subsection.6.44}
+\contentsline {subsection}{\numberline {6.45}TimerCntr.cpp File Reference}{173}{subsection.6.45}
+\contentsline {subsubsection}{\numberline {6.45.1}Define Documentation}{173}{subsubsection.6.45.1}
+\contentsline {paragraph}{\numberline {6.45.1.1}TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{173}{paragraph.6.45.1.1}
+\contentsline {paragraph}{\numberline {6.45.1.2}TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{174}{paragraph.6.45.1.2}
+\contentsline {subsubsection}{\numberline {6.45.2}Function Documentation}{174}{subsubsection.6.45.2}
+\contentsline {paragraph}{\numberline {6.45.2.1}SetPointer}{174}{paragraph.6.45.2.1}
+\contentsline {paragraph}{\numberline {6.45.2.2}SetPointer}{175}{paragraph.6.45.2.2}
+\contentsline {paragraph}{\numberline {6.45.2.3}TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{175}{paragraph.6.45.2.3}
+\contentsline {paragraph}{\numberline {6.45.2.4}TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{175}{paragraph.6.45.2.4}
+\contentsline {paragraph}{\numberline {6.45.2.5}TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{175}{paragraph.6.45.2.5}
+\contentsline {paragraph}{\numberline {6.45.2.6}TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}{175}{paragraph.6.45.2.6}
+\contentsline {subsection}{\numberline {6.46}TimerCntr.cpp}{175}{subsection.6.46}
+\contentsline {subsection}{\numberline {6.47}TimerCntr.h File Reference}{180}{subsection.6.47}
+\contentsline {subsection}{\numberline {6.48}TimerCntr.h}{180}{subsection.6.48}

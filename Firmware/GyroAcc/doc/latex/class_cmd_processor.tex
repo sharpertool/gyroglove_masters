@@ -1,0 +1,765 @@
+\hypertarget{class_cmd_processor}{
+\subsection{CmdProcessor Class Reference}
+\label{class_cmd_processor}\index{CmdProcessor@{CmdProcessor}}
+}
+
+
+{\ttfamily \#include $<$CmdProcessor.h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_cmd_processor_a3594ccb1d9cb0f381315781ad3ac39dc}{CmdProcessor} (\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$pHW)
+\begin{DoxyCompactList}\small\item\em Number of valid parameters. \item\end{DoxyCompactList}\item 
+\hyperlink{class_cmd_processor_a0e93fa7c4984326769ae51072638f50f}{$\sim$CmdProcessor} ()
+\begin{DoxyCompactList}\small\item\em Destructor. Release memory allocated in constructor. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_cmd_processor_ab674755157e105adb18ddeed073f0031}{checkCommands} ()
+\item 
+char $\ast$ \hyperlink{class_cmd_processor_a6044256dfce5684d00563c5a73f965d9}{cmdTerm} ()
+\begin{DoxyCompactList}\small\item\em Return pointer to termination string. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_cmd_processor_a8cf275a12c84c86b9311612d134481aa}{cmdTerm} (char $\ast$)
+\item 
+void \hyperlink{class_cmd_processor_ab6265f95bc945842d519de1aaf5874c9}{resetCmd} ()
+\begin{DoxyCompactList}\small\item\em Clear the command status values so a new command can be started. \item\end{DoxyCompactList}\item 
+const char $\ast$ \hyperlink{class_cmd_processor_a4dc02963de9f314346c028c9ea0c02ae}{cmdDelim} ()
+\begin{DoxyCompactList}\small\item\em Return current delimiter string. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_cmd_processor_a7b4a871cb83f57986fdea9423d6197cf}{cmdDelim} (const char $\ast$)
+\item 
+const char $\ast$ \hyperlink{class_cmd_processor_ad50f4ad388976a233cbb28877f87ed7e}{getCmd} ()
+\begin{DoxyCompactList}\small\item\em Return the command string. \item\end{DoxyCompactList}\item 
+uint8\_\-t \hyperlink{class_cmd_processor_acdf54848c152fe7d2f43b51b1e2e366d}{paramCnt} ()
+\begin{DoxyCompactList}\small\item\em Return the number of parameters parsed from the current command. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Parameter Extraction Functions}\par
+{\em getParam is overloaded on the variable type, this means that each possible type has a unique function. The type of the parameter you are seeking will determine the exact function that is called, which will then do the right thing to convert the string paramter value to an unsigned int, double etc. }\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{getParam} (uint8\_\-t idx, uint8\_\-t \&p)
+\begin{DoxyCompactList}\small\item\em Parse the index parameter into a unsigned 8 bit integer. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_cmd_processor_a6ecb6c34b183926aeb224b660eb03b73}{getParam} (uint8\_\-t idx, uint16\_\-t \&p)
+\begin{DoxyCompactList}\small\item\em Parse the index parameter into a unsigned 16 bit integer. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_cmd_processor_abb99f82aa0e9c1c7023c334745e5b92d}{getParam} (uint8\_\-t idx, long \&l)
+\begin{DoxyCompactList}\small\item\em Parse the index parameter into a unsigned 8 bit integer. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_cmd_processor_a8cac703be39a93f638732e67b361fea0}{getParam} (uint8\_\-t idx, int \&p)
+\begin{DoxyCompactList}\small\item\em Parse the index parameter into a unsigned 8 bit integer. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_cmd_processor_aa0a295be3ce1557d86c5cc98394c3da1}{getParam} (uint8\_\-t idx, double \&f)
+\begin{DoxyCompactList}\small\item\em Parse the index parameter into a double. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_cmd_processor_a3d0f2ffbbf0400d21c957da7c92109d5}{getParam} (uint8\_\-t idx, char $\ast$\&p, uint8\_\-t maxlen=128)
+\begin{DoxyCompactList}\small\item\em Parse the index parameter into a string with the length specified. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_cmd_processor_a56ce7cebb2a72262ba0d1ba0937739d5}{processCmd} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$ \hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{\_\-pHW}
+\item 
+char $\ast$ \hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{\_\-pTokens} \mbox{[}10\mbox{]}
+\begin{DoxyCompactList}\small\item\em Store the serial object. \item\end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{\_\-pCmd}
+\begin{DoxyCompactList}\small\item\em List of command tokens. \item\end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{\_\-pCmdString}
+\begin{DoxyCompactList}\small\item\em Command buffer. \item\end{DoxyCompactList}\item 
+uint8\_\-t \hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{\_\-cmdPos}
+\begin{DoxyCompactList}\small\item\em Current command. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_cmd_processor_a18b0886303779762a37096d6446aefa6}{\_\-validCmd}
+\begin{DoxyCompactList}\small\item\em Current position during serial read. \item\end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{\_\-pCmdTerm}
+\begin{DoxyCompactList}\small\item\em Indicates a current valid command. \item\end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{\_\-pCmdDelim}
+\begin{DoxyCompactList}\small\item\em Store command terminator. \item\end{DoxyCompactList}\item 
+uint8\_\-t \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{\_\-paramCnt}
+\begin{DoxyCompactList}\small\item\em Current command parameter delimiter. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line \hyperlink{_cmd_processor_8h_source_l00007}{7} of file \hyperlink{_cmd_processor_8h_source}{CmdProcessor.h}.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_cmd_processor_a3594ccb1d9cb0f381315781ad3ac39dc}{
+\index{CmdProcessor@{CmdProcessor}!CmdProcessor@{CmdProcessor}}
+\index{CmdProcessor@{CmdProcessor}!CmdProcessor@{CmdProcessor}}
+\paragraph[{CmdProcessor}]{\setlength{\rightskip}{0pt plus 5cm}CmdProcessor::CmdProcessor (
+\begin{DoxyParamCaption}
+\item[{{\bf HardwareSerial} $\ast$}]{pHW}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_a3594ccb1d9cb0f381315781ad3ac39dc}
+
+
+Number of valid parameters. 
+
+Construct a new \hyperlink{class_cmd_processor}{CmdProcessor}. Pass in reference to the \hyperlink{class_hardware_serial}{HardwareSerial} class to use for command processing. Store the serial pointer and then initialize the internal data strings used during command input processing and output processing. 
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00011}{11} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00012}{\_\-pCmd}, \hyperlink{_cmd_processor_8h_source_l00017}{\_\-pCmdDelim}, \hyperlink{_cmd_processor_8h_source_l00013}{\_\-pCmdString}, \hyperlink{_cmd_processor_8h_source_l00016}{\_\-pCmdTerm}, \hyperlink{_cmd_processor_8h_source_l00010}{\_\-pHW}, and \hyperlink{_cmd_processor_8cpp_source_l00115}{resetCmd()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW} = pHW;
+    
+    \hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString} = (\textcolor{keywordtype}{char}*)malloc(128);
+    \hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{_pCmd} = 0;
+    \hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm} = (\textcolor{keywordtype}{char}*)malloc(3);
+    strcpy(\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm},\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)r"});
+    \hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim} = (\textcolor{keywordtype}{char}*)malloc(3);
+    strcpy(\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim},\textcolor{stringliteral}{" \(\backslash\)t"});
+    \hyperlink{class_cmd_processor_ab6265f95bc945842d519de1aaf5874c9}{resetCmd}();
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_a0e93fa7c4984326769ae51072638f50f}{
+\index{CmdProcessor@{CmdProcessor}!$\sim$CmdProcessor@{$\sim$CmdProcessor}}
+\index{$\sim$CmdProcessor@{$\sim$CmdProcessor}!CmdProcessor@{CmdProcessor}}
+\paragraph[{$\sim$CmdProcessor}]{\setlength{\rightskip}{0pt plus 5cm}CmdProcessor::$\sim$CmdProcessor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_a0e93fa7c4984326769ae51072638f50f}
+
+
+Destructor. Release memory allocated in constructor. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00025}{25} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00017}{\_\-pCmdDelim}, \hyperlink{_cmd_processor_8h_source_l00013}{\_\-pCmdString}, \hyperlink{_cmd_processor_8h_source_l00016}{\_\-pCmdTerm}, \hyperlink{_cmd_processor_8h_source_l00010}{\_\-pHW}, and \hyperlink{_hardware_serial_8cpp_source_l00203}{HardwareSerial::end()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW}) \{
+        \hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW}->\hyperlink{class_hardware_serial_a0f86c41f580e04bdf30ea00e9014eacd}{end}();
+    \}
+    free(\hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString});
+    free(\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim});
+    free(\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm});
+\}
+\end{DoxyCode}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_cmd_processor_ab674755157e105adb18ddeed073f0031}{
+\index{CmdProcessor@{CmdProcessor}!checkCommands@{checkCommands}}
+\index{checkCommands@{checkCommands}!CmdProcessor@{CmdProcessor}}
+\paragraph[{checkCommands}]{\setlength{\rightskip}{0pt plus 5cm}bool CmdProcessor::checkCommands (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_ab674755157e105adb18ddeed073f0031}
+Read new characters from the serial port Read any new characters into the command buffer. Look for the command terminator. If the terminator is found, store the command, process the command buffer and return 1 to indicate that a new command is availble. If a full command is not yet present, then return zero. 
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00068}{68} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00014}{\_\-cmdPos}, \hyperlink{_cmd_processor_8h_source_l00013}{\_\-pCmdString}, \hyperlink{_cmd_processor_8h_source_l00016}{\_\-pCmdTerm}, \hyperlink{_cmd_processor_8h_source_l00010}{\_\-pHW}, \hyperlink{_hardware_serial_8cpp_source_l00213}{HardwareSerial::available()}, \hyperlink{_print_8cpp_source_l00045}{Print::print()}, \hyperlink{_cmd_processor_8cpp_source_l00092}{processCmd()}, and \hyperlink{_hardware_serial_8cpp_source_l00218}{HardwareSerial::read()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{while} (\hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW}->\hyperlink{class_hardware_serial_a10e05fa62dc473d0d8a7ee8184f504ba}{available}() > 0) \{
+        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} c = \hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW}->\hyperlink{class_hardware_serial_a618696608a5fddcf3cb48ad6f044e756}{read}();
+        \textcolor{keywordflow}{if} (strchr(\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm},c) != 0) \{
+            \textcolor{keywordflow}{if} (\hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{_cmdPos} > 0) \{
+                \textcolor{comment}{// Done with this command.}
+                \hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString}[\hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{_cmdPos}] = 0; \textcolor{comment}{// Null terminate command}
+                \hyperlink{class_cmd_processor_a56ce7cebb2a72262ba0d1ba0937739d5}{processCmd}();
+                \textcolor{keywordflow}{return} 1;
+            \} \textcolor{keywordflow}{else} \{
+                \hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW}->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{stringliteral}{"Ok\(\backslash\)n"});
+            \}
+        \} \textcolor{keywordflow}{else} \{
+            \hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString}[\hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{_cmdPos}++] = c;
+        \}
+    \}
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_a4dc02963de9f314346c028c9ea0c02ae}{
+\index{CmdProcessor@{CmdProcessor}!cmdDelim@{cmdDelim}}
+\index{cmdDelim@{cmdDelim}!CmdProcessor@{CmdProcessor}}
+\paragraph[{cmdDelim}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ CmdProcessor::cmdDelim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_a4dc02963de9f314346c028c9ea0c02ae}
+
+
+Return current delimiter string. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00048}{48} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00017}{\_\-pCmdDelim}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{return} \hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim};
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_a7b4a871cb83f57986fdea9423d6197cf}{
+\index{CmdProcessor@{CmdProcessor}!cmdDelim@{cmdDelim}}
+\index{cmdDelim@{cmdDelim}!CmdProcessor@{CmdProcessor}}
+\paragraph[{cmdDelim}]{\setlength{\rightskip}{0pt plus 5cm}void CmdProcessor::cmdDelim (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{d}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_a7b4a871cb83f57986fdea9423d6197cf}
+Set new delimiter string. Free memory, allocate new memory and copy new value. 
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00055}{55} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00017}{\_\-pCmdDelim}.
+
+
+\begin{DoxyCode}
+\{
+    free(\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim});
+    \hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim} = (\textcolor{keywordtype}{char}*)malloc(strlen(d) + 1);
+    strcpy(\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim},d);
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_a6044256dfce5684d00563c5a73f965d9}{
+\index{CmdProcessor@{CmdProcessor}!cmdTerm@{cmdTerm}}
+\index{cmdTerm@{cmdTerm}!CmdProcessor@{CmdProcessor}}
+\paragraph[{cmdTerm}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ CmdProcessor::cmdTerm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_a6044256dfce5684d00563c5a73f965d9}
+
+
+Return pointer to termination string. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00036}{36} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00016}{\_\-pCmdTerm}.
+
+
+\begin{DoxyCode}
+\{ \textcolor{keywordflow}{return} \hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm}; \}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_a8cf275a12c84c86b9311612d134481aa}{
+\index{CmdProcessor@{CmdProcessor}!cmdTerm@{cmdTerm}}
+\index{cmdTerm@{cmdTerm}!CmdProcessor@{CmdProcessor}}
+\paragraph[{cmdTerm}]{\setlength{\rightskip}{0pt plus 5cm}void CmdProcessor::cmdTerm (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{t}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_a8cf275a12c84c86b9311612d134481aa}
+Set a new command terminator. Free memory for previous value, allocate new memory and save the new value. 
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00040}{40} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00016}{\_\-pCmdTerm}.
+
+
+\begin{DoxyCode}
+\{ 
+    free(\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm});
+    \hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm} = (\textcolor{keywordtype}{char}*)malloc(strlen(t) + 1);
+    strcpy(\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm},t);
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_ad50f4ad388976a233cbb28877f87ed7e}{
+\index{CmdProcessor@{CmdProcessor}!getCmd@{getCmd}}
+\index{getCmd@{getCmd}!CmdProcessor@{CmdProcessor}}
+\paragraph[{getCmd}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ CmdProcessor::getCmd (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_ad50f4ad388976a233cbb28877f87ed7e}
+
+
+Return the command string. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00123}{123} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00012}{\_\-pCmd}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{return} \hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{_pCmd};
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_aa0a295be3ce1557d86c5cc98394c3da1}{
+\index{CmdProcessor@{CmdProcessor}!getParam@{getParam}}
+\index{getParam@{getParam}!CmdProcessor@{CmdProcessor}}
+\paragraph[{getParam}]{\setlength{\rightskip}{0pt plus 5cm}void CmdProcessor::getParam (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx, }
+\item[{double \&}]{f}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_aa0a295be3ce1557d86c5cc98394c3da1}
+
+
+Parse the index parameter into a double. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00176}{176} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00018}{\_\-paramCnt}, and \hyperlink{_cmd_processor_8h_source_l00011}{\_\-pTokens}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+        uint8\_t nScans;
+        nScans = sscanf(\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx],\textcolor{stringliteral}{"%lf"}, &p);
+        \textcolor{comment}{//p = atof(\_pTokens[idx]);}
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{
+\index{CmdProcessor@{CmdProcessor}!getParam@{getParam}}
+\index{getParam@{getParam}!CmdProcessor@{CmdProcessor}}
+\paragraph[{getParam}]{\setlength{\rightskip}{0pt plus 5cm}void CmdProcessor::getParam (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx, }
+\item[{uint8\_\-t \&}]{p}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}
+
+
+Parse the index parameter into a unsigned 8 bit integer. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00154}{154} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00018}{\_\-paramCnt}, and \hyperlink{_cmd_processor_8h_source_l00011}{\_\-pTokens}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+        p = atoi(\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx]);
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_a6ecb6c34b183926aeb224b660eb03b73}{
+\index{CmdProcessor@{CmdProcessor}!getParam@{getParam}}
+\index{getParam@{getParam}!CmdProcessor@{CmdProcessor}}
+\paragraph[{getParam}]{\setlength{\rightskip}{0pt plus 5cm}void CmdProcessor::getParam (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx, }
+\item[{uint16\_\-t \&}]{p}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_a6ecb6c34b183926aeb224b660eb03b73}
+
+
+Parse the index parameter into a unsigned 16 bit integer. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00146}{146} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00018}{\_\-paramCnt}, and \hyperlink{_cmd_processor_8h_source_l00011}{\_\-pTokens}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+        p = atoi(\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx]);
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_a8cac703be39a93f638732e67b361fea0}{
+\index{CmdProcessor@{CmdProcessor}!getParam@{getParam}}
+\index{getParam@{getParam}!CmdProcessor@{CmdProcessor}}
+\paragraph[{getParam}]{\setlength{\rightskip}{0pt plus 5cm}void CmdProcessor::getParam (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx, }
+\item[{int \&}]{p}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_a8cac703be39a93f638732e67b361fea0}
+
+
+Parse the index parameter into a unsigned 8 bit integer. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00161}{161} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00018}{\_\-paramCnt}, and \hyperlink{_cmd_processor_8h_source_l00011}{\_\-pTokens}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+        p = atoi(\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx]);
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_a3d0f2ffbbf0400d21c957da7c92109d5}{
+\index{CmdProcessor@{CmdProcessor}!getParam@{getParam}}
+\index{getParam@{getParam}!CmdProcessor@{CmdProcessor}}
+\paragraph[{getParam}]{\setlength{\rightskip}{0pt plus 5cm}void CmdProcessor::getParam (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx, }
+\item[{char $\ast$\&}]{p, }
+\item[{uint8\_\-t}]{maxlen = {\ttfamily 128}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_a3d0f2ffbbf0400d21c957da7c92109d5}
+
+
+Parse the index parameter into a string with the length specified. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00186}{186} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00018}{\_\-paramCnt}, and \hyperlink{_cmd_processor_8h_source_l00011}{\_\-pTokens}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+        strncpy(p,\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx],maxlen);
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_abb99f82aa0e9c1c7023c334745e5b92d}{
+\index{CmdProcessor@{CmdProcessor}!getParam@{getParam}}
+\index{getParam@{getParam}!CmdProcessor@{CmdProcessor}}
+\paragraph[{getParam}]{\setlength{\rightskip}{0pt plus 5cm}void CmdProcessor::getParam (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx, }
+\item[{long \&}]{l}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_abb99f82aa0e9c1c7023c334745e5b92d}
+
+
+Parse the index parameter into a unsigned 8 bit integer. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00168}{168} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00018}{\_\-paramCnt}, and \hyperlink{_cmd_processor_8h_source_l00011}{\_\-pTokens}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+        l = atol(\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx]);
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_acdf54848c152fe7d2f43b51b1e2e366d}{
+\index{CmdProcessor@{CmdProcessor}!paramCnt@{paramCnt}}
+\index{paramCnt@{paramCnt}!CmdProcessor@{CmdProcessor}}
+\paragraph[{paramCnt}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t CmdProcessor::paramCnt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_acdf54848c152fe7d2f43b51b1e2e366d}
+
+
+Return the number of parameters parsed from the current command. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00129}{129} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00018}{\_\-paramCnt}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{return} \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt};
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_a56ce7cebb2a72262ba0d1ba0937739d5}{
+\index{CmdProcessor@{CmdProcessor}!processCmd@{processCmd}}
+\index{processCmd@{processCmd}!CmdProcessor@{CmdProcessor}}
+\paragraph[{processCmd}]{\setlength{\rightskip}{0pt plus 5cm}void CmdProcessor::processCmd (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_cmd_processor_a56ce7cebb2a72262ba0d1ba0937739d5}
+Process the commands in the command buffer Split the command into parameters based on the command delimiter. The maximum number of command tokens is 10. 
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00092}{92} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00018}{\_\-paramCnt}, \hyperlink{_cmd_processor_8h_source_l00012}{\_\-pCmd}, \hyperlink{_cmd_processor_8h_source_l00017}{\_\-pCmdDelim}, \hyperlink{_cmd_processor_8h_source_l00013}{\_\-pCmdString}, \hyperlink{_cmd_processor_8h_source_l00011}{\_\-pTokens}, and \hyperlink{_cmd_processor_8h_source_l00015}{\_\-validCmd}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00068}{checkCommands()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// See if the command delimiter exists in the}
+    \textcolor{comment}{// command. if it does not, then the command}
+    \textcolor{comment}{// is the entire string.}
+    \textcolor{keywordflow}{if} (strpbrk(\hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString},\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim})) \{
+        \hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{_pCmd} = strtok(\hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString},\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim});
+        \textcolor{keywordtype}{char}* pTok = strtok(0,\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim});
+        \textcolor{keywordtype}{int} i = 0;
+        \textcolor{keywordflow}{while} (i < 10 && pTok) \{
+            \hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[i++] = pTok;
+            pTok = strtok(0,\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim});
+        \}
+        \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt} = i;
+        \hyperlink{class_cmd_processor_a18b0886303779762a37096d6446aefa6}{_validCmd} = \textcolor{keyword}{true};
+    \} \textcolor{keywordflow}{else} \{
+        \hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{_pCmd} = \hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString};
+        \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt} = 0;
+        \hyperlink{class_cmd_processor_a18b0886303779762a37096d6446aefa6}{_validCmd} = \textcolor{keyword}{true};
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_cmd_processor_ab6265f95bc945842d519de1aaf5874c9}{
+\index{CmdProcessor@{CmdProcessor}!resetCmd@{resetCmd}}
+\index{resetCmd@{resetCmd}!CmdProcessor@{CmdProcessor}}
+\paragraph[{resetCmd}]{\setlength{\rightskip}{0pt plus 5cm}void CmdProcessor::resetCmd (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_cmd_processor_ab6265f95bc945842d519de1aaf5874c9}
+
+
+Clear the command status values so a new command can be started. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8cpp_source_l00115}{115} of file \hyperlink{_cmd_processor_8cpp_source}{CmdProcessor.cpp}.
+
+
+
+References \hyperlink{_cmd_processor_8h_source_l00014}{\_\-cmdPos}, \hyperlink{_cmd_processor_8h_source_l00018}{\_\-paramCnt}, and \hyperlink{_cmd_processor_8h_source_l00015}{\_\-validCmd}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00011}{CmdProcessor()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{_cmdPos} = 0;
+    \hyperlink{class_cmd_processor_a18b0886303779762a37096d6446aefa6}{_validCmd} = \textcolor{keyword}{false};
+    \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt} = 0;
+\}
+\end{DoxyCode}
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{
+\index{CmdProcessor@{CmdProcessor}!\_\-cmdPos@{\_\-cmdPos}}
+\index{\_\-cmdPos@{\_\-cmdPos}!CmdProcessor@{CmdProcessor}}
+\paragraph[{\_\-cmdPos}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf CmdProcessor::\_\-cmdPos}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}
+
+
+Current command. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8h_source_l00014}{14} of file \hyperlink{_cmd_processor_8h_source}{CmdProcessor.h}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00068}{checkCommands()}, and \hyperlink{_cmd_processor_8cpp_source_l00115}{resetCmd()}.
+
+\hypertarget{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{
+\index{CmdProcessor@{CmdProcessor}!\_\-paramCnt@{\_\-paramCnt}}
+\index{\_\-paramCnt@{\_\-paramCnt}!CmdProcessor@{CmdProcessor}}
+\paragraph[{\_\-paramCnt}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf CmdProcessor::\_\-paramCnt}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}
+
+
+Current command parameter delimiter. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8h_source_l00018}{18} of file \hyperlink{_cmd_processor_8h_source}{CmdProcessor.h}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00146}{getParam()}, \hyperlink{_cmd_processor_8cpp_source_l00129}{paramCnt()}, \hyperlink{_cmd_processor_8cpp_source_l00092}{processCmd()}, and \hyperlink{_cmd_processor_8cpp_source_l00115}{resetCmd()}.
+
+\hypertarget{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{
+\index{CmdProcessor@{CmdProcessor}!\_\-pCmd@{\_\-pCmd}}
+\index{\_\-pCmd@{\_\-pCmd}!CmdProcessor@{CmdProcessor}}
+\paragraph[{\_\-pCmd}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf CmdProcessor::\_\-pCmd}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_cmd_processor_a2017c885b275984549385ba246ec37f5}
+
+
+List of command tokens. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8h_source_l00012}{12} of file \hyperlink{_cmd_processor_8h_source}{CmdProcessor.h}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00011}{CmdProcessor()}, \hyperlink{_cmd_processor_8cpp_source_l00123}{getCmd()}, and \hyperlink{_cmd_processor_8cpp_source_l00092}{processCmd()}.
+
+\hypertarget{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{
+\index{CmdProcessor@{CmdProcessor}!\_\-pCmdDelim@{\_\-pCmdDelim}}
+\index{\_\-pCmdDelim@{\_\-pCmdDelim}!CmdProcessor@{CmdProcessor}}
+\paragraph[{\_\-pCmdDelim}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf CmdProcessor::\_\-pCmdDelim}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}
+
+
+Store command terminator. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8h_source_l00017}{17} of file \hyperlink{_cmd_processor_8h_source}{CmdProcessor.h}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00048}{cmdDelim()}, \hyperlink{_cmd_processor_8cpp_source_l00011}{CmdProcessor()}, \hyperlink{_cmd_processor_8cpp_source_l00092}{processCmd()}, and \hyperlink{_cmd_processor_8cpp_source_l00025}{$\sim$CmdProcessor()}.
+
+\hypertarget{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{
+\index{CmdProcessor@{CmdProcessor}!\_\-pCmdString@{\_\-pCmdString}}
+\index{\_\-pCmdString@{\_\-pCmdString}!CmdProcessor@{CmdProcessor}}
+\paragraph[{\_\-pCmdString}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf CmdProcessor::\_\-pCmdString}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}
+
+
+Command buffer. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8h_source_l00013}{13} of file \hyperlink{_cmd_processor_8h_source}{CmdProcessor.h}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00068}{checkCommands()}, \hyperlink{_cmd_processor_8cpp_source_l00011}{CmdProcessor()}, \hyperlink{_cmd_processor_8cpp_source_l00092}{processCmd()}, and \hyperlink{_cmd_processor_8cpp_source_l00025}{$\sim$CmdProcessor()}.
+
+\hypertarget{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{
+\index{CmdProcessor@{CmdProcessor}!\_\-pCmdTerm@{\_\-pCmdTerm}}
+\index{\_\-pCmdTerm@{\_\-pCmdTerm}!CmdProcessor@{CmdProcessor}}
+\paragraph[{\_\-pCmdTerm}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf CmdProcessor::\_\-pCmdTerm}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}
+
+
+Indicates a current valid command. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8h_source_l00016}{16} of file \hyperlink{_cmd_processor_8h_source}{CmdProcessor.h}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00068}{checkCommands()}, \hyperlink{_cmd_processor_8cpp_source_l00011}{CmdProcessor()}, \hyperlink{_cmd_processor_8cpp_source_l00036}{cmdTerm()}, and \hyperlink{_cmd_processor_8cpp_source_l00025}{$\sim$CmdProcessor()}.
+
+\hypertarget{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{
+\index{CmdProcessor@{CmdProcessor}!\_\-pHW@{\_\-pHW}}
+\index{\_\-pHW@{\_\-pHW}!CmdProcessor@{CmdProcessor}}
+\paragraph[{\_\-pHW}]{\setlength{\rightskip}{0pt plus 5cm}{\bf HardwareSerial}$\ast$ {\bf CmdProcessor::\_\-pHW}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}
+
+
+Definition at line \hyperlink{_cmd_processor_8h_source_l00010}{10} of file \hyperlink{_cmd_processor_8h_source}{CmdProcessor.h}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00068}{checkCommands()}, \hyperlink{_cmd_processor_8cpp_source_l00011}{CmdProcessor()}, and \hyperlink{_cmd_processor_8cpp_source_l00025}{$\sim$CmdProcessor()}.
+
+\hypertarget{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{
+\index{CmdProcessor@{CmdProcessor}!\_\-pTokens@{\_\-pTokens}}
+\index{\_\-pTokens@{\_\-pTokens}!CmdProcessor@{CmdProcessor}}
+\paragraph[{\_\-pTokens}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf CmdProcessor::\_\-pTokens}\mbox{[}10\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}
+
+
+Store the serial object. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8h_source_l00011}{11} of file \hyperlink{_cmd_processor_8h_source}{CmdProcessor.h}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00146}{getParam()}, and \hyperlink{_cmd_processor_8cpp_source_l00092}{processCmd()}.
+
+\hypertarget{class_cmd_processor_a18b0886303779762a37096d6446aefa6}{
+\index{CmdProcessor@{CmdProcessor}!\_\-validCmd@{\_\-validCmd}}
+\index{\_\-validCmd@{\_\-validCmd}!CmdProcessor@{CmdProcessor}}
+\paragraph[{\_\-validCmd}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf CmdProcessor::\_\-validCmd}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_cmd_processor_a18b0886303779762a37096d6446aefa6}
+
+
+Current position during serial read. 
+
+
+
+Definition at line \hyperlink{_cmd_processor_8h_source_l00015}{15} of file \hyperlink{_cmd_processor_8h_source}{CmdProcessor.h}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00092}{processCmd()}, and \hyperlink{_cmd_processor_8cpp_source_l00115}{resetCmd()}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_cmd_processor_8h}{CmdProcessor.h}\item 
+\hyperlink{_cmd_processor_8cpp}{CmdProcessor.cpp}\end{DoxyCompactItemize}

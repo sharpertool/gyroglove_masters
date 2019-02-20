@@ -1,0 +1,2678 @@
+\hypertarget{class_i_m_u}{
+\subsection{IMU Class Reference}
+\label{class_i_m_u}\index{IMU@{IMU}}
+}
+
+
+{\ttfamily \#include $<$IMU.h$>$}
+
+Inheritance diagram for IMU:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_m_u}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_i_m_u_1_1reg_write}{regWrite}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_i_m_u_ab77a4c6c64f65642c42ebbf55a4e7a1e}{IMU} (\hyperlink{class_i2_c___master}{I2C\_\-Master} $\ast$pMas)
+\item 
+\hyperlink{class_i_m_u_aa628daa06d0e29e4aa84bb8336649134}{IMU} (\hyperlink{class_i2_c___master}{I2C\_\-Master} $\ast$pMas, uint8\_\-t gID, uint8\_\-t aID)
+\begin{DoxyCompactList}\small\item\em Constructor for a single \hyperlink{class_i_m_u}{IMU} I2C Channel. \item\end{DoxyCompactList}\item 
+\hyperlink{class_i_m_u_ac3b25bbd72ae020b61012fd4ebf8a188}{IMU} (\hyperlink{class_i2_c___master}{I2C\_\-Master} $\ast$pMas, uint8\_\-t gID, uint8\_\-t aID, uint8\_\-t gID2, uint8\_\-t aID2)
+\begin{DoxyCompactList}\small\item\em Constructor for a double \hyperlink{class_i_m_u}{IMU} I2C Channel. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_i_m_u_a496602369b71a85051ba0506a8af70a1}{QueryChannels} ()
+\item 
+void \hyperlink{class_i_m_u_afedf46bdad68cb4002af8bf46530d265}{SetDebugPort} (DebugPort $\ast$pPort)
+\item 
+void \hyperlink{class_i_m_u_a6f86c79e66c4262093c2d65fe3fee45c}{SetDebugPort2} (DebugPort $\ast$pPort)
+\item 
+virtual void \hyperlink{class_i_m_u_a13191357ff93d02f6cc7aa7e55b13d67}{Reset} ()
+\item 
+virtual void \hyperlink{class_i_m_u_a7705d9d642b093a670e78534c9b2d3db}{SampleRate} (uint16\_\-t)
+\item 
+virtual int \hyperlink{class_i_m_u_a290737d42de965c15c8327edfc516ffd}{Setup} ()
+\item 
+virtual int \hyperlink{class_i_m_u_a7c03f7a423240538756a62441b298d01}{Start} ()
+\item 
+virtual int \hyperlink{class_i_m_u_af0841bed4167f7a4eb12c40d7b8e615e}{Stop} ()
+\item 
+virtual int \hyperlink{class_i_m_u_a004d2bb9e6155f45edc9e46bce730644}{ForceStartStop} ()
+\item 
+virtual bool \hyperlink{class_i_m_u_ade0f7e6be2eda441bfaa2cb372fec55a}{Busy} ()
+\item 
+virtual void \hyperlink{class_i_m_u_a187dc9de30f97f5154e0ff904eb6ee1a}{ResetTimer} ()
+\item 
+virtual void \hyperlink{class_i_m_u_a86f05be645d2096f0b2b3cfbe8ea0ce8}{UseGyro} (bool bEnable)
+\item 
+virtual void \hyperlink{class_i_m_u_ac46c8e580371cf97e4625dda450f01fd}{NextIMU} (\hyperlink{class_i_m_u_base}{IMUBase} $\ast$pNext)
+\item 
+virtual int \hyperlink{class_i_m_u_a3c949edee15e2f618d7ee263b0a4bcb3}{BeginRead} ()
+\item 
+virtual bool \hyperlink{class_i_m_u_a078d2f3ad27475c9afcaf09c44886e4c}{DataReady} ()
+\item 
+virtual uint8\_\-t $\ast$ \hyperlink{class_i_m_u_a4f72b7f99fc42f30c9478ba7ed65654e}{GetPacketData} (uint8\_\-t $\ast$)
+\item 
+virtual void \hyperlink{class_i_m_u_a74feb2946c48a92b251e28ac256d887b}{CheckIDs} (\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$pSerial)
+\item 
+virtual void \hyperlink{class_i_m_u_a98f9a8244dd1a07f8771450097371b2c}{ResetDevices} ()
+\item 
+void \hyperlink{class_i_m_u_a66680475b844fbf334a0e4e7c5fe845b}{SetTimer} (\hyperlink{class_timer_cntr}{TimerCntr} $\ast$pTimer)
+\item 
+void \hyperlink{class_i_m_u_a3ce9934e64dff87e18b6cc3f3700f72f}{SetTimerPeriod} ()
+\item 
+virtual void \hyperlink{class_i_m_u_a71568969beb6ee7d4b596f8c0a91faf9}{I2CWriteDone} ()
+\item 
+virtual void \hyperlink{class_i_m_u_ab4124ae29a64365787c2c03b3ab09c6c}{I2CReadDone} ()
+\item 
+virtual void \hyperlink{class_i_m_u_aad041ec91d266e9fc15d22de17ffccad}{I2CBusError} ()
+\item 
+virtual void \hyperlink{class_i_m_u_a7d4a2a761fb4956ebd9ce0b0cda69556}{I2CArbLost} ()
+\item 
+virtual void \hyperlink{class_i_m_u_a161f80bfcb7195196754a18eddedaf12}{I2CNack} ()
+\item 
+void \hyperlink{class_i_m_u_acf8e9ee1971e527c255c046d3d3c1fe9}{FailRecovery} ()
+\end{DoxyCompactItemize}
+\begin{Indent}{\bf Interrupt Handlers}\par
+{\em These handlers receive interupts from the Timer class. We registered to received these calls with the Notify function. In some cases we might have 2 or more objects that will send us interrupt notifications, in this case we give each object an ID that is passed back so that we know which one caused the interrupt.
+
+For the IMUManager, there is only a single Timer, so the ID is always 0. }\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_i_m_u_ae56d268445b752f9720c814cb294ba40}{err} (uint8\_\-t id)
+\begin{DoxyCompactList}\small\item\em Timer Error -\/ ignored. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_i_m_u_aefbd4e2f7f3928cf44c00a96d61c3546}{ovf} (uint8\_\-t id)
+\item 
+virtual void \hyperlink{class_i_m_u_ad2215ab5585c1f9512b91ef309dabf88}{ccx} (uint8\_\-t id, uint8\_\-t idx)
+\begin{DoxyCompactList}\small\item\em Timer Capture Compare -\/ not used. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_i_m_u_aadf38b912ad23374c4ee8e40fb9f3638}{Run} ()
+\item 
+int \hyperlink{class_i_m_u_a8dfecb837ea9fcf9d190423dca9beb7f}{StartTransaction} ()
+\item 
+void \hyperlink{class_i_m_u_ac39f14c617d4eea9de6175497744465a}{ProcessTransaction} ()
+\item 
+int \hyperlink{class_i_m_u_af4bede5261a1d6018c72782d8c54445e}{Configure} (uint8\_\-t idx)
+\item 
+int \hyperlink{class_i_m_u_af80eef2eb22d08faf697dd708b18303c}{Wr} (uint8\_\-t ID, uint8\_\-t addr, uint8\_\-t data)
+\item 
+int \hyperlink{class_i_m_u_ab6c8ef618465524c88a021e2206b2de5}{Rd} (uint8\_\-t ID, uint8\_\-t addr, uint8\_\-t cnt, uint8\_\-t $\ast$pData)
+\item 
+int \hyperlink{class_i_m_u_a2c38589ebcb357dfc8f987a5d41c845b}{WrAsync} (uint8\_\-t ID, uint8\_\-t addr, uint8\_\-t data)
+\item 
+int \hyperlink{class_i_m_u_ad39e85995898b9251032c89a3587974c}{RdAsync} (uint8\_\-t ID, uint8\_\-t addr, uint8\_\-t cnt)
+\item 
+void \hyperlink{class_i_m_u_a07362afd858bca1ce960f3809248e4e9}{ReadWord} (uint16\_\-t $\ast$pData)
+\item 
+void \hyperlink{class_i_m_u_a5b58d543be70886335e439a2b4f28a8e}{StoreGyroData} (uint8\_\-t idx)
+\item 
+void \hyperlink{class_i_m_u_ae9c290e496eb2a76aefc626c81fe4da9}{StoreAccData} (uint8\_\-t idx)
+\item 
+void \hyperlink{class_i_m_u_a14f3437170b38602f281b3f97d9ce129}{PushData} (uint8\_\-t idx)
+\begin{DoxyCompactList}\small\item\em Push the data in the temporary buffer onto the appropriate fifo. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState} (\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{StateType} s)
+\item 
+void \hyperlink{class_i_m_u_a7f9a7744a4fa3ea40da008cabd5da7b7}{MarkPos} (\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144}{PosType} p)
+\item 
+void \hyperlink{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{ResetBusyTime} ()
+\item 
+bool \hyperlink{class_i_m_u_a6a61733d65cf2b60db212e0be9a00fed}{BusyTimeout} ()
+\item 
+void \hyperlink{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{ResetFailStats} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{StateType} \{ \par
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle} =  0, 
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae3a15f0845da0f426c48b6bd9ed01b21}{sConfigure} =  1, 
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa98a87654cac5bbc7d12c9701563dbae5}{sConfigured} =  2, 
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{sWait} =  5, 
+\par
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa8f3b3efb815c4ee9396ccb1fda939f77}{sReadGyro1} =  8, 
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa7e6ba39651fb8aca4abcdf80ed789d8b}{sReadAcc1} =  9, 
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa2e538ebe471a9482d15ab162ec3bdc6d}{sReadGyro2} =  10, 
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d82e2432f2e2075cef6143740c4df59}{sReadAcc2} =  11, 
+\par
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae27080f67607320b8cc57d8402a07277}{sErrRecover} =  12
+ \}
+\item 
+enum \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144}{PosType} \{ \par
+\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1d2d6c166c92bec6d19b37a6dbeeaf8c}{pStart} =  0, 
+\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a9cb1b471b394a5a3a87c6bab61ae00e4}{pRun} =  1, 
+\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac2332a4383aa00818b3fc4ed83ec1f4d}{pWriteDn} =  2, 
+\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1b257baca1eb9eb3e7192a01770cce76}{pReadDn} =  3, 
+\par
+\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac361e1f3b3b93592825ae06da0309c62}{pNack} =  4, 
+\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a3db70da4b0066e7738bed5e25f4fc405}{pBusErr} =  5, 
+\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a5b061676aa01e1049ff07e5a191c9af8}{pArbLost} =  6, 
+\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a73419f05716e41c972241a4fc0c6ead0}{pSetup} =  7
+ \}
+\item 
+enum \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97}{FailType} \{ \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97ac049bda2fb043b649de1cdb8d203aac2}{fNone} =  0, 
+\hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a17dff6c1392332855f9e83033dff49f8}{fNack} =  1, 
+\hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a4f33b2c6a17b90c350b4ad6f5f71cc34}{fBusErr} =  2, 
+\hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97acf94640c5a7cfb3a4fc806dabf005260}{fArbLost} =  3
+ \}
+\item 
+enum \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ce}{ProcessType} \{ \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea978a6a5569595a7e86fe7e48d2684a7f}{ptTimer}, 
+\hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea32f99524523d0d11cbd3348ee2fba9ea}{ptI2CWrite}, 
+\hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea5aabc602033dc4f845e45d33fe939688}{ptI2CRead}, 
+\hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ceab11e066033d0049893742894a7252fc8}{ptI2CNack}
+ \}
+\item 
+typedef enum \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{IMU::StateType} \hyperlink{class_i_m_u_a2c1f560a0bc80d0bd06bb56a614aeedd}{StateType}
+\item 
+typedef enum \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144}{IMU::PosType} \hyperlink{class_i_m_u_ad82ee88c050235081f004f81a5724e09}{PosType}
+\item 
+typedef enum \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97}{IMU::FailType} \hyperlink{class_i_m_u_a4baf4d6e504dcb71c4afab34be225620}{FailType}
+\item 
+typedef struct \hyperlink{struct_i_m_u_1_1reg_write}{IMU::regWrite} \hyperlink{class_i_m_u_a1960eeaec92b6b60d4f6c9e28b042b80}{RegWriteType}
+\end{DoxyCompactItemize}
+\subsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{StateType} \hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{\_\-State}
+\item 
+\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{StateType} \hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{\_\-previousState}
+\item 
+\hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97}{FailType} \hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{\_\-failType}
+\item 
+\hyperlink{class_i2_c___master}{I2C\_\-Master} $\ast$ \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{\_\-pMas}
+\item 
+bool \hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{\_\-bDualChan}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{\_\-numChans}
+\item 
+bool \hyperlink{class_i_m_u_a53aa928d2d68a5287da893bd157e7cbe}{\_\-configOkay} \mbox{[}2\mbox{]}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{\_\-gID} \mbox{[}2\mbox{]}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{\_\-aID} \mbox{[}2\mbox{]}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_a3f9e6159234449cde8f5e72da8acf751}{\_\-DLPF}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_a059c02011a10bb90aecc9692ed345771}{\_\-FullScale}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_a4dbeaf17fd1ae9b41b5c3fe61706e5f1}{\_\-ClkSel}
+\item 
+uint16\_\-t \hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{\_\-Rate}
+\item 
+bool \hyperlink{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{\_\-bUseGyro}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_ab87a54288295d4d10d605cf6c21d4d0f}{\_\-dataBuffer} \mbox{[}2\mbox{]}\mbox{[}20\mbox{]}
+\begin{DoxyCompactList}\small\item\em This buffer is used to store data until we push it into the fifo. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{\_\-bDataReady} \mbox{[}2\mbox{]}
+\item 
+\hyperlink{class_timer_cntr}{TimerCntr} $\ast$ \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{\_\-pTimer}
+\item 
+bool \hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{\_\-bRun}
+\item 
+uint16\_\-t \hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{\_\-failCount}
+\item 
+uint8\_\-t \hyperlink{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{\_\-nackCount}
+\begin{DoxyCompactList}\small\item\em used for recover logic \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_i_m_u_a12238a84e20f54c5fe799e0b37feb0ea}{\_\-bFailDetected}
+\item 
+unsigned int \hyperlink{class_i_m_u_adce31ce2a3317918d73b47e94a2d9227}{\_\-busyWaitTime}
+\item 
+DebugPort $\ast$ \hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{\_\-pDBGPort}
+\item 
+DebugPort $\ast$ \hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{\_\-pDBGPort2}
+\item 
+\hyperlink{class_i_m_u_base}{IMUBase} $\ast$ \hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{\_\-pNextIMU}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00040}{40} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\hypertarget{class_i_m_u_a4baf4d6e504dcb71c4afab34be225620}{
+\index{IMU@{IMU}!FailType@{FailType}}
+\index{FailType@{FailType}!IMU@{IMU}}
+\paragraph[{FailType}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf IMU::FailType}  {\bf IMU::FailType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a4baf4d6e504dcb71c4afab34be225620}
+\hypertarget{class_i_m_u_ad82ee88c050235081f004f81a5724e09}{
+\index{IMU@{IMU}!PosType@{PosType}}
+\index{PosType@{PosType}!IMU@{IMU}}
+\paragraph[{PosType}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf IMU::PosType}  {\bf IMU::PosType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_ad82ee88c050235081f004f81a5724e09}
+\hypertarget{class_i_m_u_a1960eeaec92b6b60d4f6c9e28b042b80}{
+\index{IMU@{IMU}!RegWriteType@{RegWriteType}}
+\index{RegWriteType@{RegWriteType}!IMU@{IMU}}
+\paragraph[{RegWriteType}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf IMU::regWrite}  {\bf IMU::RegWriteType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a1960eeaec92b6b60d4f6c9e28b042b80}
+\hypertarget{class_i_m_u_a2c1f560a0bc80d0bd06bb56a614aeedd}{
+\index{IMU@{IMU}!StateType@{StateType}}
+\index{StateType@{StateType}!IMU@{IMU}}
+\paragraph[{StateType}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf IMU::StateType}  {\bf IMU::StateType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a2c1f560a0bc80d0bd06bb56a614aeedd}
+
+
+\subsubsection{Member Enumeration Documentation}
+\hypertarget{class_i_m_u_a4edeb07a848734657792b4ef8749fb97}{
+\index{IMU@{IMU}!FailType@{FailType}}
+\index{FailType@{FailType}!IMU@{IMU}}
+\paragraph[{FailType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf IMU::FailType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a4edeb07a848734657792b4ef8749fb97}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{fNone@{fNone}!IMU@{IMU}}\index{IMU@{IMU}!fNone@{fNone}}\item[{\em 
+\hypertarget{class_i_m_u_a4edeb07a848734657792b4ef8749fb97ac049bda2fb043b649de1cdb8d203aac2}{
+fNone}
+\label{class_i_m_u_a4edeb07a848734657792b4ef8749fb97ac049bda2fb043b649de1cdb8d203aac2}
+}]\index{fNack@{fNack}!IMU@{IMU}}\index{IMU@{IMU}!fNack@{fNack}}\item[{\em 
+\hypertarget{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a17dff6c1392332855f9e83033dff49f8}{
+fNack}
+\label{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a17dff6c1392332855f9e83033dff49f8}
+}]\index{fBusErr@{fBusErr}!IMU@{IMU}}\index{IMU@{IMU}!fBusErr@{fBusErr}}\item[{\em 
+\hypertarget{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a4f33b2c6a17b90c350b4ad6f5f71cc34}{
+fBusErr}
+\label{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a4f33b2c6a17b90c350b4ad6f5f71cc34}
+}]\index{fArbLost@{fArbLost}!IMU@{IMU}}\index{IMU@{IMU}!fArbLost@{fArbLost}}\item[{\em 
+\hypertarget{class_i_m_u_a4edeb07a848734657792b4ef8749fb97acf94640c5a7cfb3a4fc806dabf005260}{
+fArbLost}
+\label{class_i_m_u_a4edeb07a848734657792b4ef8749fb97acf94640c5a7cfb3a4fc806dabf005260}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00065}{65} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+\begin{DoxyCode}
+                          \{
+        \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97ac049bda2fb043b649de1cdb8d203aac2}{fNone}           = 0,
+        \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a17dff6c1392332855f9e83033dff49f8}{fNack}           = 1,
+        \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a4f33b2c6a17b90c350b4ad6f5f71cc34}{fBusErr}         = 2,
+        \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97acf94640c5a7cfb3a4fc806dabf005260}{fArbLost}        = 3
+    \} \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97}{FailType};
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ad01128d82debc1e4213affe4858f3144}{
+\index{IMU@{IMU}!PosType@{PosType}}
+\index{PosType@{PosType}!IMU@{IMU}}
+\paragraph[{PosType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf IMU::PosType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_ad01128d82debc1e4213affe4858f3144}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{pStart@{pStart}!IMU@{IMU}}\index{IMU@{IMU}!pStart@{pStart}}\item[{\em 
+\hypertarget{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1d2d6c166c92bec6d19b37a6dbeeaf8c}{
+pStart}
+\label{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1d2d6c166c92bec6d19b37a6dbeeaf8c}
+}]\index{pRun@{pRun}!IMU@{IMU}}\index{IMU@{IMU}!pRun@{pRun}}\item[{\em 
+\hypertarget{class_i_m_u_ad01128d82debc1e4213affe4858f3144a9cb1b471b394a5a3a87c6bab61ae00e4}{
+pRun}
+\label{class_i_m_u_ad01128d82debc1e4213affe4858f3144a9cb1b471b394a5a3a87c6bab61ae00e4}
+}]\index{pWriteDn@{pWriteDn}!IMU@{IMU}}\index{IMU@{IMU}!pWriteDn@{pWriteDn}}\item[{\em 
+\hypertarget{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac2332a4383aa00818b3fc4ed83ec1f4d}{
+pWriteDn}
+\label{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac2332a4383aa00818b3fc4ed83ec1f4d}
+}]\index{pReadDn@{pReadDn}!IMU@{IMU}}\index{IMU@{IMU}!pReadDn@{pReadDn}}\item[{\em 
+\hypertarget{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1b257baca1eb9eb3e7192a01770cce76}{
+pReadDn}
+\label{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1b257baca1eb9eb3e7192a01770cce76}
+}]\index{pNack@{pNack}!IMU@{IMU}}\index{IMU@{IMU}!pNack@{pNack}}\item[{\em 
+\hypertarget{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac361e1f3b3b93592825ae06da0309c62}{
+pNack}
+\label{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac361e1f3b3b93592825ae06da0309c62}
+}]\index{pBusErr@{pBusErr}!IMU@{IMU}}\index{IMU@{IMU}!pBusErr@{pBusErr}}\item[{\em 
+\hypertarget{class_i_m_u_ad01128d82debc1e4213affe4858f3144a3db70da4b0066e7738bed5e25f4fc405}{
+pBusErr}
+\label{class_i_m_u_ad01128d82debc1e4213affe4858f3144a3db70da4b0066e7738bed5e25f4fc405}
+}]\index{pArbLost@{pArbLost}!IMU@{IMU}}\index{IMU@{IMU}!pArbLost@{pArbLost}}\item[{\em 
+\hypertarget{class_i_m_u_ad01128d82debc1e4213affe4858f3144a5b061676aa01e1049ff07e5a191c9af8}{
+pArbLost}
+\label{class_i_m_u_ad01128d82debc1e4213affe4858f3144a5b061676aa01e1049ff07e5a191c9af8}
+}]\index{pSetup@{pSetup}!IMU@{IMU}}\index{IMU@{IMU}!pSetup@{pSetup}}\item[{\em 
+\hypertarget{class_i_m_u_ad01128d82debc1e4213affe4858f3144a73419f05716e41c972241a4fc0c6ead0}{
+pSetup}
+\label{class_i_m_u_ad01128d82debc1e4213affe4858f3144a73419f05716e41c972241a4fc0c6ead0}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00054}{54} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+\begin{DoxyCode}
+                         \{
+        \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1d2d6c166c92bec6d19b37a6dbeeaf8c}{pStart}          = 0,
+        \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a9cb1b471b394a5a3a87c6bab61ae00e4}{pRun}            = 1,
+        \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac2332a4383aa00818b3fc4ed83ec1f4d}{pWriteDn}        = 2,
+        \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1b257baca1eb9eb3e7192a01770cce76}{pReadDn}         = 3,
+        \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac361e1f3b3b93592825ae06da0309c62}{pNack}           = 4,
+        \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a3db70da4b0066e7738bed5e25f4fc405}{pBusErr}         = 5,
+        \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a5b061676aa01e1049ff07e5a191c9af8}{pArbLost}        = 6,
+        \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a73419f05716e41c972241a4fc0c6ead0}{pSetup}          = 7
+    \} \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144}{PosType};
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ce}{
+\index{IMU@{IMU}!ProcessType@{ProcessType}}
+\index{ProcessType@{ProcessType}!IMU@{IMU}}
+\paragraph[{ProcessType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf IMU::ProcessType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ce}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{ptTimer@{ptTimer}!IMU@{IMU}}\index{IMU@{IMU}!ptTimer@{ptTimer}}\item[{\em 
+\hypertarget{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea978a6a5569595a7e86fe7e48d2684a7f}{
+ptTimer}
+\label{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea978a6a5569595a7e86fe7e48d2684a7f}
+}]\index{ptI2CWrite@{ptI2CWrite}!IMU@{IMU}}\index{IMU@{IMU}!ptI2CWrite@{ptI2CWrite}}\item[{\em 
+\hypertarget{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea32f99524523d0d11cbd3348ee2fba9ea}{
+ptI2CWrite}
+\label{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea32f99524523d0d11cbd3348ee2fba9ea}
+}]\index{ptI2CRead@{ptI2CRead}!IMU@{IMU}}\index{IMU@{IMU}!ptI2CRead@{ptI2CRead}}\item[{\em 
+\hypertarget{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea5aabc602033dc4f845e45d33fe939688}{
+ptI2CRead}
+\label{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea5aabc602033dc4f845e45d33fe939688}
+}]\index{ptI2CNack@{ptI2CNack}!IMU@{IMU}}\index{IMU@{IMU}!ptI2CNack@{ptI2CNack}}\item[{\em 
+\hypertarget{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ceab11e066033d0049893742894a7252fc8}{
+ptI2CNack}
+\label{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ceab11e066033d0049893742894a7252fc8}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00078}{78} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+\begin{DoxyCode}
+                  \{
+        \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea978a6a5569595a7e86fe7e48d2684a7f}{ptTimer},
+        \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea32f99524523d0d11cbd3348ee2fba9ea}{ptI2CWrite},
+        \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea5aabc602033dc4f845e45d33fe939688}{ptI2CRead},
+        \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ceab11e066033d0049893742894a7252fc8}{ptI2CNack}
+    \} \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ce}{ProcessType};
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{
+\index{IMU@{IMU}!StateType@{StateType}}
+\index{StateType@{StateType}!IMU@{IMU}}
+\paragraph[{StateType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf IMU::StateType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{sIdle@{sIdle}!IMU@{IMU}}\index{IMU@{IMU}!sIdle@{sIdle}}\item[{\em 
+\hypertarget{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{
+sIdle}
+\label{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}
+}]\index{sConfigure@{sConfigure}!IMU@{IMU}}\index{IMU@{IMU}!sConfigure@{sConfigure}}\item[{\em 
+\hypertarget{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae3a15f0845da0f426c48b6bd9ed01b21}{
+sConfigure}
+\label{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae3a15f0845da0f426c48b6bd9ed01b21}
+}]\index{sConfigured@{sConfigured}!IMU@{IMU}}\index{IMU@{IMU}!sConfigured@{sConfigured}}\item[{\em 
+\hypertarget{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa98a87654cac5bbc7d12c9701563dbae5}{
+sConfigured}
+\label{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa98a87654cac5bbc7d12c9701563dbae5}
+}]\index{sWait@{sWait}!IMU@{IMU}}\index{IMU@{IMU}!sWait@{sWait}}\item[{\em 
+\hypertarget{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{
+sWait}
+\label{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}
+}]\index{sReadGyro1@{sReadGyro1}!IMU@{IMU}}\index{IMU@{IMU}!sReadGyro1@{sReadGyro1}}\item[{\em 
+\hypertarget{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa8f3b3efb815c4ee9396ccb1fda939f77}{
+sReadGyro1}
+\label{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa8f3b3efb815c4ee9396ccb1fda939f77}
+}]\index{sReadAcc1@{sReadAcc1}!IMU@{IMU}}\index{IMU@{IMU}!sReadAcc1@{sReadAcc1}}\item[{\em 
+\hypertarget{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa7e6ba39651fb8aca4abcdf80ed789d8b}{
+sReadAcc1}
+\label{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa7e6ba39651fb8aca4abcdf80ed789d8b}
+}]\index{sReadGyro2@{sReadGyro2}!IMU@{IMU}}\index{IMU@{IMU}!sReadGyro2@{sReadGyro2}}\item[{\em 
+\hypertarget{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa2e538ebe471a9482d15ab162ec3bdc6d}{
+sReadGyro2}
+\label{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa2e538ebe471a9482d15ab162ec3bdc6d}
+}]\index{sReadAcc2@{sReadAcc2}!IMU@{IMU}}\index{IMU@{IMU}!sReadAcc2@{sReadAcc2}}\item[{\em 
+\hypertarget{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d82e2432f2e2075cef6143740c4df59}{
+sReadAcc2}
+\label{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d82e2432f2e2075cef6143740c4df59}
+}]\index{sErrRecover@{sErrRecover}!IMU@{IMU}}\index{IMU@{IMU}!sErrRecover@{sErrRecover}}\item[{\em 
+\hypertarget{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae27080f67607320b8cc57d8402a07277}{
+sErrRecover}
+\label{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae27080f67607320b8cc57d8402a07277}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00042}{42} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+\begin{DoxyCode}
+                           \{
+        \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle}           = 0,
+        \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae3a15f0845da0f426c48b6bd9ed01b21}{sConfigure}      = 1,
+        \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa98a87654cac5bbc7d12c9701563dbae5}{sConfigured}     = 2,
+        \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{sWait}           = 5,       
+        \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa8f3b3efb815c4ee9396ccb1fda939f77}{sReadGyro1}      = 8,
+        \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa7e6ba39651fb8aca4abcdf80ed789d8b}{sReadAcc1}       = 9,
+        \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa2e538ebe471a9482d15ab162ec3bdc6d}{sReadGyro2}      = 10,
+        \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d82e2432f2e2075cef6143740c4df59}{sReadAcc2}       = 11,
+        \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae27080f67607320b8cc57d8402a07277}{sErrRecover}     = 12
+    \} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{StateType};
+\end{DoxyCode}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_i_m_u_ab77a4c6c64f65642c42ebbf55a4e7a1e}{
+\index{IMU@{IMU}!IMU@{IMU}}
+\index{IMU@{IMU}!IMU@{IMU}}
+\paragraph[{IMU}]{\setlength{\rightskip}{0pt plus 5cm}IMU::IMU (
+\begin{DoxyParamCaption}
+\item[{{\bf I2C\_\-Master} $\ast$}]{pMas}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_i_m_u_ab77a4c6c64f65642c42ebbf55a4e7a1e}
+Constructor for an auto-\/query channel Init fifos for dual channel 
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00020}{20} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00094}{\_\-aID}, \hyperlink{_i_m_u_8h_source_l00104}{\_\-bDataReady}, \hyperlink{_i_m_u_8h_source_l00090}{\_\-bDualChan}, \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00100}{\_\-bUseGyro}, \hyperlink{_i_m_u_8h_source_l00111}{\_\-busyWaitTime}, \hyperlink{_i_m_u_8h_source_l00097}{\_\-ClkSel}, \hyperlink{_i_m_u_8h_source_l00095}{\_\-DLPF}, \hyperlink{_i_m_u_8h_source_l00087}{\_\-failType}, \hyperlink{_i_m_u_8h_source_l00096}{\_\-FullScale}, \hyperlink{_i_m_u_8h_source_l00093}{\_\-gID}, \hyperlink{_i_m_u_8h_source_l00091}{\_\-numChans}, \hyperlink{_i_m_u_8h_source_l00112}{\_\-pDBGPort}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, \hyperlink{_i_m_u_8h_source_l00114}{\_\-pNextIMU}, \hyperlink{_i_m_u_8h_source_l00086}{\_\-previousState}, \hyperlink{_i_m_u_8h_source_l00106}{\_\-pTimer}, \hyperlink{_i_m_u_8h_source_l00098}{\_\-Rate}, \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, \hyperlink{_i_m_u_8h_source_l00066}{fNone}, \hyperlink{class_i2_c___master_a608731d8ae2cf3c9141dd4579f74d5f7}{I2C\_\-Master::NotifyMe()}, \hyperlink{_i_m_u_8cpp_source_l00120}{QueryChannels()}, \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}, and \hyperlink{_i_m_u_8h_source_l00043}{sIdle}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU}       = 0;
+    \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[0]         = 0;
+    \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[0]         = 0;
+    \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[1]         = 0;
+    \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[1]         = 0;
+    \hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{_bDualChan}      = \textcolor{keyword}{false};
+    \hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans}       = 0;
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}           = pMas;
+    \hyperlink{class_i_m_u_a3f9e6159234449cde8f5e72da8acf751}{_DLPF}           = 0x1;
+    \hyperlink{class_i_m_u_a059c02011a10bb90aecc9692ed345771}{_FullScale}      = 0x1;
+    \hyperlink{class_i_m_u_a4dbeaf17fd1ae9b41b5c3fe61706e5f1}{_ClkSel}         = 0x1;
+    \hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{_Rate}           = 10;
+    \hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State}          = \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle};
+    \hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{_previousState}  = \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle};
+    \hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{_failType}       = \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97ac049bda2fb043b649de1cdb8d203aac2}{fNone};
+    \hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun}           = \textcolor{keyword}{false};
+    \hyperlink{class_i_m_u_adce31ce2a3317918d73b47e94a2d9227}{_busyWaitTime}   = 0;
+    \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[0]  = \textcolor{keyword}{false};
+    \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[1]  = \textcolor{keyword}{false};
+    
+    \hyperlink{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{ResetFailStats}();
+    \hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{_pDBGPort}       = 0;
+    \hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2}      = 0;
+    \hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU}       = 0;
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}         = 0;
+    \hyperlink{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{_bUseGyro}       = \textcolor{keyword}{false};
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a608731d8ae2cf3c9141dd4579f74d5f7}{NotifyMe}(\textcolor{keyword}{this});
+    \hyperlink{class_i_m_u_a496602369b71a85051ba0506a8af70a1}{QueryChannels}();
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_aa628daa06d0e29e4aa84bb8336649134}{
+\index{IMU@{IMU}!IMU@{IMU}}
+\index{IMU@{IMU}!IMU@{IMU}}
+\paragraph[{IMU}]{\setlength{\rightskip}{0pt plus 5cm}IMU::IMU (
+\begin{DoxyParamCaption}
+\item[{{\bf I2C\_\-Master} $\ast$}]{pMas, }
+\item[{uint8\_\-t}]{gID, }
+\item[{uint8\_\-t}]{aID}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_i_m_u_aa628daa06d0e29e4aa84bb8336649134}
+
+
+Constructor for a single \hyperlink{class_i_m_u}{IMU} I2C Channel. 
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00053}{53} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00094}{\_\-aID}, \hyperlink{_i_m_u_8h_source_l00090}{\_\-bDualChan}, \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00100}{\_\-bUseGyro}, \hyperlink{_i_m_u_8h_source_l00097}{\_\-ClkSel}, \hyperlink{_i_m_u_8h_source_l00095}{\_\-DLPF}, \hyperlink{_i_m_u_8h_source_l00096}{\_\-FullScale}, \hyperlink{_i_m_u_8h_source_l00093}{\_\-gID}, \hyperlink{_i_m_u_8h_source_l00091}{\_\-numChans}, \hyperlink{_i_m_u_8h_source_l00112}{\_\-pDBGPort}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, \hyperlink{_i_m_u_8h_source_l00114}{\_\-pNextIMU}, \hyperlink{_i_m_u_8h_source_l00106}{\_\-pTimer}, \hyperlink{_i_m_u_8h_source_l00098}{\_\-Rate}, \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, \hyperlink{class_i2_c___master_a608731d8ae2cf3c9141dd4579f74d5f7}{I2C\_\-Master::NotifyMe()}, \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}, and \hyperlink{_i_m_u_8h_source_l00043}{sIdle}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU}   = 0;
+    \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[0]     = gID;
+    \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[0]     = aID;
+    \hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{_bDualChan}  = \textcolor{keyword}{false};
+    \hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans}   = 1;
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}       = pMas;
+    \hyperlink{class_i_m_u_a3f9e6159234449cde8f5e72da8acf751}{_DLPF}       = 0x1;
+    \hyperlink{class_i_m_u_a059c02011a10bb90aecc9692ed345771}{_FullScale}  = 0x1;
+    \hyperlink{class_i_m_u_a4dbeaf17fd1ae9b41b5c3fe61706e5f1}{_ClkSel}     = 0x1;
+    \hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{_Rate}       = 10;
+    \hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State}      = \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle};
+    \hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun}       = \textcolor{keyword}{false};
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a608731d8ae2cf3c9141dd4579f74d5f7}{NotifyMe}(\textcolor{keyword}{this});
+    \hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{_pDBGPort}   = 0;
+    \hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2}  = 0;
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}     = 0;
+    \hyperlink{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{ResetFailStats}();    
+    \hyperlink{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{_bUseGyro}   = \textcolor{keyword}{false};
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ac3b25bbd72ae020b61012fd4ebf8a188}{
+\index{IMU@{IMU}!IMU@{IMU}}
+\index{IMU@{IMU}!IMU@{IMU}}
+\paragraph[{IMU}]{\setlength{\rightskip}{0pt plus 5cm}IMU::IMU (
+\begin{DoxyParamCaption}
+\item[{{\bf I2C\_\-Master} $\ast$}]{pMas, }
+\item[{uint8\_\-t}]{gID, }
+\item[{uint8\_\-t}]{aID, }
+\item[{uint8\_\-t}]{gID2, }
+\item[{uint8\_\-t}]{aID2}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_i_m_u_ac3b25bbd72ae020b61012fd4ebf8a188}
+
+
+Constructor for a double \hyperlink{class_i_m_u}{IMU} I2C Channel. 
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00076}{76} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00094}{\_\-aID}, \hyperlink{_i_m_u_8h_source_l00090}{\_\-bDualChan}, \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00100}{\_\-bUseGyro}, \hyperlink{_i_m_u_8h_source_l00097}{\_\-ClkSel}, \hyperlink{_i_m_u_8h_source_l00095}{\_\-DLPF}, \hyperlink{_i_m_u_8h_source_l00096}{\_\-FullScale}, \hyperlink{_i_m_u_8h_source_l00093}{\_\-gID}, \hyperlink{_i_m_u_8h_source_l00091}{\_\-numChans}, \hyperlink{_i_m_u_8h_source_l00112}{\_\-pDBGPort}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, \hyperlink{_i_m_u_8h_source_l00114}{\_\-pNextIMU}, \hyperlink{_i_m_u_8h_source_l00106}{\_\-pTimer}, \hyperlink{_i_m_u_8h_source_l00098}{\_\-Rate}, \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, \hyperlink{class_i2_c___master_a608731d8ae2cf3c9141dd4579f74d5f7}{I2C\_\-Master::NotifyMe()}, \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}, and \hyperlink{_i_m_u_8h_source_l00043}{sIdle}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU}   = 0;
+    \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[0]     = gID;
+    \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[0]     = aID;
+    \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[1]     = gID2;
+    \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[1]     = aID2;
+    \hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{_bDualChan}  = \textcolor{keyword}{true};
+    \hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans}   = 2;
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}       = pMas;
+    \hyperlink{class_i_m_u_a3f9e6159234449cde8f5e72da8acf751}{_DLPF}       = 0x1;
+    \hyperlink{class_i_m_u_a059c02011a10bb90aecc9692ed345771}{_FullScale}  = 0x1;
+    \hyperlink{class_i_m_u_a4dbeaf17fd1ae9b41b5c3fe61706e5f1}{_ClkSel}     = 0x1;
+    \hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{_Rate}       = 10;
+    \hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State}      = \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle};
+    \hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun}       = \textcolor{keyword}{false};
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a608731d8ae2cf3c9141dd4579f74d5f7}{NotifyMe}(\textcolor{keyword}{this});
+    \hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{_pDBGPort}   = 0;
+    \hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2}  = 0;
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}     = 0;
+    \hyperlink{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{ResetFailStats}();
+    \hyperlink{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{_bUseGyro}   = \textcolor{keyword}{false};
+\}
+\end{DoxyCode}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_i_m_u_a3c949edee15e2f618d7ee263b0a4bcb3}{
+\index{IMU@{IMU}!BeginRead@{BeginRead}}
+\index{BeginRead@{BeginRead}!IMU@{IMU}}
+\paragraph[{BeginRead}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::BeginRead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a3c949edee15e2f618d7ee263b0a4bcb3}
+
+
+Implements \hyperlink{class_i_m_u_base_a55327f28a0ad5e54d94f0c698b04827a}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00108}{108} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00114}{\_\-pNextIMU}, \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, \hyperlink{class_i_m_u_base_a55327f28a0ad5e54d94f0c698b04827a}{IMUBase::BeginRead()}, \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}, and \hyperlink{_i_m_u_8h_source_l00046}{sWait}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State} == \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{sWait}) \{
+        \hyperlink{class_i_m_u_aadf38b912ad23374c4ee8e40fb9f3638}{Run}(); 
+    \} \textcolor{keywordflow}{else} \{
+        \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU}) \{
+            \textcolor{keywordflow}{return} \hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU}->\hyperlink{class_i_m_u_base_a55327f28a0ad5e54d94f0c698b04827a}{BeginRead}();
+        \}
+    \}
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ade0f7e6be2eda441bfaa2cb372fec55a}{
+\index{IMU@{IMU}!Busy@{Busy}}
+\index{Busy@{Busy}!IMU@{IMU}}
+\paragraph[{Busy}]{\setlength{\rightskip}{0pt plus 5cm}bool IMU::Busy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_ade0f7e6be2eda441bfaa2cb372fec55a}
+
+
+Implements \hyperlink{class_i_m_u_base_adb8539af8660d291fdde1f38b3d644f3}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00277}{277} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, and \hyperlink{_i_m_u_8h_source_l00043}{sIdle}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{return} \hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State} != \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle};
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a6a61733d65cf2b60db212e0be9a00fed}{
+\index{IMU@{IMU}!BusyTimeout@{BusyTimeout}}
+\index{BusyTimeout@{BusyTimeout}!IMU@{IMU}}
+\paragraph[{BusyTimeout}]{\setlength{\rightskip}{0pt plus 5cm}bool IMU::BusyTimeout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}\hfill}
+\label{class_i_m_u_a6a61733d65cf2b60db212e0be9a00fed}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00195}{195} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00111}{\_\-busyWaitTime}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}.
+
+
+\begin{DoxyCode}
+    \{
+        \textcolor{keywordflow}{return} ((millis() - \hyperlink{class_i_m_u_adce31ce2a3317918d73b47e94a2d9227}{_busyWaitTime}) > 2);
+    \}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ad2215ab5585c1f9512b91ef309dabf88}{
+\index{IMU@{IMU}!ccx@{ccx}}
+\index{ccx@{ccx}!IMU@{IMU}}
+\paragraph[{ccx}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::ccx (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{id, }
+\item[{uint8\_\-t}]{idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_ad2215ab5585c1f9512b91ef309dabf88}
+
+
+Timer Capture Compare -\/ not used. 
+
+
+
+Implements \hyperlink{class_timer_notify_a2525b96a5e3ed4c4a039b296701f2b7e}{TimerNotify}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00752}{752} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+\begin{DoxyCode}
+\{
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a74feb2946c48a92b251e28ac256d887b}{
+\index{IMU@{IMU}!CheckIDs@{CheckIDs}}
+\index{CheckIDs@{CheckIDs}!IMU@{IMU}}
+\paragraph[{CheckIDs}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::CheckIDs (
+\begin{DoxyParamCaption}
+\item[{{\bf HardwareSerial} $\ast$}]{pSerial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a74feb2946c48a92b251e28ac256d887b}
+
+
+Implements \hyperlink{class_i_m_u_base_ab920218bb6630f9e91ef7d0f07599203}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00651}{651} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00094}{\_\-aID}, \hyperlink{_i_m_u_8h_source_l00093}{\_\-gID}, \hyperlink{_i_m_u_8h_source_l00091}{\_\-numChans}, \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, \hyperlink{_i_m_u_8cpp_source_l00016}{buffer}, \hyperlink{class_i2_c___master_af2e8e8d92ff48f91ee5395c0e34a2724}{I2C\_\-Master::CheckID()}, \hyperlink{_print_8cpp_source_l00045}{Print::print()}, and \hyperlink{_i_m_u_8cpp_source_l00758}{Wr()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordtype}{char} \hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer}[50];
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x=0;x<\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans};x++) \{
+        \textcolor{keywordtype}{int} retc = \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_af2e8e8d92ff48f91ee5395c0e34a2724}{CheckID}(\hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[x]); 
+        \textcolor{keywordflow}{if} (retc == 0) \{
+            sprintf(buffer,\textcolor{stringliteral}{"Gyro%d (0x%x):Ack.\(\backslash\)n"},x,\hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[x]);
+            pSerial->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+        \} \textcolor{keywordflow}{else} \{
+            sprintf(buffer,\textcolor{stringliteral}{"Gyro%d (0x%x):NAck (%d).\(\backslash\)n"},x,\hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[x],retc);
+            pSerial->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+        \}
+        \hyperlink{class_i_m_u_af80eef2eb22d08faf697dd708b18303c}{Wr}(\hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[x], 0x3D, 0x8);
+        retc = \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_af2e8e8d92ff48f91ee5395c0e34a2724}{CheckID}(\hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[x]); 
+        \textcolor{keywordflow}{if} (retc == 0) \{
+            sprintf(buffer,\textcolor{stringliteral}{"Acc%d (0x%x):Ack.\(\backslash\)n"},x,\hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[x]);
+            pSerial->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+        \} \textcolor{keywordflow}{else} \{
+            sprintf(buffer,\textcolor{stringliteral}{"Acc%d (0x%x):NAck (%d).\(\backslash\)n"},x,\hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[x],retc);
+            pSerial->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+        \}
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_af4bede5261a1d6018c72782d8c54445e}{
+\index{IMU@{IMU}!Configure@{Configure}}
+\index{Configure@{Configure}!IMU@{IMU}}
+\paragraph[{Configure}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::Configure (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_af4bede5261a1d6018c72782d8c54445e}
+Configure the Gyro and Accelerometer device. The input parameter selects the first or second channel. Build an array of RegWrite types so that I can check the return code of each write to insure they all pass. 
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00803}{803} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00094}{\_\-aID}, \hyperlink{_i_m_u_8h_source_l00097}{\_\-ClkSel}, \hyperlink{_i_m_u_8h_source_l00095}{\_\-DLPF}, \hyperlink{_i_m_u_8h_source_l00096}{\_\-FullScale}, \hyperlink{_i_m_u_8h_source_l00093}{\_\-gID}, \hyperlink{_i_m_u_8h_source_l00098}{\_\-Rate}, \hyperlink{_i_m_u_8h_source_l00190}{ResetBusyTime()}, and \hyperlink{_i_m_u_8cpp_source_l00758}{Wr()}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00194}{Setup()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// Value for the sensor register}
+    uint16\_t gval = 1000/\hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{_Rate};
+    gval = gval - 1;
+
+    \textcolor{keywordtype}{int} retc;
+    
+    \hyperlink{class_i_m_u_a1960eeaec92b6b60d4f6c9e28b042b80}{RegWriteType}    config[] = \{
+    \textcolor{comment}{//    // Turn on pass-through}
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x3D, 0x0F \},
+    \textcolor{comment}{//    }
+    \textcolor{comment}{//    // Init the Accelerometer.}
+        \{ \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[idx], 0x20, 0x37\},
+        \{ \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[idx], 0x21, 0x0\},
+        \{ \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[idx], 0x22, 0x0\},
+        \{ \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[idx], 0x23, 0x80 | 0x40\},
+        \{ \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[idx], 0x24, 0x00\},
+    \textcolor{comment}{//    }
+    \textcolor{comment}{//    // Set offsets to zero}
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x0C, 0x00\},
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x0D, 0x00\},
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x0E, 0x00\},
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x0F, 0x00\},
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x10, 0x00\},
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x11, 0x00\},
+    \textcolor{comment}{//    }
+    \textcolor{comment}{//    // Configure registers.}
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x12, 0xff\},                     \textcolor{comment}{// Enable all outputs to to
+       the fifo}
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x13, 0x00\},
+    \textcolor{comment}{//    \{ \_gID[idx], 0x14, \_aID[idx] >> 1\},             // Set slave address of
+       ACC}
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x15, gval\},                     \textcolor{comment}{// Set sample rate}
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x16, \hyperlink{class_i_m_u_a3f9e6159234449cde8f5e72da8acf751}{_DLPF} | \hyperlink{class_i_m_u_a059c02011a10bb90aecc9692ed345771}{_FullScale} << 3\},
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x17, 0x00\},
+    \textcolor{comment}{//    \{ \_gID[idx], 0x18, 0x80 | 0x28\},              // Set burst address for 
+      Accelerometer, enable auto addr increment.}
+        \{ \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[idx], 0x3E, \hyperlink{class_i_m_u_a4dbeaf17fd1ae9b41b5c3fe61706e5f1}{_ClkSel}\},
+    \};
+    
+    uint8\_t nItems = \textcolor{keyword}{sizeof}(config)/\textcolor{keyword}{sizeof}(\hyperlink{class_i_m_u_a1960eeaec92b6b60d4f6c9e28b042b80}{RegWriteType});
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} idx = 0;idx <nItems;idx++) \{
+        retc = \hyperlink{class_i_m_u_af80eef2eb22d08faf697dd708b18303c}{Wr}(config[idx].ID, 
+            config[idx].Addr,
+            config[idx].Data);
+        \hyperlink{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{ResetBusyTime}();
+        
+        \textcolor{keywordflow}{if} (retc < 0) \{
+            \textcolor{keywordflow}{return} retc; \textcolor{comment}{// \_configOkay will be false;}
+        \}
+    \}
+    
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a078d2f3ad27475c9afcaf09c44886e4c}{
+\index{IMU@{IMU}!DataReady@{DataReady}}
+\index{DataReady@{DataReady}!IMU@{IMU}}
+\paragraph[{DataReady}]{\setlength{\rightskip}{0pt plus 5cm}bool IMU::DataReady (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a078d2f3ad27475c9afcaf09c44886e4c}
+
+
+Implements \hyperlink{class_i_m_u_base_a53d56fa29c66935306e1dcca140aa9ff}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00564}{564} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00104}{\_\-bDataReady}, \hyperlink{_i_m_u_8h_source_l00090}{\_\-bDualChan}, and \hyperlink{_i_m_u_8h_source_l00091}{\_\-numChans}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans} == 0) \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+    
+    \textcolor{keywordtype}{bool} bReady = \textcolor{keyword}{false};
+    cli();
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{_bDualChan}) \{
+        bReady =  \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[0] && \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[1];
+    \} \textcolor{keywordflow}{else} \{
+        bReady =  \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[0];
+    \}
+    sei();
+    \textcolor{keywordflow}{return} bReady;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ae56d268445b752f9720c814cb294ba40}{
+\index{IMU@{IMU}!err@{err}}
+\index{err@{err}!IMU@{IMU}}
+\paragraph[{err}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::err (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_ae56d268445b752f9720c814cb294ba40}
+
+
+Timer Error -\/ ignored. 
+
+
+
+Implements \hyperlink{class_timer_notify_a1b1d07d14c480883b6cda4d28b281978}{TimerNotify}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00738}{738} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+\begin{DoxyCode}
+\{
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_acf8e9ee1971e527c255c046d3d3c1fe9}{
+\index{IMU@{IMU}!FailRecovery@{FailRecovery}}
+\index{FailRecovery@{FailRecovery}!IMU@{IMU}}
+\paragraph[{FailRecovery}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::FailRecovery (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_i_m_u_acf8e9ee1971e527c255c046d3d3c1fe9}
+Called after we handle a Nack, Bus Error or ArbLost Attempt to fix something, then return to the previous state and give it another go. We will basically keep doing this forever until the Manager says stop. All error or fail recovery goes through here.. I have finally gotten things cleaned up enough so that I have a central location for error attempts. 
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00398}{398} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00108}{\_\-failCount}, \hyperlink{_i_m_u_8h_source_l00087}{\_\-failType}, \hyperlink{_i_m_u_8h_source_l00109}{\_\-nackCount}, \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, \hyperlink{_i_m_u_8h_source_l00086}{\_\-previousState}, \hyperlink{_i_m_u_8h_source_l00069}{fArbLost}, \hyperlink{_i_m_u_8h_source_l00068}{fBusErr}, \hyperlink{_i_m_u_8h_source_l00067}{fNack}, \hyperlink{_i_m_u_8h_source_l00066}{fNone}, \hyperlink{_i_m_u_8cpp_source_l00153}{Reset()}, \hyperlink{_i_m_u_8h_source_l00178}{SetState()}, \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}, and \hyperlink{class_i2_c___master_a78ebdbf58c7a0ee05bdca47349dee54a}{I2C\_\-Master::WigglePin()}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00534}{I2CArbLost()}, \hyperlink{_i_m_u_8cpp_source_l00499}{I2CBusError()}, and \hyperlink{_i_m_u_8cpp_source_l00463}{I2CNack()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{switch}(\hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{_failType}) \{
+    \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97ac049bda2fb043b649de1cdb8d203aac2}{fNone}:
+        \textcolor{keywordflow}{break};
+    \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a17dff6c1392332855f9e83033dff49f8}{fNack}:
+        \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{_nackCount} <7) \{
+            \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a78ebdbf58c7a0ee05bdca47349dee54a}{WigglePin}(10, 0,1);
+        \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{_nackCount} < 10) \{
+            \hyperlink{class_i_m_u_a13191357ff93d02f6cc7aa7e55b13d67}{Reset}();
+            \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a78ebdbf58c7a0ee05bdca47349dee54a}{WigglePin}(10,0,1);
+        \}
+        \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{_previousState});
+        \textcolor{keywordflow}{break};
+    \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a4f33b2c6a17b90c350b4ad6f5f71cc34}{fBusErr}:
+        \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{_failCount} < 5) \{
+            \hyperlink{class_i_m_u_a13191357ff93d02f6cc7aa7e55b13d67}{Reset}();
+        \}
+        \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{_previousState});
+        \textcolor{keywordflow}{break};
+    \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97acf94640c5a7cfb3a4fc806dabf005260}{fArbLost}:
+        \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{_failCount} < 5) \{
+            \hyperlink{class_i_m_u_a13191357ff93d02f6cc7aa7e55b13d67}{Reset}();
+        \}
+        \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{_previousState});
+        \textcolor{keywordflow}{break};
+    \}
+    
+    \hyperlink{class_i_m_u_a8dfecb837ea9fcf9d190423dca9beb7f}{StartTransaction}();
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a004d2bb9e6155f45edc9e46bce730644}{
+\index{IMU@{IMU}!ForceStartStop@{ForceStartStop}}
+\index{ForceStartStop@{ForceStartStop}!IMU@{IMU}}
+\paragraph[{ForceStartStop}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::ForceStartStop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a004d2bb9e6155f45edc9e46bce730644}
+
+
+Implements \hyperlink{class_i_m_u_base_a60bf7f5f9728d11bae5ca64bc7a9c10b}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00165}{165} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, and \hyperlink{class_i2_c___master_a08749ea515583e38c5bfb0e50751a0ec}{I2C\_\-Master::ForceStartStop()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{return} \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a08749ea515583e38c5bfb0e50751a0ec}{ForceStartStop}();
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a4f72b7f99fc42f30c9478ba7ed65654e}{
+\index{IMU@{IMU}!GetPacketData@{GetPacketData}}
+\index{GetPacketData@{GetPacketData}!IMU@{IMU}}
+\paragraph[{GetPacketData}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t $\ast$ IMU::GetPacketData (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t $\ast$}]{pData}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a4f72b7f99fc42f30c9478ba7ed65654e}
+Retrieve packet data from the stored packets. If no packet data exists, this function will fill the data pointer with null data -\/ this way any host software can continue, even if data is bad. 
+
+Implements \hyperlink{class_i_m_u_base_a13cf0868e2c3c31838fe889315ccfb0c}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00603}{603} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00104}{\_\-bDataReady}, \hyperlink{_i_m_u_8h_source_l00090}{\_\-bDualChan}, \hyperlink{_i_m_u_8h_source_l00103}{\_\-dataBuffer}, \hyperlink{_i_m_u_8h_source_l00087}{\_\-failType}, \hyperlink{_i_m_u_8h_source_l00091}{\_\-numChans}, \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, \hyperlink{_i_m_u_8h_source_l00067}{fNack}, and \hyperlink{_i_m_u_8h_source_l00043}{sIdle}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans} == 0) \textcolor{keywordflow}{return} pData;
+
+    cli();
+
+    *pData++ = 0xa5;
+    *pData++ = 0x5a;
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State} == \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle}) \{
+        \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{_failType} == \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a17dff6c1392332855f9e83033dff49f8}{fNack}) \{
+            memset(pData,\textcolor{charliteral}{'N'},IMUPacket::PacketLen);
+        \} \textcolor{keywordflow}{else} \{
+            memset(pData,\textcolor{charliteral}{'I'},IMUPacket::PacketLen);
+        \}
+        pData += IMUPacket::PacketLen;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[0] == \textcolor{keyword}{true}) \{
+        memcpy(pData,&\hyperlink{class_i_m_u_ab87a54288295d4d10d605cf6c21d4d0f}{_dataBuffer}[0][0],IMUPacket::PacketLen);
+        \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[0] = \textcolor{keyword}{false};
+        pData += IMUPacket::PacketLen;
+    \} \textcolor{keywordflow}{else} \{
+        memset(pData,0,IMUPacket::PacketLen);
+        pData += IMUPacket::PacketLen;
+    \}
+
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{_bDualChan}) \{
+        *pData++ = 0xa5;
+        *pData++ = 0x5a;
+        \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State} == \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle}) \{
+            \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{_failType} == \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a17dff6c1392332855f9e83033dff49f8}{fNack}) \{
+                memset(pData,\textcolor{charliteral}{'N'},IMUPacket::PacketLen);
+            \} \textcolor{keywordflow}{else} \{
+                memset(pData,\textcolor{charliteral}{'I'},IMUPacket::PacketLen);
+            \}
+            pData += IMUPacket::PacketLen;
+        \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[1] == \textcolor{keyword}{true}) \{
+            memcpy(pData,&\hyperlink{class_i_m_u_ab87a54288295d4d10d605cf6c21d4d0f}{_dataBuffer}[1][0],IMUPacket::PacketLen);
+            \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[1] = \textcolor{keyword}{false};
+            pData += IMUPacket::PacketLen;
+        \} \textcolor{keywordflow}{else} \{
+            memset(pData,0,IMUPacket::PacketLen);
+            pData += IMUPacket::PacketLen;
+        \}
+    \}
+    sei();
+    \textcolor{keywordflow}{return} pData;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a7d4a2a761fb4956ebd9ce0b0cda69556}{
+\index{IMU@{IMU}!I2CArbLost@{I2CArbLost}}
+\index{I2CArbLost@{I2CArbLost}!IMU@{IMU}}
+\paragraph[{I2CArbLost}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::I2CArbLost (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a7d4a2a761fb4956ebd9ce0b0cda69556}
+This occurs if the Arbitration is lost. If the I2C is in master mode, and it detects that it cannot control the state of the data line, i.e. it wants to set a HIGH but the line stays low, then this error occurs. 
+
+For a first pass, I am going to just try and return to Wait state -\/ this way the timer will take back over and re-\/try some operation.
+
+I temporarily set this to ErrRecover and then delay. If I am re-\/starting, then I will go right back, but I will at least trigger the Logic Analyzer 
+
+
+
+Implements \hyperlink{class_i2_c_notify_aa29e09f63a6191253d6c7203b3edf7d2}{I2CNotify}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00534}{534} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00110}{\_\-bFailDetected}, \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00108}{\_\-failCount}, \hyperlink{_i_m_u_8h_source_l00087}{\_\-failType}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8h_source_l00086}{\_\-previousState}, \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, \hyperlink{_i_m_u_8h_source_l00069}{fArbLost}, \hyperlink{_i_m_u_8h_source_l00061}{pArbLost}, \hyperlink{_i_m_u_8h_source_l00060}{pBusErr}, \hyperlink{_i_m_u_8h_source_l00190}{ResetBusyTime()}, \hyperlink{_i_m_u_8h_source_l00051}{sErrRecover}, \hyperlink{_i_m_u_8h_source_l00178}{SetState()}, and \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun} == \textcolor{keyword}{false}) \textcolor{keywordflow}{return};
+
+    \hyperlink{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{ResetBusyTime}();
+    \{
+        Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a3db70da4b0066e7738bed5e25f4fc405}{pBusErr});
+        \_delay\_us(3);
+    \}
+    Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a5b061676aa01e1049ff07e5a191c9af8}{pArbLost});
+    \hyperlink{class_i_m_u_a12238a84e20f54c5fe799e0b37feb0ea}{_bFailDetected} = \textcolor{keyword}{true};
+    ++\hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{_failCount};
+    \hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{_failType} = \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97acf94640c5a7cfb3a4fc806dabf005260}{fArbLost};
+
+    \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae27080f67607320b8cc57d8402a07277}{sErrRecover});
+    \_delay\_us(5);
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{_failCount} > 10) \{
+        \hyperlink{class_i_m_u_acf8e9ee1971e527c255c046d3d3c1fe9}{FailRecovery}();
+    \} \textcolor{keywordflow}{else} \{
+        \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{_previousState});
+        \hyperlink{class_i_m_u_a8dfecb837ea9fcf9d190423dca9beb7f}{StartTransaction}();
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_aad041ec91d266e9fc15d22de17ffccad}{
+\index{IMU@{IMU}!I2CBusError@{I2CBusError}}
+\index{I2CBusError@{I2CBusError}!IMU@{IMU}}
+\paragraph[{I2CBusError}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::I2CBusError (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_aad041ec91d266e9fc15d22de17ffccad}
+Called by I2C Master when a Bus error occurs. This means some non-\/I2C compliant event occured. Normally, this is going to mean that some glitch occured on the I2C Bus. 
+
+For a first pass, I am going to just try and return to Wait state -\/ this way the timer will take back over and re-\/try some operation.
+
+I temporarily set this to ErrRecover and then delay. If I am re-\/starting, then I will go right back, but I will at least trigger the Logic Analyzer 
+
+
+
+Implements \hyperlink{class_i2_c_notify_a9b22fe2233f79a3e842145a6f1e4cc21}{I2CNotify}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00499}{499} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00110}{\_\-bFailDetected}, \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00108}{\_\-failCount}, \hyperlink{_i_m_u_8h_source_l00087}{\_\-failType}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8h_source_l00086}{\_\-previousState}, \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, \hyperlink{_i_m_u_8h_source_l00068}{fBusErr}, \hyperlink{_i_m_u_8h_source_l00060}{pBusErr}, \hyperlink{_i_m_u_8h_source_l00190}{ResetBusyTime()}, \hyperlink{_i_m_u_8h_source_l00051}{sErrRecover}, \hyperlink{_i_m_u_8h_source_l00178}{SetState()}, and \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun} == \textcolor{keyword}{false}) \textcolor{keywordflow}{return};
+
+    \hyperlink{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{ResetBusyTime}();
+    \{
+        Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a3db70da4b0066e7738bed5e25f4fc405}{pBusErr});
+        \_delay\_us(3);
+    \}
+    Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a3db70da4b0066e7738bed5e25f4fc405}{pBusErr});
+
+    \hyperlink{class_i_m_u_a12238a84e20f54c5fe799e0b37feb0ea}{_bFailDetected} = \textcolor{keyword}{true};
+    ++\hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{_failCount};
+    \hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{_failType} = \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a4f33b2c6a17b90c350b4ad6f5f71cc34}{fBusErr};
+
+    \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae27080f67607320b8cc57d8402a07277}{sErrRecover});
+    \_delay\_us(5);
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{_failCount} > 10) \{
+        \hyperlink{class_i_m_u_acf8e9ee1971e527c255c046d3d3c1fe9}{FailRecovery}();
+    \} \textcolor{keywordflow}{else} \{
+        \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{_previousState});
+        \hyperlink{class_i_m_u_a8dfecb837ea9fcf9d190423dca9beb7f}{StartTransaction}();
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a161f80bfcb7195196754a18eddedaf12}{
+\index{IMU@{IMU}!I2CNack@{I2CNack}}
+\index{I2CNack@{I2CNack}!IMU@{IMU}}
+\paragraph[{I2CNack}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::I2CNack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a161f80bfcb7195196754a18eddedaf12}
+Called by the I2C Master if we get a NAck. Current idea is the repeat the current command until it works since I am seeing that sometimes \char`\"{}Nacks\char`\"{} are temporary So a retry is best. Other types of failures may indicate a need for more desperate action -\/ but those will probably be BusError or Arb Lost commands. 
+
+I temporarily set this to ErrRecover and then delay. If I am re-\/starting, then I will go right back, but I will at least trigger the Logic Analyzer
+
+Re-\/start the same transaction.
+
+Retry the current transaction until we are sure it won't work.
+
+Keep failing.. just stop. 
+
+
+
+Implements \hyperlink{class_i2_c_notify_a8257aa3b48d0ae23dac613c0cf2b6fb4}{I2CNotify}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00463}{463} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00087}{\_\-failType}, \hyperlink{_i_m_u_8h_source_l00109}{\_\-nackCount}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8h_source_l00086}{\_\-previousState}, \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, \hyperlink{_i_m_u_8h_source_l00067}{fNack}, \hyperlink{_i_m_u_8h_source_l00060}{pBusErr}, \hyperlink{_i_m_u_8h_source_l00059}{pNack}, \hyperlink{_i_m_u_8h_source_l00190}{ResetBusyTime()}, \hyperlink{_i_m_u_8h_source_l00051}{sErrRecover}, \hyperlink{_i_m_u_8h_source_l00178}{SetState()}, \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}, and \hyperlink{_i_m_u_8cpp_source_l00268}{Stop()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun} == \textcolor{keyword}{false}) \textcolor{keywordflow}{return};
+    
+    \hyperlink{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{ResetBusyTime}();
+    \{
+        Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a3db70da4b0066e7738bed5e25f4fc405}{pBusErr});
+        \_delay\_us(3);
+    \}
+    Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac361e1f3b3b93592825ae06da0309c62}{pNack});
+
+    ++\hyperlink{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{_nackCount};
+    
+    \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae27080f67607320b8cc57d8402a07277}{sErrRecover});
+    \_delay\_us(5);
+
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{_nackCount} < 5) \{
+        \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{_previousState});
+        \hyperlink{class_i_m_u_a8dfecb837ea9fcf9d190423dca9beb7f}{StartTransaction}();
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{_nackCount} < 10) \{
+        \hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{_failType} = \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a17dff6c1392332855f9e83033dff49f8}{fNack};
+        \hyperlink{class_i_m_u_acf8e9ee1971e527c255c046d3d3c1fe9}{FailRecovery}();
+    \} \textcolor{keywordflow}{else} \{
+        \hyperlink{class_i_m_u_af0841bed4167f7a4eb12c40d7b8e615e}{Stop}();
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ab4124ae29a64365787c2c03b3ab09c6c}{
+\index{IMU@{IMU}!I2CReadDone@{I2CReadDone}}
+\index{I2CReadDone@{I2CReadDone}!IMU@{IMU}}
+\paragraph[{I2CReadDone}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::I2CReadDone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_ab4124ae29a64365787c2c03b3ab09c6c}
+Called be the master when the read is complete. Requires registration Expected Context: Med Lvl I2C Int. 
+
+Implements \hyperlink{class_i2_c_notify_a858816dd9007308942e62f5caa632e33}{I2CNotify}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00446}{446} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8h_source_l00058}{pReadDn}, \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}, \hyperlink{_i_m_u_8h_source_l00190}{ResetBusyTime()}, and \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun} == \textcolor{keyword}{false}) \textcolor{keywordflow}{return};
+
+    Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1b257baca1eb9eb3e7192a01770cce76}{pReadDn});
+    \hyperlink{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{ResetBusyTime}();
+    
+    \hyperlink{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{ResetFailStats}();
+    \hyperlink{class_i_m_u_ac39f14c617d4eea9de6175497744465a}{ProcessTransaction}();
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a71568969beb6ee7d4b596f8c0a91faf9}{
+\index{IMU@{IMU}!I2CWriteDone@{I2CWriteDone}}
+\index{I2CWriteDone@{I2CWriteDone}!IMU@{IMU}}
+\paragraph[{I2CWriteDone}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::I2CWriteDone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a71568969beb6ee7d4b596f8c0a91faf9}
+Called by the Master when the write is complete. Requires registration Expected Context: Med Lvl I2C Int. 
+
+Implements \hyperlink{class_i2_c_notify_a1197403992ce3c5702944e846ec509db}{I2CNotify}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00432}{432} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}, \hyperlink{_i_m_u_8h_source_l00057}{pWriteDn}, \hyperlink{_i_m_u_8h_source_l00190}{ResetBusyTime()}, and \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun} == \textcolor{keyword}{false}) \textcolor{keywordflow}{return};
+
+    Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac2332a4383aa00818b3fc4ed83ec1f4d}{pWriteDn});
+    \hyperlink{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{ResetBusyTime}();
+
+    \hyperlink{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{ResetFailStats}();
+    \hyperlink{class_i_m_u_ac39f14c617d4eea9de6175497744465a}{ProcessTransaction}();
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a7f9a7744a4fa3ea40da008cabd5da7b7}{
+\index{IMU@{IMU}!MarkPos@{MarkPos}}
+\index{MarkPos@{MarkPos}!IMU@{IMU}}
+\paragraph[{MarkPos}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::MarkPos (
+\begin{DoxyParamCaption}
+\item[{{\bf PosType}}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}\hfill}
+\label{class_i_m_u_a7f9a7744a4fa3ea40da008cabd5da7b7}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00185}{185} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}.
+
+
+\begin{DoxyCode}
+    \{
+        \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2}) \hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2}->SetState((uint8\_t) p);
+    \}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ac46c8e580371cf97e4625dda450f01fd}{
+\index{IMU@{IMU}!NextIMU@{NextIMU}}
+\index{NextIMU@{NextIMU}!IMU@{IMU}}
+\paragraph[{NextIMU}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::NextIMU (
+\begin{DoxyParamCaption}
+\item[{{\bf IMUBase} $\ast$}]{pNext}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_ac46c8e580371cf97e4625dda450f01fd}
+
+
+Implements \hyperlink{class_i_m_u_base_aa9c09bfd70f81b4a2df20cc5ae1474c3}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00103}{103} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00114}{\_\-pNextIMU}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU} = pNext;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_aefbd4e2f7f3928cf44c00a96d61c3546}{
+\index{IMU@{IMU}!ovf@{ovf}}
+\index{ovf@{ovf}!IMU@{IMU}}
+\paragraph[{ovf}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::ovf (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_aefbd4e2f7f3928cf44c00a96d61c3546}
+Timer Overflow Interrupt. Overflow fires when the timer reaches the top period value. This is setup to fire when we get a timer tick, with a default rate of 500us IMUManager has only one Timer so the ID is not needed. 
+
+Implements \hyperlink{class_timer_notify_a12081e2ac25688544b6f0c3de4bd412d}{TimerNotify}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00746}{746} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_aadf38b912ad23374c4ee8e40fb9f3638}{Run}();
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ac39f14c617d4eea9de6175497744465a}{
+\index{IMU@{IMU}!ProcessTransaction@{ProcessTransaction}}
+\index{ProcessTransaction@{ProcessTransaction}!IMU@{IMU}}
+\paragraph[{ProcessTransaction}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::ProcessTransaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_ac39f14c617d4eea9de6175497744465a}
+Called when an Asynchronous I2C operation succeeds. Switch on the state and perform the next appropriate action. 
+
+Start the next transaction. 
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00348}{348} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00090}{\_\-bDualChan}, \hyperlink{_i_m_u_8h_source_l00100}{\_\-bUseGyro}, \hyperlink{_i_m_u_8h_source_l00114}{\_\-pNextIMU}, \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, \hyperlink{class_i_m_u_base_a55327f28a0ad5e54d94f0c698b04827a}{IMUBase::BeginRead()}, \hyperlink{_i_m_u_8cpp_source_l00594}{PushData()}, \hyperlink{_i_m_u_8h_source_l00178}{SetState()}, \hyperlink{_i_m_u_8h_source_l00048}{sReadAcc1}, \hyperlink{_i_m_u_8h_source_l00050}{sReadAcc2}, \hyperlink{_i_m_u_8h_source_l00047}{sReadGyro1}, \hyperlink{_i_m_u_8h_source_l00049}{sReadGyro2}, \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}, \hyperlink{_i_m_u_8cpp_source_l00588}{StoreAccData()}, \hyperlink{_i_m_u_8cpp_source_l00581}{StoreGyroData()}, and \hyperlink{_i_m_u_8h_source_l00046}{sWait}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00446}{I2CReadDone()}, and \hyperlink{_i_m_u_8cpp_source_l00432}{I2CWriteDone()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{switch}(\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State}) \{
+        \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa8f3b3efb815c4ee9396ccb1fda939f77}{sReadGyro1}:
+            \hyperlink{class_i_m_u_a5b58d543be70886335e439a2b4f28a8e}{StoreGyroData}(1);
+            \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa7e6ba39651fb8aca4abcdf80ed789d8b}{sReadAcc1});
+            \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa7e6ba39651fb8aca4abcdf80ed789d8b}{sReadAcc1}:
+            \hyperlink{class_i_m_u_ae9c290e496eb2a76aefc626c81fe4da9}{StoreAccData}(1);
+            \hyperlink{class_i_m_u_a14f3437170b38602f281b3f97d9ce129}{PushData}(1);
+            \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{_bDualChan}) \{
+                \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{_bUseGyro}) \{
+                    \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa2e538ebe471a9482d15ab162ec3bdc6d}{sReadGyro2});
+                \} \textcolor{keywordflow}{else} \{
+                    \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d82e2432f2e2075cef6143740c4df59}{sReadAcc2});
+                \}
+            \} \textcolor{keywordflow}{else} \{
+                \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{sWait});
+                \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU}) \{
+                    \hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU}->\hyperlink{class_i_m_u_base_a55327f28a0ad5e54d94f0c698b04827a}{BeginRead}();
+                \}
+            \}
+            \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa2e538ebe471a9482d15ab162ec3bdc6d}{sReadGyro2}:
+            \hyperlink{class_i_m_u_a5b58d543be70886335e439a2b4f28a8e}{StoreGyroData}(2);
+            \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d82e2432f2e2075cef6143740c4df59}{sReadAcc2});
+            \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d82e2432f2e2075cef6143740c4df59}{sReadAcc2}:
+            \hyperlink{class_i_m_u_ae9c290e496eb2a76aefc626c81fe4da9}{StoreAccData}(2);
+            \hyperlink{class_i_m_u_a14f3437170b38602f281b3f97d9ce129}{PushData}(2);
+            \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{sWait});
+            \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU}) \{
+                \hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU}->\hyperlink{class_i_m_u_base_a55327f28a0ad5e54d94f0c698b04827a}{BeginRead}();
+            \}
+            \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{default}:
+            \textcolor{keywordflow}{break};
+    \}
+    
+    \hyperlink{class_i_m_u_a8dfecb837ea9fcf9d190423dca9beb7f}{StartTransaction}();
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a14f3437170b38602f281b3f97d9ce129}{
+\index{IMU@{IMU}!PushData@{PushData}}
+\index{PushData@{PushData}!IMU@{IMU}}
+\paragraph[{PushData}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::PushData (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_a14f3437170b38602f281b3f97d9ce129}
+
+
+Push the data in the temporary buffer onto the appropriate fifo. 
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00594}{594} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00104}{\_\-bDataReady}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[idx-1] = \textcolor{keyword}{true};
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a496602369b71a85051ba0506a8af70a1}{
+\index{IMU@{IMU}!QueryChannels@{QueryChannels}}
+\index{QueryChannels@{QueryChannels}!IMU@{IMU}}
+\paragraph[{QueryChannels}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::QueryChannels (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_i_m_u_a496602369b71a85051ba0506a8af70a1}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00120}{120} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00094}{\_\-aID}, \hyperlink{_i_m_u_8h_source_l00090}{\_\-bDualChan}, \hyperlink{_i_m_u_8h_source_l00093}{\_\-gID}, \hyperlink{_i_m_u_8h_source_l00091}{\_\-numChans}, \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, and \hyperlink{class_i2_c___master_af2e8e8d92ff48f91ee5395c0e34a2724}{I2C\_\-Master::CheckID()}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans} = 0;
+    \hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{_bDualChan} = 0;
+    \textcolor{comment}{// Check the first, lower ID.}
+    \textcolor{keywordtype}{int} retc = \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_af2e8e8d92ff48f91ee5395c0e34a2724}{CheckID}(0xD2);
+    \textcolor{keywordflow}{if} (retc == 0) \{
+        \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans}] = 0xD2;
+        \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans}] = 0x32; \textcolor{comment}{// Always high bit.}
+        \hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans}++;
+    \}
+    retc = \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_af2e8e8d92ff48f91ee5395c0e34a2724}{CheckID}(0xD0);
+    \textcolor{keywordflow}{if} (retc == 0) \{
+        \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans}] = 0xD0;
+        \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans}] = 0x30; \textcolor{comment}{// Always low bit.}
+        \hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans}++;
+    \}
+    
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans} > 1) \{
+        \hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{_bDualChan} = \textcolor{keyword}{true};
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ab6c8ef618465524c88a021e2206b2de5}{
+\index{IMU@{IMU}!Rd@{Rd}}
+\index{Rd@{Rd}!IMU@{IMU}}
+\paragraph[{Rd}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::Rd (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{ID, }
+\item[{uint8\_\-t}]{addr, }
+\item[{uint8\_\-t}]{cnt, }
+\item[{uint8\_\-t $\ast$}]{pData}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_ab6c8ef618465524c88a021e2206b2de5}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00766}{766} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, \hyperlink{class_i2_c___master_ab7c8dd50c0e931fb20a73e42b2c2202a}{I2C\_\-Master::ReadData()}, and \hyperlink{class_i2_c___master_a38281efa723712f59d609e2362d124ed}{I2C\_\-Master::WriteReadSync()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// Only a single write, the address, then read data.}
+    \textcolor{keywordtype}{int} retc = \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a38281efa723712f59d609e2362d124ed}{WriteReadSync}(ID, &addr, 1, cnt);
+    \textcolor{keywordflow}{if} ( retc < 0 ) \{
+        \textcolor{keywordflow}{return} retc;
+    \}
+    \textcolor{keywordflow}{return} \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_ab7c8dd50c0e931fb20a73e42b2c2202a}{ReadData}(pData,cnt);
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ad39e85995898b9251032c89a3587974c}{
+\index{IMU@{IMU}!RdAsync@{RdAsync}}
+\index{RdAsync@{RdAsync}!IMU@{IMU}}
+\paragraph[{RdAsync}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::RdAsync (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{ID, }
+\item[{uint8\_\-t}]{addr, }
+\item[{uint8\_\-t}]{cnt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_ad39e85995898b9251032c89a3587974c}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00786}{786} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, and \hyperlink{class_i2_c___master_a2ecf1fbfb50e43fc9270628910f73813}{I2C\_\-Master::WriteRead()}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// Only a single write, the address, then read data.}
+    \textcolor{keywordflow}{return} \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a2ecf1fbfb50e43fc9270628910f73813}{WriteRead}(ID, &addr, 1, cnt);
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a07362afd858bca1ce960f3809248e4e9}{
+\index{IMU@{IMU}!ReadWord@{ReadWord}}
+\index{ReadWord@{ReadWord}!IMU@{IMU}}
+\paragraph[{ReadWord}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::ReadWord (
+\begin{DoxyParamCaption}
+\item[{uint16\_\-t $\ast$}]{pData}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_a07362afd858bca1ce960f3809248e4e9}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00792}{792} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, \hyperlink{_i_m_u_8cpp_source_l00016}{buffer}, and \hyperlink{class_i2_c___master_ab7c8dd50c0e931fb20a73e42b2c2202a}{I2C\_\-Master::ReadData()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keyword}{static} uint8\_t \hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer}[2];
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_ab7c8dd50c0e931fb20a73e42b2c2202a}{ReadData}(&buffer[0],2);
+    *pData = (buffer[0] << 8 | buffer[1]);
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a13191357ff93d02f6cc7aa7e55b13d67}{
+\index{IMU@{IMU}!Reset@{Reset}}
+\index{Reset@{Reset}!IMU@{IMU}}
+\paragraph[{Reset}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a13191357ff93d02f6cc7aa7e55b13d67}
+
+
+Implements \hyperlink{class_i_m_u_base_a27fdd96992dfa8867943407fc400d071}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00153}{153} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, \hyperlink{class_i2_c___master_a4e6323d0c9dc60723d850c3783008319}{I2C\_\-Master::begin()}, \hyperlink{class_i2_c___master_a6a2768a5a33d3186d263e1e11468e023}{I2C\_\-Master::end()}, and \hyperlink{class_i2_c___master_a608731d8ae2cf3c9141dd4579f74d5f7}{I2C\_\-Master::NotifyMe()}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, and \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a6a2768a5a33d3186d263e1e11468e023}{end}();
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a4e6323d0c9dc60723d850c3783008319}{begin}(400e3);
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a608731d8ae2cf3c9141dd4579f74d5f7}{NotifyMe}(\textcolor{keyword}{this});
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{
+\index{IMU@{IMU}!ResetBusyTime@{ResetBusyTime}}
+\index{ResetBusyTime@{ResetBusyTime}!IMU@{IMU}}
+\paragraph[{ResetBusyTime}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::ResetBusyTime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}\hfill}
+\label{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00190}{190} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00111}{\_\-busyWaitTime}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00803}{Configure()}, \hyperlink{_i_m_u_8cpp_source_l00534}{I2CArbLost()}, \hyperlink{_i_m_u_8cpp_source_l00499}{I2CBusError()}, \hyperlink{_i_m_u_8cpp_source_l00463}{I2CNack()}, \hyperlink{_i_m_u_8cpp_source_l00446}{I2CReadDone()}, \hyperlink{_i_m_u_8cpp_source_l00432}{I2CWriteDone()}, and \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}.
+
+
+\begin{DoxyCode}
+    \{
+        \hyperlink{class_i_m_u_adce31ce2a3317918d73b47e94a2d9227}{_busyWaitTime} = millis();
+    \}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a98f9a8244dd1a07f8771450097371b2c}{
+\index{IMU@{IMU}!ResetDevices@{ResetDevices}}
+\index{ResetDevices@{ResetDevices}!IMU@{IMU}}
+\paragraph[{ResetDevices}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::ResetDevices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a98f9a8244dd1a07f8771450097371b2c}
+
+
+Implements \hyperlink{class_i_m_u_base_a78622fbfb40a5bbee5e83bb8a0780d04}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00160}{160} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, and \hyperlink{class_i2_c___master_a0e878755be5246de239e897cf60be401}{I2C\_\-Master::Stop()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a0e878755be5246de239e897cf60be401}{Stop}();
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{
+\index{IMU@{IMU}!ResetFailStats@{ResetFailStats}}
+\index{ResetFailStats@{ResetFailStats}!IMU@{IMU}}
+\paragraph[{ResetFailStats}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::ResetFailStats (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}\hfill}
+\label{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00200}{200} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00110}{\_\-bFailDetected}, \hyperlink{_i_m_u_8h_source_l00108}{\_\-failCount}, \hyperlink{_i_m_u_8h_source_l00087}{\_\-failType}, \hyperlink{_i_m_u_8h_source_l00109}{\_\-nackCount}, and \hyperlink{_i_m_u_8h_source_l00066}{fNone}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00446}{I2CReadDone()}, \hyperlink{_i_m_u_8cpp_source_l00432}{I2CWriteDone()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00194}{Setup()}, and \hyperlink{_i_m_u_8cpp_source_l00239}{Start()}.
+
+
+\begin{DoxyCode}
+    \{
+        \hyperlink{class_i_m_u_a12238a84e20f54c5fe799e0b37feb0ea}{_bFailDetected}      = \textcolor{keyword}{false};
+        \hyperlink{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{_nackCount}          = 0;
+        \hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{_failCount}          = 0;
+        \hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{_failType}           = \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97ac049bda2fb043b649de1cdb8d203aac2}{fNone};
+    \}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a187dc9de30f97f5154e0ff904eb6ee1a}{
+\index{IMU@{IMU}!ResetTimer@{ResetTimer}}
+\index{ResetTimer@{ResetTimer}!IMU@{IMU}}
+\paragraph[{ResetTimer}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::ResetTimer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a187dc9de30f97f5154e0ff904eb6ee1a}
+Reset the counter value. The master uses this to get all of the timers operating at the same time. 
+
+Implements \hyperlink{class_i_m_u_base_a6e65b709e0212f95299ce9fa464b4651}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00702}{702} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00106}{\_\-pTimer}, and \hyperlink{_timer_cntr_8cpp_source_l00178}{TimerCntr::Counter()}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00239}{Start()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}) \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}->\hyperlink{class_timer_cntr_a483fd3e00603951991333699a1be67ea}{Counter}(0);
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_aadf38b912ad23374c4ee8e40fb9f3638}{
+\index{IMU@{IMU}!Run@{Run}}
+\index{Run@{Run}!IMU@{IMU}}
+\paragraph[{Run}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::Run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_aadf38b912ad23374c4ee8e40fb9f3638}
+Called by the Timer function periodically. Many of the operations are chainged, meaning the completion of one I2C operation, indicated by an I2C Write or Read interrupt, starts the next operation in the chain. The chain checks the fifo lengths of both fifos, then reads the data if there is any. If there is no data yet, then the state machine enters the sWait state and the next timer will initiate the chain again. Expected Context: Low Lvl Timer 
+
+Do nothing while the I2C Master is busy, the master is in the process of some operation. If the master gets hung for some reason, then we will reset and set the state to the sWait state to just start over.
+
+This block only does something in the wait state. Hopefully the rest of the logic, all driven by I2C timeouts, will keep things moving through the other states. Perhaps I should have some sort of state change timeout, as long as we are in the run mode. 
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00290}{290} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00100}{\_\-bUseGyro}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, \hyperlink{class_i2_c___master_aa8b792984d9e4f42da45f38dbb6e8941}{I2C\_\-Master::busy()}, \hyperlink{_i_m_u_8h_source_l00195}{BusyTimeout()}, \hyperlink{_i_m_u_8h_source_l00056}{pRun}, \hyperlink{_i_m_u_8cpp_source_l00153}{Reset()}, \hyperlink{_i_m_u_8h_source_l00178}{SetState()}, \hyperlink{_i_m_u_8h_source_l00048}{sReadAcc1}, \hyperlink{_i_m_u_8h_source_l00047}{sReadGyro1}, \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}, and \hyperlink{_i_m_u_8h_source_l00046}{sWait}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00108}{BeginRead()}, and \hyperlink{_i_m_u_8cpp_source_l00746}{ovf()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun} == \textcolor{keyword}{false}) \textcolor{keywordflow}{return};
+
+    Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a9cb1b471b394a5a3a87c6bab61ae00e4}{pRun});
+
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_aa8b792984d9e4f42da45f38dbb6e8941}{busy}() && \hyperlink{class_i_m_u_a6a61733d65cf2b60db212e0be9a00fed}{BusyTimeout}()) \{
+        \hyperlink{class_i_m_u_a13191357ff93d02f6cc7aa7e55b13d67}{Reset}();
+        \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{sWait});
+    \}
+    
+    \textcolor{keywordflow}{switch}(\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State}) \{
+    \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{sWait}:
+        \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{_bUseGyro}) \{
+            \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa8f3b3efb815c4ee9396ccb1fda939f77}{sReadGyro1});
+        \} \textcolor{keywordflow}{else} \{
+            \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa7e6ba39651fb8aca4abcdf80ed789d8b}{sReadAcc1});
+        \}
+        \hyperlink{class_i_m_u_a8dfecb837ea9fcf9d190423dca9beb7f}{StartTransaction}();
+        \textcolor{keywordflow}{break};
+    \textcolor{keywordflow}{default}:
+        \textcolor{keywordflow}{break};
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a7705d9d642b093a670e78534c9b2d3db}{
+\index{IMU@{IMU}!SampleRate@{SampleRate}}
+\index{SampleRate@{SampleRate}!IMU@{IMU}}
+\paragraph[{SampleRate}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::SampleRate (
+\begin{DoxyParamCaption}
+\item[{uint16\_\-t}]{rate}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a7705d9d642b093a670e78534c9b2d3db}
+
+
+Implements \hyperlink{class_i_m_u_base_ad4f6b6562edc0e2b76591d0deca191d7}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00170}{170} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00098}{\_\-Rate}, \hyperlink{_print_8cpp_source_l00045}{Print::print()}, and \hyperlink{_i_m_u_8cpp_source_l00707}{SetTimerPeriod()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// Range Limit the rate.}
+    \textcolor{keywordflow}{if} (rate < 10) \{
+        \hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{_Rate} = 10;
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rate > 200) \{
+        \hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{_Rate} = 200;
+    \} \textcolor{keywordflow}{else} \{
+        \hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{_Rate} = rate;
+    \}
+    
+    uint16\_t gval = 1000/rate;
+    gval = gval - 1;
+    
+    \textcolor{keywordflow}{if} (\hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}) \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{stringliteral}{"Set Rate on IMU\(\backslash\)n"});
+    
+    \hyperlink{class_i_m_u_a3ce9934e64dff87e18b6cc3f3700f72f}{SetTimerPeriod}();
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_afedf46bdad68cb4002af8bf46530d265}{
+\index{IMU@{IMU}!SetDebugPort@{SetDebugPort}}
+\index{SetDebugPort@{SetDebugPort}!IMU@{IMU}}
+\paragraph[{SetDebugPort}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::SetDebugPort (
+\begin{DoxyParamCaption}
+\item[{DebugPort $\ast$}]{pPort}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_i_m_u_afedf46bdad68cb4002af8bf46530d265}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00143}{143} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00112}{\_\-pDBGPort}.
+
+
+
+Referenced by \hyperlink{_gyro_acc_8cpp_source_l00034}{main()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{_pDBGPort} = pPort;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a6f86c79e66c4262093c2d65fe3fee45c}{
+\index{IMU@{IMU}!SetDebugPort2@{SetDebugPort2}}
+\index{SetDebugPort2@{SetDebugPort2}!IMU@{IMU}}
+\paragraph[{SetDebugPort2}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::SetDebugPort2 (
+\begin{DoxyParamCaption}
+\item[{DebugPort $\ast$}]{pPort}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_i_m_u_a6f86c79e66c4262093c2d65fe3fee45c}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00148}{148} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}.
+
+
+
+Referenced by \hyperlink{_gyro_acc_8cpp_source_l00034}{main()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2} = pPort;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{
+\index{IMU@{IMU}!SetState@{SetState}}
+\index{SetState@{SetState}!IMU@{IMU}}
+\paragraph[{SetState}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::SetState (
+\begin{DoxyParamCaption}
+\item[{{\bf StateType}}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}\hfill}
+\label{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00178}{178} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00112}{\_\-pDBGPort}, \hyperlink{_i_m_u_8h_source_l00086}{\_\-previousState}, and \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, \hyperlink{_i_m_u_8cpp_source_l00534}{I2CArbLost()}, \hyperlink{_i_m_u_8cpp_source_l00499}{I2CBusError()}, \hyperlink{_i_m_u_8cpp_source_l00463}{I2CNack()}, \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}, \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}, \hyperlink{_i_m_u_8cpp_source_l00194}{Setup()}, \hyperlink{_i_m_u_8cpp_source_l00239}{Start()}, and \hyperlink{_i_m_u_8cpp_source_l00268}{Stop()}.
+
+
+\begin{DoxyCode}
+    \{
+        \hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{_previousState} = \hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State};
+        \hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State} = s;
+        \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{_pDBGPort}) \hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{_pDBGPort}->SetState((uint8\_t)\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State});
+    \}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a66680475b844fbf334a0e4e7c5fe845b}{
+\index{IMU@{IMU}!SetTimer@{SetTimer}}
+\index{SetTimer@{SetTimer}!IMU@{IMU}}
+\paragraph[{SetTimer}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::SetTimer (
+\begin{DoxyParamCaption}
+\item[{{\bf TimerCntr} $\ast$}]{pTimer}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_i_m_u_a66680475b844fbf334a0e4e7c5fe845b}
+Set Timer object to use for the main timer tick. This timer needs to be fast enough to send off packets at the rate configured. So, if 200Hz is the rate, then this timer must run at 1 500us rate, etc. The default will be to run at 500us, then the timer can be slowed down if a slower rate is used, just to avoid as much overhead. The CPU Clock runs at 32Mhz, so the main timer clock is running at 32/64 or 500us period. Timer set to same interrupt level as the I2C so that those interrupts won't ever stomp on each other. 
+
+This will be 2us period 
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00685}{685} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00106}{\_\-pTimer}, \hyperlink{_timer_cntr_8cpp_source_l00150}{TimerCntr::CCEnable()}, \hyperlink{_timer_cntr_8cpp_source_l00144}{TimerCntr::ClkSel()}, \hyperlink{_timer_cntr_8cpp_source_l00162}{TimerCntr::EventSetup()}, \hyperlink{_timer_cntr_8cpp_source_l00168}{TimerCntr::IntLvlA()}, \hyperlink{_timer_cntr_8cpp_source_l00173}{TimerCntr::IntLvlB()}, \hyperlink{_timer_cntr_8cpp_source_l00227}{TimerCntr::Notify()}, \hyperlink{_i_m_u_8cpp_source_l00707}{SetTimerPeriod()}, and \hyperlink{_timer_cntr_8cpp_source_l00156}{TimerCntr::WaveformGenMode()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer} = pTimer;
+    
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}->\hyperlink{class_timer_cntr_a6e5c896a3f85311e011ee552534f1032}{ClkSel}(TC\_CLKSEL\_DIV64\_gc);
+    \hyperlink{class_i_m_u_a3ce9934e64dff87e18b6cc3f3700f72f}{SetTimerPeriod}();
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}->\hyperlink{class_timer_cntr_a7c3e5ae54af9a3431050d623d508cd2c}{CCEnable}(0);
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}->\hyperlink{class_timer_cntr_ab5df59d94a8d1706f9282a695e43a9a1}{WaveformGenMode}(TC\_WGMODE\_NORMAL\_gc);
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}->\hyperlink{class_timer_cntr_a27f54d05be459f37793e98743325a614}{EventSetup}(TC\_EVACT\_OFF\_gc,TC\_EVSEL\_OFF\_gc);
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}->\hyperlink{class_timer_cntr_a3d9d3bca0c89f5dbc69b34406ef6c4be}{IntLvlA}(0,1);
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}->\hyperlink{class_timer_cntr_a687162461b8b992093f3573356506a8c}{IntLvlB}(0);
+    \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}->\hyperlink{class_timer_cntr_a71bf73ee43e8d344d1241695b553556b}{Notify}(\textcolor{keyword}{this},0);
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a3ce9934e64dff87e18b6cc3f3700f72f}{
+\index{IMU@{IMU}!SetTimerPeriod@{SetTimerPeriod}}
+\index{SetTimerPeriod@{SetTimerPeriod}!IMU@{IMU}}
+\paragraph[{SetTimerPeriod}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::SetTimerPeriod (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_i_m_u_a3ce9934e64dff87e18b6cc3f3700f72f}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00707}{707} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00106}{\_\-pTimer}, \hyperlink{_i_m_u_8h_source_l00098}{\_\-Rate}, and \hyperlink{_timer_cntr_8cpp_source_l00189}{TimerCntr::Period()}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00170}{SampleRate()}, and \hyperlink{_i_m_u_8cpp_source_l00685}{SetTimer()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// Adjust the timer function to fire 5X faster}
+    \textcolor{comment}{// than the rate. At 200Hz, this will be 2Khz or }
+    \textcolor{comment}{// every 500us. }
+    \textcolor{comment}{// We set the timer to go off 5 times per IMU period.}
+    \textcolor{comment}{// This should range from 20ms for 10Hz, and 1 ms for 200}
+    \textcolor{comment}{// **** NoFifo}
+    \textcolor{comment}{// Set timer to fire at the rate.}
+    \textcolor{comment}{//unsigned long timerTicks = 100000/\_Rate;}
+    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} timerTicks = 500000/\hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{_Rate};
+    \textcolor{keywordflow}{if} (timerTicks > 65000) \{
+        timerTicks = 65000;
+    \}
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}) \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer}->\hyperlink{class_timer_cntr_a3f1c57b8f31a717b5de335cd56408029}{Period}(timerTicks);
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a290737d42de965c15c8327edfc516ffd}{
+\index{IMU@{IMU}!Setup@{Setup}}
+\index{Setup@{Setup}!IMU@{IMU}}
+\paragraph[{Setup}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::Setup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a290737d42de965c15c8327edfc516ffd}
+Perform the configuration on the connected IMUs This should be done separately from the loop since this process takes time and we do not want the fifos to be too far out of step. Expected Context: Main 
+
+Implements \hyperlink{class_i_m_u_base_a74d84beba0da335f49aa7ce94612cf13}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00194}{194} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00091}{\_\-numChans}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, \hyperlink{_i_m_u_8cpp_source_l00803}{Configure()}, \hyperlink{_print_8cpp_source_l00045}{Print::print()}, \hyperlink{_i_m_u_8h_source_l00062}{pSetup}, \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}, \hyperlink{_i_m_u_8h_source_l00044}{sConfigure}, \hyperlink{_i_m_u_8h_source_l00045}{sConfigured}, \hyperlink{_i_m_u_8h_source_l00178}{SetState()}, and \hyperlink{_i_m_u_8h_source_l00043}{sIdle}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00239}{Start()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans} == 0) \textcolor{keywordflow}{return} 0;
+    
+    \hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun} = \textcolor{keyword}{false};
+    Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a73419f05716e41c972241a4fc0c6ead0}{pSetup});
+    
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State} != \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle}) \{
+        \textcolor{keywordflow}{if} (\hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}) 
+            \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{stringliteral}{"IMU Already Running.\(\backslash\)n"});
+        \textcolor{keywordflow}{return} 0; \textcolor{comment}{// Already running}
+    \}
+    
+    \hyperlink{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{ResetFailStats}(); \textcolor{comment}{// inline in header}
+    \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae3a15f0845da0f426c48b6bd9ed01b21}{sConfigure}); \textcolor{comment}{// Inline in header}
+    
+    \textcolor{comment}{// Start the process with Configure}
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x=0; x<\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans};x++) \{
+        \textcolor{keywordflow}{if} (\hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}) 
+            \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{stringliteral}{"Configuring IMU\(\backslash\)n"});
+        \textcolor{keywordtype}{int} retc = \hyperlink{class_i_m_u_af4bede5261a1d6018c72782d8c54445e}{Configure}(x);
+        \textcolor{keywordflow}{if} (retc < 0 ) \{
+            \textcolor{comment}{// Try reset mechanisms - none of which have}
+            \textcolor{comment}{// been found that work properly yet.}
+            \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle});
+            \textcolor{keywordflow}{if} (\hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}) 
+                \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{stringliteral}{"IMU Configure Failed."});
+            \textcolor{keywordflow}{return} retc;
+        \}
+    \}
+    \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa98a87654cac5bbc7d12c9701563dbae5}{sConfigured});
+    \textcolor{keywordflow}{if} (\hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}) 
+        \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{stringliteral}{"IMU Configured.\(\backslash\)n"});
+
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a7c03f7a423240538756a62441b298d01}{
+\index{IMU@{IMU}!Start@{Start}}
+\index{Start@{Start}!IMU@{IMU}}
+\paragraph[{Start}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a7c03f7a423240538756a62441b298d01}
+Start the reading process running. Run the Setup function which will do asynchronous writes to all of the registers. Setup the run variables and then set our state to reset the fifo lengths then get going. Generally the master will call all of the Setup functions first so the asynchronous Writes there won't be an issue. Expected Context: Main 
+
+Implements \hyperlink{class_i_m_u_base_af31c2ed51cd36cc3230ebbb58757784a}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00239}{239} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00104}{\_\-bDataReady}, \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00091}{\_\-numChans}, \hyperlink{_i_m_u_8h_source_l00113}{\_\-pDBGPort2}, \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, \hyperlink{_i_m_u_8h_source_l00057}{pWriteDn}, \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}, \hyperlink{_i_m_u_8cpp_source_l00702}{ResetTimer()}, \hyperlink{_i_m_u_8h_source_l00045}{sConfigured}, \hyperlink{_i_m_u_8h_source_l00178}{SetState()}, \hyperlink{_i_m_u_8cpp_source_l00194}{Setup()}, and \hyperlink{_i_m_u_8h_source_l00046}{sWait}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans} == 0) \textcolor{keywordflow}{return} 0;
+    
+    Mark marker(\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2},\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac2332a4383aa00818b3fc4ed83ec1f4d}{pWriteDn});
+    
+    \textcolor{keywordtype}{int} retc;
+    \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State} != \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa98a87654cac5bbc7d12c9701563dbae5}{sConfigured}) \{
+        retc = \hyperlink{class_i_m_u_a290737d42de965c15c8327edfc516ffd}{Setup}();
+        \textcolor{keywordflow}{if} (retc < 0) \{
+            \textcolor{keywordflow}{return} retc;
+        \}
+    \}
+    
+    cli();
+    \hyperlink{class_i_m_u_a187dc9de30f97f5154e0ff904eb6ee1a}{ResetTimer}();
+    \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{sWait});
+    \hyperlink{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{ResetFailStats}();
+    \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[0] = \textcolor{keyword}{false};
+    \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[1] = \textcolor{keyword}{false};
+    \hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun} = \textcolor{keyword}{true};
+    sei();
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a8dfecb837ea9fcf9d190423dca9beb7f}{
+\index{IMU@{IMU}!StartTransaction@{StartTransaction}}
+\index{StartTransaction@{StartTransaction}!IMU@{IMU}}
+\paragraph[{StartTransaction}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::StartTransaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_a8dfecb837ea9fcf9d190423dca9beb7f}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00323}{323} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00094}{\_\-aID}, \hyperlink{_i_m_u_8h_source_l00093}{\_\-gID}, \hyperlink{_i_m_u_8h_source_l00085}{\_\-State}, \hyperlink{_i_m_u_8cpp_source_l00786}{RdAsync()}, \hyperlink{_i_m_u_8h_source_l00190}{ResetBusyTime()}, \hyperlink{_i_m_u_8h_source_l00048}{sReadAcc1}, \hyperlink{_i_m_u_8h_source_l00050}{sReadAcc2}, \hyperlink{_i_m_u_8h_source_l00047}{sReadGyro1}, and \hyperlink{_i_m_u_8h_source_l00049}{sReadGyro2}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, \hyperlink{_i_m_u_8cpp_source_l00534}{I2CArbLost()}, \hyperlink{_i_m_u_8cpp_source_l00499}{I2CBusError()}, \hyperlink{_i_m_u_8cpp_source_l00463}{I2CNack()}, \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}, and \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordtype}{int} retc = 0;
+    \textcolor{keywordflow}{switch}(\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State}) \{
+    \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa8f3b3efb815c4ee9396ccb1fda939f77}{sReadGyro1}:
+        \hyperlink{class_i_m_u_ad39e85995898b9251032c89a3587974c}{RdAsync}(\hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[0], 0x1B, 8);
+        \textcolor{keywordflow}{break};
+    \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa7e6ba39651fb8aca4abcdf80ed789d8b}{sReadAcc1}:
+        \hyperlink{class_i_m_u_ad39e85995898b9251032c89a3587974c}{RdAsync}(\hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[0], 0x80 | 0x28, 6);
+        \textcolor{keywordflow}{break};
+    \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa2e538ebe471a9482d15ab162ec3bdc6d}{sReadGyro2}:
+        \hyperlink{class_i_m_u_ad39e85995898b9251032c89a3587974c}{RdAsync}(\hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[1], 0x1B, 8);
+        \textcolor{keywordflow}{break};
+    \textcolor{keywordflow}{case} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d82e2432f2e2075cef6143740c4df59}{sReadAcc2}:
+        \hyperlink{class_i_m_u_ad39e85995898b9251032c89a3587974c}{RdAsync}(\hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[1], 0x80 | 0x28, 6);
+        \textcolor{keywordflow}{break};
+    \textcolor{keywordflow}{default}:
+        \textcolor{keywordflow}{break};
+    \}
+    \hyperlink{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{ResetBusyTime}();
+    \textcolor{keywordflow}{return} retc;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_af0841bed4167f7a4eb12c40d7b8e615e}{
+\index{IMU@{IMU}!Stop@{Stop}}
+\index{Stop@{Stop}!IMU@{IMU}}
+\paragraph[{Stop}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::Stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_af0841bed4167f7a4eb12c40d7b8e615e}
+Force the state to Idle. We need to consider how this works with iterrupts, but this should only be called from main, below interrupt level, so I think it is okay. 
+
+Implements \hyperlink{class_i_m_u_base_a5b136166ec3849cbc1f93a13367eb08d}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00268}{268} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00107}{\_\-bRun}, \hyperlink{_i_m_u_8h_source_l00178}{SetState()}, and \hyperlink{_i_m_u_8h_source_l00043}{sIdle}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00463}{I2CNack()}.
+
+
+\begin{DoxyCode}
+\{
+    cli();
+    \hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun} = \textcolor{keyword}{false};
+    \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle});
+    sei();
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_ae9c290e496eb2a76aefc626c81fe4da9}{
+\index{IMU@{IMU}!StoreAccData@{StoreAccData}}
+\index{StoreAccData@{StoreAccData}!IMU@{IMU}}
+\paragraph[{StoreAccData}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::StoreAccData (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_ae9c290e496eb2a76aefc626c81fe4da9}
+Add the accelerometer data to the buffer I have the index there in case I need it later.. 
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00588}{588} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00103}{\_\-dataBuffer}, \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, and \hyperlink{class_i2_c___master_ab7c8dd50c0e931fb20a73e42b2c2202a}{I2C\_\-Master::ReadData()}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_ab7c8dd50c0e931fb20a73e42b2c2202a}{ReadData}(&\hyperlink{class_i_m_u_ab87a54288295d4d10d605cf6c21d4d0f}{_dataBuffer}[idx-1][8],6);
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a5b58d543be70886335e439a2b4f28a8e}{
+\index{IMU@{IMU}!StoreGyroData@{StoreGyroData}}
+\index{StoreGyroData@{StoreGyroData}!IMU@{IMU}}
+\paragraph[{StoreGyroData}]{\setlength{\rightskip}{0pt plus 5cm}void IMU::StoreGyroData (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_a5b58d543be70886335e439a2b4f28a8e}
+Store the gyro read data while I get the Accelerometer data I have the index there in case I need it later.. 
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00581}{581} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00103}{\_\-dataBuffer}, \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, and \hyperlink{class_i2_c___master_ab7c8dd50c0e931fb20a73e42b2c2202a}{I2C\_\-Master::ReadData()}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_ab7c8dd50c0e931fb20a73e42b2c2202a}{ReadData}(&\hyperlink{class_i_m_u_ab87a54288295d4d10d605cf6c21d4d0f}{_dataBuffer}[idx-1][0],8);
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a86f05be645d2096f0b2b3cfbe8ea0ce8}{
+\index{IMU@{IMU}!UseGyro@{UseGyro}}
+\index{UseGyro@{UseGyro}!IMU@{IMU}}
+\paragraph[{UseGyro}]{\setlength{\rightskip}{0pt plus 5cm}virtual void IMU::UseGyro (
+\begin{DoxyParamCaption}
+\item[{bool}]{bEnable}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_a86f05be645d2096f0b2b3cfbe8ea0ce8}
+
+
+Implements \hyperlink{class_i_m_u_base_a9b4cc325e9858a8bb204733dc7906ec2}{IMUBase}.
+
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00137}{137} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00100}{\_\-bUseGyro}.
+
+
+\begin{DoxyCode}
+\{ \hyperlink{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{_bUseGyro} = bEnable; \};
+\end{DoxyCode}
+\hypertarget{class_i_m_u_af80eef2eb22d08faf697dd708b18303c}{
+\index{IMU@{IMU}!Wr@{Wr}}
+\index{Wr@{Wr}!IMU@{IMU}}
+\paragraph[{Wr}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::Wr (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{ID, }
+\item[{uint8\_\-t}]{addr, }
+\item[{uint8\_\-t}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_af80eef2eb22d08faf697dd708b18303c}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00758}{758} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, and \hyperlink{class_i2_c___master_af6f8c139ec849d0b7a443269ccf52bfe}{I2C\_\-Master::WriteSync()}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00651}{CheckIDs()}, and \hyperlink{_i_m_u_8cpp_source_l00803}{Configure()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keyword}{static} uint8\_t  bytes[2];
+    bytes[0] = addr;
+    bytes[1] = data;
+    \textcolor{keywordflow}{return} \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_af6f8c139ec849d0b7a443269ccf52bfe}{WriteSync}(ID, &bytes[0],2);
+\}
+\end{DoxyCode}
+\hypertarget{class_i_m_u_a2c38589ebcb357dfc8f987a5d41c845b}{
+\index{IMU@{IMU}!WrAsync@{WrAsync}}
+\index{WrAsync@{WrAsync}!IMU@{IMU}}
+\paragraph[{WrAsync}]{\setlength{\rightskip}{0pt plus 5cm}int IMU::WrAsync (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{ID, }
+\item[{uint8\_\-t}]{addr, }
+\item[{uint8\_\-t}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_i_m_u_a2c38589ebcb357dfc8f987a5d41c845b}
+
+
+Definition at line \hyperlink{_i_m_u_8cpp_source_l00776}{776} of file \hyperlink{_i_m_u_8cpp_source}{IMU.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8h_source_l00089}{\_\-pMas}, \hyperlink{_i_m_u_8cpp_source_l00016}{buffer}, \hyperlink{_print_8cpp_source_l00045}{Print::print()}, and \hyperlink{class_i2_c___master_a2ecf1fbfb50e43fc9270628910f73813}{I2C\_\-Master::WriteRead()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keyword}{static} uint8\_t  bytes[2];
+    bytes[0] = addr;
+    bytes[1] = data;
+    sprintf(\hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer},\textcolor{stringliteral}{"WrAsync to %d\(\backslash\)n"},ID);
+    \textcolor{keywordflow}{if} (\hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}) \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer});
+    \textcolor{keywordflow}{return} \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas}->\hyperlink{class_i2_c___master_a2ecf1fbfb50e43fc9270628910f73813}{WriteRead}(ID, &bytes[0],2,0);
+\}
+\end{DoxyCode}
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{
+\index{IMU@{IMU}!\_\-aID@{\_\-aID}}
+\index{\_\-aID@{\_\-aID}!IMU@{IMU}}
+\paragraph[{\_\-aID}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMU::\_\-aID}\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00094}{94} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00651}{CheckIDs()}, \hyperlink{_i_m_u_8cpp_source_l00803}{Configure()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00120}{QueryChannels()}, and \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}.
+
+\hypertarget{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{
+\index{IMU@{IMU}!\_\-bDataReady@{\_\-bDataReady}}
+\index{\_\-bDataReady@{\_\-bDataReady}!IMU@{IMU}}
+\paragraph[{\_\-bDataReady}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf IMU::\_\-bDataReady}\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00104}{104} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00564}{DataReady()}, \hyperlink{_i_m_u_8cpp_source_l00603}{GetPacketData()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00594}{PushData()}, and \hyperlink{_i_m_u_8cpp_source_l00239}{Start()}.
+
+\hypertarget{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{
+\index{IMU@{IMU}!\_\-bDualChan@{\_\-bDualChan}}
+\index{\_\-bDualChan@{\_\-bDualChan}!IMU@{IMU}}
+\paragraph[{\_\-bDualChan}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf IMU::\_\-bDualChan}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00090}{90} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00564}{DataReady()}, \hyperlink{_i_m_u_8cpp_source_l00603}{GetPacketData()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}, and \hyperlink{_i_m_u_8cpp_source_l00120}{QueryChannels()}.
+
+\hypertarget{class_i_m_u_a12238a84e20f54c5fe799e0b37feb0ea}{
+\index{IMU@{IMU}!\_\-bFailDetected@{\_\-bFailDetected}}
+\index{\_\-bFailDetected@{\_\-bFailDetected}!IMU@{IMU}}
+\paragraph[{\_\-bFailDetected}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf IMU::\_\-bFailDetected}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a12238a84e20f54c5fe799e0b37feb0ea}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00110}{110} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00534}{I2CArbLost()}, \hyperlink{_i_m_u_8cpp_source_l00499}{I2CBusError()}, and \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}.
+
+\hypertarget{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{
+\index{IMU@{IMU}!\_\-bRun@{\_\-bRun}}
+\index{\_\-bRun@{\_\-bRun}!IMU@{IMU}}
+\paragraph[{\_\-bRun}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf IMU::\_\-bRun}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00107}{107} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00534}{I2CArbLost()}, \hyperlink{_i_m_u_8cpp_source_l00499}{I2CBusError()}, \hyperlink{_i_m_u_8cpp_source_l00463}{I2CNack()}, \hyperlink{_i_m_u_8cpp_source_l00446}{I2CReadDone()}, \hyperlink{_i_m_u_8cpp_source_l00432}{I2CWriteDone()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}, \hyperlink{_i_m_u_8cpp_source_l00194}{Setup()}, \hyperlink{_i_m_u_8cpp_source_l00239}{Start()}, and \hyperlink{_i_m_u_8cpp_source_l00268}{Stop()}.
+
+\hypertarget{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{
+\index{IMU@{IMU}!\_\-bUseGyro@{\_\-bUseGyro}}
+\index{\_\-bUseGyro@{\_\-bUseGyro}!IMU@{IMU}}
+\paragraph[{\_\-bUseGyro}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf IMU::\_\-bUseGyro}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00100}{100} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}, \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}, and \hyperlink{_i_m_u_8h_source_l00137}{UseGyro()}.
+
+\hypertarget{class_i_m_u_adce31ce2a3317918d73b47e94a2d9227}{
+\index{IMU@{IMU}!\_\-busyWaitTime@{\_\-busyWaitTime}}
+\index{\_\-busyWaitTime@{\_\-busyWaitTime}!IMU@{IMU}}
+\paragraph[{\_\-busyWaitTime}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf IMU::\_\-busyWaitTime}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_adce31ce2a3317918d73b47e94a2d9227}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00111}{111} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8h_source_l00195}{BusyTimeout()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, and \hyperlink{_i_m_u_8h_source_l00190}{ResetBusyTime()}.
+
+\hypertarget{class_i_m_u_a4dbeaf17fd1ae9b41b5c3fe61706e5f1}{
+\index{IMU@{IMU}!\_\-ClkSel@{\_\-ClkSel}}
+\index{\_\-ClkSel@{\_\-ClkSel}!IMU@{IMU}}
+\paragraph[{\_\-ClkSel}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMU::\_\-ClkSel}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a4dbeaf17fd1ae9b41b5c3fe61706e5f1}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00097}{97} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00803}{Configure()}, and \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}.
+
+\hypertarget{class_i_m_u_a53aa928d2d68a5287da893bd157e7cbe}{
+\index{IMU@{IMU}!\_\-configOkay@{\_\-configOkay}}
+\index{\_\-configOkay@{\_\-configOkay}!IMU@{IMU}}
+\paragraph[{\_\-configOkay}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf IMU::\_\-configOkay}\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a53aa928d2d68a5287da893bd157e7cbe}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00092}{92} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+\hypertarget{class_i_m_u_ab87a54288295d4d10d605cf6c21d4d0f}{
+\index{IMU@{IMU}!\_\-dataBuffer@{\_\-dataBuffer}}
+\index{\_\-dataBuffer@{\_\-dataBuffer}!IMU@{IMU}}
+\paragraph[{\_\-dataBuffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMU::\_\-dataBuffer}\mbox{[}2\mbox{]}\mbox{[}20\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_ab87a54288295d4d10d605cf6c21d4d0f}
+
+
+This buffer is used to store data until we push it into the fifo. 
+
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00103}{103} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00603}{GetPacketData()}, \hyperlink{_i_m_u_8cpp_source_l00588}{StoreAccData()}, and \hyperlink{_i_m_u_8cpp_source_l00581}{StoreGyroData()}.
+
+\hypertarget{class_i_m_u_a3f9e6159234449cde8f5e72da8acf751}{
+\index{IMU@{IMU}!\_\-DLPF@{\_\-DLPF}}
+\index{\_\-DLPF@{\_\-DLPF}!IMU@{IMU}}
+\paragraph[{\_\-DLPF}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMU::\_\-DLPF}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a3f9e6159234449cde8f5e72da8acf751}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00095}{95} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00803}{Configure()}, and \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}.
+
+\hypertarget{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{
+\index{IMU@{IMU}!\_\-failCount@{\_\-failCount}}
+\index{\_\-failCount@{\_\-failCount}!IMU@{IMU}}
+\paragraph[{\_\-failCount}]{\setlength{\rightskip}{0pt plus 5cm}uint16\_\-t {\bf IMU::\_\-failCount}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00108}{108} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, \hyperlink{_i_m_u_8cpp_source_l00534}{I2CArbLost()}, \hyperlink{_i_m_u_8cpp_source_l00499}{I2CBusError()}, and \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}.
+
+\hypertarget{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{
+\index{IMU@{IMU}!\_\-failType@{\_\-failType}}
+\index{\_\-failType@{\_\-failType}!IMU@{IMU}}
+\paragraph[{\_\-failType}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FailType} {\bf IMU::\_\-failType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00087}{87} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, \hyperlink{_i_m_u_8cpp_source_l00603}{GetPacketData()}, \hyperlink{_i_m_u_8cpp_source_l00534}{I2CArbLost()}, \hyperlink{_i_m_u_8cpp_source_l00499}{I2CBusError()}, \hyperlink{_i_m_u_8cpp_source_l00463}{I2CNack()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, and \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}.
+
+\hypertarget{class_i_m_u_a059c02011a10bb90aecc9692ed345771}{
+\index{IMU@{IMU}!\_\-FullScale@{\_\-FullScale}}
+\index{\_\-FullScale@{\_\-FullScale}!IMU@{IMU}}
+\paragraph[{\_\-FullScale}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMU::\_\-FullScale}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a059c02011a10bb90aecc9692ed345771}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00096}{96} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00803}{Configure()}, and \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}.
+
+\hypertarget{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{
+\index{IMU@{IMU}!\_\-gID@{\_\-gID}}
+\index{\_\-gID@{\_\-gID}!IMU@{IMU}}
+\paragraph[{\_\-gID}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMU::\_\-gID}\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00093}{93} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00651}{CheckIDs()}, \hyperlink{_i_m_u_8cpp_source_l00803}{Configure()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00120}{QueryChannels()}, and \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}.
+
+\hypertarget{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{
+\index{IMU@{IMU}!\_\-nackCount@{\_\-nackCount}}
+\index{\_\-nackCount@{\_\-nackCount}!IMU@{IMU}}
+\paragraph[{\_\-nackCount}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMU::\_\-nackCount}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}
+
+
+used for recover logic 
+
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00109}{109} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, \hyperlink{_i_m_u_8cpp_source_l00463}{I2CNack()}, and \hyperlink{_i_m_u_8h_source_l00200}{ResetFailStats()}.
+
+\hypertarget{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{
+\index{IMU@{IMU}!\_\-numChans@{\_\-numChans}}
+\index{\_\-numChans@{\_\-numChans}!IMU@{IMU}}
+\paragraph[{\_\-numChans}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf IMU::\_\-numChans}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00091}{91} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00651}{CheckIDs()}, \hyperlink{_i_m_u_8cpp_source_l00564}{DataReady()}, \hyperlink{_i_m_u_8cpp_source_l00603}{GetPacketData()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00120}{QueryChannels()}, \hyperlink{_i_m_u_8cpp_source_l00194}{Setup()}, and \hyperlink{_i_m_u_8cpp_source_l00239}{Start()}.
+
+\hypertarget{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{
+\index{IMU@{IMU}!\_\-pDBGPort@{\_\-pDBGPort}}
+\index{\_\-pDBGPort@{\_\-pDBGPort}!IMU@{IMU}}
+\paragraph[{\_\-pDBGPort}]{\setlength{\rightskip}{0pt plus 5cm}DebugPort$\ast$ {\bf IMU::\_\-pDBGPort}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00112}{112} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00143}{SetDebugPort()}, and \hyperlink{_i_m_u_8h_source_l00178}{SetState()}.
+
+\hypertarget{class_i_m_u_a1cf5672a28049d5885a2958010188928}{
+\index{IMU@{IMU}!\_\-pDBGPort2@{\_\-pDBGPort2}}
+\index{\_\-pDBGPort2@{\_\-pDBGPort2}!IMU@{IMU}}
+\paragraph[{\_\-pDBGPort2}]{\setlength{\rightskip}{0pt plus 5cm}DebugPort$\ast$ {\bf IMU::\_\-pDBGPort2}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a1cf5672a28049d5885a2958010188928}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00113}{113} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00534}{I2CArbLost()}, \hyperlink{_i_m_u_8cpp_source_l00499}{I2CBusError()}, \hyperlink{_i_m_u_8cpp_source_l00463}{I2CNack()}, \hyperlink{_i_m_u_8cpp_source_l00446}{I2CReadDone()}, \hyperlink{_i_m_u_8cpp_source_l00432}{I2CWriteDone()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8h_source_l00185}{MarkPos()}, \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}, \hyperlink{_i_m_u_8cpp_source_l00148}{SetDebugPort2()}, \hyperlink{_i_m_u_8cpp_source_l00194}{Setup()}, and \hyperlink{_i_m_u_8cpp_source_l00239}{Start()}.
+
+\hypertarget{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{
+\index{IMU@{IMU}!\_\-pMas@{\_\-pMas}}
+\index{\_\-pMas@{\_\-pMas}!IMU@{IMU}}
+\paragraph[{\_\-pMas}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I2C\_\-Master}$\ast$ {\bf IMU::\_\-pMas}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00089}{89} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00651}{CheckIDs()}, \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, \hyperlink{_i_m_u_8cpp_source_l00165}{ForceStartStop()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00120}{QueryChannels()}, \hyperlink{_i_m_u_8cpp_source_l00766}{Rd()}, \hyperlink{_i_m_u_8cpp_source_l00786}{RdAsync()}, \hyperlink{_i_m_u_8cpp_source_l00792}{ReadWord()}, \hyperlink{_i_m_u_8cpp_source_l00153}{Reset()}, \hyperlink{_i_m_u_8cpp_source_l00160}{ResetDevices()}, \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}, \hyperlink{_i_m_u_8cpp_source_l00588}{StoreAccData()}, \hyperlink{_i_m_u_8cpp_source_l00581}{StoreGyroData()}, \hyperlink{_i_m_u_8cpp_source_l00758}{Wr()}, and \hyperlink{_i_m_u_8cpp_source_l00776}{WrAsync()}.
+
+\hypertarget{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{
+\index{IMU@{IMU}!\_\-pNextIMU@{\_\-pNextIMU}}
+\index{\_\-pNextIMU@{\_\-pNextIMU}!IMU@{IMU}}
+\paragraph[{\_\-pNextIMU}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IMUBase}$\ast$ {\bf IMU::\_\-pNextIMU}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00114}{114} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00108}{BeginRead()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00103}{NextIMU()}, and \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}.
+
+\hypertarget{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{
+\index{IMU@{IMU}!\_\-previousState@{\_\-previousState}}
+\index{\_\-previousState@{\_\-previousState}!IMU@{IMU}}
+\paragraph[{\_\-previousState}]{\setlength{\rightskip}{0pt plus 5cm}{\bf StateType} {\bf IMU::\_\-previousState}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00086}{86} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00398}{FailRecovery()}, \hyperlink{_i_m_u_8cpp_source_l00534}{I2CArbLost()}, \hyperlink{_i_m_u_8cpp_source_l00499}{I2CBusError()}, \hyperlink{_i_m_u_8cpp_source_l00463}{I2CNack()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, and \hyperlink{_i_m_u_8h_source_l00178}{SetState()}.
+
+\hypertarget{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{
+\index{IMU@{IMU}!\_\-pTimer@{\_\-pTimer}}
+\index{\_\-pTimer@{\_\-pTimer}!IMU@{IMU}}
+\paragraph[{\_\-pTimer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TimerCntr}$\ast$ {\bf IMU::\_\-pTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00106}{106} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00702}{ResetTimer()}, \hyperlink{_i_m_u_8cpp_source_l00685}{SetTimer()}, and \hyperlink{_i_m_u_8cpp_source_l00707}{SetTimerPeriod()}.
+
+\hypertarget{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{
+\index{IMU@{IMU}!\_\-Rate@{\_\-Rate}}
+\index{\_\-Rate@{\_\-Rate}!IMU@{IMU}}
+\paragraph[{\_\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}uint16\_\-t {\bf IMU::\_\-Rate}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00098}{98} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00803}{Configure()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00170}{SampleRate()}, and \hyperlink{_i_m_u_8cpp_source_l00707}{SetTimerPeriod()}.
+
+\hypertarget{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{
+\index{IMU@{IMU}!\_\-State@{\_\-State}}
+\index{\_\-State@{\_\-State}!IMU@{IMU}}
+\paragraph[{\_\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf StateType} {\bf IMU::\_\-State}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00085}{85} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00108}{BeginRead()}, \hyperlink{_i_m_u_8cpp_source_l00277}{Busy()}, \hyperlink{_i_m_u_8cpp_source_l00603}{GetPacketData()}, \hyperlink{_i_m_u_8cpp_source_l00020}{IMU()}, \hyperlink{_i_m_u_8cpp_source_l00348}{ProcessTransaction()}, \hyperlink{_i_m_u_8cpp_source_l00290}{Run()}, \hyperlink{_i_m_u_8h_source_l00178}{SetState()}, \hyperlink{_i_m_u_8cpp_source_l00194}{Setup()}, \hyperlink{_i_m_u_8cpp_source_l00239}{Start()}, and \hyperlink{_i_m_u_8cpp_source_l00323}{StartTransaction()}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_i_m_u_8h}{IMU.h}\item 
+\hyperlink{_i_m_u_8cpp}{IMU.cpp}\end{DoxyCompactItemize}

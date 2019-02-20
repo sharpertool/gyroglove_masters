@@ -1,0 +1,170 @@
+\hypertarget{class_quad_decoder}{
+\section{QuadDecoder Class Reference}
+\label{class_quad_decoder}\index{QuadDecoder@{QuadDecoder}}
+}
+
+
+{\ttfamily \#include $<$QuadDecoder.h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_quad_decoder_a805019bcc799d481dbab005ab251b4db}{Direction} \{ \hyperlink{class_quad_decoder_a805019bcc799d481dbab005ab251b4dba292c7e620cba2cad448fed305ef93151}{CW}, 
+\hyperlink{class_quad_decoder_a805019bcc799d481dbab005ab251b4dba83a029d235cca29011beddfa493646d3}{CCW}
+ \}
+\item 
+typedef enum \hyperlink{class_quad_decoder_a805019bcc799d481dbab005ab251b4db}{QuadDecoder::Direction} \hyperlink{class_quad_decoder_a63a55fea541c4a30ebb12bcfa21359a3}{DirType}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_quad_decoder_a38420f3e5c299380a785e26b072669be}{QuadDecoder} (\hyperlink{struct_p_o_r_t__struct}{PORT\_\-t} $\ast$port, uint8\_\-t portPin, bool bUseIndex, bool bInvertIO, uint8\_\-t qEvMux, \hyperlink{iox128a1_8h_a3cd79edc604aba8b0754f91b37ddcba5}{EVSYS\_\-CHMUX\_\-t} qPinInput, \hyperlink{iox128a1_8h_a4cfc797e8e2c93c55602d5d6155052f8}{EVSYS\_\-QDIRM\_\-t} qIndexState, \hyperlink{struct_t_c0__struct}{TC0\_\-t} $\ast$pTimer, \hyperlink{iox128a1_8h_a5bc8c280528ada623244a4d6bdb631f0}{TC\_\-EVSEL\_\-t} qEventChannel, uint8\_\-t lineCount)
+\item 
+\hyperlink{class_quad_decoder_a3bf8332deb2c5137475afd3a5cf783f4}{$\sim$QuadDecoder} ()
+\item 
+bool \hyperlink{class_quad_decoder_a105fd8cb67abf552d48f46e6e1642860}{Setup} ()
+\item 
+bool \hyperlink{class_quad_decoder_a41752ce819b5a24bc34d28eab1a3c624}{PortSetup} ()
+\item 
+bool \hyperlink{class_quad_decoder_aa1ab195b0d79c999572a2fab78f79f9d}{EventSetup} ()
+\item 
+void \hyperlink{class_quad_decoder_a91ae5ea8102bca0d130c42b6f9cfdb75}{TC\_\-DecSetup} ()
+\item 
+void \hyperlink{class_quad_decoder_a3b92eae38be093dcf9929a9f1b227ec0}{TC\_\-FreqSetup} ()
+\item 
+\hyperlink{class_quad_decoder_a63a55fea541c4a30ebb12bcfa21359a3}{DirType} \hyperlink{class_quad_decoder_af6bef7875cdc7f55e184ca6216453558}{Get\_\-Direction} ()
+\item 
+uint16\_\-t \hyperlink{class_quad_decoder_a3ac03c7af7b72c82f1519ede462b6a5c}{Count} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_quad_decoder_a63a55fea541c4a30ebb12bcfa21359a3}{
+\index{QuadDecoder@{QuadDecoder}!DirType@{DirType}}
+\index{DirType@{DirType}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{DirType}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf QuadDecoder::Direction}  {\bf QuadDecoder::DirType}}}
+\label{class_quad_decoder_a63a55fea541c4a30ebb12bcfa21359a3}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_quad_decoder_a805019bcc799d481dbab005ab251b4db}{
+\index{QuadDecoder@{QuadDecoder}!Direction@{Direction}}
+\index{Direction@{Direction}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{Direction}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf QuadDecoder::Direction}}}
+\label{class_quad_decoder_a805019bcc799d481dbab005ab251b4db}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{CW@{CW}!QuadDecoder@{QuadDecoder}}\index{QuadDecoder@{QuadDecoder}!CW@{CW}}\item[{\em 
+\hypertarget{class_quad_decoder_a805019bcc799d481dbab005ab251b4dba292c7e620cba2cad448fed305ef93151}{
+CW}
+\label{class_quad_decoder_a805019bcc799d481dbab005ab251b4dba292c7e620cba2cad448fed305ef93151}
+}]\index{CCW@{CCW}!QuadDecoder@{QuadDecoder}}\index{QuadDecoder@{QuadDecoder}!CCW@{CCW}}\item[{\em 
+\hypertarget{class_quad_decoder_a805019bcc799d481dbab005ab251b4dba83a029d235cca29011beddfa493646d3}{
+CCW}
+\label{class_quad_decoder_a805019bcc799d481dbab005ab251b4dba83a029d235cca29011beddfa493646d3}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_quad_decoder_a38420f3e5c299380a785e26b072669be}{
+\index{QuadDecoder@{QuadDecoder}!QuadDecoder@{QuadDecoder}}
+\index{QuadDecoder@{QuadDecoder}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{QuadDecoder}]{\setlength{\rightskip}{0pt plus 5cm}QuadDecoder::QuadDecoder (
+\begin{DoxyParamCaption}
+\item[{{\bf PORT\_\-t} $\ast$}]{port, }
+\item[{uint8\_\-t}]{portPin, }
+\item[{bool}]{bUseIndex, }
+\item[{bool}]{bInvertIO, }
+\item[{uint8\_\-t}]{qEvMux, }
+\item[{{\bf EVSYS\_\-CHMUX\_\-t}}]{qPinInput, }
+\item[{{\bf EVSYS\_\-QDIRM\_\-t}}]{qIndexState, }
+\item[{{\bf TC0\_\-t} $\ast$}]{pTimer, }
+\item[{{\bf TC\_\-EVSEL\_\-t}}]{qEventChannel, }
+\item[{uint8\_\-t}]{lineCount = {\ttfamily 32}}
+\end{DoxyParamCaption}
+)}}
+\label{class_quad_decoder_a38420f3e5c299380a785e26b072669be}
+\hypertarget{class_quad_decoder_a3bf8332deb2c5137475afd3a5cf783f4}{
+\index{QuadDecoder@{QuadDecoder}!$\sim$QuadDecoder@{$\sim$QuadDecoder}}
+\index{$\sim$QuadDecoder@{$\sim$QuadDecoder}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{$\sim$QuadDecoder}]{\setlength{\rightskip}{0pt plus 5cm}QuadDecoder::$\sim$QuadDecoder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_quad_decoder_a3bf8332deb2c5137475afd3a5cf783f4}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_quad_decoder_a3ac03c7af7b72c82f1519ede462b6a5c}{
+\index{QuadDecoder@{QuadDecoder}!Count@{Count}}
+\index{Count@{Count}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{Count}]{\setlength{\rightskip}{0pt plus 5cm}uint16\_\-t QuadDecoder::Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_quad_decoder_a3ac03c7af7b72c82f1519ede462b6a5c}
+\hypertarget{class_quad_decoder_aa1ab195b0d79c999572a2fab78f79f9d}{
+\index{QuadDecoder@{QuadDecoder}!EventSetup@{EventSetup}}
+\index{EventSetup@{EventSetup}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{EventSetup}]{\setlength{\rightskip}{0pt plus 5cm}bool QuadDecoder::EventSetup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_quad_decoder_aa1ab195b0d79c999572a2fab78f79f9d}
+\hypertarget{class_quad_decoder_af6bef7875cdc7f55e184ca6216453558}{
+\index{QuadDecoder@{QuadDecoder}!Get\_\-Direction@{Get\_\-Direction}}
+\index{Get\_\-Direction@{Get\_\-Direction}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{Get\_\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf QuadDecoder::DirType} QuadDecoder::Get\_\-Direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_quad_decoder_af6bef7875cdc7f55e184ca6216453558}
+\hypertarget{class_quad_decoder_a41752ce819b5a24bc34d28eab1a3c624}{
+\index{QuadDecoder@{QuadDecoder}!PortSetup@{PortSetup}}
+\index{PortSetup@{PortSetup}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{PortSetup}]{\setlength{\rightskip}{0pt plus 5cm}bool QuadDecoder::PortSetup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_quad_decoder_a41752ce819b5a24bc34d28eab1a3c624}
+\hypertarget{class_quad_decoder_a105fd8cb67abf552d48f46e6e1642860}{
+\index{QuadDecoder@{QuadDecoder}!Setup@{Setup}}
+\index{Setup@{Setup}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{Setup}]{\setlength{\rightskip}{0pt plus 5cm}bool QuadDecoder::Setup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_quad_decoder_a105fd8cb67abf552d48f46e6e1642860}
+\hypertarget{class_quad_decoder_a91ae5ea8102bca0d130c42b6f9cfdb75}{
+\index{QuadDecoder@{QuadDecoder}!TC\_\-DecSetup@{TC\_\-DecSetup}}
+\index{TC\_\-DecSetup@{TC\_\-DecSetup}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{TC\_\-DecSetup}]{\setlength{\rightskip}{0pt plus 5cm}void QuadDecoder::TC\_\-DecSetup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_quad_decoder_a91ae5ea8102bca0d130c42b6f9cfdb75}
+\hypertarget{class_quad_decoder_a3b92eae38be093dcf9929a9f1b227ec0}{
+\index{QuadDecoder@{QuadDecoder}!TC\_\-FreqSetup@{TC\_\-FreqSetup}}
+\index{TC\_\-FreqSetup@{TC\_\-FreqSetup}!QuadDecoder@{QuadDecoder}}
+\subsubsection[{TC\_\-FreqSetup}]{\setlength{\rightskip}{0pt plus 5cm}void QuadDecoder::TC\_\-FreqSetup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_quad_decoder_a3b92eae38be093dcf9929a9f1b227ec0}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+FWLib/inc/\hyperlink{_quad_decoder_8h}{QuadDecoder.h}\item 
+FWLib/src/\hyperlink{_quad_decoder_8cpp}{QuadDecoder.cpp}\end{DoxyCompactItemize}

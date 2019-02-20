@@ -1,0 +1,621 @@
+\hypertarget{class_hardware_serial}{
+\subsection{HardwareSerial Class Reference}
+\label{class_hardware_serial}\index{HardwareSerial@{HardwareSerial}}
+}
+
+
+\hyperlink{class_hardware_serial}{HardwareSerial} implementation.  
+
+
+
+
+{\ttfamily \#include $<$HardwareSerial.h$>$}
+
+Inheritance diagram for HardwareSerial:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_hardware_serial}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_hardware_serial_ab96331f0886097eb802a7839676ef645}{HardwareSerial} (USART\_\-t $\ast$usart, PORT\_\-t $\ast$port, uint8\_\-t in\_\-bm, uint8\_\-t out\_\-bm)
+\item 
+\hyperlink{class_hardware_serial_a1c7aae049aba33b03fe030960c1c4aa7}{$\sim$HardwareSerial} ()
+\item 
+void \hyperlink{class_hardware_serial_a11049d350f4cf4bfdaafb24bb2738556}{begin} (long baudrate, int8\_\-t bscale=0)
+\item 
+void \hyperlink{class_hardware_serial_adcfab60db442174cb53f005df6d2996d}{begin2x} (long baudrate, int8\_\-t bscale=0)
+\item 
+void \hyperlink{class_hardware_serial_a0f86c41f580e04bdf30ea00e9014eacd}{end} ()
+\item 
+uint8\_\-t \hyperlink{class_hardware_serial_a10e05fa62dc473d0d8a7ee8184f504ba}{available} (void)
+\item 
+int \hyperlink{class_hardware_serial_a618696608a5fddcf3cb48ad6f044e756}{read} (void)
+\item 
+void \hyperlink{class_hardware_serial_a1eeb094d8da77e0292f95f4498a5396f}{flush} (void)
+\item 
+virtual void \hyperlink{class_hardware_serial_aced05ab99953383a235ccfb366f5c98f}{write} (uint8\_\-t)
+\item 
+void \hyperlink{class_hardware_serial_a2e13244413a84a259cadab3fb452921a}{enable} (bool bEn)
+\end{DoxyCompactItemize}
+\begin{Indent}{\bf Interrupt Handlers}\par
+{\em There are three possible interrupts for the USART. Receive done, Transmit done and Data Register Ready. }\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_hardware_serial_ac52002a727070c45b765d0dc55106cad}{rxc} ()
+\item 
+void \hyperlink{class_hardware_serial_ac33af9a86da3e3ae7ac1e2791c8eaf22}{dre} ()
+\item 
+void \hyperlink{class_hardware_serial_a82779b03507bc07f3bf2e090d3733015}{txc} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structring__buffer}{ring\_\-buffer} $\ast$ \hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{\_\-rx\_\-buffer}
+\item 
+USART\_\-t $\ast$ \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{\_\-usart}
+\item 
+PORT\_\-t $\ast$ \hyperlink{class_hardware_serial_add54c7d986c6122e8e8c23303f5b4845}{\_\-port}
+\item 
+uint8\_\-t \hyperlink{class_hardware_serial_a8724fdfd3955eeff5d3ed535624ce79a}{\_\-in\_\-bm}
+\item 
+uint8\_\-t \hyperlink{class_hardware_serial_a751a284e15af72b026143a8091be1b70}{\_\-out\_\-bm}
+\item 
+uint8\_\-t \hyperlink{class_hardware_serial_acc6c13c76a56c8b4bb88c3385b7bc791}{\_\-bsel}
+\item 
+int8\_\-t \hyperlink{class_hardware_serial_a37dd406c01fd6432618925f0aeb329f3}{\_\-bscale}
+\item 
+long \hyperlink{class_hardware_serial_ae692ab4a0a8aad73c74a10066fa9da24}{\_\-baudrate}
+\item 
+bool \hyperlink{class_hardware_serial_a8040fbab1f9197a9935df23a4c5e9a3b}{\_\-bEn}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\hyperlink{class_hardware_serial}{HardwareSerial} implementation. This class was originally copied form the Arduino source directory but has been modified somewhat to customize it for the CFA project.
+
+Ths class wraps the hardware serial resource in the ATXmega The class handles an interupt driven receive with a fixed size receive buffer of 128 bytes. The current implementation uses a synchronous send, but a buffered send would be a great enhancement for performance purposes. 
+
+Definition at line \hyperlink{_hardware_serial_8h_source_l00023}{23} of file \hyperlink{_hardware_serial_8h_source}{HardwareSerial.h}.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hardware_serial_ab96331f0886097eb802a7839676ef645}{
+\index{HardwareSerial@{HardwareSerial}!HardwareSerial@{HardwareSerial}}
+\index{HardwareSerial@{HardwareSerial}!HardwareSerial@{HardwareSerial}}
+\paragraph[{HardwareSerial}]{\setlength{\rightskip}{0pt plus 5cm}HardwareSerial::HardwareSerial (
+\begin{DoxyParamCaption}
+\item[{USART\_\-t $\ast$}]{usart, }
+\item[{PORT\_\-t $\ast$}]{port, }
+\item[{uint8\_\-t}]{in\_\-bm, }
+\item[{uint8\_\-t}]{out\_\-bm}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_ab96331f0886097eb802a7839676ef645}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00112}{112} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00033}{\_\-baudrate}, \hyperlink{_hardware_serial_8h_source_l00034}{\_\-bEn}, \hyperlink{_hardware_serial_8h_source_l00032}{\_\-bscale}, \hyperlink{_hardware_serial_8h_source_l00031}{\_\-bsel}, \hyperlink{_hardware_serial_8h_source_l00029}{\_\-in\_\-bm}, \hyperlink{_hardware_serial_8h_source_l00030}{\_\-out\_\-bm}, \hyperlink{_hardware_serial_8h_source_l00028}{\_\-port}, \hyperlink{_hardware_serial_8h_source_l00026}{\_\-rx\_\-buffer}, \hyperlink{_hardware_serial_8h_source_l00027}{\_\-usart}, \hyperlink{_hardware_serial_8cpp_source_l00014}{RX\_\-BUFFER\_\-SIZE}, and \hyperlink{_hardware_serial_8cpp_source_l00061}{SetPointer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer} = (\hyperlink{structring__buffer}{ring_buffer}*)malloc(\hyperlink{_hardware_serial_8cpp_a739a2a1a0047c98ac1b18ecd25dac092}{RX_BUFFER_SIZE}+2*\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}     = usart;
+    \hyperlink{class_hardware_serial_add54c7d986c6122e8e8c23303f5b4845}{_port}      = port;
+    \hyperlink{class_hardware_serial_a8724fdfd3955eeff5d3ed535624ce79a}{_in_bm}     = in\_bm;
+    \hyperlink{class_hardware_serial_a751a284e15af72b026143a8091be1b70}{_out_bm}    = out\_bm;
+    \hyperlink{class_hardware_serial_acc6c13c76a56c8b4bb88c3385b7bc791}{_bsel}      = 0;
+    \hyperlink{class_hardware_serial_a37dd406c01fd6432618925f0aeb329f3}{_bscale}    = 0;
+    \hyperlink{class_hardware_serial_ae692ab4a0a8aad73c74a10066fa9da24}{_baudrate}  = 9600;
+    \hyperlink{class_hardware_serial_a8040fbab1f9197a9935df23a4c5e9a3b}{_bEn}       = \textcolor{keyword}{true};
+    \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(\hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart},\textcolor{keyword}{this});
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_a1c7aae049aba33b03fe030960c1c4aa7}{
+\index{HardwareSerial@{HardwareSerial}!$\sim$HardwareSerial@{$\sim$HardwareSerial}}
+\index{$\sim$HardwareSerial@{$\sim$HardwareSerial}!HardwareSerial@{HardwareSerial}}
+\paragraph[{$\sim$HardwareSerial}]{\setlength{\rightskip}{0pt plus 5cm}HardwareSerial::$\sim$HardwareSerial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_a1c7aae049aba33b03fe030960c1c4aa7}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00130}{130} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00026}{\_\-rx\_\-buffer}, \hyperlink{_hardware_serial_8h_source_l00027}{\_\-usart}, \hyperlink{_hardware_serial_8cpp_source_l00203}{end()}, and \hyperlink{_hardware_serial_8cpp_source_l00061}{SetPointer()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_hardware_serial_a0f86c41f580e04bdf30ea00e9014eacd}{end}();
+    free(\hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer});
+    \hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer} = 0;
+    \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(\hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart},0);
+\}
+\end{DoxyCode}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_hardware_serial_a10e05fa62dc473d0d8a7ee8184f504ba}{
+\index{HardwareSerial@{HardwareSerial}!available@{available}}
+\index{available@{available}!HardwareSerial@{HardwareSerial}}
+\paragraph[{available}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t HardwareSerial::available (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_a10e05fa62dc473d0d8a7ee8184f504ba}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00213}{213} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00026}{\_\-rx\_\-buffer}, \hyperlink{_hardware_serial_8cpp_source_l00018}{ring\_\-buffer::head}, \hyperlink{_hardware_serial_8cpp_source_l00014}{RX\_\-BUFFER\_\-SIZE}, and \hyperlink{_hardware_serial_8cpp_source_l00019}{ring\_\-buffer::tail}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00068}{CmdProcessor::checkCommands()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{return} (\hyperlink{_hardware_serial_8cpp_a739a2a1a0047c98ac1b18ecd25dac092}{RX_BUFFER_SIZE} + \hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer}->\hyperlink{structring__buffer_ac1b620f2e27c3af75e68bd1645a2f5f0}{head} - \hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer}->\hyperlink{structring__buffer_a4d06965736f37f64f15bbd0ca9457771}{tail}) % 
+      \hyperlink{_hardware_serial_8cpp_a739a2a1a0047c98ac1b18ecd25dac092}{RX_BUFFER_SIZE};
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_a11049d350f4cf4bfdaafb24bb2738556}{
+\index{HardwareSerial@{HardwareSerial}!begin@{begin}}
+\index{begin@{begin}!HardwareSerial@{HardwareSerial}}
+\paragraph[{begin}]{\setlength{\rightskip}{0pt plus 5cm}void HardwareSerial::begin (
+\begin{DoxyParamCaption}
+\item[{long}]{baudrate, }
+\item[{int8\_\-t}]{bscale = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_a11049d350f4cf4bfdaafb24bb2738556}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00140}{140} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00033}{\_\-baudrate}, \hyperlink{_hardware_serial_8h_source_l00032}{\_\-bscale}, \hyperlink{_hardware_serial_8h_source_l00029}{\_\-in\_\-bm}, \hyperlink{_hardware_serial_8h_source_l00030}{\_\-out\_\-bm}, \hyperlink{_hardware_serial_8h_source_l00028}{\_\-port}, and \hyperlink{_hardware_serial_8h_source_l00027}{\_\-usart}.
+
+
+
+Referenced by \hyperlink{_gyro_acc_8cpp_source_l00034}{main()}.
+
+
+\begin{DoxyCode}
+\{
+    uint16\_t BSEL;
+    \hyperlink{class_hardware_serial_a37dd406c01fd6432618925f0aeb329f3}{_bscale} = bscale;
+    \hyperlink{class_hardware_serial_ae692ab4a0a8aad73c74a10066fa9da24}{_baudrate} = baud;
+    
+    \textcolor{keywordtype}{float} fPER = F\_CPU;
+    \textcolor{keywordtype}{float} fBaud = baud;
+    
+    \hyperlink{class_hardware_serial_add54c7d986c6122e8e8c23303f5b4845}{_port}->DIRCLR = \hyperlink{class_hardware_serial_a8724fdfd3955eeff5d3ed535624ce79a}{_in_bm};  \textcolor{comment}{// input}
+    \hyperlink{class_hardware_serial_add54c7d986c6122e8e8c23303f5b4845}{_port}->DIRSET = \hyperlink{class_hardware_serial_a751a284e15af72b026143a8091be1b70}{_out_bm}; \textcolor{comment}{// output}
+    
+    \textcolor{comment}{// set the baud rate}
+    \textcolor{keywordflow}{if} (bscale >= 0) \{
+        BSEL = fPER/((1 << bscale) * 16 * baud) - 1;
+        \textcolor{comment}{//BSEL = F\_CPU / 16 / baud - 1;}
+    \} \textcolor{keywordflow}{else} \{
+        bscale = -1 * bscale;
+        BSEL = (1 << bscale) * (fPER/(16.0 * fBaud) - 1);
+    \}
+    
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->BAUDCTRLA = (uint8\_t)BSEL;
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->BAUDCTRLB = ((bscale & 0xf) << 4) | ((BSEL & 0xf00) >> 8);
+    
+    \textcolor{comment}{// enable Rx and Tx}
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLB |= USART\_RXEN\_bm | USART\_TXEN\_bm;
+    \textcolor{comment}{// enable interrupt}
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLA = USART\_RXCINTLVL\_HI\_gc;
+    
+    \textcolor{comment}{// Char size, parity and stop bits: 8N1}
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLC = USART\_CHSIZE\_8BIT\_gc | USART\_PMODE\_DISABLED\_gc;
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_adcfab60db442174cb53f005df6d2996d}{
+\index{HardwareSerial@{HardwareSerial}!begin2x@{begin2x}}
+\index{begin2x@{begin2x}!HardwareSerial@{HardwareSerial}}
+\paragraph[{begin2x}]{\setlength{\rightskip}{0pt plus 5cm}void HardwareSerial::begin2x (
+\begin{DoxyParamCaption}
+\item[{long}]{baudrate, }
+\item[{int8\_\-t}]{bscale = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_adcfab60db442174cb53f005df6d2996d}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00173}{173} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00033}{\_\-baudrate}, \hyperlink{_hardware_serial_8h_source_l00032}{\_\-bscale}, \hyperlink{_hardware_serial_8h_source_l00029}{\_\-in\_\-bm}, \hyperlink{_hardware_serial_8h_source_l00030}{\_\-out\_\-bm}, \hyperlink{_hardware_serial_8h_source_l00028}{\_\-port}, \hyperlink{_hardware_serial_8h_source_l00027}{\_\-usart}, and \hyperlink{_hardware_serial_8cpp_source_l00061}{SetPointer()}.
+
+
+\begin{DoxyCode}
+\{
+    uint16\_t baud\_setting;
+    \hyperlink{class_hardware_serial_a37dd406c01fd6432618925f0aeb329f3}{_bscale} = bscale;
+    \hyperlink{class_hardware_serial_ae692ab4a0a8aad73c74a10066fa9da24}{_baudrate} = baud;
+    
+    \textcolor{comment}{// TODO: Serial. Fix serial double clock.}
+    \textcolor{keywordtype}{long} fPER = F\_CPU * 4;
+    
+    \hyperlink{class_hardware_serial_add54c7d986c6122e8e8c23303f5b4845}{_port}->DIRCLR = \hyperlink{class_hardware_serial_a8724fdfd3955eeff5d3ed535624ce79a}{_in_bm};  \textcolor{comment}{// input}
+    \hyperlink{class_hardware_serial_add54c7d986c6122e8e8c23303f5b4845}{_port}->DIRSET = \hyperlink{class_hardware_serial_a751a284e15af72b026143a8091be1b70}{_out_bm}; \textcolor{comment}{// output}
+    
+    \textcolor{comment}{// set the baud rate using the 2X calculations}
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLB |= 1 << 1; \textcolor{comment}{// the last 1 was the \_u2x value}
+    baud\_setting = fPER / 8 / baud - 1;
+
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->BAUDCTRLA = (uint8\_t)baud\_setting;
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->BAUDCTRLB = baud\_setting >> 8;
+    
+    
+    \textcolor{comment}{// enable Rx and Tx}
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLB |= USART\_RXEN\_bm | USART\_TXEN\_bm;
+    \textcolor{comment}{// enable interrupt}
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLA = (\hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLA & ~USART\_RXCINTLVL\_gm) | USART\_RXCINTLVL\_LO\_gc
+      ;
+    
+    \textcolor{comment}{// Char size, parity and stop bits: 8N1}
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLC = USART\_CHSIZE\_8BIT\_gc | USART\_PMODE\_DISABLED\_gc;
+    \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(\hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart},\textcolor{keyword}{this});
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_ac33af9a86da3e3ae7ac1e2791c8eaf22}{
+\index{HardwareSerial@{HardwareSerial}!dre@{dre}}
+\index{dre@{dre}!HardwareSerial@{HardwareSerial}}
+\paragraph[{dre}]{\setlength{\rightskip}{0pt plus 5cm}void HardwareSerial::dre (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_ac33af9a86da3e3ae7ac1e2791c8eaf22}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00100}{100} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+\begin{DoxyCode}
+\{
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_a2e13244413a84a259cadab3fb452921a}{
+\index{HardwareSerial@{HardwareSerial}!enable@{enable}}
+\index{enable@{enable}!HardwareSerial@{HardwareSerial}}
+\paragraph[{enable}]{\setlength{\rightskip}{0pt plus 5cm}void HardwareSerial::enable (
+\begin{DoxyParamCaption}
+\item[{bool}]{bEn}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_a2e13244413a84a259cadab3fb452921a}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00248}{248} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00034}{\_\-bEn}.
+
+
+
+Referenced by \hyperlink{_gyro_acc_8cpp_source_l00034}{main()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_hardware_serial_a8040fbab1f9197a9935df23a4c5e9a3b}{_bEn} = bEn;
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_a0f86c41f580e04bdf30ea00e9014eacd}{
+\index{HardwareSerial@{HardwareSerial}!end@{end}}
+\index{end@{end}!HardwareSerial@{HardwareSerial}}
+\paragraph[{end}]{\setlength{\rightskip}{0pt plus 5cm}void HardwareSerial::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_a0f86c41f580e04bdf30ea00e9014eacd}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00203}{203} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00027}{\_\-usart}, and \hyperlink{_hardware_serial_8cpp_source_l00061}{SetPointer()}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00025}{CmdProcessor::$\sim$CmdProcessor()}, and \hyperlink{_hardware_serial_8cpp_source_l00130}{$\sim$HardwareSerial()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{_hardware_serial_8cpp_aaec4e4f887a958cc22dd447565d7080b}{SetPointer}(\hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart},(\hyperlink{class_hardware_serial}{HardwareSerial}*)0);
+    
+    \textcolor{comment}{// disable Rx and Tx}
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLB &= ~(USART\_RXEN\_bm | USART\_TXEN\_bm);
+    \textcolor{comment}{// disable interrupt}
+    \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLA = (\hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->CTRLA & ~USART\_RXCINTLVL\_gm) | USART\_RXCINTLVL\_LO\_gc
+      ;
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_a1eeb094d8da77e0292f95f4498a5396f}{
+\index{HardwareSerial@{HardwareSerial}!flush@{flush}}
+\index{flush@{flush}!HardwareSerial@{HardwareSerial}}
+\paragraph[{flush}]{\setlength{\rightskip}{0pt plus 5cm}void HardwareSerial::flush (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_a1eeb094d8da77e0292f95f4498a5396f}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00230}{230} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00026}{\_\-rx\_\-buffer}, \hyperlink{_hardware_serial_8cpp_source_l00018}{ring\_\-buffer::head}, and \hyperlink{_hardware_serial_8cpp_source_l00019}{ring\_\-buffer::tail}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// don't reverse this or there may be problems if the RX interrupt}
+    \textcolor{comment}{// occurs after reading the value of rx\_buffer\_head but before writing}
+    \textcolor{comment}{// the value to rx\_buffer\_tail; the previous value of rx\_buffer\_head}
+    \textcolor{comment}{// may be written to rx\_buffer\_tail, making it appear as if the buffer}
+    \textcolor{comment}{// were full, not empty.}
+    \hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer}->\hyperlink{structring__buffer_ac1b620f2e27c3af75e68bd1645a2f5f0}{head} = \hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer}->\hyperlink{structring__buffer_a4d06965736f37f64f15bbd0ca9457771}{tail};
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_a618696608a5fddcf3cb48ad6f044e756}{
+\index{HardwareSerial@{HardwareSerial}!read@{read}}
+\index{read@{read}!HardwareSerial@{HardwareSerial}}
+\paragraph[{read}]{\setlength{\rightskip}{0pt plus 5cm}int HardwareSerial::read (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_a618696608a5fddcf3cb48ad6f044e756}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00218}{218} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00026}{\_\-rx\_\-buffer}, \hyperlink{_hardware_serial_8cpp_source_l00017}{ring\_\-buffer::buffer}, \hyperlink{_hardware_serial_8cpp_source_l00018}{ring\_\-buffer::head}, \hyperlink{_hardware_serial_8cpp_source_l00014}{RX\_\-BUFFER\_\-SIZE}, and \hyperlink{_hardware_serial_8cpp_source_l00019}{ring\_\-buffer::tail}.
+
+
+
+Referenced by \hyperlink{_cmd_processor_8cpp_source_l00068}{CmdProcessor::checkCommands()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{comment}{// if the head isn't ahead of the tail, we don't have any characters}
+    \textcolor{keywordflow}{if} (\hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer}->\hyperlink{structring__buffer_ac1b620f2e27c3af75e68bd1645a2f5f0}{head} == \hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer}->\hyperlink{structring__buffer_a4d06965736f37f64f15bbd0ca9457771}{tail}) \{
+        \textcolor{keywordflow}{return} -1;
+    \} \textcolor{keywordflow}{else} \{
+        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} c = \hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer}->\hyperlink{structring__buffer_a11b70d4a150ea9750e4102706d6ee0b8}{buffer}[\hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer}->\hyperlink{structring__buffer_a4d06965736f37f64f15bbd0ca9457771}{tail}];
+        \hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer}->\hyperlink{structring__buffer_a4d06965736f37f64f15bbd0ca9457771}{tail} = (\hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer}->\hyperlink{structring__buffer_a4d06965736f37f64f15bbd0ca9457771}{tail} + 1) % \hyperlink{_hardware_serial_8cpp_a739a2a1a0047c98ac1b18ecd25dac092}{RX_BUFFER_SIZE};
+        \textcolor{keywordflow}{return} c;
+    \}
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_ac52002a727070c45b765d0dc55106cad}{
+\index{HardwareSerial@{HardwareSerial}!rxc@{rxc}}
+\index{rxc@{rxc}!HardwareSerial@{HardwareSerial}}
+\paragraph[{rxc}]{\setlength{\rightskip}{0pt plus 5cm}void HardwareSerial::rxc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_ac52002a727070c45b765d0dc55106cad}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00094}{94} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00026}{\_\-rx\_\-buffer}, \hyperlink{_hardware_serial_8h_source_l00027}{\_\-usart}, and \hyperlink{_hardware_serial_8cpp_source_l00047}{store\_\-char()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} c = \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->DATA;
+    \hyperlink{_hardware_serial_8cpp_ac661d0ebc0efa48a2b2aed9ccf86aa64}{store_char}(c,\hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer});
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_a82779b03507bc07f3bf2e090d3733015}{
+\index{HardwareSerial@{HardwareSerial}!txc@{txc}}
+\index{txc@{txc}!HardwareSerial@{HardwareSerial}}
+\paragraph[{txc}]{\setlength{\rightskip}{0pt plus 5cm}void HardwareSerial::txc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{class_hardware_serial_a82779b03507bc07f3bf2e090d3733015}
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00104}{104} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+\begin{DoxyCode}
+\{
+\}
+\end{DoxyCode}
+\hypertarget{class_hardware_serial_aced05ab99953383a235ccfb366f5c98f}{
+\index{HardwareSerial@{HardwareSerial}!write@{write}}
+\index{write@{write}!HardwareSerial@{HardwareSerial}}
+\paragraph[{write}]{\setlength{\rightskip}{0pt plus 5cm}void HardwareSerial::write (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}\hfill}
+\label{class_hardware_serial_aced05ab99953383a235ccfb366f5c98f}
+
+
+Implements \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{Print}.
+
+
+
+Definition at line \hyperlink{_hardware_serial_8cpp_source_l00240}{240} of file \hyperlink{_hardware_serial_8cpp_source}{HardwareSerial.cpp}.
+
+
+
+References \hyperlink{_hardware_serial_8h_source_l00034}{\_\-bEn}, and \hyperlink{_hardware_serial_8h_source_l00027}{\_\-usart}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordflow}{if} (\hyperlink{class_hardware_serial_a8040fbab1f9197a9935df23a4c5e9a3b}{_bEn}) \{
+        \textcolor{keywordflow}{while} ( !(\hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->STATUS & USART\_DREIF\_bm) );
+        \hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart}->DATA = c;
+    \}
+\}
+\end{DoxyCode}
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{class_hardware_serial_ae692ab4a0a8aad73c74a10066fa9da24}{
+\index{HardwareSerial@{HardwareSerial}!\_\-baudrate@{\_\-baudrate}}
+\index{\_\-baudrate@{\_\-baudrate}!HardwareSerial@{HardwareSerial}}
+\paragraph[{\_\-baudrate}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf HardwareSerial::\_\-baudrate}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_hardware_serial_ae692ab4a0a8aad73c74a10066fa9da24}
+
+
+Definition at line \hyperlink{_hardware_serial_8h_source_l00033}{33} of file \hyperlink{_hardware_serial_8h_source}{HardwareSerial.h}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00140}{begin()}, \hyperlink{_hardware_serial_8cpp_source_l00173}{begin2x()}, and \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial()}.
+
+\hypertarget{class_hardware_serial_a8040fbab1f9197a9935df23a4c5e9a3b}{
+\index{HardwareSerial@{HardwareSerial}!\_\-bEn@{\_\-bEn}}
+\index{\_\-bEn@{\_\-bEn}!HardwareSerial@{HardwareSerial}}
+\paragraph[{\_\-bEn}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf HardwareSerial::\_\-bEn}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_hardware_serial_a8040fbab1f9197a9935df23a4c5e9a3b}
+
+
+Definition at line \hyperlink{_hardware_serial_8h_source_l00034}{34} of file \hyperlink{_hardware_serial_8h_source}{HardwareSerial.h}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00248}{enable()}, \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial()}, and \hyperlink{_hardware_serial_8cpp_source_l00240}{write()}.
+
+\hypertarget{class_hardware_serial_a37dd406c01fd6432618925f0aeb329f3}{
+\index{HardwareSerial@{HardwareSerial}!\_\-bscale@{\_\-bscale}}
+\index{\_\-bscale@{\_\-bscale}!HardwareSerial@{HardwareSerial}}
+\paragraph[{\_\-bscale}]{\setlength{\rightskip}{0pt plus 5cm}int8\_\-t {\bf HardwareSerial::\_\-bscale}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_hardware_serial_a37dd406c01fd6432618925f0aeb329f3}
+
+
+Definition at line \hyperlink{_hardware_serial_8h_source_l00032}{32} of file \hyperlink{_hardware_serial_8h_source}{HardwareSerial.h}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00140}{begin()}, \hyperlink{_hardware_serial_8cpp_source_l00173}{begin2x()}, and \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial()}.
+
+\hypertarget{class_hardware_serial_acc6c13c76a56c8b4bb88c3385b7bc791}{
+\index{HardwareSerial@{HardwareSerial}!\_\-bsel@{\_\-bsel}}
+\index{\_\-bsel@{\_\-bsel}!HardwareSerial@{HardwareSerial}}
+\paragraph[{\_\-bsel}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf HardwareSerial::\_\-bsel}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_hardware_serial_acc6c13c76a56c8b4bb88c3385b7bc791}
+
+
+Definition at line \hyperlink{_hardware_serial_8h_source_l00031}{31} of file \hyperlink{_hardware_serial_8h_source}{HardwareSerial.h}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial()}.
+
+\hypertarget{class_hardware_serial_a8724fdfd3955eeff5d3ed535624ce79a}{
+\index{HardwareSerial@{HardwareSerial}!\_\-in\_\-bm@{\_\-in\_\-bm}}
+\index{\_\-in\_\-bm@{\_\-in\_\-bm}!HardwareSerial@{HardwareSerial}}
+\paragraph[{\_\-in\_\-bm}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf HardwareSerial::\_\-in\_\-bm}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_hardware_serial_a8724fdfd3955eeff5d3ed535624ce79a}
+
+
+Definition at line \hyperlink{_hardware_serial_8h_source_l00029}{29} of file \hyperlink{_hardware_serial_8h_source}{HardwareSerial.h}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00140}{begin()}, \hyperlink{_hardware_serial_8cpp_source_l00173}{begin2x()}, and \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial()}.
+
+\hypertarget{class_hardware_serial_a751a284e15af72b026143a8091be1b70}{
+\index{HardwareSerial@{HardwareSerial}!\_\-out\_\-bm@{\_\-out\_\-bm}}
+\index{\_\-out\_\-bm@{\_\-out\_\-bm}!HardwareSerial@{HardwareSerial}}
+\paragraph[{\_\-out\_\-bm}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf HardwareSerial::\_\-out\_\-bm}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_hardware_serial_a751a284e15af72b026143a8091be1b70}
+
+
+Definition at line \hyperlink{_hardware_serial_8h_source_l00030}{30} of file \hyperlink{_hardware_serial_8h_source}{HardwareSerial.h}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00140}{begin()}, \hyperlink{_hardware_serial_8cpp_source_l00173}{begin2x()}, and \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial()}.
+
+\hypertarget{class_hardware_serial_add54c7d986c6122e8e8c23303f5b4845}{
+\index{HardwareSerial@{HardwareSerial}!\_\-port@{\_\-port}}
+\index{\_\-port@{\_\-port}!HardwareSerial@{HardwareSerial}}
+\paragraph[{\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}PORT\_\-t$\ast$ {\bf HardwareSerial::\_\-port}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_hardware_serial_add54c7d986c6122e8e8c23303f5b4845}
+
+
+Definition at line \hyperlink{_hardware_serial_8h_source_l00028}{28} of file \hyperlink{_hardware_serial_8h_source}{HardwareSerial.h}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00140}{begin()}, \hyperlink{_hardware_serial_8cpp_source_l00173}{begin2x()}, and \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial()}.
+
+\hypertarget{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{
+\index{HardwareSerial@{HardwareSerial}!\_\-rx\_\-buffer@{\_\-rx\_\-buffer}}
+\index{\_\-rx\_\-buffer@{\_\-rx\_\-buffer}!HardwareSerial@{HardwareSerial}}
+\paragraph[{\_\-rx\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ring\_\-buffer}$\ast$ {\bf HardwareSerial::\_\-rx\_\-buffer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}
+
+
+Definition at line \hyperlink{_hardware_serial_8h_source_l00026}{26} of file \hyperlink{_hardware_serial_8h_source}{HardwareSerial.h}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00213}{available()}, \hyperlink{_hardware_serial_8cpp_source_l00230}{flush()}, \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial()}, \hyperlink{_hardware_serial_8cpp_source_l00218}{read()}, \hyperlink{_hardware_serial_8cpp_source_l00094}{rxc()}, and \hyperlink{_hardware_serial_8cpp_source_l00130}{$\sim$HardwareSerial()}.
+
+\hypertarget{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{
+\index{HardwareSerial@{HardwareSerial}!\_\-usart@{\_\-usart}}
+\index{\_\-usart@{\_\-usart}!HardwareSerial@{HardwareSerial}}
+\paragraph[{\_\-usart}]{\setlength{\rightskip}{0pt plus 5cm}USART\_\-t$\ast$ {\bf HardwareSerial::\_\-usart}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}\hfill}
+\label{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}
+
+
+Definition at line \hyperlink{_hardware_serial_8h_source_l00027}{27} of file \hyperlink{_hardware_serial_8h_source}{HardwareSerial.h}.
+
+
+
+Referenced by \hyperlink{_hardware_serial_8cpp_source_l00140}{begin()}, \hyperlink{_hardware_serial_8cpp_source_l00173}{begin2x()}, \hyperlink{_hardware_serial_8cpp_source_l00203}{end()}, \hyperlink{_hardware_serial_8cpp_source_l00112}{HardwareSerial()}, \hyperlink{_hardware_serial_8cpp_source_l00094}{rxc()}, \hyperlink{_hardware_serial_8cpp_source_l00240}{write()}, and \hyperlink{_hardware_serial_8cpp_source_l00130}{$\sim$HardwareSerial()}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_hardware_serial_8h}{HardwareSerial.h}\item 
+\hyperlink{_hardware_serial_8cpp}{HardwareSerial.cpp}\end{DoxyCompactItemize}

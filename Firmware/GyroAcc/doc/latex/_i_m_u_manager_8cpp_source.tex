@@ -1,0 +1,461 @@
+\hypertarget{_i_m_u_manager_8cpp_source}{
+\subsection{IMUManager.cpp}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include <stdio.h>}
+00002 \textcolor{preprocessor}{#include <stdlib.h>}
+00003 \textcolor{preprocessor}{#include <string.h>}
+00004 \textcolor{preprocessor}{#include <inttypes.h>}
+00005 \textcolor{preprocessor}{#include <util/delay.h>}
+00006 \textcolor{preprocessor}{#include <avr/io.h>}
+00007 \textcolor{preprocessor}{#include <avr/interrupt.h>}
+00008 \textcolor{preprocessor}{#include "HardwareSerial.h"}
+00009 \textcolor{preprocessor}{#include "TimerCore.h"}
+00010 \textcolor{preprocessor}{#include "TimerCntr.h"}
+00011 
+00012 \textcolor{preprocessor}{#include "IMU.h"}
+00013 \textcolor{preprocessor}{#include "IMUManager.h"}
+00014 
+00015 \textcolor{keyword}{extern} \hyperlink{class_hardware_serial}{HardwareSerial}* \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial};
+\hypertarget{_i_m_u_manager_8cpp_source_l00016}{}\hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{00016} \textcolor{keyword}{static} uint8\_t  \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[255];
+00017 
+\hypertarget{_i_m_u_manager_8cpp_source_l00018}{}\hyperlink{_i_m_u_manager_8cpp_a1ad801a60513fb69f99c2732ca068726}{00018} \textcolor{preprocessor}{#define ALL\_IMU(func) \(\backslash\)}
+00019 \textcolor{preprocessor}{    for (int x=0;x<4;x++) \{ \(\backslash\)}
+00020 \textcolor{preprocessor}{        if (\_pIMU[x]) \{         \(\backslash\)}
+00021 \textcolor{preprocessor}{            \_pIMU[x]->func();   \(\backslash\)}
+00022 \textcolor{preprocessor}{        \}   \(\backslash\)}
+00023 \textcolor{preprocessor}{    \}}
+00024 \textcolor{preprocessor}{}
+\hypertarget{_i_m_u_manager_8cpp_source_l00025}{}\hyperlink{_i_m_u_manager_8cpp_a3264743b07dd4d954bcd87d271d09fd6}{00025} \textcolor{preprocessor}{#define ALL\_IMUP(func,param) \(\backslash\)}
+00026 \textcolor{preprocessor}{    for (int x=0;x<4;x++) \{ \(\backslash\)}
+00027 \textcolor{preprocessor}{        if (\_pIMU[x]) \{         \(\backslash\)}
+00028 \textcolor{preprocessor}{            \_pIMU[x]->func(param);   \(\backslash\)}
+00029 \textcolor{preprocessor}{        \}   \(\backslash\)}
+00030 \textcolor{preprocessor}{    \}}
+00031 \textcolor{preprocessor}{}
+\hypertarget{_i_m_u_manager_8cpp_source_l00032}{}\hyperlink{_i_m_u_manager_8cpp_a828c5d30222c335baef3647758f6847e}{00032} \textcolor{preprocessor}{#define ALL\_IMURET(func) \(\backslash\)}
+00033 \textcolor{preprocessor}{    int retc =0; \(\backslash\)}
+00034 \textcolor{preprocessor}{    for (int x=0;x<4;x++) \{ \(\backslash\)}
+00035 \textcolor{preprocessor}{        if (\_pIMU[x]) \{         \(\backslash\)}
+00036 \textcolor{preprocessor}{            retc = \_pIMU[x]->func();   \(\backslash\)}
+00037 \textcolor{preprocessor}{            if (retc < 0) \{ \(\backslash\)}
+00038 \textcolor{preprocessor}{                return retc;\(\backslash\)}
+00039 \textcolor{preprocessor}{            \}\(\backslash\)}
+00040 \textcolor{preprocessor}{        \}   \(\backslash\)}
+00041 \textcolor{preprocessor}{    \}\(\backslash\)}
+00042 \textcolor{preprocessor}{    return retc;}
+00043 \textcolor{preprocessor}{}    
+\hypertarget{_i_m_u_manager_8cpp_source_l00044}{}\hyperlink{_i_m_u_manager_8cpp_a1aa43791b69a2c420aed0eae2d0f45dc}{00044} \textcolor{preprocessor}{#define ALL\_IMUBOOL(func) \(\backslash\)}
+00045 \textcolor{preprocessor}{    bool bReady = true; \(\backslash\)}
+00046 \textcolor{preprocessor}{    for (int x = 0;x<4;x++) \{   \(\backslash\)}
+00047 \textcolor{preprocessor}{        if (\_pIMU[x]) \{ \(\backslash\)}
+00048 \textcolor{preprocessor}{            if (!\_pIMU[x]->func()) \{ \(\backslash\)}
+00049 \textcolor{preprocessor}{                bReady = false; \(\backslash\)}
+00050 \textcolor{preprocessor}{            \}   \(\backslash\)}
+00051 \textcolor{preprocessor}{        \}   \(\backslash\)}
+00052 \textcolor{preprocessor}{    \}   \(\backslash\)}
+00053 \textcolor{preprocessor}{    return bReady;}
+00054 \textcolor{preprocessor}{}
+00055 IMUManager::IMUManager(\hyperlink{class_hardware_serial}{HardwareSerial}* pSerial)
+00056 \{
+00057     \textcolor{keywordtype}{int} x;
+00058     \textcolor{keywordflow}{for} (x =0;x<4;x++) \{
+00059         \_pIMU[x] = 0;
+00060     \}
+00061     
+00062     \_nIMUs          = 0;
+00063     \_State          = sIdle;
+00064     \_nStreamWDCounter = 0;
+00065     \_packetId       = 0;
+00066     \_pBlueLed       = 0;
+00067     \_bLedState      = \textcolor{keyword}{false};
+00068 
+00069     \_pTimer         = 0;
+00070     \_pSerial        = pSerial;
+00071     \_pDBGPort       = 0;
+00072     \_sampleRate     = 10;
+00073     \_maxMillisPerPacket = 1000;
+00074     \_lastSendMillis = 0;
+00075 \} 
+00076 
+00077 \textcolor{keywordtype}{void} IMUManager::SetBlueLed(PORT\_t* port, uint8\_t Pin)
+00078 \{
+00079     \_pBlueLed   = port;
+00080     \_LedPin     = Pin;
+00081     
+00082     \_pBlueLed->DIRSET = \_LedPin;
+00083     \_pBlueLed->OUTSET = \_LedPin;
+00084     \_bLedState        = \textcolor{keyword}{false};
+00085 \}
+00086 
+00087 \textcolor{keywordtype}{void} IMUManager::LedOn()
+00088 \{
+00089     \_pBlueLed->OUTCLR   = \_LedPin;
+00090     \_bLedState          = \textcolor{keyword}{true};
+00091 \}
+00092 
+00093 \textcolor{keywordtype}{void} IMUManager::LedOff()
+00094 \{
+00095     \_pBlueLed->OUTSET   = \_LedPin;
+00096     \_bLedState          = \textcolor{keyword}{false};
+00097 \}
+00098 
+00104 \textcolor{keywordtype}{void} IMUManager::PacketLedIndicator()
+00105 \{
+00106     \textcolor{keywordflow}{if} ((\_packetId % 6) == 0) \{
+00107         ToggleLed();
+00108     \}
+00109 \}
+00110 
+00112 \textcolor{keywordtype}{void} IMUManager::ToggleLed()
+00113 \{
+00114     \textcolor{keywordflow}{if} ( \_bLedState) \{
+00115         \_bLedState = \textcolor{keyword}{false};
+00116         \_pBlueLed->OUTCLR = \_LedPin;
+00117     \} \textcolor{keywordflow}{else} \{
+00118         \_bLedState = \textcolor{keyword}{true};
+00119         \_pBlueLed->OUTSET = \_LedPin;
+00120     \}
+00121 \}
+00122 
+00124 \textcolor{keywordtype}{void} IMUManager::ShowLedStart()
+00125 \{
+00126     \_pBlueLed->OUTCLR = \_LedPin;
+00127     \_delay\_ms(10*17); \textcolor{comment}{// One Frame}
+00128     \_pBlueLed->OUTSET = \_LedPin;
+00129     \_delay\_ms(5*17); \textcolor{comment}{// One Frame}
+00130     \_pBlueLed->OUTCLR = \_LedPin;
+00131     \_delay\_ms(10*17); \textcolor{comment}{// One Frame}
+00132     \_pBlueLed->OUTSET = \_LedPin;
+00133     \_delay\_ms(17); \textcolor{comment}{// One Frame}
+00134     \_bLedState        = \textcolor{keyword}{false};
+00135 \}
+00136 
+00138 \textcolor{keywordtype}{void} IMUManager::ShowLedStop()
+00139 \{
+00140     \_pBlueLed->OUTCLR = \_LedPin;
+00141     \_delay\_ms(5*17); \textcolor{comment}{// One Frame}
+00142     \_pBlueLed->OUTSET = \_LedPin;
+00143     \_delay\_ms(5*17); \textcolor{comment}{// One Frame}
+00144     \_pBlueLed->OUTCLR = \_LedPin;
+00145     \_delay\_ms(5*17); \textcolor{comment}{// One Frame}
+00146     \_pBlueLed->OUTSET = \_LedPin;
+00147     \_delay\_ms(5*17); \textcolor{comment}{// One Frame}
+00148     \_pBlueLed->OUTCLR = \_LedPin;
+00149     \_bLedState        = \textcolor{keyword}{false};
+00150 \}
+00151 
+00152 \textcolor{keywordtype}{void} IMUManager::SampleRate(uint16\_t rate)
+00153 \{
+00154     \textcolor{comment}{// Range Limit the rate.}
+00155     \textcolor{keywordflow}{if} (rate < 10) \{
+00156         \_sampleRate = 10;
+00157     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rate > 200) \{
+00158         \_sampleRate = 200;
+00159     \} \textcolor{keywordflow}{else} \{
+00160         \_sampleRate = rate;
+00161     \}
+00162 
+00163     \hyperlink{_i_m_u_manager_8cpp_a3264743b07dd4d954bcd87d271d09fd6}{ALL_IMUP}(SampleRate,\_sampleRate);
+00164     
+00165     
+00166     \textcolor{keywordflow}{if} (pdbgserial) \{
+00167         \textcolor{keywordtype}{char} \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[50];
+00168         sprintf(buffer,\textcolor{stringliteral}{"Sample rate set to %d\(\backslash\)n"}, \_sampleRate);
+00169         pdbgserial->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+00170     \}
+00171 
+00172     \textcolor{comment}{// Note: I had this set to 2X the sample rate (in milliseconds),}
+00173     \textcolor{comment}{// but that was a problem. The IMU's wait until there is 2X the}
+00174     \textcolor{comment}{// amount of data in the fifo, so that takes 2X the time, and we}
+00175     \textcolor{comment}{// would time out first time around.. bad idea.}
+00176     \_maxMillisPerPacket = 3 * 1000/\_sampleRate;
+00177     
+00178     SetTimerPeriod();
+00179 \}
+00180 
+00181 \textcolor{keywordtype}{int} IMUManager::AddIMU(\hyperlink{class_i_m_u_base}{IMUBase}* pIMU)
+00182 \{
+00183     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x=0;x<4;x++) \{
+00184         \textcolor{keywordflow}{if} (\_pIMU[x] == 0) \{
+00185             \textcolor{comment}{// Add into first empty spot}
+00186             \_pIMU[x] = pIMU;
+00187             \textcolor{keywordflow}{if} (x > 0) \{
+00188                 \_pIMU[x-1]->\hyperlink{class_i_m_u_base_aa9c09bfd70f81b4a2df20cc5ae1474c3}{NextIMU}(pIMU);
+00189             \}
+00190             \_nIMUs++;
+00191             \textcolor{keywordflow}{return} x;
+00192         \}
+00193     \}
+00194     
+00195     \textcolor{comment}{// Seems we are full!!}
+00196     \textcolor{keywordflow}{return} -1;
+00197 \}
+00198 
+00199 \textcolor{keywordtype}{int} IMUManager::Setup()
+00200 \{
+00201     \hyperlink{_i_m_u_manager_8cpp_a828c5d30222c335baef3647758f6847e}{ALL_IMURET}(Setup);
+00202 \}
+00203 
+00204 \textcolor{keywordtype}{int} IMUManager::Start()
+00205 \{
+00206     \hyperlink{_i_m_u_manager_8cpp_a828c5d30222c335baef3647758f6847e}{ALL_IMURET}(Start);
+00207 \}
+00208 
+00209 \textcolor{keywordtype}{void} IMUManager::Stop()
+00210 \{
+00211     \hyperlink{_i_m_u_manager_8cpp_a1ad801a60513fb69f99c2732ca068726}{ALL_IMU}(Stop);
+00212     \_State = sIdle;
+00213     ShowLedStop();  
+00214     LedOff();
+00215 \}
+00216 
+00217 \textcolor{keywordtype}{void} IMUManager::Reset()
+00218 \{
+00219     \hyperlink{_i_m_u_manager_8cpp_a1ad801a60513fb69f99c2732ca068726}{ALL_IMU}(Reset);
+00220     
+00221     \_State = sIdle; 
+00222     \_packetId       = 0;
+00223 \}
+00224 
+00225 \textcolor{keywordtype}{void} IMUManager::ResetDevices()
+00226 \{
+00227     \hyperlink{_i_m_u_manager_8cpp_a1ad801a60513fb69f99c2732ca068726}{ALL_IMU}(ResetDevices);
+00228 \}
+00229 
+00230 \textcolor{keywordtype}{void} IMUManager::ForceStartStop()
+00231 \{
+00232     \hyperlink{_i_m_u_manager_8cpp_a1ad801a60513fb69f99c2732ca068726}{ALL_IMU}(ForceStartStop);
+00233 \}
+00234 
+00235 \textcolor{comment}{// Diagnostic Routines}
+00236 \textcolor{keywordtype}{void} IMUManager::CheckIDs(\hyperlink{class_hardware_serial}{HardwareSerial}* pSerial,\textcolor{keywordtype}{int} idx)
+00237 \{
+00238     \textcolor{keywordflow}{if} (idx < 0) \{
+00239         \hyperlink{_i_m_u_manager_8cpp_a3264743b07dd4d954bcd87d271d09fd6}{ALL_IMUP}(CheckIDs,pSerial);
+00240     \} \textcolor{keywordflow}{else} \{
+00241         \textcolor{keywordflow}{if} (\_pIMU[idx]) \{
+00242             \_pIMU[idx]->CheckIDs(pSerial);
+00243         \}
+00244     \}
+00245 \}
+00246 
+00248 \textcolor{keywordtype}{bool} IMUManager::DataReady()
+00249 \{
+00250     \hyperlink{_i_m_u_manager_8cpp_a1aa43791b69a2c420aed0eae2d0f45dc}{ALL_IMUBOOL}(DataReady)
+00251 \}
+00252 
+00253 \textcolor{keywordtype}{void} IMUManager::IMUUseGyro(\textcolor{keywordtype}{bool} bEn)
+00254 \{
+00255     \hyperlink{_i_m_u_manager_8cpp_a3264743b07dd4d954bcd87d271d09fd6}{ALL_IMUP}(UseGyro,bEn);
+00256 \}
+00257 
+00264 \textcolor{keywordtype}{int} IMUManager::StreamStart(\textcolor{keywordtype}{bool} bUseGyro)
+00265 \{
+00266     \textcolor{keywordflow}{if} (\_State != sIdle ) \{
+00267         Stop();
+00268     \}
+00269     
+00270     IMUUseGyro(bUseGyro);
+00271     
+00272     \textcolor{keywordtype}{int} retc = Setup();
+00273     \textcolor{keywordflow}{if} (retc < 0) \{
+00274         \textcolor{keywordflow}{return} retc;
+00275     \}
+00276     
+00277     retc = Start();
+00278     
+00279     \textcolor{keywordflow}{if} (retc < 0) \{
+00280         \textcolor{keywordflow}{return} retc;
+00281     \}
+00282     
+00283     ShowLedStart();
+00284     \_LedCounter = 0;
+00285     \_packetId       = 0;
+00286     \_nStreamWDCounter = 20;
+00287     
+00288     SetState(sDataWait); \textcolor{comment}{// Jump ahead a state.}
+00289     ResetDataReadyTO();
+00290     \textcolor{keywordflow}{return} 0;
+00291 \}
+00292 
+00293 \textcolor{keywordtype}{void} IMUManager::StreamWatchdog()
+00294 \{
+00295     \_nStreamWDCounter = 20;
+00296 \}
+00297 
+00298 \textcolor{comment}{//}
+00299 \textcolor{comment}{//  Iterate over the embedded IMU objects, retrieve results}
+00300 \textcolor{comment}{//  as needed. Do this in a 2-pass fashion, so that we do}
+00301 \textcolor{comment}{//  IMU 1 on each interface first, then IMU2 on any interfaces}
+00302 \textcolor{comment}{//  that have 2 IMU devices on them. After this is all done,}
+00303 \textcolor{comment}{//  we should have all of the required IMU data, then we can}
+00304 \textcolor{comment}{//  initiate a packet send to the host with as much as six }
+00305 \textcolor{comment}{//  IMU's worth of data!}
+00306 \textcolor{comment}{//}
+00307 \textcolor{keywordtype}{int} IMUManager::Loop()
+00308 \{
+00309     \textcolor{keywordflow}{switch}(\_State) \{
+00310     \textcolor{keywordflow}{case} sIdle:
+00311         \textcolor{keywordflow}{break};
+00312     \textcolor{keywordflow}{case} sDataWait:
+00313         \textcolor{keywordflow}{if} (DataReady()) \{
+00314             ResetDataReadyTO();
+00315             \_State = sDataReady;
+00316         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (DataReadyTimeout()) \{
+00317             ResetDataReadyTO();
+00318             \_State = sDataTimeout;
+00319         \}
+00320         \textcolor{keywordflow}{break};
+00321     \textcolor{keywordflow}{case} sDataReady:
+00322         PacketLedIndicator();
+00323         \textcolor{keywordflow}{if} (\_nStreamWDCounter == 0) \{
+00324             DiscardData();
+00325             \_State = sDataWait;
+00326         \} \textcolor{keywordflow}{else} \{
+00327             --\_nStreamWDCounter;
+00328             SendPacket(\textcolor{keyword}{false});
+00329             \_State = sDataWait;
+00330         \}
+00331         \textcolor{keywordflow}{break};
+00332     \textcolor{keywordflow}{case} sDataTimeout:
+00333         PacketLedIndicator();
+00334         \textcolor{keywordflow}{if} (\_nStreamWDCounter == 0) \{
+00335             DiscardData();
+00336             \_State = sDataWait;
+00337         \} \textcolor{keywordflow}{else} \{
+00338             --\_nStreamWDCounter;
+00339             SendPacket(\textcolor{keyword}{true});
+00340             \_State = sDataWait;
+00341         \}
+00342         \textcolor{keywordflow}{break};
+00343     \}
+00344     
+00345     \textcolor{keywordflow}{return} 0;
+00346 \}
+00347 
+00348 \textcolor{keywordtype}{void} IMUManager::Run()
+00349 \{
+00350     \textcolor{keywordflow}{if} (\_State != sIdle) \{
+00351         \textcolor{comment}{// Start the IMU's going one at a time...}
+00352         \textcolor{keywordflow}{if} (\_pIMU[0]) \{
+00353             \_pIMU[0]->BeginRead();
+00354         \}
+00355     \}
+00356 \}
+00357 
+00366 \textcolor{keywordtype}{void} IMUManager::SendPacket(\textcolor{keywordtype}{bool} bTimeout)
+00367 \{
+00368     uint8\_t*    pPacket = &\_dataPacket[0];
+00369     \textcolor{keywordflow}{if} (\textcolor{keyword}{true} || !bTimeout) \{
+00370         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0;x<4;x++) \{
+00371             \textcolor{keywordflow}{if} (\_pIMU[x]) \{
+00372                 \textcolor{comment}{// This puts the data at the pointer,}
+00373                 \textcolor{comment}{// then returns the end of the data.}
+00374                 \textcolor{comment}{// This might be 2*14 or 1*14}
+00375                 pPacket = \_pIMU[x]->GetPacketData(pPacket);
+00376             \}
+00377         \}
+00378     \}
+00379     \textcolor{comment}{// Packet format:}
+00380     \textcolor{comment}{// SNP header}
+00381     \textcolor{comment}{// byte: length of packet}
+00382     \textcolor{comment}{// byte: packet type (0xB7)}
+00383     \textcolor{comment}{// byte(s): length bytes}
+00384     \textcolor{comment}{// bytes(2): 2 byte CRC}
+00385     \textcolor{comment}{// string: END}
+00386     \textcolor{comment}{// newline}
+00387     uint8\_t size = pPacket - &\_dataPacket[0];
+00388     \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[0] = \textcolor{charliteral}{'S'};
+00389     \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[1] = \textcolor{charliteral}{'N'};
+00390     \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[2] = \textcolor{charliteral}{'P'};
+00391     \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[3] = 0xB7;
+00392     \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[4] = \_packetId++;
+00393     \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[5] = size;
+00394     memcpy(&\hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[6],&\_dataPacket[0],size);
+00395     \textcolor{comment}{// Compute CRC -- someday}
+00396     uint16\_t crc = 0xaf5a;
+00397     uint8\_t crchi = (crc >> 8) & 0xff;
+00398     uint8\_t crclo = crc & 0xff;
+00399     \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[6+size]   = \_nStreamWDCounter;
+00400     \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[6+size+1]   = crchi;
+00401     \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[6+size+2] = crclo;
+00402     sprintf((\textcolor{keywordtype}{char}*)&\hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[6+size+3],\textcolor{stringliteral}{"END\(\backslash\)n"});
+00403     \_pSerial->write(&\hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[0],6+size+3+4);
+00404 \}
+00405 
+00406 \textcolor{keywordtype}{void} IMUManager::DiscardData()
+00407 \{
+00408     uint8\_t*    pPacket = &\_dataPacket[0];
+00409     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0;x<4;x++) \{
+00410         \textcolor{keywordflow}{if} (\_pIMU[x]) \{
+00411             \textcolor{comment}{// This puts the data at the pointer,}
+00412             \textcolor{comment}{// then returns the end of the data.}
+00413             \textcolor{comment}{// This might be 2*14 or 1*14}
+00414             pPacket = \_pIMU[x]->GetPacketData(pPacket);
+00415         \}
+00416     \}
+00417 \}
+00418 
+00429 \textcolor{keywordtype}{void} IMUManager::SetTimer(\hyperlink{class_timer_cntr}{TimerCntr}* pTimer)
+00430 \{
+00431     \_pTimer = pTimer;
+00432     
+00434     \_pTimer->\hyperlink{class_timer_cntr_a6e5c896a3f85311e011ee552534f1032}{ClkSel}(TC\_CLKSEL\_DIV64\_gc);
+00435     SetTimerPeriod();
+00436     \_pTimer->CCEnable(0);
+00437     \_pTimer->WaveformGenMode(TC\_WGMODE\_NORMAL\_gc);
+00438     \_pTimer->EventSetup(TC\_EVACT\_OFF\_gc,TC\_EVSEL\_OFF\_gc);
+00439     \_pTimer->IntLvlA(0,1);
+00440     \_pTimer->IntLvlB(0);
+00441     \_pTimer->Notify(\textcolor{keyword}{this},0);
+00442 \}
+00443 
+00444 \textcolor{keywordtype}{void} IMUManager::SetTimerPeriod()
+00445 \{
+00446     \textcolor{comment}{// Adjust the timer function to fire 5X faster}
+00447     \textcolor{comment}{// than the rate. At 200Hz, this will be 2Khz or }
+00448     \textcolor{comment}{// every 500us. }
+00449     \textcolor{comment}{// We set the timer to go off 5 times per IMU period.}
+00450     \textcolor{comment}{// This should range from 20ms for 10Hz, and 1 ms for 200}
+00451     \textcolor{comment}{// **** NoFifo}
+00452     \textcolor{comment}{// Set timer to fire at the rate.}
+00453     \textcolor{comment}{//unsigned long timerTicks = 100000/\_Rate;}
+00454     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} timerTicks = 500000/\_sampleRate;
+00455     \textcolor{keywordflow}{if} (timerTicks > 65000) \{
+00456         timerTicks = 65000;
+00457     \}
+00458     \textcolor{comment}{// This is a special case. If I set the rate to 180,}
+00459     \textcolor{comment}{// then this will assume I am trying to sync with the camera}
+00460     \textcolor{comment}{// which has a frame rate of 59.94. 3X this is 179.82.}
+00461     \textcolor{comment}{// Setting this timer ticks value will put our IMU rate}
+00462     \textcolor{comment}{// close to 3x the frame rate of the camera, which is what}
+00463     \textcolor{comment}{// we want.}
+00464     \textcolor{keywordflow}{if} (\_sampleRate == 180) \{
+00465         timerTicks = 2780;
+00466     \}
+00467     \textcolor{keywordflow}{if} (pdbgserial) \{
+00468         \textcolor{keywordtype}{char} \hyperlink{_i_m_u_manager_8cpp_a858e0513a46bec1d794f9487c41a969d}{buffer}[50];
+00469         sprintf(buffer,\textcolor{stringliteral}{"Timer Period:%u\(\backslash\)n"},timerTicks);
+00470         pdbgserial->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+00471     \}
+00472     \textcolor{keywordflow}{if} (\_pTimer) \_pTimer->Period(timerTicks);
+00473 \}
+00474 
+00487 
+00489 \textcolor{keywordtype}{void} IMUManager::err(uint8\_t \textcolor{keywordtype}{id})
+00490 \{
+00491 \}
+00492 
+00497 \textcolor{keywordtype}{void} IMUManager::ovf(uint8\_t \textcolor{keywordtype}{id})
+00498 \{
+00499     Run();
+00500 \}
+00501 
+00503 \textcolor{keywordtype}{void} IMUManager::ccx(uint8\_t \textcolor{keywordtype}{id},uint8\_t idx)
+00504 \{
+00505 \}
+00506 
+00508 
+\end{DoxyCode}

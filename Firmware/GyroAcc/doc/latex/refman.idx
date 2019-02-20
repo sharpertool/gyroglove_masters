@@ -1,0 +1,866 @@
+\indexentry{CmdProcessor@{CmdProcessor}|hyperpage}{5}
+\indexentry{CmdProcessor@{CmdProcessor}!CmdProcessor@{CmdProcessor}|hyperpage}{7}
+\indexentry{CmdProcessor@{CmdProcessor}!CmdProcessor@{CmdProcessor}|hyperpage}{7}
+\indexentry{CmdProcessor@{CmdProcessor}!$\sim $CmdProcessor@{$\sim $CmdProcessor}|hyperpage}{7}
+\indexentry{$\sim $CmdProcessor@{$\sim $CmdProcessor}!CmdProcessor@{CmdProcessor}|hyperpage}{7}
+\indexentry{CmdProcessor@{CmdProcessor}!checkCommands@{checkCommands}|hyperpage}{8}
+\indexentry{checkCommands@{checkCommands}!CmdProcessor@{CmdProcessor}|hyperpage}{8}
+\indexentry{CmdProcessor@{CmdProcessor}!cmdDelim@{cmdDelim}|hyperpage}{8}
+\indexentry{cmdDelim@{cmdDelim}!CmdProcessor@{CmdProcessor}|hyperpage}{8}
+\indexentry{CmdProcessor@{CmdProcessor}!cmdDelim@{cmdDelim}|hyperpage}{9}
+\indexentry{cmdDelim@{cmdDelim}!CmdProcessor@{CmdProcessor}|hyperpage}{9}
+\indexentry{CmdProcessor@{CmdProcessor}!cmdTerm@{cmdTerm}|hyperpage}{9}
+\indexentry{cmdTerm@{cmdTerm}!CmdProcessor@{CmdProcessor}|hyperpage}{9}
+\indexentry{CmdProcessor@{CmdProcessor}!cmdTerm@{cmdTerm}|hyperpage}{9}
+\indexentry{cmdTerm@{cmdTerm}!CmdProcessor@{CmdProcessor}|hyperpage}{9}
+\indexentry{CmdProcessor@{CmdProcessor}!getCmd@{getCmd}|hyperpage}{9}
+\indexentry{getCmd@{getCmd}!CmdProcessor@{CmdProcessor}|hyperpage}{9}
+\indexentry{CmdProcessor@{CmdProcessor}!getParam@{getParam}|hyperpage}{10}
+\indexentry{getParam@{getParam}!CmdProcessor@{CmdProcessor}|hyperpage}{10}
+\indexentry{CmdProcessor@{CmdProcessor}!getParam@{getParam}|hyperpage}{10}
+\indexentry{getParam@{getParam}!CmdProcessor@{CmdProcessor}|hyperpage}{10}
+\indexentry{CmdProcessor@{CmdProcessor}!getParam@{getParam}|hyperpage}{10}
+\indexentry{getParam@{getParam}!CmdProcessor@{CmdProcessor}|hyperpage}{10}
+\indexentry{CmdProcessor@{CmdProcessor}!getParam@{getParam}|hyperpage}{11}
+\indexentry{getParam@{getParam}!CmdProcessor@{CmdProcessor}|hyperpage}{11}
+\indexentry{CmdProcessor@{CmdProcessor}!getParam@{getParam}|hyperpage}{11}
+\indexentry{getParam@{getParam}!CmdProcessor@{CmdProcessor}|hyperpage}{11}
+\indexentry{CmdProcessor@{CmdProcessor}!getParam@{getParam}|hyperpage}{11}
+\indexentry{getParam@{getParam}!CmdProcessor@{CmdProcessor}|hyperpage}{11}
+\indexentry{CmdProcessor@{CmdProcessor}!paramCnt@{paramCnt}|hyperpage}{12}
+\indexentry{paramCnt@{paramCnt}!CmdProcessor@{CmdProcessor}|hyperpage}{12}
+\indexentry{CmdProcessor@{CmdProcessor}!processCmd@{processCmd}|hyperpage}{12}
+\indexentry{processCmd@{processCmd}!CmdProcessor@{CmdProcessor}|hyperpage}{12}
+\indexentry{CmdProcessor@{CmdProcessor}!resetCmd@{resetCmd}|hyperpage}{12}
+\indexentry{resetCmd@{resetCmd}!CmdProcessor@{CmdProcessor}|hyperpage}{12}
+\indexentry{CmdProcessor@{CmdProcessor}!\_\discretionary {-}{}{}cmdPos@{\_\discretionary {-}{}{}cmdPos}|hyperpage}{13}
+\indexentry{\_\discretionary {-}{}{}cmdPos@{\_\discretionary {-}{}{}cmdPos}!CmdProcessor@{CmdProcessor}|hyperpage}{13}
+\indexentry{CmdProcessor@{CmdProcessor}!\_\discretionary {-}{}{}paramCnt@{\_\discretionary {-}{}{}paramCnt}|hyperpage}{13}
+\indexentry{\_\discretionary {-}{}{}paramCnt@{\_\discretionary {-}{}{}paramCnt}!CmdProcessor@{CmdProcessor}|hyperpage}{13}
+\indexentry{CmdProcessor@{CmdProcessor}!\_\discretionary {-}{}{}pCmd@{\_\discretionary {-}{}{}pCmd}|hyperpage}{13}
+\indexentry{\_\discretionary {-}{}{}pCmd@{\_\discretionary {-}{}{}pCmd}!CmdProcessor@{CmdProcessor}|hyperpage}{13}
+\indexentry{CmdProcessor@{CmdProcessor}!\_\discretionary {-}{}{}pCmdDelim@{\_\discretionary {-}{}{}pCmdDelim}|hyperpage}{13}
+\indexentry{\_\discretionary {-}{}{}pCmdDelim@{\_\discretionary {-}{}{}pCmdDelim}!CmdProcessor@{CmdProcessor}|hyperpage}{13}
+\indexentry{CmdProcessor@{CmdProcessor}!\_\discretionary {-}{}{}pCmdString@{\_\discretionary {-}{}{}pCmdString}|hyperpage}{14}
+\indexentry{\_\discretionary {-}{}{}pCmdString@{\_\discretionary {-}{}{}pCmdString}!CmdProcessor@{CmdProcessor}|hyperpage}{14}
+\indexentry{CmdProcessor@{CmdProcessor}!\_\discretionary {-}{}{}pCmdTerm@{\_\discretionary {-}{}{}pCmdTerm}|hyperpage}{14}
+\indexentry{\_\discretionary {-}{}{}pCmdTerm@{\_\discretionary {-}{}{}pCmdTerm}!CmdProcessor@{CmdProcessor}|hyperpage}{14}
+\indexentry{CmdProcessor@{CmdProcessor}!\_\discretionary {-}{}{}pHW@{\_\discretionary {-}{}{}pHW}|hyperpage}{14}
+\indexentry{\_\discretionary {-}{}{}pHW@{\_\discretionary {-}{}{}pHW}!CmdProcessor@{CmdProcessor}|hyperpage}{14}
+\indexentry{CmdProcessor@{CmdProcessor}!\_\discretionary {-}{}{}pTokens@{\_\discretionary {-}{}{}pTokens}|hyperpage}{14}
+\indexentry{\_\discretionary {-}{}{}pTokens@{\_\discretionary {-}{}{}pTokens}!CmdProcessor@{CmdProcessor}|hyperpage}{14}
+\indexentry{CmdProcessor@{CmdProcessor}!\_\discretionary {-}{}{}validCmd@{\_\discretionary {-}{}{}validCmd}|hyperpage}{14}
+\indexentry{\_\discretionary {-}{}{}validCmd@{\_\discretionary {-}{}{}validCmd}!CmdProcessor@{CmdProcessor}|hyperpage}{14}
+\indexentry{Fifo@{Fifo}|hyperpage}{15}
+\indexentry{Fifo@{Fifo}!FifoType@{FifoType}|hyperpage}{16}
+\indexentry{FifoType@{FifoType}!Fifo@{Fifo}|hyperpage}{16}
+\indexentry{Fifo@{Fifo}!Fifo@{Fifo}|hyperpage}{16}
+\indexentry{Fifo@{Fifo}!Fifo@{Fifo}|hyperpage}{16}
+\indexentry{Fifo@{Fifo}!clear@{clear}|hyperpage}{16}
+\indexentry{clear@{clear}!Fifo@{Fifo}|hyperpage}{16}
+\indexentry{Fifo@{Fifo}!count@{count}|hyperpage}{16}
+\indexentry{count@{count}!Fifo@{Fifo}|hyperpage}{16}
+\indexentry{Fifo@{Fifo}!empty@{empty}|hyperpage}{17}
+\indexentry{empty@{empty}!Fifo@{Fifo}|hyperpage}{17}
+\indexentry{Fifo@{Fifo}!full@{full}|hyperpage}{17}
+\indexentry{full@{full}!Fifo@{Fifo}|hyperpage}{17}
+\indexentry{Fifo@{Fifo}!pop@{pop}|hyperpage}{18}
+\indexentry{pop@{pop}!Fifo@{Fifo}|hyperpage}{18}
+\indexentry{Fifo@{Fifo}!push@{push}|hyperpage}{18}
+\indexentry{push@{push}!Fifo@{Fifo}|hyperpage}{18}
+\indexentry{Fifo@{Fifo}!\_\discretionary {-}{}{}end@{\_\discretionary {-}{}{}end}|hyperpage}{19}
+\indexentry{\_\discretionary {-}{}{}end@{\_\discretionary {-}{}{}end}!Fifo@{Fifo}|hyperpage}{19}
+\indexentry{Fifo@{Fifo}!\_\discretionary {-}{}{}pdata@{\_\discretionary {-}{}{}pdata}|hyperpage}{19}
+\indexentry{\_\discretionary {-}{}{}pdata@{\_\discretionary {-}{}{}pdata}!Fifo@{Fifo}|hyperpage}{19}
+\indexentry{Fifo@{Fifo}!\_\discretionary {-}{}{}size@{\_\discretionary {-}{}{}size}|hyperpage}{19}
+\indexentry{\_\discretionary {-}{}{}size@{\_\discretionary {-}{}{}size}!Fifo@{Fifo}|hyperpage}{19}
+\indexentry{Fifo@{Fifo}!\_\discretionary {-}{}{}start@{\_\discretionary {-}{}{}start}|hyperpage}{19}
+\indexentry{\_\discretionary {-}{}{}start@{\_\discretionary {-}{}{}start}!Fifo@{Fifo}|hyperpage}{19}
+\indexentry{HardwareSerial@{HardwareSerial}|hyperpage}{19}
+\indexentry{HardwareSerial@{HardwareSerial}!HardwareSerial@{HardwareSerial}|hyperpage}{21}
+\indexentry{HardwareSerial@{HardwareSerial}!HardwareSerial@{HardwareSerial}|hyperpage}{21}
+\indexentry{HardwareSerial@{HardwareSerial}!$\sim $HardwareSerial@{$\sim $HardwareSerial}|hyperpage}{21}
+\indexentry{$\sim $HardwareSerial@{$\sim $HardwareSerial}!HardwareSerial@{HardwareSerial}|hyperpage}{21}
+\indexentry{HardwareSerial@{HardwareSerial}!available@{available}|hyperpage}{21}
+\indexentry{available@{available}!HardwareSerial@{HardwareSerial}|hyperpage}{21}
+\indexentry{HardwareSerial@{HardwareSerial}!begin@{begin}|hyperpage}{21}
+\indexentry{begin@{begin}!HardwareSerial@{HardwareSerial}|hyperpage}{21}
+\indexentry{HardwareSerial@{HardwareSerial}!begin2x@{begin2x}|hyperpage}{22}
+\indexentry{begin2x@{begin2x}!HardwareSerial@{HardwareSerial}|hyperpage}{22}
+\indexentry{HardwareSerial@{HardwareSerial}!dre@{dre}|hyperpage}{23}
+\indexentry{dre@{dre}!HardwareSerial@{HardwareSerial}|hyperpage}{23}
+\indexentry{HardwareSerial@{HardwareSerial}!enable@{enable}|hyperpage}{23}
+\indexentry{enable@{enable}!HardwareSerial@{HardwareSerial}|hyperpage}{23}
+\indexentry{HardwareSerial@{HardwareSerial}!end@{end}|hyperpage}{23}
+\indexentry{end@{end}!HardwareSerial@{HardwareSerial}|hyperpage}{23}
+\indexentry{HardwareSerial@{HardwareSerial}!flush@{flush}|hyperpage}{24}
+\indexentry{flush@{flush}!HardwareSerial@{HardwareSerial}|hyperpage}{24}
+\indexentry{HardwareSerial@{HardwareSerial}!read@{read}|hyperpage}{24}
+\indexentry{read@{read}!HardwareSerial@{HardwareSerial}|hyperpage}{24}
+\indexentry{HardwareSerial@{HardwareSerial}!rxc@{rxc}|hyperpage}{24}
+\indexentry{rxc@{rxc}!HardwareSerial@{HardwareSerial}|hyperpage}{24}
+\indexentry{HardwareSerial@{HardwareSerial}!txc@{txc}|hyperpage}{25}
+\indexentry{txc@{txc}!HardwareSerial@{HardwareSerial}|hyperpage}{25}
+\indexentry{HardwareSerial@{HardwareSerial}!write@{write}|hyperpage}{25}
+\indexentry{write@{write}!HardwareSerial@{HardwareSerial}|hyperpage}{25}
+\indexentry{HardwareSerial@{HardwareSerial}!\_\discretionary {-}{}{}baudrate@{\_\discretionary {-}{}{}baudrate}|hyperpage}{25}
+\indexentry{\_\discretionary {-}{}{}baudrate@{\_\discretionary {-}{}{}baudrate}!HardwareSerial@{HardwareSerial}|hyperpage}{25}
+\indexentry{HardwareSerial@{HardwareSerial}!\_\discretionary {-}{}{}bEn@{\_\discretionary {-}{}{}bEn}|hyperpage}{25}
+\indexentry{\_\discretionary {-}{}{}bEn@{\_\discretionary {-}{}{}bEn}!HardwareSerial@{HardwareSerial}|hyperpage}{25}
+\indexentry{HardwareSerial@{HardwareSerial}!\_\discretionary {-}{}{}bscale@{\_\discretionary {-}{}{}bscale}|hyperpage}{25}
+\indexentry{\_\discretionary {-}{}{}bscale@{\_\discretionary {-}{}{}bscale}!HardwareSerial@{HardwareSerial}|hyperpage}{25}
+\indexentry{HardwareSerial@{HardwareSerial}!\_\discretionary {-}{}{}bsel@{\_\discretionary {-}{}{}bsel}|hyperpage}{26}
+\indexentry{\_\discretionary {-}{}{}bsel@{\_\discretionary {-}{}{}bsel}!HardwareSerial@{HardwareSerial}|hyperpage}{26}
+\indexentry{HardwareSerial@{HardwareSerial}!\_\discretionary {-}{}{}in\_\discretionary {-}{}{}bm@{\_\discretionary {-}{}{}in\_\discretionary {-}{}{}bm}|hyperpage}{26}
+\indexentry{\_\discretionary {-}{}{}in\_\discretionary {-}{}{}bm@{\_\discretionary {-}{}{}in\_\discretionary {-}{}{}bm}!HardwareSerial@{HardwareSerial}|hyperpage}{26}
+\indexentry{HardwareSerial@{HardwareSerial}!\_\discretionary {-}{}{}out\_\discretionary {-}{}{}bm@{\_\discretionary {-}{}{}out\_\discretionary {-}{}{}bm}|hyperpage}{26}
+\indexentry{\_\discretionary {-}{}{}out\_\discretionary {-}{}{}bm@{\_\discretionary {-}{}{}out\_\discretionary {-}{}{}bm}!HardwareSerial@{HardwareSerial}|hyperpage}{26}
+\indexentry{HardwareSerial@{HardwareSerial}!\_\discretionary {-}{}{}port@{\_\discretionary {-}{}{}port}|hyperpage}{26}
+\indexentry{\_\discretionary {-}{}{}port@{\_\discretionary {-}{}{}port}!HardwareSerial@{HardwareSerial}|hyperpage}{26}
+\indexentry{HardwareSerial@{HardwareSerial}!\_\discretionary {-}{}{}rx\_\discretionary {-}{}{}buffer@{\_\discretionary {-}{}{}rx\_\discretionary {-}{}{}buffer}|hyperpage}{26}
+\indexentry{\_\discretionary {-}{}{}rx\_\discretionary {-}{}{}buffer@{\_\discretionary {-}{}{}rx\_\discretionary {-}{}{}buffer}!HardwareSerial@{HardwareSerial}|hyperpage}{26}
+\indexentry{HardwareSerial@{HardwareSerial}!\_\discretionary {-}{}{}usart@{\_\discretionary {-}{}{}usart}|hyperpage}{26}
+\indexentry{\_\discretionary {-}{}{}usart@{\_\discretionary {-}{}{}usart}!HardwareSerial@{HardwareSerial}|hyperpage}{26}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{27}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!ErrorType@{ErrorType}|hyperpage}{29}
+\indexentry{ErrorType@{ErrorType}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{29}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!DriverResult@{DriverResult}|hyperpage}{29}
+\indexentry{DriverResult@{DriverResult}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{29}
+\indexentry{rOk@{rOk}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{29}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!rOk@{rOk}|hyperpage}{29}
+\indexentry{rFail@{rFail}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{29}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!rFail@{rFail}|hyperpage}{29}
+\indexentry{rArbLost@{rArbLost}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{29}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!rArbLost@{rArbLost}|hyperpage}{29}
+\indexentry{rBussErr@{rBussErr}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{29}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!rBussErr@{rBussErr}|hyperpage}{29}
+\indexentry{rNack@{rNack}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{29}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!rNack@{rNack}|hyperpage}{29}
+\indexentry{rBufferOverrun@{rBufferOverrun}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{29}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!rBufferOverrun@{rBufferOverrun}|hyperpage}{29}
+\indexentry{rUnknown@{rUnknown}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{29}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!rUnknown@{rUnknown}|hyperpage}{29}
+\indexentry{rTimeout@{rTimeout}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{29}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!rTimeout@{rTimeout}|hyperpage}{29}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!DriverState@{DriverState}|hyperpage}{29}
+\indexentry{DriverState@{DriverState}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{29}
+\indexentry{sIdle@{sIdle}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{29}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!sIdle@{sIdle}|hyperpage}{29}
+\indexentry{sBusy@{sBusy}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{29}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!sBusy@{sBusy}|hyperpage}{29}
+\indexentry{sError@{sError}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!sError@{sError}|hyperpage}{30}
+\indexentry{sArb@{sArb}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!sArb@{sArb}|hyperpage}{30}
+\indexentry{sIDScan@{sIDScan}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!sIDScan@{sIDScan}|hyperpage}{30}
+\indexentry{sIDCheck@{sIDCheck}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!sIDCheck@{sIDCheck}|hyperpage}{30}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!ErrorType@{ErrorType}|hyperpage}{30}
+\indexentry{ErrorType@{ErrorType}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{30}
+\indexentry{eNone@{eNone}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!eNone@{eNone}|hyperpage}{30}
+\indexentry{eDisabled@{eDisabled}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!eDisabled@{eDisabled}|hyperpage}{30}
+\indexentry{eBusy@{eBusy}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!eBusy@{eBusy}|hyperpage}{30}
+\indexentry{eNack@{eNack}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!eNack@{eNack}|hyperpage}{30}
+\indexentry{eArbLost@{eArbLost}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!eArbLost@{eArbLost}|hyperpage}{30}
+\indexentry{eBusErr@{eBusErr}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!eBusErr@{eBusErr}|hyperpage}{30}
+\indexentry{eTimeout@{eTimeout}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!eTimeout@{eTimeout}|hyperpage}{30}
+\indexentry{eSDAStuck@{eSDAStuck}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!eSDAStuck@{eSDAStuck}|hyperpage}{30}
+\indexentry{eSCLStuck@{eSCLStuck}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!eSCLStuck@{eSCLStuck}|hyperpage}{30}
+\indexentry{eUnknown@{eUnknown}!I2C\_\-Master@{I2C\_\-Master}|hyperpage}{30}
+\indexentry{I2C\_\-Master@{I2C\_\-Master}!eUnknown@{eUnknown}|hyperpage}{30}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!$\sim $I2C\_\discretionary {-}{}{}Master@{$\sim $I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{$\sim $I2C\_\discretionary {-}{}{}Master@{$\sim $I2C\_\discretionary {-}{}{}Master}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!ArbHandler@{ArbHandler}|hyperpage}{31}
+\indexentry{ArbHandler@{ArbHandler}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!begin@{begin}|hyperpage}{31}
+\indexentry{begin@{begin}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!busState@{busState}|hyperpage}{31}
+\indexentry{busState@{busState}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!busy@{busy}|hyperpage}{31}
+\indexentry{busy@{busy}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!CheckID@{CheckID}|hyperpage}{31}
+\indexentry{CheckID@{CheckID}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!CleanRegs@{CleanRegs}|hyperpage}{31}
+\indexentry{CleanRegs@{CleanRegs}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!dumpregs@{dumpregs}|hyperpage}{31}
+\indexentry{dumpregs@{dumpregs}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!end@{end}|hyperpage}{31}
+\indexentry{end@{end}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{31}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!ErrorHandler@{ErrorHandler}|hyperpage}{32}
+\indexentry{ErrorHandler@{ErrorHandler}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{32}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!ForceStartStop@{ForceStartStop}|hyperpage}{32}
+\indexentry{ForceStartStop@{ForceStartStop}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{32}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!IsIdle@{IsIdle}|hyperpage}{32}
+\indexentry{IsIdle@{IsIdle}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{32}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!isReserved@{isReserved}|hyperpage}{32}
+\indexentry{isReserved@{isReserved}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{32}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!loop@{loop}|hyperpage}{32}
+\indexentry{loop@{loop}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{32}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!master\_\discretionary {-}{}{}int@{master\_\discretionary {-}{}{}int}|hyperpage}{32}
+\indexentry{master\_\discretionary {-}{}{}int@{master\_\discretionary {-}{}{}int}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{32}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!MasterFinished@{MasterFinished}|hyperpage}{32}
+\indexentry{MasterFinished@{MasterFinished}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{32}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!NotifyMe@{NotifyMe}|hyperpage}{32}
+\indexentry{NotifyMe@{NotifyMe}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{32}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!nReadBytes@{nReadBytes}|hyperpage}{33}
+\indexentry{nReadBytes@{nReadBytes}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{33}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!Read@{Read}|hyperpage}{33}
+\indexentry{Read@{Read}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{33}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!ReadData@{ReadData}|hyperpage}{33}
+\indexentry{ReadData@{ReadData}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{33}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!ReadData@{ReadData}|hyperpage}{33}
+\indexentry{ReadData@{ReadData}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{33}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!ReadHandler@{ReadHandler}|hyperpage}{33}
+\indexentry{ReadHandler@{ReadHandler}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{33}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!ReadSync@{ReadSync}|hyperpage}{33}
+\indexentry{ReadSync@{ReadSync}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{33}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!Reserve@{Reserve}|hyperpage}{33}
+\indexentry{Reserve@{Reserve}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{33}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!Result@{Result}|hyperpage}{33}
+\indexentry{Result@{Result}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{33}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!showstate@{showstate}|hyperpage}{33}
+\indexentry{showstate@{showstate}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{33}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!slave\_\discretionary {-}{}{}int@{slave\_\discretionary {-}{}{}int}|hyperpage}{33}
+\indexentry{slave\_\discretionary {-}{}{}int@{slave\_\discretionary {-}{}{}int}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{33}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!State@{State}|hyperpage}{34}
+\indexentry{State@{State}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{34}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!Stop@{Stop}|hyperpage}{34}
+\indexentry{Stop@{Stop}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{34}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!testack@{testack}|hyperpage}{34}
+\indexentry{testack@{testack}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{34}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!WigglePin@{WigglePin}|hyperpage}{34}
+\indexentry{WigglePin@{WigglePin}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{34}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!Write@{Write}|hyperpage}{34}
+\indexentry{Write@{Write}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{34}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!WriteHandler@{WriteHandler}|hyperpage}{34}
+\indexentry{WriteHandler@{WriteHandler}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{34}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!WriteRead@{WriteRead}|hyperpage}{34}
+\indexentry{WriteRead@{WriteRead}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{34}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!WriteReadSync@{WriteReadSync}|hyperpage}{34}
+\indexentry{WriteReadSync@{WriteReadSync}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{34}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!WriteSync@{WriteSync}|hyperpage}{35}
+\indexentry{WriteSync@{WriteSync}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{35}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}bEnabled@{\_\discretionary {-}{}{}bEnabled}|hyperpage}{35}
+\indexentry{\_\discretionary {-}{}{}bEnabled@{\_\discretionary {-}{}{}bEnabled}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{35}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}DeviceID@{\_\discretionary {-}{}{}DeviceID}|hyperpage}{35}
+\indexentry{\_\discretionary {-}{}{}DeviceID@{\_\discretionary {-}{}{}DeviceID}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{35}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}IDList@{\_\discretionary {-}{}{}IDList}|hyperpage}{35}
+\indexentry{\_\discretionary {-}{}{}IDList@{\_\discretionary {-}{}{}IDList}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{35}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}idScanCurrent@{\_\discretionary {-}{}{}idScanCurrent}|hyperpage}{35}
+\indexentry{\_\discretionary {-}{}{}idScanCurrent@{\_\discretionary {-}{}{}idScanCurrent}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{35}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}nBytesRead@{\_\discretionary {-}{}{}nBytesRead}|hyperpage}{35}
+\indexentry{\_\discretionary {-}{}{}nBytesRead@{\_\discretionary {-}{}{}nBytesRead}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{35}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}nBytesWritten@{\_\discretionary {-}{}{}nBytesWritten}|hyperpage}{35}
+\indexentry{\_\discretionary {-}{}{}nBytesWritten@{\_\discretionary {-}{}{}nBytesWritten}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{35}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}nReadBytes@{\_\discretionary {-}{}{}nReadBytes}|hyperpage}{35}
+\indexentry{\_\discretionary {-}{}{}nReadBytes@{\_\discretionary {-}{}{}nReadBytes}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{35}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}nWriteBytes@{\_\discretionary {-}{}{}nWriteBytes}|hyperpage}{36}
+\indexentry{\_\discretionary {-}{}{}nWriteBytes@{\_\discretionary {-}{}{}nWriteBytes}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{36}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}pNotifyClient@{\_\discretionary {-}{}{}pNotifyClient}|hyperpage}{36}
+\indexentry{\_\discretionary {-}{}{}pNotifyClient@{\_\discretionary {-}{}{}pNotifyClient}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{36}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}pReserved@{\_\discretionary {-}{}{}pReserved}|hyperpage}{36}
+\indexentry{\_\discretionary {-}{}{}pReserved@{\_\discretionary {-}{}{}pReserved}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{36}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}rdBufferLen@{\_\discretionary {-}{}{}rdBufferLen}|hyperpage}{36}
+\indexentry{\_\discretionary {-}{}{}rdBufferLen@{\_\discretionary {-}{}{}rdBufferLen}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{36}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}ReadData@{\_\discretionary {-}{}{}ReadData}|hyperpage}{36}
+\indexentry{\_\discretionary {-}{}{}ReadData@{\_\discretionary {-}{}{}ReadData}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{36}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}Result@{\_\discretionary {-}{}{}Result}|hyperpage}{36}
+\indexentry{\_\discretionary {-}{}{}Result@{\_\discretionary {-}{}{}Result}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{36}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}ScanComplete@{\_\discretionary {-}{}{}ScanComplete}|hyperpage}{36}
+\indexentry{\_\discretionary {-}{}{}ScanComplete@{\_\discretionary {-}{}{}ScanComplete}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{36}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}State@{\_\discretionary {-}{}{}State}|hyperpage}{36}
+\indexentry{\_\discretionary {-}{}{}State@{\_\discretionary {-}{}{}State}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{36}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}twi@{\_\discretionary {-}{}{}twi}|hyperpage}{37}
+\indexentry{\_\discretionary {-}{}{}twi@{\_\discretionary {-}{}{}twi}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{37}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}twiPort@{\_\discretionary {-}{}{}twiPort}|hyperpage}{37}
+\indexentry{\_\discretionary {-}{}{}twiPort@{\_\discretionary {-}{}{}twiPort}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{37}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}wrBufferLen@{\_\discretionary {-}{}{}wrBufferLen}|hyperpage}{37}
+\indexentry{\_\discretionary {-}{}{}wrBufferLen@{\_\discretionary {-}{}{}wrBufferLen}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{37}
+\indexentry{I2C\_\discretionary {-}{}{}Master@{I2C\_\discretionary {-}{}{}Master}!\_\discretionary {-}{}{}WriteData@{\_\discretionary {-}{}{}WriteData}|hyperpage}{37}
+\indexentry{\_\discretionary {-}{}{}WriteData@{\_\discretionary {-}{}{}WriteData}!I2C_Master@{I2C\_\discretionary {-}{}{}Master}|hyperpage}{37}
+\indexentry{I2CNotify@{I2CNotify}|hyperpage}{37}
+\indexentry{I2CNotify@{I2CNotify}!I2CArbLost@{I2CArbLost}|hyperpage}{38}
+\indexentry{I2CArbLost@{I2CArbLost}!I2CNotify@{I2CNotify}|hyperpage}{38}
+\indexentry{I2CNotify@{I2CNotify}!I2CBusError@{I2CBusError}|hyperpage}{38}
+\indexentry{I2CBusError@{I2CBusError}!I2CNotify@{I2CNotify}|hyperpage}{38}
+\indexentry{I2CNotify@{I2CNotify}!I2CNack@{I2CNack}|hyperpage}{38}
+\indexentry{I2CNack@{I2CNack}!I2CNotify@{I2CNotify}|hyperpage}{38}
+\indexentry{I2CNotify@{I2CNotify}!I2CReadDone@{I2CReadDone}|hyperpage}{38}
+\indexentry{I2CReadDone@{I2CReadDone}!I2CNotify@{I2CNotify}|hyperpage}{38}
+\indexentry{I2CNotify@{I2CNotify}!I2CWriteDone@{I2CWriteDone}|hyperpage}{38}
+\indexentry{I2CWriteDone@{I2CWriteDone}!I2CNotify@{I2CNotify}|hyperpage}{38}
+\indexentry{IMU@{IMU}|hyperpage}{39}
+\indexentry{IMU@{IMU}!FailType@{FailType}|hyperpage}{42}
+\indexentry{FailType@{FailType}!IMU@{IMU}|hyperpage}{42}
+\indexentry{IMU@{IMU}!PosType@{PosType}|hyperpage}{42}
+\indexentry{PosType@{PosType}!IMU@{IMU}|hyperpage}{42}
+\indexentry{IMU@{IMU}!RegWriteType@{RegWriteType}|hyperpage}{42}
+\indexentry{RegWriteType@{RegWriteType}!IMU@{IMU}|hyperpage}{42}
+\indexentry{IMU@{IMU}!StateType@{StateType}|hyperpage}{42}
+\indexentry{StateType@{StateType}!IMU@{IMU}|hyperpage}{42}
+\indexentry{IMU@{IMU}!FailType@{FailType}|hyperpage}{42}
+\indexentry{FailType@{FailType}!IMU@{IMU}|hyperpage}{42}
+\indexentry{fNone@{fNone}!IMU@{IMU}|hyperpage}{42}
+\indexentry{IMU@{IMU}!fNone@{fNone}|hyperpage}{42}
+\indexentry{fNack@{fNack}!IMU@{IMU}|hyperpage}{42}
+\indexentry{IMU@{IMU}!fNack@{fNack}|hyperpage}{42}
+\indexentry{fBusErr@{fBusErr}!IMU@{IMU}|hyperpage}{42}
+\indexentry{IMU@{IMU}!fBusErr@{fBusErr}|hyperpage}{42}
+\indexentry{fArbLost@{fArbLost}!IMU@{IMU}|hyperpage}{42}
+\indexentry{IMU@{IMU}!fArbLost@{fArbLost}|hyperpage}{42}
+\indexentry{IMU@{IMU}!PosType@{PosType}|hyperpage}{42}
+\indexentry{PosType@{PosType}!IMU@{IMU}|hyperpage}{42}
+\indexentry{pStart@{pStart}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!pStart@{pStart}|hyperpage}{43}
+\indexentry{pRun@{pRun}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!pRun@{pRun}|hyperpage}{43}
+\indexentry{pWriteDn@{pWriteDn}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!pWriteDn@{pWriteDn}|hyperpage}{43}
+\indexentry{pReadDn@{pReadDn}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!pReadDn@{pReadDn}|hyperpage}{43}
+\indexentry{pNack@{pNack}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!pNack@{pNack}|hyperpage}{43}
+\indexentry{pBusErr@{pBusErr}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!pBusErr@{pBusErr}|hyperpage}{43}
+\indexentry{pArbLost@{pArbLost}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!pArbLost@{pArbLost}|hyperpage}{43}
+\indexentry{pSetup@{pSetup}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!pSetup@{pSetup}|hyperpage}{43}
+\indexentry{IMU@{IMU}!ProcessType@{ProcessType}|hyperpage}{43}
+\indexentry{ProcessType@{ProcessType}!IMU@{IMU}|hyperpage}{43}
+\indexentry{ptTimer@{ptTimer}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!ptTimer@{ptTimer}|hyperpage}{43}
+\indexentry{ptI2CWrite@{ptI2CWrite}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!ptI2CWrite@{ptI2CWrite}|hyperpage}{43}
+\indexentry{ptI2CRead@{ptI2CRead}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!ptI2CRead@{ptI2CRead}|hyperpage}{43}
+\indexentry{ptI2CNack@{ptI2CNack}!IMU@{IMU}|hyperpage}{43}
+\indexentry{IMU@{IMU}!ptI2CNack@{ptI2CNack}|hyperpage}{43}
+\indexentry{IMU@{IMU}!StateType@{StateType}|hyperpage}{43}
+\indexentry{StateType@{StateType}!IMU@{IMU}|hyperpage}{43}
+\indexentry{sIdle@{sIdle}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!sIdle@{sIdle}|hyperpage}{44}
+\indexentry{sConfigure@{sConfigure}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!sConfigure@{sConfigure}|hyperpage}{44}
+\indexentry{sConfigured@{sConfigured}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!sConfigured@{sConfigured}|hyperpage}{44}
+\indexentry{sWait@{sWait}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!sWait@{sWait}|hyperpage}{44}
+\indexentry{sReadGyro1@{sReadGyro1}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!sReadGyro1@{sReadGyro1}|hyperpage}{44}
+\indexentry{sReadAcc1@{sReadAcc1}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!sReadAcc1@{sReadAcc1}|hyperpage}{44}
+\indexentry{sReadGyro2@{sReadGyro2}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!sReadGyro2@{sReadGyro2}|hyperpage}{44}
+\indexentry{sReadAcc2@{sReadAcc2}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!sReadAcc2@{sReadAcc2}|hyperpage}{44}
+\indexentry{sErrRecover@{sErrRecover}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!sErrRecover@{sErrRecover}|hyperpage}{44}
+\indexentry{IMU@{IMU}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!IMU@{IMU}|hyperpage}{44}
+\indexentry{IMU@{IMU}!IMU@{IMU}|hyperpage}{45}
+\indexentry{IMU@{IMU}!IMU@{IMU}|hyperpage}{45}
+\indexentry{IMU@{IMU}!IMU@{IMU}|hyperpage}{45}
+\indexentry{IMU@{IMU}!IMU@{IMU}|hyperpage}{45}
+\indexentry{IMU@{IMU}!BeginRead@{BeginRead}|hyperpage}{46}
+\indexentry{BeginRead@{BeginRead}!IMU@{IMU}|hyperpage}{46}
+\indexentry{IMU@{IMU}!Busy@{Busy}|hyperpage}{46}
+\indexentry{Busy@{Busy}!IMU@{IMU}|hyperpage}{46}
+\indexentry{IMU@{IMU}!BusyTimeout@{BusyTimeout}|hyperpage}{47}
+\indexentry{BusyTimeout@{BusyTimeout}!IMU@{IMU}|hyperpage}{47}
+\indexentry{IMU@{IMU}!ccx@{ccx}|hyperpage}{47}
+\indexentry{ccx@{ccx}!IMU@{IMU}|hyperpage}{47}
+\indexentry{IMU@{IMU}!CheckIDs@{CheckIDs}|hyperpage}{47}
+\indexentry{CheckIDs@{CheckIDs}!IMU@{IMU}|hyperpage}{47}
+\indexentry{IMU@{IMU}!Configure@{Configure}|hyperpage}{48}
+\indexentry{Configure@{Configure}!IMU@{IMU}|hyperpage}{48}
+\indexentry{IMU@{IMU}!DataReady@{DataReady}|hyperpage}{49}
+\indexentry{DataReady@{DataReady}!IMU@{IMU}|hyperpage}{49}
+\indexentry{IMU@{IMU}!err@{err}|hyperpage}{49}
+\indexentry{err@{err}!IMU@{IMU}|hyperpage}{49}
+\indexentry{IMU@{IMU}!FailRecovery@{FailRecovery}|hyperpage}{50}
+\indexentry{FailRecovery@{FailRecovery}!IMU@{IMU}|hyperpage}{50}
+\indexentry{IMU@{IMU}!ForceStartStop@{ForceStartStop}|hyperpage}{50}
+\indexentry{ForceStartStop@{ForceStartStop}!IMU@{IMU}|hyperpage}{50}
+\indexentry{IMU@{IMU}!GetPacketData@{GetPacketData}|hyperpage}{51}
+\indexentry{GetPacketData@{GetPacketData}!IMU@{IMU}|hyperpage}{51}
+\indexentry{IMU@{IMU}!I2CArbLost@{I2CArbLost}|hyperpage}{52}
+\indexentry{I2CArbLost@{I2CArbLost}!IMU@{IMU}|hyperpage}{52}
+\indexentry{IMU@{IMU}!I2CBusError@{I2CBusError}|hyperpage}{52}
+\indexentry{I2CBusError@{I2CBusError}!IMU@{IMU}|hyperpage}{52}
+\indexentry{IMU@{IMU}!I2CNack@{I2CNack}|hyperpage}{53}
+\indexentry{I2CNack@{I2CNack}!IMU@{IMU}|hyperpage}{53}
+\indexentry{IMU@{IMU}!I2CReadDone@{I2CReadDone}|hyperpage}{54}
+\indexentry{I2CReadDone@{I2CReadDone}!IMU@{IMU}|hyperpage}{54}
+\indexentry{IMU@{IMU}!I2CWriteDone@{I2CWriteDone}|hyperpage}{54}
+\indexentry{I2CWriteDone@{I2CWriteDone}!IMU@{IMU}|hyperpage}{54}
+\indexentry{IMU@{IMU}!MarkPos@{MarkPos}|hyperpage}{55}
+\indexentry{MarkPos@{MarkPos}!IMU@{IMU}|hyperpage}{55}
+\indexentry{IMU@{IMU}!NextIMU@{NextIMU}|hyperpage}{55}
+\indexentry{NextIMU@{NextIMU}!IMU@{IMU}|hyperpage}{55}
+\indexentry{IMU@{IMU}!ovf@{ovf}|hyperpage}{55}
+\indexentry{ovf@{ovf}!IMU@{IMU}|hyperpage}{55}
+\indexentry{IMU@{IMU}!ProcessTransaction@{ProcessTransaction}|hyperpage}{56}
+\indexentry{ProcessTransaction@{ProcessTransaction}!IMU@{IMU}|hyperpage}{56}
+\indexentry{IMU@{IMU}!PushData@{PushData}|hyperpage}{57}
+\indexentry{PushData@{PushData}!IMU@{IMU}|hyperpage}{57}
+\indexentry{IMU@{IMU}!QueryChannels@{QueryChannels}|hyperpage}{57}
+\indexentry{QueryChannels@{QueryChannels}!IMU@{IMU}|hyperpage}{57}
+\indexentry{IMU@{IMU}!Rd@{Rd}|hyperpage}{57}
+\indexentry{Rd@{Rd}!IMU@{IMU}|hyperpage}{57}
+\indexentry{IMU@{IMU}!RdAsync@{RdAsync}|hyperpage}{58}
+\indexentry{RdAsync@{RdAsync}!IMU@{IMU}|hyperpage}{58}
+\indexentry{IMU@{IMU}!ReadWord@{ReadWord}|hyperpage}{58}
+\indexentry{ReadWord@{ReadWord}!IMU@{IMU}|hyperpage}{58}
+\indexentry{IMU@{IMU}!Reset@{Reset}|hyperpage}{58}
+\indexentry{Reset@{Reset}!IMU@{IMU}|hyperpage}{58}
+\indexentry{IMU@{IMU}!ResetBusyTime@{ResetBusyTime}|hyperpage}{59}
+\indexentry{ResetBusyTime@{ResetBusyTime}!IMU@{IMU}|hyperpage}{59}
+\indexentry{IMU@{IMU}!ResetDevices@{ResetDevices}|hyperpage}{59}
+\indexentry{ResetDevices@{ResetDevices}!IMU@{IMU}|hyperpage}{59}
+\indexentry{IMU@{IMU}!ResetFailStats@{ResetFailStats}|hyperpage}{59}
+\indexentry{ResetFailStats@{ResetFailStats}!IMU@{IMU}|hyperpage}{59}
+\indexentry{IMU@{IMU}!ResetTimer@{ResetTimer}|hyperpage}{60}
+\indexentry{ResetTimer@{ResetTimer}!IMU@{IMU}|hyperpage}{60}
+\indexentry{IMU@{IMU}!Run@{Run}|hyperpage}{60}
+\indexentry{Run@{Run}!IMU@{IMU}|hyperpage}{60}
+\indexentry{IMU@{IMU}!SampleRate@{SampleRate}|hyperpage}{61}
+\indexentry{SampleRate@{SampleRate}!IMU@{IMU}|hyperpage}{61}
+\indexentry{IMU@{IMU}!SetDebugPort@{SetDebugPort}|hyperpage}{61}
+\indexentry{SetDebugPort@{SetDebugPort}!IMU@{IMU}|hyperpage}{61}
+\indexentry{IMU@{IMU}!SetDebugPort2@{SetDebugPort2}|hyperpage}{62}
+\indexentry{SetDebugPort2@{SetDebugPort2}!IMU@{IMU}|hyperpage}{62}
+\indexentry{IMU@{IMU}!SetState@{SetState}|hyperpage}{62}
+\indexentry{SetState@{SetState}!IMU@{IMU}|hyperpage}{62}
+\indexentry{IMU@{IMU}!SetTimer@{SetTimer}|hyperpage}{62}
+\indexentry{SetTimer@{SetTimer}!IMU@{IMU}|hyperpage}{62}
+\indexentry{IMU@{IMU}!SetTimerPeriod@{SetTimerPeriod}|hyperpage}{63}
+\indexentry{SetTimerPeriod@{SetTimerPeriod}!IMU@{IMU}|hyperpage}{63}
+\indexentry{IMU@{IMU}!Setup@{Setup}|hyperpage}{63}
+\indexentry{Setup@{Setup}!IMU@{IMU}|hyperpage}{63}
+\indexentry{IMU@{IMU}!Start@{Start}|hyperpage}{64}
+\indexentry{Start@{Start}!IMU@{IMU}|hyperpage}{64}
+\indexentry{IMU@{IMU}!StartTransaction@{StartTransaction}|hyperpage}{65}
+\indexentry{StartTransaction@{StartTransaction}!IMU@{IMU}|hyperpage}{65}
+\indexentry{IMU@{IMU}!Stop@{Stop}|hyperpage}{65}
+\indexentry{Stop@{Stop}!IMU@{IMU}|hyperpage}{65}
+\indexentry{IMU@{IMU}!StoreAccData@{StoreAccData}|hyperpage}{66}
+\indexentry{StoreAccData@{StoreAccData}!IMU@{IMU}|hyperpage}{66}
+\indexentry{IMU@{IMU}!StoreGyroData@{StoreGyroData}|hyperpage}{66}
+\indexentry{StoreGyroData@{StoreGyroData}!IMU@{IMU}|hyperpage}{66}
+\indexentry{IMU@{IMU}!UseGyro@{UseGyro}|hyperpage}{66}
+\indexentry{UseGyro@{UseGyro}!IMU@{IMU}|hyperpage}{66}
+\indexentry{IMU@{IMU}!Wr@{Wr}|hyperpage}{66}
+\indexentry{Wr@{Wr}!IMU@{IMU}|hyperpage}{66}
+\indexentry{IMU@{IMU}!WrAsync@{WrAsync}|hyperpage}{67}
+\indexentry{WrAsync@{WrAsync}!IMU@{IMU}|hyperpage}{67}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}aID@{\_\discretionary {-}{}{}aID}|hyperpage}{67}
+\indexentry{\_\discretionary {-}{}{}aID@{\_\discretionary {-}{}{}aID}!IMU@{IMU}|hyperpage}{67}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}bDataReady@{\_\discretionary {-}{}{}bDataReady}|hyperpage}{67}
+\indexentry{\_\discretionary {-}{}{}bDataReady@{\_\discretionary {-}{}{}bDataReady}!IMU@{IMU}|hyperpage}{67}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}bDualChan@{\_\discretionary {-}{}{}bDualChan}|hyperpage}{67}
+\indexentry{\_\discretionary {-}{}{}bDualChan@{\_\discretionary {-}{}{}bDualChan}!IMU@{IMU}|hyperpage}{67}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}bFailDetected@{\_\discretionary {-}{}{}bFailDetected}|hyperpage}{68}
+\indexentry{\_\discretionary {-}{}{}bFailDetected@{\_\discretionary {-}{}{}bFailDetected}!IMU@{IMU}|hyperpage}{68}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}bRun@{\_\discretionary {-}{}{}bRun}|hyperpage}{68}
+\indexentry{\_\discretionary {-}{}{}bRun@{\_\discretionary {-}{}{}bRun}!IMU@{IMU}|hyperpage}{68}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}bUseGyro@{\_\discretionary {-}{}{}bUseGyro}|hyperpage}{68}
+\indexentry{\_\discretionary {-}{}{}bUseGyro@{\_\discretionary {-}{}{}bUseGyro}!IMU@{IMU}|hyperpage}{68}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}busyWaitTime@{\_\discretionary {-}{}{}busyWaitTime}|hyperpage}{68}
+\indexentry{\_\discretionary {-}{}{}busyWaitTime@{\_\discretionary {-}{}{}busyWaitTime}!IMU@{IMU}|hyperpage}{68}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}ClkSel@{\_\discretionary {-}{}{}ClkSel}|hyperpage}{68}
+\indexentry{\_\discretionary {-}{}{}ClkSel@{\_\discretionary {-}{}{}ClkSel}!IMU@{IMU}|hyperpage}{68}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}configOkay@{\_\discretionary {-}{}{}configOkay}|hyperpage}{68}
+\indexentry{\_\discretionary {-}{}{}configOkay@{\_\discretionary {-}{}{}configOkay}!IMU@{IMU}|hyperpage}{68}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}dataBuffer@{\_\discretionary {-}{}{}dataBuffer}|hyperpage}{69}
+\indexentry{\_\discretionary {-}{}{}dataBuffer@{\_\discretionary {-}{}{}dataBuffer}!IMU@{IMU}|hyperpage}{69}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}DLPF@{\_\discretionary {-}{}{}DLPF}|hyperpage}{69}
+\indexentry{\_\discretionary {-}{}{}DLPF@{\_\discretionary {-}{}{}DLPF}!IMU@{IMU}|hyperpage}{69}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}failCount@{\_\discretionary {-}{}{}failCount}|hyperpage}{69}
+\indexentry{\_\discretionary {-}{}{}failCount@{\_\discretionary {-}{}{}failCount}!IMU@{IMU}|hyperpage}{69}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}failType@{\_\discretionary {-}{}{}failType}|hyperpage}{69}
+\indexentry{\_\discretionary {-}{}{}failType@{\_\discretionary {-}{}{}failType}!IMU@{IMU}|hyperpage}{69}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}FullScale@{\_\discretionary {-}{}{}FullScale}|hyperpage}{69}
+\indexentry{\_\discretionary {-}{}{}FullScale@{\_\discretionary {-}{}{}FullScale}!IMU@{IMU}|hyperpage}{69}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}gID@{\_\discretionary {-}{}{}gID}|hyperpage}{69}
+\indexentry{\_\discretionary {-}{}{}gID@{\_\discretionary {-}{}{}gID}!IMU@{IMU}|hyperpage}{69}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}nackCount@{\_\discretionary {-}{}{}nackCount}|hyperpage}{70}
+\indexentry{\_\discretionary {-}{}{}nackCount@{\_\discretionary {-}{}{}nackCount}!IMU@{IMU}|hyperpage}{70}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}numChans@{\_\discretionary {-}{}{}numChans}|hyperpage}{70}
+\indexentry{\_\discretionary {-}{}{}numChans@{\_\discretionary {-}{}{}numChans}!IMU@{IMU}|hyperpage}{70}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}pDBGPort@{\_\discretionary {-}{}{}pDBGPort}|hyperpage}{70}
+\indexentry{\_\discretionary {-}{}{}pDBGPort@{\_\discretionary {-}{}{}pDBGPort}!IMU@{IMU}|hyperpage}{70}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}pDBGPort2@{\_\discretionary {-}{}{}pDBGPort2}|hyperpage}{70}
+\indexentry{\_\discretionary {-}{}{}pDBGPort2@{\_\discretionary {-}{}{}pDBGPort2}!IMU@{IMU}|hyperpage}{70}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}pMas@{\_\discretionary {-}{}{}pMas}|hyperpage}{70}
+\indexentry{\_\discretionary {-}{}{}pMas@{\_\discretionary {-}{}{}pMas}!IMU@{IMU}|hyperpage}{70}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}pNextIMU@{\_\discretionary {-}{}{}pNextIMU}|hyperpage}{70}
+\indexentry{\_\discretionary {-}{}{}pNextIMU@{\_\discretionary {-}{}{}pNextIMU}!IMU@{IMU}|hyperpage}{70}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}previousState@{\_\discretionary {-}{}{}previousState}|hyperpage}{71}
+\indexentry{\_\discretionary {-}{}{}previousState@{\_\discretionary {-}{}{}previousState}!IMU@{IMU}|hyperpage}{71}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}pTimer@{\_\discretionary {-}{}{}pTimer}|hyperpage}{71}
+\indexentry{\_\discretionary {-}{}{}pTimer@{\_\discretionary {-}{}{}pTimer}!IMU@{IMU}|hyperpage}{71}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}Rate@{\_\discretionary {-}{}{}Rate}|hyperpage}{71}
+\indexentry{\_\discretionary {-}{}{}Rate@{\_\discretionary {-}{}{}Rate}!IMU@{IMU}|hyperpage}{71}
+\indexentry{IMU@{IMU}!\_\discretionary {-}{}{}State@{\_\discretionary {-}{}{}State}|hyperpage}{71}
+\indexentry{\_\discretionary {-}{}{}State@{\_\discretionary {-}{}{}State}!IMU@{IMU}|hyperpage}{71}
+\indexentry{IMUBase@{IMUBase}|hyperpage}{71}
+\indexentry{IMUBase@{IMUBase}!BeginRead@{BeginRead}|hyperpage}{72}
+\indexentry{BeginRead@{BeginRead}!IMUBase@{IMUBase}|hyperpage}{72}
+\indexentry{IMUBase@{IMUBase}!Busy@{Busy}|hyperpage}{72}
+\indexentry{Busy@{Busy}!IMUBase@{IMUBase}|hyperpage}{72}
+\indexentry{IMUBase@{IMUBase}!CheckIDs@{CheckIDs}|hyperpage}{72}
+\indexentry{CheckIDs@{CheckIDs}!IMUBase@{IMUBase}|hyperpage}{72}
+\indexentry{IMUBase@{IMUBase}!DataReady@{DataReady}|hyperpage}{73}
+\indexentry{DataReady@{DataReady}!IMUBase@{IMUBase}|hyperpage}{73}
+\indexentry{IMUBase@{IMUBase}!ForceStartStop@{ForceStartStop}|hyperpage}{73}
+\indexentry{ForceStartStop@{ForceStartStop}!IMUBase@{IMUBase}|hyperpage}{73}
+\indexentry{IMUBase@{IMUBase}!GetPacketData@{GetPacketData}|hyperpage}{73}
+\indexentry{GetPacketData@{GetPacketData}!IMUBase@{IMUBase}|hyperpage}{73}
+\indexentry{IMUBase@{IMUBase}!NextIMU@{NextIMU}|hyperpage}{73}
+\indexentry{NextIMU@{NextIMU}!IMUBase@{IMUBase}|hyperpage}{73}
+\indexentry{IMUBase@{IMUBase}!Reset@{Reset}|hyperpage}{73}
+\indexentry{Reset@{Reset}!IMUBase@{IMUBase}|hyperpage}{73}
+\indexentry{IMUBase@{IMUBase}!ResetDevices@{ResetDevices}|hyperpage}{73}
+\indexentry{ResetDevices@{ResetDevices}!IMUBase@{IMUBase}|hyperpage}{73}
+\indexentry{IMUBase@{IMUBase}!ResetTimer@{ResetTimer}|hyperpage}{73}
+\indexentry{ResetTimer@{ResetTimer}!IMUBase@{IMUBase}|hyperpage}{73}
+\indexentry{IMUBase@{IMUBase}!SampleRate@{SampleRate}|hyperpage}{73}
+\indexentry{SampleRate@{SampleRate}!IMUBase@{IMUBase}|hyperpage}{73}
+\indexentry{IMUBase@{IMUBase}!Setup@{Setup}|hyperpage}{74}
+\indexentry{Setup@{Setup}!IMUBase@{IMUBase}|hyperpage}{74}
+\indexentry{IMUBase@{IMUBase}!Start@{Start}|hyperpage}{74}
+\indexentry{Start@{Start}!IMUBase@{IMUBase}|hyperpage}{74}
+\indexentry{IMUBase@{IMUBase}!Stop@{Stop}|hyperpage}{74}
+\indexentry{Stop@{Stop}!IMUBase@{IMUBase}|hyperpage}{74}
+\indexentry{IMUBase@{IMUBase}!UseGyro@{UseGyro}|hyperpage}{74}
+\indexentry{UseGyro@{UseGyro}!IMUBase@{IMUBase}|hyperpage}{74}
+\indexentry{Port@{Port}|hyperpage}{74}
+\indexentry{Port@{Port}!Port@{Port}|hyperpage}{75}
+\indexentry{Port@{Port}!Port@{Port}|hyperpage}{75}
+\indexentry{Port@{Port}!$\sim $Port@{$\sim $Port}|hyperpage}{75}
+\indexentry{$\sim $Port@{$\sim $Port}!Port@{Port}|hyperpage}{75}
+\indexentry{Port@{Port}!GetPins@{GetPins}|hyperpage}{76}
+\indexentry{GetPins@{GetPins}!Port@{Port}|hyperpage}{76}
+\indexentry{Port@{Port}!int0@{int0}|hyperpage}{76}
+\indexentry{int0@{int0}!Port@{Port}|hyperpage}{76}
+\indexentry{Port@{Port}!int1@{int1}|hyperpage}{76}
+\indexentry{int1@{int1}!Port@{Port}|hyperpage}{76}
+\indexentry{Port@{Port}!InterruptLevel@{InterruptLevel}|hyperpage}{76}
+\indexentry{InterruptLevel@{InterruptLevel}!Port@{Port}|hyperpage}{76}
+\indexentry{Port@{Port}!InterruptMask@{InterruptMask}|hyperpage}{77}
+\indexentry{InterruptMask@{InterruptMask}!Port@{Port}|hyperpage}{77}
+\indexentry{Port@{Port}!Notify@{Notify}|hyperpage}{77}
+\indexentry{Notify@{Notify}!Port@{Port}|hyperpage}{77}
+\indexentry{Port@{Port}!PinControl@{PinControl}|hyperpage}{77}
+\indexentry{PinControl@{PinControl}!Port@{Port}|hyperpage}{77}
+\indexentry{Port@{Port}!SetDir@{SetDir}|hyperpage}{78}
+\indexentry{SetDir@{SetDir}!Port@{Port}|hyperpage}{78}
+\indexentry{Port@{Port}!SetPinsAsInput@{SetPinsAsInput}|hyperpage}{78}
+\indexentry{SetPinsAsInput@{SetPinsAsInput}!Port@{Port}|hyperpage}{78}
+\indexentry{Port@{Port}!SetPinsAsOutput@{SetPinsAsOutput}|hyperpage}{78}
+\indexentry{SetPinsAsOutput@{SetPinsAsOutput}!Port@{Port}|hyperpage}{78}
+\indexentry{Port@{Port}!SetPinsHigh@{SetPinsHigh}|hyperpage}{79}
+\indexentry{SetPinsHigh@{SetPinsHigh}!Port@{Port}|hyperpage}{79}
+\indexentry{Port@{Port}!SetPinsLow@{SetPinsLow}|hyperpage}{79}
+\indexentry{SetPinsLow@{SetPinsLow}!Port@{Port}|hyperpage}{79}
+\indexentry{Port@{Port}!\_\discretionary {-}{}{}pNotifyClient@{\_\discretionary {-}{}{}pNotifyClient}|hyperpage}{79}
+\indexentry{\_\discretionary {-}{}{}pNotifyClient@{\_\discretionary {-}{}{}pNotifyClient}!Port@{Port}|hyperpage}{79}
+\indexentry{Port@{Port}!\_\discretionary {-}{}{}pNotifyID@{\_\discretionary {-}{}{}pNotifyID}|hyperpage}{79}
+\indexentry{\_\discretionary {-}{}{}pNotifyID@{\_\discretionary {-}{}{}pNotifyID}!Port@{Port}|hyperpage}{79}
+\indexentry{Port@{Port}!\_\discretionary {-}{}{}pPort@{\_\discretionary {-}{}{}pPort}|hyperpage}{79}
+\indexentry{\_\discretionary {-}{}{}pPort@{\_\discretionary {-}{}{}pPort}!Port@{Port}|hyperpage}{79}
+\indexentry{PortNotify@{PortNotify}|hyperpage}{80}
+\indexentry{PortNotify@{PortNotify}!PortISR0@{PortISR0}|hyperpage}{80}
+\indexentry{PortISR0@{PortISR0}!PortNotify@{PortNotify}|hyperpage}{80}
+\indexentry{PortNotify@{PortNotify}!PortISR1@{PortISR1}|hyperpage}{80}
+\indexentry{PortISR1@{PortISR1}!PortNotify@{PortNotify}|hyperpage}{80}
+\indexentry{Print@{Print}|hyperpage}{81}
+\indexentry{Print@{Print}!print@{print}|hyperpage}{82}
+\indexentry{print@{print}!Print@{Print}|hyperpage}{82}
+\indexentry{Print@{Print}!print@{print}|hyperpage}{82}
+\indexentry{print@{print}!Print@{Print}|hyperpage}{82}
+\indexentry{Print@{Print}!print@{print}|hyperpage}{82}
+\indexentry{print@{print}!Print@{Print}|hyperpage}{82}
+\indexentry{Print@{Print}!print@{print}|hyperpage}{82}
+\indexentry{print@{print}!Print@{Print}|hyperpage}{82}
+\indexentry{Print@{Print}!print@{print}|hyperpage}{82}
+\indexentry{print@{print}!Print@{Print}|hyperpage}{82}
+\indexentry{Print@{Print}!print@{print}|hyperpage}{83}
+\indexentry{print@{print}!Print@{Print}|hyperpage}{83}
+\indexentry{Print@{Print}!print@{print}|hyperpage}{83}
+\indexentry{print@{print}!Print@{Print}|hyperpage}{83}
+\indexentry{Print@{Print}!print@{print}|hyperpage}{83}
+\indexentry{print@{print}!Print@{Print}|hyperpage}{83}
+\indexentry{Print@{Print}!printFloat@{printFloat}|hyperpage}{84}
+\indexentry{printFloat@{printFloat}!Print@{Print}|hyperpage}{84}
+\indexentry{Print@{Print}!println@{println}|hyperpage}{84}
+\indexentry{println@{println}!Print@{Print}|hyperpage}{84}
+\indexentry{Print@{Print}!println@{println}|hyperpage}{85}
+\indexentry{println@{println}!Print@{Print}|hyperpage}{85}
+\indexentry{Print@{Print}!println@{println}|hyperpage}{85}
+\indexentry{println@{println}!Print@{Print}|hyperpage}{85}
+\indexentry{Print@{Print}!println@{println}|hyperpage}{85}
+\indexentry{println@{println}!Print@{Print}|hyperpage}{85}
+\indexentry{Print@{Print}!println@{println}|hyperpage}{85}
+\indexentry{println@{println}!Print@{Print}|hyperpage}{85}
+\indexentry{Print@{Print}!println@{println}|hyperpage}{86}
+\indexentry{println@{println}!Print@{Print}|hyperpage}{86}
+\indexentry{Print@{Print}!println@{println}|hyperpage}{86}
+\indexentry{println@{println}!Print@{Print}|hyperpage}{86}
+\indexentry{Print@{Print}!println@{println}|hyperpage}{86}
+\indexentry{println@{println}!Print@{Print}|hyperpage}{86}
+\indexentry{Print@{Print}!println@{println}|hyperpage}{86}
+\indexentry{println@{println}!Print@{Print}|hyperpage}{86}
+\indexentry{Print@{Print}!printNumber@{printNumber}|hyperpage}{87}
+\indexentry{printNumber@{printNumber}!Print@{Print}|hyperpage}{87}
+\indexentry{Print@{Print}!write@{write}|hyperpage}{87}
+\indexentry{write@{write}!Print@{Print}|hyperpage}{87}
+\indexentry{Print@{Print}!write@{write}|hyperpage}{87}
+\indexentry{write@{write}!Print@{Print}|hyperpage}{87}
+\indexentry{Print@{Print}!write@{write}|hyperpage}{87}
+\indexentry{write@{write}!Print@{Print}|hyperpage}{87}
+\indexentry{IMU::regWrite@{IMU::regWrite}|hyperpage}{88}
+\indexentry{IMU::regWrite@{IMU::regWrite}!Addr@{Addr}|hyperpage}{88}
+\indexentry{Addr@{Addr}!IMU::regWrite@{IMU::regWrite}|hyperpage}{88}
+\indexentry{IMU::regWrite@{IMU::regWrite}!Data@{Data}|hyperpage}{88}
+\indexentry{Data@{Data}!IMU::regWrite@{IMU::regWrite}|hyperpage}{88}
+\indexentry{IMU::regWrite@{IMU::regWrite}!ID@{ID}|hyperpage}{88}
+\indexentry{ID@{ID}!IMU::regWrite@{IMU::regWrite}|hyperpage}{88}
+\indexentry{ring\_\discretionary {-}{}{}buffer@{ring\_\discretionary {-}{}{}buffer}|hyperpage}{89}
+\indexentry{ring\_\discretionary {-}{}{}buffer@{ring\_\discretionary {-}{}{}buffer}!buffer@{buffer}|hyperpage}{89}
+\indexentry{buffer@{buffer}!ring_buffer@{ring\_\discretionary {-}{}{}buffer}|hyperpage}{89}
+\indexentry{ring\_\discretionary {-}{}{}buffer@{ring\_\discretionary {-}{}{}buffer}!head@{head}|hyperpage}{89}
+\indexentry{head@{head}!ring_buffer@{ring\_\discretionary {-}{}{}buffer}|hyperpage}{89}
+\indexentry{ring\_\discretionary {-}{}{}buffer@{ring\_\discretionary {-}{}{}buffer}!tail@{tail}|hyperpage}{89}
+\indexentry{tail@{tail}!ring_buffer@{ring\_\discretionary {-}{}{}buffer}|hyperpage}{89}
+\indexentry{TimerCntr@{TimerCntr}|hyperpage}{90}
+\indexentry{TimerCntr@{TimerCntr}!TimerCntr@{TimerCntr}|hyperpage}{91}
+\indexentry{TimerCntr@{TimerCntr}!TimerCntr@{TimerCntr}|hyperpage}{91}
+\indexentry{TimerCntr@{TimerCntr}!TimerCntr@{TimerCntr}|hyperpage}{91}
+\indexentry{TimerCntr@{TimerCntr}!TimerCntr@{TimerCntr}|hyperpage}{91}
+\indexentry{TimerCntr@{TimerCntr}!$\sim $TimerCntr@{$\sim $TimerCntr}|hyperpage}{91}
+\indexentry{$\sim $TimerCntr@{$\sim $TimerCntr}!TimerCntr@{TimerCntr}|hyperpage}{91}
+\indexentry{TimerCntr@{TimerCntr}!CCEnable@{CCEnable}|hyperpage}{92}
+\indexentry{CCEnable@{CCEnable}!TimerCntr@{TimerCntr}|hyperpage}{92}
+\indexentry{TimerCntr@{TimerCntr}!CCReg@{CCReg}|hyperpage}{92}
+\indexentry{CCReg@{CCReg}!TimerCntr@{TimerCntr}|hyperpage}{92}
+\indexentry{TimerCntr@{TimerCntr}!CCReg@{CCReg}|hyperpage}{92}
+\indexentry{CCReg@{CCReg}!TimerCntr@{TimerCntr}|hyperpage}{92}
+\indexentry{TimerCntr@{TimerCntr}!ccx@{ccx}|hyperpage}{93}
+\indexentry{ccx@{ccx}!TimerCntr@{TimerCntr}|hyperpage}{93}
+\indexentry{TimerCntr@{TimerCntr}!ClkSel@{ClkSel}|hyperpage}{93}
+\indexentry{ClkSel@{ClkSel}!TimerCntr@{TimerCntr}|hyperpage}{93}
+\indexentry{TimerCntr@{TimerCntr}!Counter@{Counter}|hyperpage}{93}
+\indexentry{Counter@{Counter}!TimerCntr@{TimerCntr}|hyperpage}{93}
+\indexentry{TimerCntr@{TimerCntr}!Counter@{Counter}|hyperpage}{93}
+\indexentry{Counter@{Counter}!TimerCntr@{TimerCntr}|hyperpage}{93}
+\indexentry{TimerCntr@{TimerCntr}!err@{err}|hyperpage}{94}
+\indexentry{err@{err}!TimerCntr@{TimerCntr}|hyperpage}{94}
+\indexentry{TimerCntr@{TimerCntr}!EventSetup@{EventSetup}|hyperpage}{94}
+\indexentry{EventSetup@{EventSetup}!TimerCntr@{TimerCntr}|hyperpage}{94}
+\indexentry{TimerCntr@{TimerCntr}!IntLvlA@{IntLvlA}|hyperpage}{94}
+\indexentry{IntLvlA@{IntLvlA}!TimerCntr@{TimerCntr}|hyperpage}{94}
+\indexentry{TimerCntr@{TimerCntr}!IntLvlB@{IntLvlB}|hyperpage}{94}
+\indexentry{IntLvlB@{IntLvlB}!TimerCntr@{TimerCntr}|hyperpage}{94}
+\indexentry{TimerCntr@{TimerCntr}!Notify@{Notify}|hyperpage}{95}
+\indexentry{Notify@{Notify}!TimerCntr@{TimerCntr}|hyperpage}{95}
+\indexentry{TimerCntr@{TimerCntr}!ovf@{ovf}|hyperpage}{95}
+\indexentry{ovf@{ovf}!TimerCntr@{TimerCntr}|hyperpage}{95}
+\indexentry{TimerCntr@{TimerCntr}!Period@{Period}|hyperpage}{95}
+\indexentry{Period@{Period}!TimerCntr@{TimerCntr}|hyperpage}{95}
+\indexentry{TimerCntr@{TimerCntr}!Period@{Period}|hyperpage}{95}
+\indexentry{Period@{Period}!TimerCntr@{TimerCntr}|hyperpage}{95}
+\indexentry{TimerCntr@{TimerCntr}!SetRate@{SetRate}|hyperpage}{96}
+\indexentry{SetRate@{SetRate}!TimerCntr@{TimerCntr}|hyperpage}{96}
+\indexentry{TimerCntr@{TimerCntr}!WaveformGenMode@{WaveformGenMode}|hyperpage}{96}
+\indexentry{WaveformGenMode@{WaveformGenMode}!TimerCntr@{TimerCntr}|hyperpage}{96}
+\indexentry{TimerCntr@{TimerCntr}!\_\discretionary {-}{}{}bTC1@{\_\discretionary {-}{}{}bTC1}|hyperpage}{96}
+\indexentry{\_\discretionary {-}{}{}bTC1@{\_\discretionary {-}{}{}bTC1}!TimerCntr@{TimerCntr}|hyperpage}{96}
+\indexentry{TimerCntr@{TimerCntr}!\_\discretionary {-}{}{}pNotifyClient@{\_\discretionary {-}{}{}pNotifyClient}|hyperpage}{96}
+\indexentry{\_\discretionary {-}{}{}pNotifyClient@{\_\discretionary {-}{}{}pNotifyClient}!TimerCntr@{TimerCntr}|hyperpage}{96}
+\indexentry{TimerCntr@{TimerCntr}!\_\discretionary {-}{}{}pNotifyClientID@{\_\discretionary {-}{}{}pNotifyClientID}|hyperpage}{96}
+\indexentry{\_\discretionary {-}{}{}pNotifyClientID@{\_\discretionary {-}{}{}pNotifyClientID}!TimerCntr@{TimerCntr}|hyperpage}{96}
+\indexentry{TimerCntr@{TimerCntr}!\_\discretionary {-}{}{}pTC@{\_\discretionary {-}{}{}pTC}|hyperpage}{97}
+\indexentry{\_\discretionary {-}{}{}pTC@{\_\discretionary {-}{}{}pTC}!TimerCntr@{TimerCntr}|hyperpage}{97}
+\indexentry{TimerNotify@{TimerNotify}|hyperpage}{97}
+\indexentry{TimerNotify@{TimerNotify}!ccx@{ccx}|hyperpage}{98}
+\indexentry{ccx@{ccx}!TimerNotify@{TimerNotify}|hyperpage}{98}
+\indexentry{TimerNotify@{TimerNotify}!err@{err}|hyperpage}{98}
+\indexentry{err@{err}!TimerNotify@{TimerNotify}|hyperpage}{98}
+\indexentry{TimerNotify@{TimerNotify}!ovf@{ovf}|hyperpage}{98}
+\indexentry{ovf@{ovf}!TimerNotify@{TimerNotify}|hyperpage}{98}
+\indexentry{clksystem.cpp@{clksystem.cpp}|hyperpage}{98}
+\indexentry{clksystem.cpp@{clksystem.cpp}!AVR\_\discretionary {-}{}{}ENTER\_\discretionary {-}{}{}CRITICAL\_\discretionary {-}{}{}REGION@{AVR\_\discretionary {-}{}{}ENTER\_\discretionary {-}{}{}CRITICAL\_\discretionary {-}{}{}REGION}|hyperpage}{99}
+\indexentry{AVR\_\discretionary {-}{}{}ENTER\_\discretionary {-}{}{}CRITICAL\_\discretionary {-}{}{}REGION@{AVR\_\discretionary {-}{}{}ENTER\_\discretionary {-}{}{}CRITICAL\_\discretionary {-}{}{}REGION}!clksystem.cpp@{clksystem.cpp}|hyperpage}{99}
+\indexentry{clksystem.cpp@{clksystem.cpp}!AVR\_\discretionary {-}{}{}LEAVE\_\discretionary {-}{}{}CRITICAL\_\discretionary {-}{}{}REGION@{AVR\_\discretionary {-}{}{}LEAVE\_\discretionary {-}{}{}CRITICAL\_\discretionary {-}{}{}REGION}|hyperpage}{99}
+\indexentry{AVR\_\discretionary {-}{}{}LEAVE\_\discretionary {-}{}{}CRITICAL\_\discretionary {-}{}{}REGION@{AVR\_\discretionary {-}{}{}LEAVE\_\discretionary {-}{}{}CRITICAL\_\discretionary {-}{}{}REGION}!clksystem.cpp@{clksystem.cpp}|hyperpage}{99}
+\indexentry{clksystem.cpp@{clksystem.cpp}!CCPWrite@{CCPWrite}|hyperpage}{99}
+\indexentry{CCPWrite@{CCPWrite}!clksystem.cpp@{clksystem.cpp}|hyperpage}{99}
+\indexentry{clksystem.cpp@{clksystem.cpp}!clksystem\_\discretionary {-}{}{}init@{clksystem\_\discretionary {-}{}{}init}|hyperpage}{100}
+\indexentry{clksystem\_\discretionary {-}{}{}init@{clksystem\_\discretionary {-}{}{}init}!clksystem.cpp@{clksystem.cpp}|hyperpage}{100}
+\indexentry{clksystem.h@{clksystem.h}|hyperpage}{103}
+\indexentry{clksystem.h@{clksystem.h}!clksystem\_\discretionary {-}{}{}init@{clksystem\_\discretionary {-}{}{}init}|hyperpage}{103}
+\indexentry{clksystem\_\discretionary {-}{}{}init@{clksystem\_\discretionary {-}{}{}init}!clksystem.h@{clksystem.h}|hyperpage}{103}
+\indexentry{CmdProcessor.cpp@{CmdProcessor.cpp}|hyperpage}{104}
+\indexentry{CmdProcessor.h@{CmdProcessor.h}|hyperpage}{107}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.cpp@{cpp\_\discretionary {-}{}{}hacks.cpp}|hyperpage}{108}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.cpp@{cpp\_\discretionary {-}{}{}hacks.cpp}!\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}abort@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}abort}|hyperpage}{108}
+\indexentry{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}abort@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}abort}!cpp_hacks.cpp@{cpp\_\discretionary {-}{}{}hacks.cpp}|hyperpage}{108}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.cpp@{cpp\_\discretionary {-}{}{}hacks.cpp}!\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}acquire@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}acquire}|hyperpage}{108}
+\indexentry{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}acquire@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}acquire}!cpp_hacks.cpp@{cpp\_\discretionary {-}{}{}hacks.cpp}|hyperpage}{108}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.cpp@{cpp\_\discretionary {-}{}{}hacks.cpp}!\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}release@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}release}|hyperpage}{108}
+\indexentry{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}release@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}release}!cpp_hacks.cpp@{cpp\_\discretionary {-}{}{}hacks.cpp}|hyperpage}{108}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.cpp@{cpp\_\discretionary {-}{}{}hacks.cpp}!\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}pure\_\discretionary {-}{}{}virtual@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}pure\_\discretionary {-}{}{}virtual}|hyperpage}{108}
+\indexentry{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}pure\_\discretionary {-}{}{}virtual@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}pure\_\discretionary {-}{}{}virtual}!cpp_hacks.cpp@{cpp\_\discretionary {-}{}{}hacks.cpp}|hyperpage}{108}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}|hyperpage}{109}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}!\_\discretionary {-}{}{}\_\discretionary {-}{}{}attribute\_\discretionary {-}{}{}\_\discretionary {-}{}{}@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}attribute\_\discretionary {-}{}{}\_\discretionary {-}{}{}}|hyperpage}{109}
+\indexentry{\_\discretionary {-}{}{}\_\discretionary {-}{}{}attribute\_\discretionary {-}{}{}\_\discretionary {-}{}{}@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}attribute\_\discretionary {-}{}{}\_\discretionary {-}{}{}}!cpp_hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}|hyperpage}{109}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}!\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}abort@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}abort}|hyperpage}{109}
+\indexentry{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}abort@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}abort}!cpp_hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}|hyperpage}{109}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}!\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}acquire@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}acquire}|hyperpage}{109}
+\indexentry{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}acquire@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}acquire}!cpp_hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}|hyperpage}{109}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}!\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}release@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}release}|hyperpage}{110}
+\indexentry{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}release@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}guard\_\discretionary {-}{}{}release}!cpp_hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}|hyperpage}{110}
+\indexentry{cpp\_\discretionary {-}{}{}hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}!\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}pure\_\discretionary {-}{}{}virtual@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}pure\_\discretionary {-}{}{}virtual}|hyperpage}{110}
+\indexentry{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}pure\_\discretionary {-}{}{}virtual@{\_\discretionary {-}{}{}\_\discretionary {-}{}{}cxa\_\discretionary {-}{}{}pure\_\discretionary {-}{}{}virtual}!cpp_hacks.h@{cpp\_\discretionary {-}{}{}hacks.h}|hyperpage}{110}
+\indexentry{Documentation.html@{Documentation.html}|hyperpage}{110}
+\indexentry{fifo.cpp@{fifo.cpp}|hyperpage}{110}
+\indexentry{fifo.cpp@{fifo.cpp}!FifoTest@{FifoTest}|hyperpage}{111}
+\indexentry{FifoTest@{FifoTest}!fifo.cpp@{fifo.cpp}|hyperpage}{111}
+\indexentry{fifo.h@{fifo.h}|hyperpage}{113}
+\indexentry{fifo.h@{fifo.h}!FifoTest@{FifoTest}|hyperpage}{113}
+\indexentry{FifoTest@{FifoTest}!fifo.h@{fifo.h}|hyperpage}{113}
+\indexentry{GyroAcc.cpp@{GyroAcc.cpp}|hyperpage}{115}
+\indexentry{GyroAcc.cpp@{GyroAcc.cpp}!init@{init}|hyperpage}{116}
+\indexentry{init@{init}!GyroAcc.cpp@{GyroAcc.cpp}|hyperpage}{116}
+\indexentry{GyroAcc.cpp@{GyroAcc.cpp}!main@{main}|hyperpage}{116}
+\indexentry{main@{main}!GyroAcc.cpp@{GyroAcc.cpp}|hyperpage}{116}
+\indexentry{GyroAcc.cpp@{GyroAcc.cpp}!processCmd@{processCmd}|hyperpage}{118}
+\indexentry{processCmd@{processCmd}!GyroAcc.cpp@{GyroAcc.cpp}|hyperpage}{118}
+\indexentry{GyroAcc.cpp@{GyroAcc.cpp}!timer\_\discretionary {-}{}{}init@{timer\_\discretionary {-}{}{}init}|hyperpage}{118}
+\indexentry{timer\_\discretionary {-}{}{}init@{timer\_\discretionary {-}{}{}init}!GyroAcc.cpp@{GyroAcc.cpp}|hyperpage}{118}
+\indexentry{GyroAcc.cpp@{GyroAcc.cpp}!pdbgport@{pdbgport}|hyperpage}{118}
+\indexentry{pdbgport@{pdbgport}!GyroAcc.cpp@{GyroAcc.cpp}|hyperpage}{118}
+\indexentry{GyroAcc.cpp@{GyroAcc.cpp}!pdbgserial@{pdbgserial}|hyperpage}{118}
+\indexentry{pdbgserial@{pdbgserial}!GyroAcc.cpp@{GyroAcc.cpp}|hyperpage}{118}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{121}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!RX\_\discretionary {-}{}{}BUFFER\_\discretionary {-}{}{}SIZE@{RX\_\discretionary {-}{}{}BUFFER\_\discretionary {-}{}{}SIZE}|hyperpage}{122}
+\indexentry{RX\_\discretionary {-}{}{}BUFFER\_\discretionary {-}{}{}SIZE@{RX\_\discretionary {-}{}{}BUFFER\_\discretionary {-}{}{}SIZE}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{122}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{122}
+\indexentry{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{122}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{122}
+\indexentry{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{122}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{122}
+\indexentry{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{122}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{123}
+\indexentry{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{123}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{123}
+\indexentry{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{123}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{123}
+\indexentry{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{123}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{123}
+\indexentry{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{123}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{123}
+\indexentry{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{SERIAL\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{123}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!SetPointer@{SetPointer}|hyperpage}{123}
+\indexentry{SetPointer@{SetPointer}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{123}
+\indexentry{HardwareSerial.cpp@{HardwareSerial.cpp}!store\_\discretionary {-}{}{}char@{store\_\discretionary {-}{}{}char}|hyperpage}{124}
+\indexentry{store\_\discretionary {-}{}{}char@{store\_\discretionary {-}{}{}char}!HardwareSerial.cpp@{HardwareSerial.cpp}|hyperpage}{124}
+\indexentry{HardwareSerial.h@{HardwareSerial.h}|hyperpage}{128}
+\indexentry{I2C\_\discretionary {-}{}{}Master.h@{I2C\_\discretionary {-}{}{}Master.h}|hyperpage}{129}
+\indexentry{IMU.cpp@{IMU.cpp}|hyperpage}{132}
+\indexentry{IMU.cpp@{IMU.cpp}!buffer@{buffer}|hyperpage}{133}
+\indexentry{buffer@{buffer}!IMU.cpp@{IMU.cpp}|hyperpage}{133}
+\indexentry{IMU.cpp@{IMU.cpp}!pdbgserial@{pdbgserial}|hyperpage}{133}
+\indexentry{pdbgserial@{pdbgserial}!IMU.cpp@{IMU.cpp}|hyperpage}{133}
+\indexentry{IMU.h@{IMU.h}|hyperpage}{145}
+\indexentry{IMUManager.cpp@{IMUManager.cpp}|hyperpage}{149}
+\indexentry{IMUManager.cpp@{IMUManager.cpp}!ALL\_\discretionary {-}{}{}IMU@{ALL\_\discretionary {-}{}{}IMU}|hyperpage}{150}
+\indexentry{ALL\_\discretionary {-}{}{}IMU@{ALL\_\discretionary {-}{}{}IMU}!IMUManager.cpp@{IMUManager.cpp}|hyperpage}{150}
+\indexentry{IMUManager.cpp@{IMUManager.cpp}!ALL\_\discretionary {-}{}{}IMUBOOL@{ALL\_\discretionary {-}{}{}IMUBOOL}|hyperpage}{150}
+\indexentry{ALL\_\discretionary {-}{}{}IMUBOOL@{ALL\_\discretionary {-}{}{}IMUBOOL}!IMUManager.cpp@{IMUManager.cpp}|hyperpage}{150}
+\indexentry{IMUManager.cpp@{IMUManager.cpp}!ALL\_\discretionary {-}{}{}IMUP@{ALL\_\discretionary {-}{}{}IMUP}|hyperpage}{150}
+\indexentry{ALL\_\discretionary {-}{}{}IMUP@{ALL\_\discretionary {-}{}{}IMUP}!IMUManager.cpp@{IMUManager.cpp}|hyperpage}{150}
+\indexentry{IMUManager.cpp@{IMUManager.cpp}!ALL\_\discretionary {-}{}{}IMURET@{ALL\_\discretionary {-}{}{}IMURET}|hyperpage}{151}
+\indexentry{ALL\_\discretionary {-}{}{}IMURET@{ALL\_\discretionary {-}{}{}IMURET}!IMUManager.cpp@{IMUManager.cpp}|hyperpage}{151}
+\indexentry{IMUManager.cpp@{IMUManager.cpp}!buffer@{buffer}|hyperpage}{151}
+\indexentry{buffer@{buffer}!IMUManager.cpp@{IMUManager.cpp}|hyperpage}{151}
+\indexentry{IMUManager.cpp@{IMUManager.cpp}!pdbgserial@{pdbgserial}|hyperpage}{151}
+\indexentry{pdbgserial@{pdbgserial}!IMUManager.cpp@{IMUManager.cpp}|hyperpage}{151}
+\indexentry{NewDel.cpp@{NewDel.cpp}|hyperpage}{159}
+\indexentry{NewDel.cpp@{NewDel.cpp}!operator delete@{operator delete}|hyperpage}{159}
+\indexentry{operator delete@{operator delete}!NewDel.cpp@{NewDel.cpp}|hyperpage}{159}
+\indexentry{NewDel.cpp@{NewDel.cpp}!operator delete\unhbox \voidb@x \hbox {[}\unhbox \voidb@x \hbox {]}@{operator delete[]}|hyperpage}{159}
+\indexentry{operator delete\unhbox \voidb@x \hbox {[}\unhbox \voidb@x \hbox {]}@{operator delete[]}!NewDel.cpp@{NewDel.cpp}|hyperpage}{159}
+\indexentry{NewDel.cpp@{NewDel.cpp}!operator new@{operator new}|hyperpage}{159}
+\indexentry{operator new@{operator new}!NewDel.cpp@{NewDel.cpp}|hyperpage}{159}
+\indexentry{NewDel.cpp@{NewDel.cpp}!operator new\unhbox \voidb@x \hbox {[}\unhbox \voidb@x \hbox {]}@{operator new[]}|hyperpage}{159}
+\indexentry{operator new\unhbox \voidb@x \hbox {[}\unhbox \voidb@x \hbox {]}@{operator new[]}!NewDel.cpp@{NewDel.cpp}|hyperpage}{159}
+\indexentry{NewDel.h@{NewDel.h}|hyperpage}{160}
+\indexentry{NewDel.h@{NewDel.h}!operator delete@{operator delete}|hyperpage}{160}
+\indexentry{operator delete@{operator delete}!NewDel.h@{NewDel.h}|hyperpage}{160}
+\indexentry{NewDel.h@{NewDel.h}!operator new@{operator new}|hyperpage}{161}
+\indexentry{operator new@{operator new}!NewDel.h@{NewDel.h}|hyperpage}{161}
+\indexentry{Port.cpp@{Port.cpp}|hyperpage}{161}
+\indexentry{Port.cpp@{Port.cpp}!PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{162}
+\indexentry{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!Port.cpp@{Port.cpp}|hyperpage}{162}
+\indexentry{Port.cpp@{Port.cpp}!PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{162}
+\indexentry{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!Port.cpp@{Port.cpp}|hyperpage}{162}
+\indexentry{Port.cpp@{Port.cpp}!PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{162}
+\indexentry{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!Port.cpp@{Port.cpp}|hyperpage}{162}
+\indexentry{Port.cpp@{Port.cpp}!PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{162}
+\indexentry{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!Port.cpp@{Port.cpp}|hyperpage}{162}
+\indexentry{Port.cpp@{Port.cpp}!PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{162}
+\indexentry{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!Port.cpp@{Port.cpp}|hyperpage}{162}
+\indexentry{Port.cpp@{Port.cpp}!PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{162}
+\indexentry{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!Port.cpp@{Port.cpp}|hyperpage}{162}
+\indexentry{Port.cpp@{Port.cpp}!PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{162}
+\indexentry{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{PORT\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!Port.cpp@{Port.cpp}|hyperpage}{162}
+\indexentry{Port.cpp@{Port.cpp}!SetPointer@{SetPointer}|hyperpage}{162}
+\indexentry{SetPointer@{SetPointer}!Port.cpp@{Port.cpp}|hyperpage}{162}
+\indexentry{Port.cpp@{Port.cpp}!pdbgserial@{pdbgserial}|hyperpage}{163}
+\indexentry{pdbgserial@{pdbgserial}!Port.cpp@{Port.cpp}|hyperpage}{163}
+\indexentry{Port.h@{Port.h}|hyperpage}{166}
+\indexentry{Print.cpp@{Print.cpp}|hyperpage}{167}
+\indexentry{Print.h@{Print.h}|hyperpage}{170}
+\indexentry{Print.h@{Print.h}!BIN@{BIN}|hyperpage}{171}
+\indexentry{BIN@{BIN}!Print.h@{Print.h}|hyperpage}{171}
+\indexentry{Print.h@{Print.h}!BYTE@{BYTE}|hyperpage}{171}
+\indexentry{BYTE@{BYTE}!Print.h@{Print.h}|hyperpage}{171}
+\indexentry{Print.h@{Print.h}!DEC@{DEC}|hyperpage}{171}
+\indexentry{DEC@{DEC}!Print.h@{Print.h}|hyperpage}{171}
+\indexentry{Print.h@{Print.h}!HEX@{HEX}|hyperpage}{171}
+\indexentry{HEX@{HEX}!Print.h@{Print.h}|hyperpage}{171}
+\indexentry{Print.h@{Print.h}!OCT@{OCT}|hyperpage}{171}
+\indexentry{OCT@{OCT}!Print.h@{Print.h}|hyperpage}{171}
+\indexentry{TimerCntr.cpp@{TimerCntr.cpp}|hyperpage}{173}
+\indexentry{TimerCntr.cpp@{TimerCntr.cpp}!TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{173}
+\indexentry{TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!TimerCntr.cpp@{TimerCntr.cpp}|hyperpage}{173}
+\indexentry{TimerCntr.cpp@{TimerCntr.cpp}!TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{174}
+\indexentry{TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!TimerCntr.cpp@{TimerCntr.cpp}|hyperpage}{174}
+\indexentry{TimerCntr.cpp@{TimerCntr.cpp}!SetPointer@{SetPointer}|hyperpage}{174}
+\indexentry{SetPointer@{SetPointer}!TimerCntr.cpp@{TimerCntr.cpp}|hyperpage}{174}
+\indexentry{TimerCntr.cpp@{TimerCntr.cpp}!SetPointer@{SetPointer}|hyperpage}{174}
+\indexentry{SetPointer@{SetPointer}!TimerCntr.cpp@{TimerCntr.cpp}|hyperpage}{174}
+\indexentry{TimerCntr.cpp@{TimerCntr.cpp}!TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{175}
+\indexentry{TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!TimerCntr.cpp@{TimerCntr.cpp}|hyperpage}{175}
+\indexentry{TimerCntr.cpp@{TimerCntr.cpp}!TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{175}
+\indexentry{TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC0\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!TimerCntr.cpp@{TimerCntr.cpp}|hyperpage}{175}
+\indexentry{TimerCntr.cpp@{TimerCntr.cpp}!TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{175}
+\indexentry{TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!TimerCntr.cpp@{TimerCntr.cpp}|hyperpage}{175}
+\indexentry{TimerCntr.cpp@{TimerCntr.cpp}!TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}|hyperpage}{175}
+\indexentry{TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF@{TC1\_\discretionary {-}{}{}ISR\_\discretionary {-}{}{}DEF}!TimerCntr.cpp@{TimerCntr.cpp}|hyperpage}{175}
+\indexentry{TimerCntr.h@{TimerCntr.h}|hyperpage}{180}

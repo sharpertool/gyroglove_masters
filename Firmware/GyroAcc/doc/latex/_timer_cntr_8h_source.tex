@@ -1,0 +1,69 @@
+\hypertarget{_timer_cntr_8h_source}{
+\subsection{TimerCntr.h}
+}
+
+\begin{DoxyCode}
+00001 
+00002 \textcolor{preprocessor}{#ifndef TimerCntr\_h}
+00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TimerCntr\_h}
+00004 \textcolor{preprocessor}{}
+\hypertarget{_timer_cntr_8h_source_l00005}{}\hyperlink{class_timer_notify}{00005} \textcolor{keyword}{class }\hyperlink{class_timer_notify}{TimerNotify}
+00006 \{
+00007 \textcolor{keyword}{public}:
+00008     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_timer_notify_a1b1d07d14c480883b6cda4d28b281978}{err}(uint8\_t \textcolor{keywordtype}{id}) = 0;
+00009     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_timer_notify_a12081e2ac25688544b6f0c3de4bd412d}{ovf}(uint8\_t \textcolor{keywordtype}{id}) = 0;
+00010     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_timer_notify_a2525b96a5e3ed4c4a039b296701f2b7e}{ccx}(uint8\_t \textcolor{keywordtype}{id},uint8\_t idx) = 0;
+00011 \};
+00012 
+\hypertarget{_timer_cntr_8h_source_l00013}{}\hyperlink{class_timer_cntr}{00013} \textcolor{keyword}{class }\hyperlink{class_timer_cntr}{TimerCntr}
+00014 \{
+00015     \textcolor{comment}{// Since TC0 is a super-set, use this for the }
+00016     \textcolor{comment}{// default, but then we will override this in the}
+00017     \textcolor{comment}{// concrete classes.}
+\hypertarget{_timer_cntr_8h_source_l00018}{}\hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{00018}     TC0\_t*          \hyperlink{class_timer_cntr_ae29c58d2e9059e5b3cff07a26dcc5b91}{_pTC};
+\hypertarget{_timer_cntr_8h_source_l00019}{}\hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{00019}     \textcolor{keywordtype}{bool}            \hyperlink{class_timer_cntr_a568c634a1b85c88206408c5108500c7b}{_bTC1};
+\hypertarget{_timer_cntr_8h_source_l00020}{}\hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{00020}     \hyperlink{class_timer_notify}{TimerNotify}*    \hyperlink{class_timer_cntr_ab0667571f2dab6ca9f759d9b2c8ce59f}{_pNotifyClient};
+\hypertarget{_timer_cntr_8h_source_l00021}{}\hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{00021}     uint8\_t         \hyperlink{class_timer_cntr_a98b954b9492a11842e511fa21d0131cc}{_pNotifyClientID};
+00022     
+00023 \textcolor{keyword}{public}:
+00024     
+00025     \hyperlink{class_timer_cntr_ad03f5cb857585c26d62eee0667a3c37c}{TimerCntr}(TC0\_t* pTC);
+00026     \hyperlink{class_timer_cntr_ad03f5cb857585c26d62eee0667a3c37c}{TimerCntr}(TC1\_t* pTC);
+00027     \hyperlink{class_timer_cntr_a5b19cb68e0fc19361854553031161544}{~TimerCntr}();
+00028     
+00029     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a71bf73ee43e8d344d1241695b553556b}{Notify}(\hyperlink{class_timer_notify}{TimerNotify}* pClient, uint8\_t \textcolor{keywordtype}{id});
+00030     
+00031     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_ac2a4b19dfdb9f873075f405f242df698}{ovf}();
+00032     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a98d639cbcb4ed28a75309870ae891d58}{err}();
+00033     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a1966661facfcb11382471a214191d3f0}{ccx}(uint8\_t idx);
+00034     
+00036     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a6e5c896a3f85311e011ee552534f1032}{ClkSel}(TC\_CLKSEL\_t clksel);
+00037     
+00041     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a7c3e5ae54af9a3431050d623d508cd2c}{CCEnable}(uint8\_t mask);
+00042     
+00045     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_ab5df59d94a8d1706f9282a695e43a9a1}{WaveformGenMode}(TC\_WGMODE\_t wgmode);
+00046     
+00047     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a27f54d05be459f37793e98743325a614}{EventSetup}(TC\_EVACT\_t act, TC\_EVSEL\_t src);
+00048     
+00049     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a3d9d3bca0c89f5dbc69b34406ef6c4be}{IntLvlA}(uint8\_t errlvl, uint8\_t ovflvl);
+00050     
+00051     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a687162461b8b992093f3573356506a8c}{IntLvlB}(uint8\_t val);
+00052     
+00053     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_ae0b24888d24c907aad75ed985431f1a4}{Counter}(uint16\_t newVal);
+00054     uint16\_t \hyperlink{class_timer_cntr_ae0b24888d24c907aad75ed985431f1a4}{Counter}();
+00055     
+00056     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a0b50451ff7454d77aff54ca3274c7b7c}{Period}(uint16\_t newPer);
+00057     uint16\_t \hyperlink{class_timer_cntr_a0b50451ff7454d77aff54ca3274c7b7c}{Period}();
+00058     
+00059     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_a00b8456f413fc621b667bc0d2f825623}{SetRate}(uint32\_t rateHz);
+00060     
+00061     \textcolor{keywordtype}{void} \hyperlink{class_timer_cntr_aa4cead09b55956ef48dd19fcf7a2dea0}{CCReg}(uint8\_t idx, uint16\_t newVal);
+00062     uint16\_t \hyperlink{class_timer_cntr_aa4cead09b55956ef48dd19fcf7a2dea0}{CCReg}(uint8\_t idx);
+00063     
+00064 \};
+00065 
+00066 
+00067 \textcolor{preprocessor}{#endif}
+00068 \textcolor{preprocessor}{}
+00069 
+\end{DoxyCode}

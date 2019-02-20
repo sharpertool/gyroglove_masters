@@ -1,0 +1,42 @@
+\hypertarget{fifo_8h_source}{
+\subsection{fifo.h}
+}
+
+\begin{DoxyCode}
+00001 
+00002 \textcolor{preprocessor}{#ifndef \_fifo\_h}
+00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define \_fifo\_h}
+00004 \textcolor{preprocessor}{}
+00005 \textcolor{preprocessor}{#include <inttypes.h>}
+00006 \textcolor{preprocessor}{#include "\hyperlink{_hardware_serial_8h}{HardwareSerial.h}"}
+00007 
+\hypertarget{fifo_8h_source_l00016}{}\hyperlink{class_fifo}{00016} \textcolor{keyword}{class }\hyperlink{class_fifo}{Fifo}
+00017 \{
+00018 \textcolor{keyword}{public}:
+00019     
+\hypertarget{fifo_8h_source_l00020}{}\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{00020}     \textcolor{keyword}{typedef} uint8\_t  \hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType};
+00021 \textcolor{keyword}{private}:
+00022     
+\hypertarget{fifo_8h_source_l00023}{}\hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{00023}     \hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}*       \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata};
+\hypertarget{fifo_8h_source_l00024}{}\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{00024}     \hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}*       \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start};
+\hypertarget{fifo_8h_source_l00025}{}\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{00025}     \hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}*       \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end};
+\hypertarget{fifo_8h_source_l00026}{}\hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{00026}     uint8\_t         \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size};
+00027     
+00028 \textcolor{keyword}{public}:
+00029     \hyperlink{class_fifo_a68ef51a0abbde28576475176bea5ee77}{Fifo}(uint8\_t size);
+00030     
+00031     
+00032     int8\_t \hyperlink{class_fifo_a56e69165c03aa37aa174505386737430}{push}(\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}*);
+00033     int8\_t \hyperlink{class_fifo_aa5aa61cf236c38b141bd1bbeaf1addbd}{pop}(\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}* pData);
+00034     uint8\_t \hyperlink{class_fifo_a0a741f582688e9f956fd9e8c4cd1da37}{count}();
+00035     \textcolor{keywordtype}{bool} \hyperlink{class_fifo_a2b09a5751fc2a301a341245e98f1e44a}{full}();
+00036     \textcolor{keywordtype}{bool} \hyperlink{class_fifo_af0223af74146f1e800aa0a7b44a2cfda}{empty}();
+00037     \textcolor{keywordtype}{void} \hyperlink{class_fifo_a61aa8164d2e6fbdb2718835755495c95}{clear}();
+00038 \};
+00039 
+00040 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \hyperlink{fifo_8h_a9a948b7bfe866c00cfb8e3a5fea891ad}{FifoTest}(\hyperlink{class_hardware_serial}{HardwareSerial}& ds);
+00041 
+00042 \textcolor{preprocessor}{#endif}
+00043 \textcolor{preprocessor}{}
+00044 
+\end{DoxyCode}

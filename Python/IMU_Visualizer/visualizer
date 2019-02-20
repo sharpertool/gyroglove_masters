@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Updating UI"
+set +o noclobber
+pyuic4 ui_imu_display.ui > ui_imu_display.py
+set -o noclobber
+echo "Done updating UI"
+
+python IMU_Visualizer.py
+
+

@@ -1,0 +1,53 @@
+\hypertarget{_port_8h_source}{
+\subsection{Port.h}
+}
+
+\begin{DoxyCode}
+00001 
+00002 \textcolor{preprocessor}{#ifndef Port\_h}
+00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define Port\_h}
+00004 \textcolor{preprocessor}{}
+\hypertarget{_port_8h_source_l00013}{}\hyperlink{class_port_notify}{00013} \textcolor{keyword}{class }\hyperlink{class_port_notify}{PortNotify}
+00014 \{
+00015 \textcolor{keyword}{public}:
+00016     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_port_notify_a56e1550c6c2d0602fe523c2a3b648f85}{PortISR0}(uint8\_t \textcolor{keywordtype}{id}) = 0;
+00017     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_port_notify_a8f9f4a14e41092147194fb9cba192de8}{PortISR1}(uint8\_t \textcolor{keywordtype}{id}) = 0;
+00018 \};
+00019 
+\hypertarget{_port_8h_source_l00026}{}\hyperlink{class_port}{00026} \textcolor{keyword}{class }\hyperlink{class_port}{Port}
+00027 \{
+00028 \textcolor{keyword}{protected}:
+\hypertarget{_port_8h_source_l00029}{}\hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{00029}     PORT\_t*     \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort};
+\hypertarget{_port_8h_source_l00030}{}\hyperlink{class_port_ac939fdc751f6e01ce4afcdf97f4598f9}{00030}     \hyperlink{class_port_notify}{PortNotify}* \hyperlink{class_port_ac939fdc751f6e01ce4afcdf97f4598f9}{_pNotifyClient};
+\hypertarget{_port_8h_source_l00031}{}\hyperlink{class_port_ac1dae0f3300d4fc57f16f8b548b0e9d7}{00031}     uint8\_t     \hyperlink{class_port_ac1dae0f3300d4fc57f16f8b548b0e9d7}{_pNotifyID};
+00032     
+00033 \textcolor{keyword}{public}:
+00034 
+00035     \hyperlink{class_port_a6f90240a1d5bb00b7cb0284134ba3dfc}{Port}(PORT\_t*);
+00036     \hyperlink{class_port_afe166c2a6b10ad34d47472a150366bc1}{~Port}();
+00037 
+00038     \textcolor{keywordtype}{void} \hyperlink{class_port_a8dd6215565362d65fd4ef159b7b8dc95}{Notify}(\hyperlink{class_port_notify}{PortNotify}* pClient,uint8\_t \textcolor{keywordtype}{id});
+00039     \textcolor{keywordtype}{void} \hyperlink{class_port_ab9841b306c73a2b7a1a7a141da222808}{int0}();
+00040     \textcolor{keywordtype}{void} \hyperlink{class_port_ac1ea39cc9b07779045dd218aa2364e25}{int1}();
+00041     
+00042     \textcolor{keywordtype}{void} \hyperlink{class_port_a3c3182388b13059550d19e828959ab37}{SetDir}(uint8\_t dir);
+00043     \textcolor{keywordtype}{void} \hyperlink{class_port_a8edf3efbf5258faa7221109f5cbd5a40}{SetPinsAsInput}(uint8\_t mask);
+00044     \textcolor{keywordtype}{void} \hyperlink{class_port_a15035cc63128ae28294c154527c9d2fe}{SetPinsAsOutput}(uint8\_t mask);
+00045     \textcolor{keywordtype}{void} \hyperlink{class_port_a4c7069d8f3c95c2edbbb5945041c687d}{SetPinsHigh}(uint8\_t mask);
+00046     \textcolor{keywordtype}{void} \hyperlink{class_port_aa0e48b7851cc1352c5e8ddc371351e21}{SetPinsLow}(uint8\_t mask);
+00047     uint8\_t \hyperlink{class_port_ab13ab1f58e8f17fec681e38872ac56d9}{GetPins}();
+00048     
+00050     \textcolor{keywordtype}{void} \hyperlink{class_port_ae43736d7fff93b93d1d1dac27df64591}{InterruptLevel}(uint8\_t num, uint8\_t lvl);
+00051     \textcolor{keywordtype}{void} \hyperlink{class_port_a638be122540b191c8cb84b61d6363d28}{InterruptMask}(uint8\_t num, uint8\_t mask);
+00052     
+00054     \textcolor{keywordtype}{void} \hyperlink{class_port_ab2f2ecab7c1402a03c87d866a8cd5380}{PinControl}(uint8\_t mask, 
+00055         \textcolor{keywordtype}{bool} bSlewLimit,
+00056         \textcolor{keywordtype}{bool} bInverted,
+00057         PORT\_OPC\_t OutputConfig,
+00058         PORT\_ISC\_t InputSense
+00059         );
+00060 \};
+00061 
+00062 
+00063 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

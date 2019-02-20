@@ -1,0 +1,43 @@
+Browning Research Field Emitter Control and Measurement System.\subparagraph*{Introduction }
+
+This code is written in C++. The AVR tools support a limited set of C++ capabilities so there are no fancy constructs such as templates. C++ allows the high level features to be encapsulated into a class and used where needed. In most cases these classes are built around hardware resources. There is a class to work with IO Ports, one for \hyperlink{class_hardware_serial}{HardwareSerial}, etc.
+
+\subparagraph*{Compiling }
+
+The compiler and debug environment for the AVR tools is freely available. Several options exist, the simplest on is the AVR Studio. This tool can be downloaded from Atmel's web site. The tool runs on a Windows PC only.
+
+For Unix or Macs there are freely available GNU toolchains. These do not include a GUI, but command line builds work just find.
+
+\subparagraph*{Controller Board Hardwarew }
+
+The hardware consists of the following comonents:
+
+
+\begin{DoxyItemize}
+\item Controller Board.  
+\item Emitter Control Board 
+\item Current Monitor Board 
+\end{DoxyItemize}
+
+\subparagraph*{Controller Board}
+
+Board for controlling all other components and interfacing to host computer.
+
+\subparagraph*{Emitter Control Board}
+
+Contains N-\/Channel FETS to control the current into the emitter elements.
+
+\subparagraph*{Microprocessor}
+
+The procssor on the board ia an Atmel ATxmega 128A1.
+
+Some important links for this device are:
+
+
+\begin{DoxyItemize}
+\item \href{http://www.atmel.com/dyn/resources/prod_documents/doc8067.pdf}{\tt Product Datasheet} 
+\item \href{http://www.atmel.com/dyn/resources/prod_documents/doc8077.pdf}{\tt Product Manual} 
+\item \href{http://www.atmel.com/dyn/products/product_card.asp?part_id=4298&category_id=163&family_id=607&subfamily_id=1965}{\tt Product Website} 
+\end{DoxyItemize}
+
+The product manual is very similar to the datasheet, however the manual contains register definitions. These are very important when configuring the hardware resources available within the ATxmega. 

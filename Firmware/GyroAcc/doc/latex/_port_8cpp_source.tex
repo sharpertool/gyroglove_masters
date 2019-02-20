@@ -1,0 +1,163 @@
+\hypertarget{_port_8cpp_source}{
+\subsection{Port.cpp}
+}
+
+\begin{DoxyCode}
+00001 
+00002 
+00003 \textcolor{preprocessor}{#include <avr/io.h>}
+00004 \textcolor{preprocessor}{#include <inttypes.h>}
+00005 \textcolor{preprocessor}{#include <avr/interrupt.h>}
+00006 
+00007 \textcolor{preprocessor}{#include "Port.h"}
+00008 \textcolor{preprocessor}{#include "HardwareSerial.h"}
+00009 
+00010 \textcolor{keyword}{extern} \hyperlink{class_hardware_serial}{HardwareSerial}* \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial};
+00011 
+00012 \textcolor{comment}{// Generate all of the ISR handlers.. hook them up to a class if/when a class}
+00013 \textcolor{comment}{// is instantiated for a particular USART.}
+\hypertarget{_port_8cpp_source_l00014}{}\hyperlink{_port_8cpp_a98ed3f9bf909d32905f2c879381dc501}{00014} \textcolor{preprocessor}{#define PORT\_ISR\_DEF(port) \(\backslash\)}
+00015 \textcolor{preprocessor}{static Port*  port##cp = 0;\(\backslash\)}
+00016 \textcolor{preprocessor}{ISR(port##\_INT0\_vect) \{\(\backslash\)}
+00017 \textcolor{preprocessor}{    if (port##cp) port##cp->int0();\(\backslash\)}
+00018 \textcolor{preprocessor}{\}\(\backslash\)}
+00019 \textcolor{preprocessor}{ISR(port##\_INT1\_vect) \{\(\backslash\)}
+00020 \textcolor{preprocessor}{    if (port##cp) port##cp->int1();\(\backslash\)}
+00021 \textcolor{preprocessor}{\}}
+00022 \textcolor{preprocessor}{}
+00023 \hyperlink{_port_8cpp_a98ed3f9bf909d32905f2c879381dc501}{PORT_ISR_DEF}(PORTA);
+00024 \hyperlink{_port_8cpp_a98ed3f9bf909d32905f2c879381dc501}{PORT_ISR_DEF}(PORTB);
+00025 \hyperlink{_port_8cpp_a98ed3f9bf909d32905f2c879381dc501}{PORT_ISR_DEF}(PORTC);
+00026 \hyperlink{_port_8cpp_a98ed3f9bf909d32905f2c879381dc501}{PORT_ISR_DEF}(PORTD);
+00027 \hyperlink{_port_8cpp_a98ed3f9bf909d32905f2c879381dc501}{PORT_ISR_DEF}(PORTE);
+00028 \hyperlink{_port_8cpp_a98ed3f9bf909d32905f2c879381dc501}{PORT_ISR_DEF}(PORTF);
+00029 \textcolor{preprocessor}{#if defined (\_\_AVR\_ATxmega128A1\_\_)}
+00030 \textcolor{preprocessor}{}\hyperlink{_port_8cpp_a98ed3f9bf909d32905f2c879381dc501}{PORT_ISR_DEF}(PORTH);
+00031 \textcolor{preprocessor}{#endif}
+00032 \textcolor{preprocessor}{}
+\hypertarget{_port_8cpp_source_l00033}{}\hyperlink{_port_8cpp_afaf5d589e6cb241cd3822efd8c9cbb05}{00033} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{_port_8cpp_afaf5d589e6cb241cd3822efd8c9cbb05}{SetPointer}(PORT\_t* port,\hyperlink{class_port}{Port}* p)
+00034 \{
+00035     \textcolor{comment}{// Register this object with the appropriate}
+00036     \textcolor{comment}{// pointer so that the ISR routines can call p}
+00037     \textcolor{comment}{// class.}
+00038     \textcolor{keywordflow}{if}(port == &PORTA) \{
+00039         PORTAcp = p;
+00040     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (port == &PORTB) \{
+00041         PORTBcp = p;
+00042     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (port ==  &PORTC) \{
+00043         PORTCcp = p;
+00044     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (port ==  &PORTD) \{
+00045         PORTDcp = p;
+00046     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (port ==  &PORTE) \{
+00047         PORTEcp = p;
+00048     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (port ==  &PORTF) \{
+00049         PORTFcp = p;
+00050 \textcolor{preprocessor}{#if defined (\_\_AVR\_ATxmega128A1\_\_)}
+00051 \textcolor{preprocessor}{}    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (port ==  &PORTH) \{
+00052         PORTHcp = p;
+00053 \textcolor{preprocessor}{#endif}
+00054 \textcolor{preprocessor}{}    \}
+00055 \}
+00056 
+00057 
+\hypertarget{_port_8cpp_source_l00058}{}\hyperlink{class_port_a6f90240a1d5bb00b7cb0284134ba3dfc}{00058} \hyperlink{class_port_a6f90240a1d5bb00b7cb0284134ba3dfc}{Port::Port}(PORT\_t* pPort)
+00059 \{
+00060     \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort} = pPort;
+00061     \hyperlink{_port_8cpp_afaf5d589e6cb241cd3822efd8c9cbb05}{SetPointer}(\hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort},\textcolor{keyword}{this});
+00062 \}
+00063 
+\hypertarget{_port_8cpp_source_l00064}{}\hyperlink{class_port_afe166c2a6b10ad34d47472a150366bc1}{00064} \hyperlink{class_port_afe166c2a6b10ad34d47472a150366bc1}{Port::~Port}()
+00065 \{
+00066     \hyperlink{_port_8cpp_afaf5d589e6cb241cd3822efd8c9cbb05}{SetPointer}(\hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort},0);
+00067 \}
+00068 
+\hypertarget{_port_8cpp_source_l00069}{}\hyperlink{class_port_a8dd6215565362d65fd4ef159b7b8dc95}{00069} \textcolor{keywordtype}{void} \hyperlink{class_port_a8dd6215565362d65fd4ef159b7b8dc95}{Port::Notify}(\hyperlink{class_port_notify}{PortNotify}* pClient,uint8\_t \textcolor{keywordtype}{id})
+00070 \{
+00071     \hyperlink{class_port_ac939fdc751f6e01ce4afcdf97f4598f9}{_pNotifyClient}  = pClient;
+00072     \hyperlink{class_port_ac1dae0f3300d4fc57f16f8b548b0e9d7}{_pNotifyID}      = id;
+00073 \}
+00074 
+\hypertarget{_port_8cpp_source_l00075}{}\hyperlink{class_port_ab9841b306c73a2b7a1a7a141da222808}{00075} \textcolor{keywordtype}{void} \hyperlink{class_port_ab9841b306c73a2b7a1a7a141da222808}{Port::int0}()
+00076 \{
+00077     \textcolor{keywordflow}{if} (\hyperlink{class_port_ac939fdc751f6e01ce4afcdf97f4598f9}{_pNotifyClient}) \{
+00078         \hyperlink{class_port_ac939fdc751f6e01ce4afcdf97f4598f9}{_pNotifyClient}->\hyperlink{class_port_notify_a56e1550c6c2d0602fe523c2a3b648f85}{PortISR0}(\hyperlink{class_port_ac1dae0f3300d4fc57f16f8b548b0e9d7}{_pNotifyID});
+00079     \}
+00080     \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->INTFLAGS = 0x1;
+00081 \}
+00082 
+\hypertarget{_port_8cpp_source_l00083}{}\hyperlink{class_port_ac1ea39cc9b07779045dd218aa2364e25}{00083} \textcolor{keywordtype}{void} \hyperlink{class_port_ac1ea39cc9b07779045dd218aa2364e25}{Port::int1}()
+00084 \{
+00085     \textcolor{keywordflow}{if} (\hyperlink{class_port_ac939fdc751f6e01ce4afcdf97f4598f9}{_pNotifyClient}) \{
+00086         \hyperlink{class_port_ac939fdc751f6e01ce4afcdf97f4598f9}{_pNotifyClient}->\hyperlink{class_port_notify_a8f9f4a14e41092147194fb9cba192de8}{PortISR1}(\hyperlink{class_port_ac1dae0f3300d4fc57f16f8b548b0e9d7}{_pNotifyID});
+00087     \}
+00088     \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->INTFLAGS = 0x2;
+00089 \}
+00090 
+\hypertarget{_port_8cpp_source_l00091}{}\hyperlink{class_port_a3c3182388b13059550d19e828959ab37}{00091} \textcolor{keywordtype}{void} \hyperlink{class_port_a3c3182388b13059550d19e828959ab37}{Port::SetDir}(uint8\_t dir)
+00092 \{
+00093     \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->DIR = dir;
+00094 \}
+00095 
+\hypertarget{_port_8cpp_source_l00096}{}\hyperlink{class_port_a8edf3efbf5258faa7221109f5cbd5a40}{00096} \textcolor{keywordtype}{void} \hyperlink{class_port_a8edf3efbf5258faa7221109f5cbd5a40}{Port::SetPinsAsInput}(uint8\_t mask)
+00097 \{
+00098     \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->DIRCLR = mask;
+00099 \}
+00100 
+\hypertarget{_port_8cpp_source_l00101}{}\hyperlink{class_port_a15035cc63128ae28294c154527c9d2fe}{00101} \textcolor{keywordtype}{void} \hyperlink{class_port_a15035cc63128ae28294c154527c9d2fe}{Port::SetPinsAsOutput}(uint8\_t mask)
+00102 \{
+00103     \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->DIRSET = mask;
+00104 \}
+00105 
+\hypertarget{_port_8cpp_source_l00106}{}\hyperlink{class_port_a4c7069d8f3c95c2edbbb5945041c687d}{00106} \textcolor{keywordtype}{void} \hyperlink{class_port_a4c7069d8f3c95c2edbbb5945041c687d}{Port::SetPinsHigh}(uint8\_t mask)
+00107 \{
+00108     \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->OUTSET = mask;
+00109 \}
+00110 
+\hypertarget{_port_8cpp_source_l00111}{}\hyperlink{class_port_aa0e48b7851cc1352c5e8ddc371351e21}{00111} \textcolor{keywordtype}{void} \hyperlink{class_port_aa0e48b7851cc1352c5e8ddc371351e21}{Port::SetPinsLow}(uint8\_t mask)
+00112 \{
+00113     \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->OUTCLR = mask;
+00114 \}
+00115 
+\hypertarget{_port_8cpp_source_l00116}{}\hyperlink{class_port_ab13ab1f58e8f17fec681e38872ac56d9}{00116} uint8\_t \hyperlink{class_port_ab13ab1f58e8f17fec681e38872ac56d9}{Port::GetPins}()
+00117 \{
+00118     \textcolor{keywordflow}{return} \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->IN;
+00119 \}
+00120 
+\hypertarget{_port_8cpp_source_l00121}{}\hyperlink{class_port_ae43736d7fff93b93d1d1dac27df64591}{00121} \textcolor{keywordtype}{void} \hyperlink{class_port_ae43736d7fff93b93d1d1dac27df64591}{Port::InterruptLevel}(uint8\_t num, uint8\_t lvl)
+00122 \{
+00123     \textcolor{keywordflow}{if} (num == 0) \{
+00124         \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->INTCTRL &= ~(0x3);
+00125         \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->INTCTRL |= (lvl & 0x3);
+00126     \} \textcolor{keywordflow}{else} \{
+00127         \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->INTCTRL &= ~(0xC);
+00128         \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->INTCTRL |= (lvl & 0x3) << 2;
+00129     \}
+00130 \}
+00131 
+\hypertarget{_port_8cpp_source_l00132}{}\hyperlink{class_port_a638be122540b191c8cb84b61d6363d28}{00132} \textcolor{keywordtype}{void} \hyperlink{class_port_a638be122540b191c8cb84b61d6363d28}{Port::InterruptMask}(uint8\_t num, uint8\_t mask)
+00133 \{
+00134     \textcolor{keywordflow}{if} (num == 0) \{
+00135         \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->INT0MASK = mask;
+00136     \} \textcolor{keywordflow}{else} \{
+00137         \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->INT1MASK = mask;
+00138     \}
+00139 \}
+00140 
+\hypertarget{_port_8cpp_source_l00141}{}\hyperlink{class_port_ab2f2ecab7c1402a03c87d866a8cd5380}{00141} \textcolor{keywordtype}{void} \hyperlink{class_port_ab2f2ecab7c1402a03c87d866a8cd5380}{Port::PinControl}(uint8\_t mask, 
+00142         \textcolor{keywordtype}{bool} bSlewLimit,
+00143         \textcolor{keywordtype}{bool} bInverted,
+00144         PORT\_OPC\_t OutputConfig,
+00145         PORT\_ISC\_t InputSense
+00146         )
+00147 \{
+00154     PORTCFG.MPCMASK = mask;
+00155     \hyperlink{class_port_a1475caa8ec2e667350eae96d4b7a28ac}{_pPort}->PIN0CTRL = 
+00156         (bSlewLimit ? 0x80 : 0x0) |
+00157         (bInverted ? 0x40 : 0x0)  |
+00158         OutputConfig | 
+00159         InputSense
+00160         ;
+00161 \}
+00162 
+00163 
+\end{DoxyCode}

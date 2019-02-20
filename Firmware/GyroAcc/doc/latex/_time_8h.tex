@@ -1,0 +1,829 @@
+\hypertarget{_time_8h}{
+\section{FWLib/inc/Time.h File Reference}
+\label{_time_8h}\index{FWLib/inc/Time.h@{FWLib/inc/Time.h}}
+}
+{\ttfamily \#include $<$inttypes.h$>$}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtm_elements__t}{tmElements\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_time_8h_afef543f21a9d4854659e261a39c2d6b7}{tmYearToCalendar}(Y)~((Y) + 1970)
+\item 
+\#define \hyperlink{_time_8h_ac4dfd2480e34cd37034747dda098ef90}{CalendarYrToTm}(Y)~((Y) -\/ 1970)
+\item 
+\#define \hyperlink{_time_8h_a07065ec3852c2dafab12ed3b16fe02dc}{tmYearToY2k}(Y)~((Y) -\/ 30)
+\item 
+\#define \hyperlink{_time_8h_a8c99a520c259579c2f45cb7c269a4726}{y2kYearToTm}(Y)~((Y) + 30)
+\item 
+\#define \hyperlink{_time_8h_a5e7d1008e5b26253223a67794b77a806}{SECS\_\-PER\_\-MIN}~(60UL)
+\item 
+\#define \hyperlink{_time_8h_a11528d10d5838afd2d0ec2f5841167cf}{SECS\_\-PER\_\-HOUR}~(3600UL)
+\item 
+\#define \hyperlink{_time_8h_ae6bc10904b2b09a717f1fb81cce017de}{SECS\_\-PER\_\-DAY}~(SECS\_\-PER\_\-HOUR $\ast$ 24UL)
+\item 
+\#define \hyperlink{_time_8h_ac17b5f0caa090e515171c5aaf5a78307}{DAYS\_\-PER\_\-WEEK}~(7UL)
+\item 
+\#define \hyperlink{_time_8h_a1e3f1ac0a4b60f9a7a14641ff701bc33}{SECS\_\-PER\_\-WEEK}~(SECS\_\-PER\_\-DAY $\ast$ DAYS\_\-PER\_\-WEEK)
+\item 
+\#define \hyperlink{_time_8h_ae8eebe70a02e029d2834cf0a228fa547}{SECS\_\-PER\_\-YEAR}~(SECS\_\-PER\_\-WEEK $\ast$ 52UL)
+\item 
+\#define \hyperlink{_time_8h_a8bc37f3af67222122920088a7c8ec65e}{SECS\_\-YR\_\-2000}~(946684800UL)
+\item 
+\#define \hyperlink{_time_8h_a94ff5ea07f4794d50dc5d01096add141}{numberOfSeconds}(\_\-time\_\-)~(\_\-time\_\- \% SECS\_\-PER\_\-MIN)
+\item 
+\#define \hyperlink{_time_8h_a18f7fc096014902f56ff651a8c59e5b2}{numberOfMinutes}(\_\-time\_\-)~((\_\-time\_\- / SECS\_\-PER\_\-MIN) \% SECS\_\-PER\_\-MIN)
+\item 
+\#define \hyperlink{_time_8h_a9e92a9faf927c4981f9fd8bf9b055900}{numberOfHours}(\_\-time\_\-)~(( \_\-time\_\-\% SECS\_\-PER\_\-DAY) / SECS\_\-PER\_\-HOUR)
+\item 
+\#define \hyperlink{_time_8h_aa94d1e45a936805cd2446037978d6b42}{dayOfWeek}(\_\-time\_\-)~((( \_\-time\_\- / SECS\_\-PER\_\-DAY + 4)  \% DAYS\_\-PER\_\-WEEK)+1)
+\item 
+\#define \hyperlink{_time_8h_a663e6da77405eb7d27389c8829b4e4a7}{elapsedDays}(\_\-time\_\-)~( \_\-time\_\- / SECS\_\-PER\_\-DAY)
+\item 
+\#define \hyperlink{_time_8h_a7f05f38a481674d6bdd4c7da1a497279}{elapsedSecsToday}(\_\-time\_\-)~(\_\-time\_\- \% SECS\_\-PER\_\-DAY)
+\item 
+\#define \hyperlink{_time_8h_ae8a46cb159a8169121a33e39a520b5a8}{previousMidnight}(\_\-time\_\-)~(( \_\-time\_\- / SECS\_\-PER\_\-DAY) $\ast$ SECS\_\-PER\_\-DAY)
+\item 
+\#define \hyperlink{_time_8h_a78fd408d137a42cd0d9a1e5f64e4a1dc}{nextMidnight}(\_\-time\_\-)~( previousMidnight(\_\-time\_\-)  + SECS\_\-PER\_\-DAY )
+\item 
+\#define \hyperlink{_time_8h_a9275d0472258b52b713ab8acc152027b}{elapsedSecsThisWeek}(\_\-time\_\-)~(elapsedSecsToday(\_\-time\_\-) +  (dayOfWeek(\_\-time\_\-) $\ast$ SECS\_\-PER\_\-DAY) )
+\item 
+\#define \hyperlink{_time_8h_a7a80ac31a6af02c19b51921c19309b18}{minutesToTime\_\-t}~((M)) ( (M) $\ast$ SECS\_\-PER\_\-MIN)
+\item 
+\#define \hyperlink{_time_8h_adedc153f5bf599c9510a013c6c289734}{hoursToTime\_\-t}~((H)) ( (H) $\ast$ SECS\_\-PER\_\-HOUR)
+\item 
+\#define \hyperlink{_time_8h_ae64f0484a53659a37a718118963a9851}{daysToTime\_\-t}~((H)) ( (D) $\ast$ SECS\_\-PER\_\-DAY)
+\item 
+\#define \hyperlink{_time_8h_a8bac9289518063f4fa4725d598cdf885}{weeksToTime\_\-t}~((W)) ( (W) $\ast$ SECS\_\-PER\_\-WEEK)
+\item 
+\#define \hyperlink{_time_8h_ac53f8b930f24e032cfa4ab82ee691a57}{dt\_\-MAX\_\-STRING\_\-LEN}~9
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned long \hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t}
+\item 
+typedef struct \hyperlink{structtm_elements__t}{tmElements\_\-t} \hyperlink{_time_8h_a2839ec2c61a3e4d4b7468eb1a8ca39fa}{TimeElements}
+\item 
+typedef struct \hyperlink{structtm_elements__t}{tmElements\_\-t} $\ast$ \hyperlink{_time_8h_afe2a26184d3b1349e8792d77e3d9707b}{tmElementsPtr\_\-t}
+\item 
+typedef \hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t}($\ast$ \hyperlink{_time_8h_a2e285ea561ba9ed4489e1c5e833cb877}{getExternalTime} )()
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_time_8h_a1660028a705e0b944350137903cc5da3}{timeStatus\_\-t} \{ \hyperlink{_time_8h_a1660028a705e0b944350137903cc5da3a2e10a77b7894a90884a1065516c6d64d}{timeNotSet}, 
+\hyperlink{_time_8h_a1660028a705e0b944350137903cc5da3aae279a3ba42df94802ce08a17313a731}{timeNeedsSync}, 
+\hyperlink{_time_8h_a1660028a705e0b944350137903cc5da3a45d73224c15f772909257c893780fca8}{timeSet}
+ \}
+\item 
+enum \hyperlink{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6}{timeDayOfWeek\_\-t} \{ \par
+\hyperlink{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6a81c2fec4741b5e26b912a120837d33d3}{dowInvalid}, 
+\hyperlink{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6ae926759b731c47fe0691f5df75755af6}{dowSunday}, 
+\hyperlink{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6ad7614269cea5dc806ead59b395fb0c7e}{dowMonday}, 
+\hyperlink{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6adef43a36a07eb5bbd22d81651ce8d548}{dowTuesday}, 
+\par
+\hyperlink{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6ac5074ee3f537850e48853eb11f1bd01e}{dowWednesday}, 
+\hyperlink{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6aa69093d7fda23c081cb21e758326add9}{dowThursday}, 
+\hyperlink{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6a5e83c1fec59e8f51c7a6996f563abd3a}{dowFriday}, 
+\hyperlink{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6a4b6b2338cc55930ebeab4b9aac01c4b2}{dowSaturday}
+ \}
+\item 
+enum \hyperlink{_time_8h_af69ea7fb94fa59b5efa82520940b4078}{tmByteFields} \{ \par
+\hyperlink{_time_8h_af69ea7fb94fa59b5efa82520940b4078ab8a0e6b64250aa07ee886f74d5917513}{tmSecond}, 
+\hyperlink{_time_8h_af69ea7fb94fa59b5efa82520940b4078a6518c7d94cda9fa9239c1cbc1b3aae6a}{tmMinute}, 
+\hyperlink{_time_8h_af69ea7fb94fa59b5efa82520940b4078a6afa3dd77e85b6c6fcdb57d1a0288094}{tmHour}, 
+\hyperlink{_time_8h_af69ea7fb94fa59b5efa82520940b4078a57f038bc9c4b7d3a986b8036b8ff672c}{tmWday}, 
+\par
+\hyperlink{_time_8h_af69ea7fb94fa59b5efa82520940b4078a9ec3eef9177fd4628a5300a81515085e}{tmDay}, 
+\hyperlink{_time_8h_af69ea7fb94fa59b5efa82520940b4078a19b98721d16a25de3b710fa17b8c25f9}{tmMonth}, 
+\hyperlink{_time_8h_af69ea7fb94fa59b5efa82520940b4078a7c4fa7a3e1acf587aff7a9605d32e1b8}{tmYear}, 
+\hyperlink{_time_8h_af69ea7fb94fa59b5efa82520940b4078a7be6d2888f61a0d049e8f745cc368386}{tmNbrFields}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_time_8h_aa60e7685ce73dee9ef59e9521936ea44}{setMillisPerSecond} (int)
+\item 
+int \hyperlink{_time_8h_a51b21ddffc9c665baaf7dad52a68b314}{getMillisPerSecond} ()
+\item 
+int \hyperlink{_time_8h_a721ff0d06e8367ee5d2c5cf1a2c40ab5}{hour} ()
+\item 
+int \hyperlink{_time_8h_ac4706d0cffc9e111a6c6a757b462e88e}{hour} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+int \hyperlink{_time_8h_a5a99d1c070206fef196539dec629443e}{hourFormat12} ()
+\item 
+int \hyperlink{_time_8h_a3cf3a2a5bc98d77739dd1c8c4c0909b9}{hourFormat12} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+uint8\_\-t \hyperlink{_time_8h_a93f95d54044b6bea7e53d820c2b3ac45}{isAM} ()
+\item 
+uint8\_\-t \hyperlink{_time_8h_a4334ceb57e1ed381be82347e196aabc6}{isAM} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+uint8\_\-t \hyperlink{_time_8h_a25dad3cd574983eff789b04781e57de8}{isPM} ()
+\item 
+uint8\_\-t \hyperlink{_time_8h_af53f46c9c1e0ad141f99045e3f96d688}{isPM} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+int \hyperlink{_time_8h_adf618b3bac7dcfac69d4e1f5a68159b7}{minute} ()
+\item 
+int \hyperlink{_time_8h_a88285e3771bcb970424122a6ee4b40fa}{minute} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+int \hyperlink{_time_8h_aed5657208944fe098e4e5f3380e0a1f9}{second} ()
+\item 
+int \hyperlink{_time_8h_a10a4dd811353baa12dadadee7c7e5099}{second} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+int \hyperlink{_time_8h_a075786e0a525a2bba638889efcc42385}{day} ()
+\item 
+int \hyperlink{_time_8h_a51dcd9f072551ba8f47449a4e7f78c29}{day} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+int \hyperlink{_time_8h_a73117e8164575afa4e25dab22d4f3ff0}{weekday} ()
+\item 
+int \hyperlink{_time_8h_a397d9b2a739891092b487211668b496f}{weekday} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+int \hyperlink{_time_8h_a3f3be7ce4301fc1896efac6f0952f772}{month} ()
+\item 
+int \hyperlink{_time_8h_a726c707dded9d78cf076554eceb956ec}{month} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+int \hyperlink{_time_8h_a98bf680dbfa28f79514ba50d33fee63f}{year} ()
+\item 
+int \hyperlink{_time_8h_a8608865f8292c0505e02b67fd1cf39e8}{year} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} \hyperlink{_time_8h_adea6c108853185c1d856fa38ec74992c}{now} ()
+\item 
+\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} \hyperlink{_time_8h_a1c96550b35c19deb7837522cb931b0c7}{now} (int MillisPerSec)
+\item 
+void \hyperlink{_time_8h_a1ce752bee962425a697f513db46964d4}{setTime} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} t)
+\item 
+void \hyperlink{_time_8h_aa0b62886629aaecf78afb1b26eb89262}{setTime} (int hr, int min, int sec, int day, int month, int yr)
+\item 
+void \hyperlink{_time_8h_acc6ec9a3678824ee0b252511300cf070}{adjustTime} (long adjustment)
+\item 
+char $\ast$ \hyperlink{_time_8h_a88860cdff7c88c1f5b96b2f2b68858db}{monthStr} (uint8\_\-t month)
+\item 
+char $\ast$ \hyperlink{_time_8h_a94236cfc15d1b0f09571766402a8e471}{dayStr} (uint8\_\-t day)
+\item 
+char $\ast$ \hyperlink{_time_8h_ae2b5f025e8c6fef73d4bc5795e9ad4a3}{monthShortStr} (uint8\_\-t month)
+\item 
+char $\ast$ \hyperlink{_time_8h_a5172f67ce7b074768a7e31877c665931}{dayShortStr} (uint8\_\-t day)
+\item 
+\hyperlink{_time_8h_a1660028a705e0b944350137903cc5da3}{timeStatus\_\-t} \hyperlink{_time_8h_a9d95a01859478796c4d60525bdaa9c59}{timeStatus} ()
+\item 
+void \hyperlink{_time_8h_afb0bd098acb0d2ab18392313c38c636d}{setSyncProvider} (\hyperlink{_time_8h_a2e285ea561ba9ed4489e1c5e833cb877}{getExternalTime} getTimeFunction)
+\item 
+void \hyperlink{_time_8h_a1cc2f564b2cdcbfdea2d9d65378878ee}{setSyncInterval} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} interval)
+\item 
+void \hyperlink{_time_8h_ab07578ccbe89d91c4d4522713fe4a93d}{breakTime} (\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} time, \hyperlink{structtm_elements__t}{tmElements\_\-t} \&tm)
+\item 
+\hyperlink{_time_8h_aec517130c026730881898750d76e596f}{time\_\-t} \hyperlink{_time_8h_a0b205c43ee3c17d8d84a83b6f2f77bc8}{makeTime} (\hyperlink{structtm_elements__t}{tmElements\_\-t} \&tm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_time_8h_ac4dfd2480e34cd37034747dda098ef90}{
+\index{Time.h@{Time.h}!CalendarYrToTm@{CalendarYrToTm}}
+\index{CalendarYrToTm@{CalendarYrToTm}!Time.h@{Time.h}}
+\subsubsection[{CalendarYrToTm}]{\setlength{\rightskip}{0pt plus 5cm}\#define CalendarYrToTm(
+\begin{DoxyParamCaption}
+\item[{}]{Y}
+\end{DoxyParamCaption}
+)~((Y) -\/ 1970)}}
+\label{_time_8h_ac4dfd2480e34cd37034747dda098ef90}
+\hypertarget{_time_8h_aa94d1e45a936805cd2446037978d6b42}{
+\index{Time.h@{Time.h}!dayOfWeek@{dayOfWeek}}
+\index{dayOfWeek@{dayOfWeek}!Time.h@{Time.h}}
+\subsubsection[{dayOfWeek}]{\setlength{\rightskip}{0pt plus 5cm}\#define dayOfWeek(
+\begin{DoxyParamCaption}
+\item[{}]{\_\-time\_\-}
+\end{DoxyParamCaption}
+)~((( \_\-time\_\- / SECS\_\-PER\_\-DAY + 4)  \% DAYS\_\-PER\_\-WEEK)+1)}}
+\label{_time_8h_aa94d1e45a936805cd2446037978d6b42}
+\hypertarget{_time_8h_ac17b5f0caa090e515171c5aaf5a78307}{
+\index{Time.h@{Time.h}!DAYS\_\-PER\_\-WEEK@{DAYS\_\-PER\_\-WEEK}}
+\index{DAYS\_\-PER\_\-WEEK@{DAYS\_\-PER\_\-WEEK}!Time.h@{Time.h}}
+\subsubsection[{DAYS\_\-PER\_\-WEEK}]{\setlength{\rightskip}{0pt plus 5cm}\#define DAYS\_\-PER\_\-WEEK~(7UL)}}
+\label{_time_8h_ac17b5f0caa090e515171c5aaf5a78307}
+\hypertarget{_time_8h_ae64f0484a53659a37a718118963a9851}{
+\index{Time.h@{Time.h}!daysToTime\_\-t@{daysToTime\_\-t}}
+\index{daysToTime\_\-t@{daysToTime\_\-t}!Time.h@{Time.h}}
+\subsubsection[{daysToTime\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}\#define daysToTime\_\-t~((H)) ( (D) $\ast$ SECS\_\-PER\_\-DAY)}}
+\label{_time_8h_ae64f0484a53659a37a718118963a9851}
+\hypertarget{_time_8h_ac53f8b930f24e032cfa4ab82ee691a57}{
+\index{Time.h@{Time.h}!dt\_\-MAX\_\-STRING\_\-LEN@{dt\_\-MAX\_\-STRING\_\-LEN}}
+\index{dt\_\-MAX\_\-STRING\_\-LEN@{dt\_\-MAX\_\-STRING\_\-LEN}!Time.h@{Time.h}}
+\subsubsection[{dt\_\-MAX\_\-STRING\_\-LEN}]{\setlength{\rightskip}{0pt plus 5cm}\#define dt\_\-MAX\_\-STRING\_\-LEN~9}}
+\label{_time_8h_ac53f8b930f24e032cfa4ab82ee691a57}
+\hypertarget{_time_8h_a663e6da77405eb7d27389c8829b4e4a7}{
+\index{Time.h@{Time.h}!elapsedDays@{elapsedDays}}
+\index{elapsedDays@{elapsedDays}!Time.h@{Time.h}}
+\subsubsection[{elapsedDays}]{\setlength{\rightskip}{0pt plus 5cm}\#define elapsedDays(
+\begin{DoxyParamCaption}
+\item[{}]{\_\-time\_\-}
+\end{DoxyParamCaption}
+)~( \_\-time\_\- / SECS\_\-PER\_\-DAY)}}
+\label{_time_8h_a663e6da77405eb7d27389c8829b4e4a7}
+\hypertarget{_time_8h_a9275d0472258b52b713ab8acc152027b}{
+\index{Time.h@{Time.h}!elapsedSecsThisWeek@{elapsedSecsThisWeek}}
+\index{elapsedSecsThisWeek@{elapsedSecsThisWeek}!Time.h@{Time.h}}
+\subsubsection[{elapsedSecsThisWeek}]{\setlength{\rightskip}{0pt plus 5cm}\#define elapsedSecsThisWeek(
+\begin{DoxyParamCaption}
+\item[{}]{\_\-time\_\-}
+\end{DoxyParamCaption}
+)~(elapsedSecsToday(\_\-time\_\-) +  (dayOfWeek(\_\-time\_\-) $\ast$ SECS\_\-PER\_\-DAY) )}}
+\label{_time_8h_a9275d0472258b52b713ab8acc152027b}
+\hypertarget{_time_8h_a7f05f38a481674d6bdd4c7da1a497279}{
+\index{Time.h@{Time.h}!elapsedSecsToday@{elapsedSecsToday}}
+\index{elapsedSecsToday@{elapsedSecsToday}!Time.h@{Time.h}}
+\subsubsection[{elapsedSecsToday}]{\setlength{\rightskip}{0pt plus 5cm}\#define elapsedSecsToday(
+\begin{DoxyParamCaption}
+\item[{}]{\_\-time\_\-}
+\end{DoxyParamCaption}
+)~(\_\-time\_\- \% SECS\_\-PER\_\-DAY)}}
+\label{_time_8h_a7f05f38a481674d6bdd4c7da1a497279}
+\hypertarget{_time_8h_adedc153f5bf599c9510a013c6c289734}{
+\index{Time.h@{Time.h}!hoursToTime\_\-t@{hoursToTime\_\-t}}
+\index{hoursToTime\_\-t@{hoursToTime\_\-t}!Time.h@{Time.h}}
+\subsubsection[{hoursToTime\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}\#define hoursToTime\_\-t~((H)) ( (H) $\ast$ SECS\_\-PER\_\-HOUR)}}
+\label{_time_8h_adedc153f5bf599c9510a013c6c289734}
+\hypertarget{_time_8h_a7a80ac31a6af02c19b51921c19309b18}{
+\index{Time.h@{Time.h}!minutesToTime\_\-t@{minutesToTime\_\-t}}
+\index{minutesToTime\_\-t@{minutesToTime\_\-t}!Time.h@{Time.h}}
+\subsubsection[{minutesToTime\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}\#define minutesToTime\_\-t~((M)) ( (M) $\ast$ SECS\_\-PER\_\-MIN)}}
+\label{_time_8h_a7a80ac31a6af02c19b51921c19309b18}
+\hypertarget{_time_8h_a78fd408d137a42cd0d9a1e5f64e4a1dc}{
+\index{Time.h@{Time.h}!nextMidnight@{nextMidnight}}
+\index{nextMidnight@{nextMidnight}!Time.h@{Time.h}}
+\subsubsection[{nextMidnight}]{\setlength{\rightskip}{0pt plus 5cm}\#define nextMidnight(
+\begin{DoxyParamCaption}
+\item[{}]{\_\-time\_\-}
+\end{DoxyParamCaption}
+)~( previousMidnight(\_\-time\_\-)  + SECS\_\-PER\_\-DAY )}}
+\label{_time_8h_a78fd408d137a42cd0d9a1e5f64e4a1dc}
+\hypertarget{_time_8h_a9e92a9faf927c4981f9fd8bf9b055900}{
+\index{Time.h@{Time.h}!numberOfHours@{numberOfHours}}
+\index{numberOfHours@{numberOfHours}!Time.h@{Time.h}}
+\subsubsection[{numberOfHours}]{\setlength{\rightskip}{0pt plus 5cm}\#define numberOfHours(
+\begin{DoxyParamCaption}
+\item[{}]{\_\-time\_\-}
+\end{DoxyParamCaption}
+)~(( \_\-time\_\-\% SECS\_\-PER\_\-DAY) / SECS\_\-PER\_\-HOUR)}}
+\label{_time_8h_a9e92a9faf927c4981f9fd8bf9b055900}
+\hypertarget{_time_8h_a18f7fc096014902f56ff651a8c59e5b2}{
+\index{Time.h@{Time.h}!numberOfMinutes@{numberOfMinutes}}
+\index{numberOfMinutes@{numberOfMinutes}!Time.h@{Time.h}}
+\subsubsection[{numberOfMinutes}]{\setlength{\rightskip}{0pt plus 5cm}\#define numberOfMinutes(
+\begin{DoxyParamCaption}
+\item[{}]{\_\-time\_\-}
+\end{DoxyParamCaption}
+)~((\_\-time\_\- / SECS\_\-PER\_\-MIN) \% SECS\_\-PER\_\-MIN)}}
+\label{_time_8h_a18f7fc096014902f56ff651a8c59e5b2}
+\hypertarget{_time_8h_a94ff5ea07f4794d50dc5d01096add141}{
+\index{Time.h@{Time.h}!numberOfSeconds@{numberOfSeconds}}
+\index{numberOfSeconds@{numberOfSeconds}!Time.h@{Time.h}}
+\subsubsection[{numberOfSeconds}]{\setlength{\rightskip}{0pt plus 5cm}\#define numberOfSeconds(
+\begin{DoxyParamCaption}
+\item[{}]{\_\-time\_\-}
+\end{DoxyParamCaption}
+)~(\_\-time\_\- \% SECS\_\-PER\_\-MIN)}}
+\label{_time_8h_a94ff5ea07f4794d50dc5d01096add141}
+\hypertarget{_time_8h_ae8a46cb159a8169121a33e39a520b5a8}{
+\index{Time.h@{Time.h}!previousMidnight@{previousMidnight}}
+\index{previousMidnight@{previousMidnight}!Time.h@{Time.h}}
+\subsubsection[{previousMidnight}]{\setlength{\rightskip}{0pt plus 5cm}\#define previousMidnight(
+\begin{DoxyParamCaption}
+\item[{}]{\_\-time\_\-}
+\end{DoxyParamCaption}
+)~(( \_\-time\_\- / SECS\_\-PER\_\-DAY) $\ast$ SECS\_\-PER\_\-DAY)}}
+\label{_time_8h_ae8a46cb159a8169121a33e39a520b5a8}
+\hypertarget{_time_8h_ae6bc10904b2b09a717f1fb81cce017de}{
+\index{Time.h@{Time.h}!SECS\_\-PER\_\-DAY@{SECS\_\-PER\_\-DAY}}
+\index{SECS\_\-PER\_\-DAY@{SECS\_\-PER\_\-DAY}!Time.h@{Time.h}}
+\subsubsection[{SECS\_\-PER\_\-DAY}]{\setlength{\rightskip}{0pt plus 5cm}\#define SECS\_\-PER\_\-DAY~(SECS\_\-PER\_\-HOUR $\ast$ 24UL)}}
+\label{_time_8h_ae6bc10904b2b09a717f1fb81cce017de}
+\hypertarget{_time_8h_a11528d10d5838afd2d0ec2f5841167cf}{
+\index{Time.h@{Time.h}!SECS\_\-PER\_\-HOUR@{SECS\_\-PER\_\-HOUR}}
+\index{SECS\_\-PER\_\-HOUR@{SECS\_\-PER\_\-HOUR}!Time.h@{Time.h}}
+\subsubsection[{SECS\_\-PER\_\-HOUR}]{\setlength{\rightskip}{0pt plus 5cm}\#define SECS\_\-PER\_\-HOUR~(3600UL)}}
+\label{_time_8h_a11528d10d5838afd2d0ec2f5841167cf}
+\hypertarget{_time_8h_a5e7d1008e5b26253223a67794b77a806}{
+\index{Time.h@{Time.h}!SECS\_\-PER\_\-MIN@{SECS\_\-PER\_\-MIN}}
+\index{SECS\_\-PER\_\-MIN@{SECS\_\-PER\_\-MIN}!Time.h@{Time.h}}
+\subsubsection[{SECS\_\-PER\_\-MIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define SECS\_\-PER\_\-MIN~(60UL)}}
+\label{_time_8h_a5e7d1008e5b26253223a67794b77a806}
+\hypertarget{_time_8h_a1e3f1ac0a4b60f9a7a14641ff701bc33}{
+\index{Time.h@{Time.h}!SECS\_\-PER\_\-WEEK@{SECS\_\-PER\_\-WEEK}}
+\index{SECS\_\-PER\_\-WEEK@{SECS\_\-PER\_\-WEEK}!Time.h@{Time.h}}
+\subsubsection[{SECS\_\-PER\_\-WEEK}]{\setlength{\rightskip}{0pt plus 5cm}\#define SECS\_\-PER\_\-WEEK~(SECS\_\-PER\_\-DAY $\ast$ DAYS\_\-PER\_\-WEEK)}}
+\label{_time_8h_a1e3f1ac0a4b60f9a7a14641ff701bc33}
+\hypertarget{_time_8h_ae8eebe70a02e029d2834cf0a228fa547}{
+\index{Time.h@{Time.h}!SECS\_\-PER\_\-YEAR@{SECS\_\-PER\_\-YEAR}}
+\index{SECS\_\-PER\_\-YEAR@{SECS\_\-PER\_\-YEAR}!Time.h@{Time.h}}
+\subsubsection[{SECS\_\-PER\_\-YEAR}]{\setlength{\rightskip}{0pt plus 5cm}\#define SECS\_\-PER\_\-YEAR~(SECS\_\-PER\_\-WEEK $\ast$ 52UL)}}
+\label{_time_8h_ae8eebe70a02e029d2834cf0a228fa547}
+\hypertarget{_time_8h_a8bc37f3af67222122920088a7c8ec65e}{
+\index{Time.h@{Time.h}!SECS\_\-YR\_\-2000@{SECS\_\-YR\_\-2000}}
+\index{SECS\_\-YR\_\-2000@{SECS\_\-YR\_\-2000}!Time.h@{Time.h}}
+\subsubsection[{SECS\_\-YR\_\-2000}]{\setlength{\rightskip}{0pt plus 5cm}\#define SECS\_\-YR\_\-2000~(946684800UL)}}
+\label{_time_8h_a8bc37f3af67222122920088a7c8ec65e}
+\hypertarget{_time_8h_afef543f21a9d4854659e261a39c2d6b7}{
+\index{Time.h@{Time.h}!tmYearToCalendar@{tmYearToCalendar}}
+\index{tmYearToCalendar@{tmYearToCalendar}!Time.h@{Time.h}}
+\subsubsection[{tmYearToCalendar}]{\setlength{\rightskip}{0pt plus 5cm}\#define tmYearToCalendar(
+\begin{DoxyParamCaption}
+\item[{}]{Y}
+\end{DoxyParamCaption}
+)~((Y) + 1970)}}
+\label{_time_8h_afef543f21a9d4854659e261a39c2d6b7}
+\hypertarget{_time_8h_a07065ec3852c2dafab12ed3b16fe02dc}{
+\index{Time.h@{Time.h}!tmYearToY2k@{tmYearToY2k}}
+\index{tmYearToY2k@{tmYearToY2k}!Time.h@{Time.h}}
+\subsubsection[{tmYearToY2k}]{\setlength{\rightskip}{0pt plus 5cm}\#define tmYearToY2k(
+\begin{DoxyParamCaption}
+\item[{}]{Y}
+\end{DoxyParamCaption}
+)~((Y) -\/ 30)}}
+\label{_time_8h_a07065ec3852c2dafab12ed3b16fe02dc}
+\hypertarget{_time_8h_a8bac9289518063f4fa4725d598cdf885}{
+\index{Time.h@{Time.h}!weeksToTime\_\-t@{weeksToTime\_\-t}}
+\index{weeksToTime\_\-t@{weeksToTime\_\-t}!Time.h@{Time.h}}
+\subsubsection[{weeksToTime\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}\#define weeksToTime\_\-t~((W)) ( (W) $\ast$ SECS\_\-PER\_\-WEEK)}}
+\label{_time_8h_a8bac9289518063f4fa4725d598cdf885}
+\hypertarget{_time_8h_a8c99a520c259579c2f45cb7c269a4726}{
+\index{Time.h@{Time.h}!y2kYearToTm@{y2kYearToTm}}
+\index{y2kYearToTm@{y2kYearToTm}!Time.h@{Time.h}}
+\subsubsection[{y2kYearToTm}]{\setlength{\rightskip}{0pt plus 5cm}\#define y2kYearToTm(
+\begin{DoxyParamCaption}
+\item[{}]{Y}
+\end{DoxyParamCaption}
+)~((Y) + 30)}}
+\label{_time_8h_a8c99a520c259579c2f45cb7c269a4726}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_time_8h_a2e285ea561ba9ed4489e1c5e833cb877}{
+\index{Time.h@{Time.h}!getExternalTime@{getExternalTime}}
+\index{getExternalTime@{getExternalTime}!Time.h@{Time.h}}
+\subsubsection[{getExternalTime}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf time\_\-t}($\ast$ {\bf getExternalTime})()}}
+\label{_time_8h_a2e285ea561ba9ed4489e1c5e833cb877}
+\hypertarget{_time_8h_aec517130c026730881898750d76e596f}{
+\index{Time.h@{Time.h}!time\_\-t@{time\_\-t}}
+\index{time\_\-t@{time\_\-t}!Time.h@{Time.h}}
+\subsubsection[{time\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf time\_\-t}}}
+\label{_time_8h_aec517130c026730881898750d76e596f}
+\hypertarget{_time_8h_a2839ec2c61a3e4d4b7468eb1a8ca39fa}{
+\index{Time.h@{Time.h}!TimeElements@{TimeElements}}
+\index{TimeElements@{TimeElements}!Time.h@{Time.h}}
+\subsubsection[{TimeElements}]{\setlength{\rightskip}{0pt plus 5cm}typedef  struct {\bf tmElements\_\-t}  {\bf TimeElements}}}
+\label{_time_8h_a2839ec2c61a3e4d4b7468eb1a8ca39fa}
+\hypertarget{_time_8h_afe2a26184d3b1349e8792d77e3d9707b}{
+\index{Time.h@{Time.h}!tmElementsPtr\_\-t@{tmElementsPtr\_\-t}}
+\index{tmElementsPtr\_\-t@{tmElementsPtr\_\-t}!Time.h@{Time.h}}
+\subsubsection[{tmElementsPtr\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef  struct {\bf tmElements\_\-t} $\ast$ {\bf tmElementsPtr\_\-t}}}
+\label{_time_8h_afe2a26184d3b1349e8792d77e3d9707b}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6}{
+\index{Time.h@{Time.h}!timeDayOfWeek\_\-t@{timeDayOfWeek\_\-t}}
+\index{timeDayOfWeek\_\-t@{timeDayOfWeek\_\-t}!Time.h@{Time.h}}
+\subsubsection[{timeDayOfWeek\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf timeDayOfWeek\_\-t}}}
+\label{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{dowInvalid@{dowInvalid}!Time.h@{Time.h}}\index{Time.h@{Time.h}!dowInvalid@{dowInvalid}}\item[{\em 
+\hypertarget{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6a81c2fec4741b5e26b912a120837d33d3}{
+dowInvalid}
+\label{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6a81c2fec4741b5e26b912a120837d33d3}
+}]\index{dowSunday@{dowSunday}!Time.h@{Time.h}}\index{Time.h@{Time.h}!dowSunday@{dowSunday}}\item[{\em 
+\hypertarget{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6ae926759b731c47fe0691f5df75755af6}{
+dowSunday}
+\label{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6ae926759b731c47fe0691f5df75755af6}
+}]\index{dowMonday@{dowMonday}!Time.h@{Time.h}}\index{Time.h@{Time.h}!dowMonday@{dowMonday}}\item[{\em 
+\hypertarget{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6ad7614269cea5dc806ead59b395fb0c7e}{
+dowMonday}
+\label{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6ad7614269cea5dc806ead59b395fb0c7e}
+}]\index{dowTuesday@{dowTuesday}!Time.h@{Time.h}}\index{Time.h@{Time.h}!dowTuesday@{dowTuesday}}\item[{\em 
+\hypertarget{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6adef43a36a07eb5bbd22d81651ce8d548}{
+dowTuesday}
+\label{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6adef43a36a07eb5bbd22d81651ce8d548}
+}]\index{dowWednesday@{dowWednesday}!Time.h@{Time.h}}\index{Time.h@{Time.h}!dowWednesday@{dowWednesday}}\item[{\em 
+\hypertarget{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6ac5074ee3f537850e48853eb11f1bd01e}{
+dowWednesday}
+\label{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6ac5074ee3f537850e48853eb11f1bd01e}
+}]\index{dowThursday@{dowThursday}!Time.h@{Time.h}}\index{Time.h@{Time.h}!dowThursday@{dowThursday}}\item[{\em 
+\hypertarget{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6aa69093d7fda23c081cb21e758326add9}{
+dowThursday}
+\label{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6aa69093d7fda23c081cb21e758326add9}
+}]\index{dowFriday@{dowFriday}!Time.h@{Time.h}}\index{Time.h@{Time.h}!dowFriday@{dowFriday}}\item[{\em 
+\hypertarget{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6a5e83c1fec59e8f51c7a6996f563abd3a}{
+dowFriday}
+\label{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6a5e83c1fec59e8f51c7a6996f563abd3a}
+}]\index{dowSaturday@{dowSaturday}!Time.h@{Time.h}}\index{Time.h@{Time.h}!dowSaturday@{dowSaturday}}\item[{\em 
+\hypertarget{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6a4b6b2338cc55930ebeab4b9aac01c4b2}{
+dowSaturday}
+\label{_time_8h_a26a93ebfd42a91ed500cdde38d6694f6a4b6b2338cc55930ebeab4b9aac01c4b2}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{_time_8h_a1660028a705e0b944350137903cc5da3}{
+\index{Time.h@{Time.h}!timeStatus\_\-t@{timeStatus\_\-t}}
+\index{timeStatus\_\-t@{timeStatus\_\-t}!Time.h@{Time.h}}
+\subsubsection[{timeStatus\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf timeStatus\_\-t}}}
+\label{_time_8h_a1660028a705e0b944350137903cc5da3}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{timeNotSet@{timeNotSet}!Time.h@{Time.h}}\index{Time.h@{Time.h}!timeNotSet@{timeNotSet}}\item[{\em 
+\hypertarget{_time_8h_a1660028a705e0b944350137903cc5da3a2e10a77b7894a90884a1065516c6d64d}{
+timeNotSet}
+\label{_time_8h_a1660028a705e0b944350137903cc5da3a2e10a77b7894a90884a1065516c6d64d}
+}]\index{timeNeedsSync@{timeNeedsSync}!Time.h@{Time.h}}\index{Time.h@{Time.h}!timeNeedsSync@{timeNeedsSync}}\item[{\em 
+\hypertarget{_time_8h_a1660028a705e0b944350137903cc5da3aae279a3ba42df94802ce08a17313a731}{
+timeNeedsSync}
+\label{_time_8h_a1660028a705e0b944350137903cc5da3aae279a3ba42df94802ce08a17313a731}
+}]\index{timeSet@{timeSet}!Time.h@{Time.h}}\index{Time.h@{Time.h}!timeSet@{timeSet}}\item[{\em 
+\hypertarget{_time_8h_a1660028a705e0b944350137903cc5da3a45d73224c15f772909257c893780fca8}{
+timeSet}
+\label{_time_8h_a1660028a705e0b944350137903cc5da3a45d73224c15f772909257c893780fca8}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{_time_8h_af69ea7fb94fa59b5efa82520940b4078}{
+\index{Time.h@{Time.h}!tmByteFields@{tmByteFields}}
+\index{tmByteFields@{tmByteFields}!Time.h@{Time.h}}
+\subsubsection[{tmByteFields}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf tmByteFields}}}
+\label{_time_8h_af69ea7fb94fa59b5efa82520940b4078}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{tmSecond@{tmSecond}!Time.h@{Time.h}}\index{Time.h@{Time.h}!tmSecond@{tmSecond}}\item[{\em 
+\hypertarget{_time_8h_af69ea7fb94fa59b5efa82520940b4078ab8a0e6b64250aa07ee886f74d5917513}{
+tmSecond}
+\label{_time_8h_af69ea7fb94fa59b5efa82520940b4078ab8a0e6b64250aa07ee886f74d5917513}
+}]\index{tmMinute@{tmMinute}!Time.h@{Time.h}}\index{Time.h@{Time.h}!tmMinute@{tmMinute}}\item[{\em 
+\hypertarget{_time_8h_af69ea7fb94fa59b5efa82520940b4078a6518c7d94cda9fa9239c1cbc1b3aae6a}{
+tmMinute}
+\label{_time_8h_af69ea7fb94fa59b5efa82520940b4078a6518c7d94cda9fa9239c1cbc1b3aae6a}
+}]\index{tmHour@{tmHour}!Time.h@{Time.h}}\index{Time.h@{Time.h}!tmHour@{tmHour}}\item[{\em 
+\hypertarget{_time_8h_af69ea7fb94fa59b5efa82520940b4078a6afa3dd77e85b6c6fcdb57d1a0288094}{
+tmHour}
+\label{_time_8h_af69ea7fb94fa59b5efa82520940b4078a6afa3dd77e85b6c6fcdb57d1a0288094}
+}]\index{tmWday@{tmWday}!Time.h@{Time.h}}\index{Time.h@{Time.h}!tmWday@{tmWday}}\item[{\em 
+\hypertarget{_time_8h_af69ea7fb94fa59b5efa82520940b4078a57f038bc9c4b7d3a986b8036b8ff672c}{
+tmWday}
+\label{_time_8h_af69ea7fb94fa59b5efa82520940b4078a57f038bc9c4b7d3a986b8036b8ff672c}
+}]\index{tmDay@{tmDay}!Time.h@{Time.h}}\index{Time.h@{Time.h}!tmDay@{tmDay}}\item[{\em 
+\hypertarget{_time_8h_af69ea7fb94fa59b5efa82520940b4078a9ec3eef9177fd4628a5300a81515085e}{
+tmDay}
+\label{_time_8h_af69ea7fb94fa59b5efa82520940b4078a9ec3eef9177fd4628a5300a81515085e}
+}]\index{tmMonth@{tmMonth}!Time.h@{Time.h}}\index{Time.h@{Time.h}!tmMonth@{tmMonth}}\item[{\em 
+\hypertarget{_time_8h_af69ea7fb94fa59b5efa82520940b4078a19b98721d16a25de3b710fa17b8c25f9}{
+tmMonth}
+\label{_time_8h_af69ea7fb94fa59b5efa82520940b4078a19b98721d16a25de3b710fa17b8c25f9}
+}]\index{tmYear@{tmYear}!Time.h@{Time.h}}\index{Time.h@{Time.h}!tmYear@{tmYear}}\item[{\em 
+\hypertarget{_time_8h_af69ea7fb94fa59b5efa82520940b4078a7c4fa7a3e1acf587aff7a9605d32e1b8}{
+tmYear}
+\label{_time_8h_af69ea7fb94fa59b5efa82520940b4078a7c4fa7a3e1acf587aff7a9605d32e1b8}
+}]\index{tmNbrFields@{tmNbrFields}!Time.h@{Time.h}}\index{Time.h@{Time.h}!tmNbrFields@{tmNbrFields}}\item[{\em 
+\hypertarget{_time_8h_af69ea7fb94fa59b5efa82520940b4078a7be6d2888f61a0d049e8f745cc368386}{
+tmNbrFields}
+\label{_time_8h_af69ea7fb94fa59b5efa82520940b4078a7be6d2888f61a0d049e8f745cc368386}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_time_8h_acc6ec9a3678824ee0b252511300cf070}{
+\index{Time.h@{Time.h}!adjustTime@{adjustTime}}
+\index{adjustTime@{adjustTime}!Time.h@{Time.h}}
+\subsubsection[{adjustTime}]{\setlength{\rightskip}{0pt plus 5cm}void adjustTime (
+\begin{DoxyParamCaption}
+\item[{long}]{adjustment}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_acc6ec9a3678824ee0b252511300cf070}
+\hypertarget{_time_8h_ab07578ccbe89d91c4d4522713fe4a93d}{
+\index{Time.h@{Time.h}!breakTime@{breakTime}}
+\index{breakTime@{breakTime}!Time.h@{Time.h}}
+\subsubsection[{breakTime}]{\setlength{\rightskip}{0pt plus 5cm}void breakTime (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{time, }
+\item[{{\bf tmElements\_\-t} \&}]{tm}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_ab07578ccbe89d91c4d4522713fe4a93d}
+\hypertarget{_time_8h_a51dcd9f072551ba8f47449a4e7f78c29}{
+\index{Time.h@{Time.h}!day@{day}}
+\index{day@{day}!Time.h@{Time.h}}
+\subsubsection[{day}]{\setlength{\rightskip}{0pt plus 5cm}int day (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a51dcd9f072551ba8f47449a4e7f78c29}
+\hypertarget{_time_8h_a075786e0a525a2bba638889efcc42385}{
+\index{Time.h@{Time.h}!day@{day}}
+\index{day@{day}!Time.h@{Time.h}}
+\subsubsection[{day}]{\setlength{\rightskip}{0pt plus 5cm}int day (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a075786e0a525a2bba638889efcc42385}
+\hypertarget{_time_8h_a5172f67ce7b074768a7e31877c665931}{
+\index{Time.h@{Time.h}!dayShortStr@{dayShortStr}}
+\index{dayShortStr@{dayShortStr}!Time.h@{Time.h}}
+\subsubsection[{dayShortStr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ dayShortStr (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{day}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a5172f67ce7b074768a7e31877c665931}
+\hypertarget{_time_8h_a94236cfc15d1b0f09571766402a8e471}{
+\index{Time.h@{Time.h}!dayStr@{dayStr}}
+\index{dayStr@{dayStr}!Time.h@{Time.h}}
+\subsubsection[{dayStr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ dayStr (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{day}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a94236cfc15d1b0f09571766402a8e471}
+\hypertarget{_time_8h_a51b21ddffc9c665baaf7dad52a68b314}{
+\index{Time.h@{Time.h}!getMillisPerSecond@{getMillisPerSecond}}
+\index{getMillisPerSecond@{getMillisPerSecond}!Time.h@{Time.h}}
+\subsubsection[{getMillisPerSecond}]{\setlength{\rightskip}{0pt plus 5cm}int getMillisPerSecond (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a51b21ddffc9c665baaf7dad52a68b314}
+\hypertarget{_time_8h_ac4706d0cffc9e111a6c6a757b462e88e}{
+\index{Time.h@{Time.h}!hour@{hour}}
+\index{hour@{hour}!Time.h@{Time.h}}
+\subsubsection[{hour}]{\setlength{\rightskip}{0pt plus 5cm}int hour (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_ac4706d0cffc9e111a6c6a757b462e88e}
+\hypertarget{_time_8h_a721ff0d06e8367ee5d2c5cf1a2c40ab5}{
+\index{Time.h@{Time.h}!hour@{hour}}
+\index{hour@{hour}!Time.h@{Time.h}}
+\subsubsection[{hour}]{\setlength{\rightskip}{0pt plus 5cm}int hour (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a721ff0d06e8367ee5d2c5cf1a2c40ab5}
+\hypertarget{_time_8h_a5a99d1c070206fef196539dec629443e}{
+\index{Time.h@{Time.h}!hourFormat12@{hourFormat12}}
+\index{hourFormat12@{hourFormat12}!Time.h@{Time.h}}
+\subsubsection[{hourFormat12}]{\setlength{\rightskip}{0pt plus 5cm}int hourFormat12 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a5a99d1c070206fef196539dec629443e}
+\hypertarget{_time_8h_a3cf3a2a5bc98d77739dd1c8c4c0909b9}{
+\index{Time.h@{Time.h}!hourFormat12@{hourFormat12}}
+\index{hourFormat12@{hourFormat12}!Time.h@{Time.h}}
+\subsubsection[{hourFormat12}]{\setlength{\rightskip}{0pt plus 5cm}int hourFormat12 (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a3cf3a2a5bc98d77739dd1c8c4c0909b9}
+\hypertarget{_time_8h_a4334ceb57e1ed381be82347e196aabc6}{
+\index{Time.h@{Time.h}!isAM@{isAM}}
+\index{isAM@{isAM}!Time.h@{Time.h}}
+\subsubsection[{isAM}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t isAM (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a4334ceb57e1ed381be82347e196aabc6}
+\hypertarget{_time_8h_a93f95d54044b6bea7e53d820c2b3ac45}{
+\index{Time.h@{Time.h}!isAM@{isAM}}
+\index{isAM@{isAM}!Time.h@{Time.h}}
+\subsubsection[{isAM}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t isAM (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a93f95d54044b6bea7e53d820c2b3ac45}
+\hypertarget{_time_8h_a25dad3cd574983eff789b04781e57de8}{
+\index{Time.h@{Time.h}!isPM@{isPM}}
+\index{isPM@{isPM}!Time.h@{Time.h}}
+\subsubsection[{isPM}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t isPM (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a25dad3cd574983eff789b04781e57de8}
+\hypertarget{_time_8h_af53f46c9c1e0ad141f99045e3f96d688}{
+\index{Time.h@{Time.h}!isPM@{isPM}}
+\index{isPM@{isPM}!Time.h@{Time.h}}
+\subsubsection[{isPM}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t isPM (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_af53f46c9c1e0ad141f99045e3f96d688}
+\hypertarget{_time_8h_a0b205c43ee3c17d8d84a83b6f2f77bc8}{
+\index{Time.h@{Time.h}!makeTime@{makeTime}}
+\index{makeTime@{makeTime}!Time.h@{Time.h}}
+\subsubsection[{makeTime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf time\_\-t} makeTime (
+\begin{DoxyParamCaption}
+\item[{{\bf tmElements\_\-t} \&}]{tm}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a0b205c43ee3c17d8d84a83b6f2f77bc8}
+\hypertarget{_time_8h_adf618b3bac7dcfac69d4e1f5a68159b7}{
+\index{Time.h@{Time.h}!minute@{minute}}
+\index{minute@{minute}!Time.h@{Time.h}}
+\subsubsection[{minute}]{\setlength{\rightskip}{0pt plus 5cm}int minute (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_adf618b3bac7dcfac69d4e1f5a68159b7}
+\hypertarget{_time_8h_a88285e3771bcb970424122a6ee4b40fa}{
+\index{Time.h@{Time.h}!minute@{minute}}
+\index{minute@{minute}!Time.h@{Time.h}}
+\subsubsection[{minute}]{\setlength{\rightskip}{0pt plus 5cm}int minute (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a88285e3771bcb970424122a6ee4b40fa}
+\hypertarget{_time_8h_a3f3be7ce4301fc1896efac6f0952f772}{
+\index{Time.h@{Time.h}!month@{month}}
+\index{month@{month}!Time.h@{Time.h}}
+\subsubsection[{month}]{\setlength{\rightskip}{0pt plus 5cm}int month (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a3f3be7ce4301fc1896efac6f0952f772}
+\hypertarget{_time_8h_a726c707dded9d78cf076554eceb956ec}{
+\index{Time.h@{Time.h}!month@{month}}
+\index{month@{month}!Time.h@{Time.h}}
+\subsubsection[{month}]{\setlength{\rightskip}{0pt plus 5cm}int month (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a726c707dded9d78cf076554eceb956ec}
+\hypertarget{_time_8h_ae2b5f025e8c6fef73d4bc5795e9ad4a3}{
+\index{Time.h@{Time.h}!monthShortStr@{monthShortStr}}
+\index{monthShortStr@{monthShortStr}!Time.h@{Time.h}}
+\subsubsection[{monthShortStr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ monthShortStr (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{month}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_ae2b5f025e8c6fef73d4bc5795e9ad4a3}
+\hypertarget{_time_8h_a88860cdff7c88c1f5b96b2f2b68858db}{
+\index{Time.h@{Time.h}!monthStr@{monthStr}}
+\index{monthStr@{monthStr}!Time.h@{Time.h}}
+\subsubsection[{monthStr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ monthStr (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{month}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a88860cdff7c88c1f5b96b2f2b68858db}
+\hypertarget{_time_8h_adea6c108853185c1d856fa38ec74992c}{
+\index{Time.h@{Time.h}!now@{now}}
+\index{now@{now}!Time.h@{Time.h}}
+\subsubsection[{now}]{\setlength{\rightskip}{0pt plus 5cm}{\bf time\_\-t} now (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_adea6c108853185c1d856fa38ec74992c}
+\hypertarget{_time_8h_a1c96550b35c19deb7837522cb931b0c7}{
+\index{Time.h@{Time.h}!now@{now}}
+\index{now@{now}!Time.h@{Time.h}}
+\subsubsection[{now}]{\setlength{\rightskip}{0pt plus 5cm}{\bf time\_\-t} now (
+\begin{DoxyParamCaption}
+\item[{int}]{MillisPerSec}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a1c96550b35c19deb7837522cb931b0c7}
+\hypertarget{_time_8h_a10a4dd811353baa12dadadee7c7e5099}{
+\index{Time.h@{Time.h}!second@{second}}
+\index{second@{second}!Time.h@{Time.h}}
+\subsubsection[{second}]{\setlength{\rightskip}{0pt plus 5cm}int second (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a10a4dd811353baa12dadadee7c7e5099}
+\hypertarget{_time_8h_aed5657208944fe098e4e5f3380e0a1f9}{
+\index{Time.h@{Time.h}!second@{second}}
+\index{second@{second}!Time.h@{Time.h}}
+\subsubsection[{second}]{\setlength{\rightskip}{0pt plus 5cm}int second (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_aed5657208944fe098e4e5f3380e0a1f9}
+\hypertarget{_time_8h_aa60e7685ce73dee9ef59e9521936ea44}{
+\index{Time.h@{Time.h}!setMillisPerSecond@{setMillisPerSecond}}
+\index{setMillisPerSecond@{setMillisPerSecond}!Time.h@{Time.h}}
+\subsubsection[{setMillisPerSecond}]{\setlength{\rightskip}{0pt plus 5cm}void setMillisPerSecond (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_aa60e7685ce73dee9ef59e9521936ea44}
+\hypertarget{_time_8h_a1cc2f564b2cdcbfdea2d9d65378878ee}{
+\index{Time.h@{Time.h}!setSyncInterval@{setSyncInterval}}
+\index{setSyncInterval@{setSyncInterval}!Time.h@{Time.h}}
+\subsubsection[{setSyncInterval}]{\setlength{\rightskip}{0pt plus 5cm}void setSyncInterval (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{interval}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a1cc2f564b2cdcbfdea2d9d65378878ee}
+\hypertarget{_time_8h_afb0bd098acb0d2ab18392313c38c636d}{
+\index{Time.h@{Time.h}!setSyncProvider@{setSyncProvider}}
+\index{setSyncProvider@{setSyncProvider}!Time.h@{Time.h}}
+\subsubsection[{setSyncProvider}]{\setlength{\rightskip}{0pt plus 5cm}void setSyncProvider (
+\begin{DoxyParamCaption}
+\item[{{\bf getExternalTime}}]{getTimeFunction}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_afb0bd098acb0d2ab18392313c38c636d}
+\hypertarget{_time_8h_aa0b62886629aaecf78afb1b26eb89262}{
+\index{Time.h@{Time.h}!setTime@{setTime}}
+\index{setTime@{setTime}!Time.h@{Time.h}}
+\subsubsection[{setTime}]{\setlength{\rightskip}{0pt plus 5cm}void setTime (
+\begin{DoxyParamCaption}
+\item[{int}]{hr, }
+\item[{int}]{min, }
+\item[{int}]{sec, }
+\item[{int}]{day, }
+\item[{int}]{month, }
+\item[{int}]{yr}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_aa0b62886629aaecf78afb1b26eb89262}
+\hypertarget{_time_8h_a1ce752bee962425a697f513db46964d4}{
+\index{Time.h@{Time.h}!setTime@{setTime}}
+\index{setTime@{setTime}!Time.h@{Time.h}}
+\subsubsection[{setTime}]{\setlength{\rightskip}{0pt plus 5cm}void setTime (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a1ce752bee962425a697f513db46964d4}
+\hypertarget{_time_8h_a9d95a01859478796c4d60525bdaa9c59}{
+\index{Time.h@{Time.h}!timeStatus@{timeStatus}}
+\index{timeStatus@{timeStatus}!Time.h@{Time.h}}
+\subsubsection[{timeStatus}]{\setlength{\rightskip}{0pt plus 5cm}{\bf timeStatus\_\-t} timeStatus (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a9d95a01859478796c4d60525bdaa9c59}
+\hypertarget{_time_8h_a397d9b2a739891092b487211668b496f}{
+\index{Time.h@{Time.h}!weekday@{weekday}}
+\index{weekday@{weekday}!Time.h@{Time.h}}
+\subsubsection[{weekday}]{\setlength{\rightskip}{0pt plus 5cm}int weekday (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a397d9b2a739891092b487211668b496f}
+\hypertarget{_time_8h_a73117e8164575afa4e25dab22d4f3ff0}{
+\index{Time.h@{Time.h}!weekday@{weekday}}
+\index{weekday@{weekday}!Time.h@{Time.h}}
+\subsubsection[{weekday}]{\setlength{\rightskip}{0pt plus 5cm}int weekday (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a73117e8164575afa4e25dab22d4f3ff0}
+\hypertarget{_time_8h_a98bf680dbfa28f79514ba50d33fee63f}{
+\index{Time.h@{Time.h}!year@{year}}
+\index{year@{year}!Time.h@{Time.h}}
+\subsubsection[{year}]{\setlength{\rightskip}{0pt plus 5cm}int year (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a98bf680dbfa28f79514ba50d33fee63f}
+\hypertarget{_time_8h_a8608865f8292c0505e02b67fd1cf39e8}{
+\index{Time.h@{Time.h}!year@{year}}
+\index{year@{year}!Time.h@{Time.h}}
+\subsubsection[{year}]{\setlength{\rightskip}{0pt plus 5cm}int year (
+\begin{DoxyParamCaption}
+\item[{{\bf time\_\-t}}]{t}
+\end{DoxyParamCaption}
+)}}
+\label{_time_8h_a8608865f8292c0505e02b67fd1cf39e8}

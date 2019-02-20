@@ -1,0 +1,217 @@
+\hypertarget{_i_m_u_8h_source}{
+\subsection{IMU.h}
+}
+
+\begin{DoxyCode}
+00001 
+00002 \textcolor{preprocessor}{#ifndef IMU\_h}
+00003 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IMU\_h}
+00004 \textcolor{preprocessor}{}
+00005 \textcolor{preprocessor}{#include <stdlib.h>}
+00006 \textcolor{preprocessor}{#include <inttypes.h>}
+00007 \textcolor{preprocessor}{#include <avr/io.h>}
+00008 \textcolor{preprocessor}{#include <util/delay.h>}
+00009 \textcolor{preprocessor}{#include "I2C\_Master.h"}
+00010 \textcolor{preprocessor}{#include "HardwareSerial.h"}
+00011 \textcolor{preprocessor}{#include "IMUPacketFifo.h"}
+00012 \textcolor{preprocessor}{#include "TimerCntr.h"}
+00013 \textcolor{preprocessor}{#include "TimerCore.h"}
+00014 \textcolor{preprocessor}{#include "DebugPort.h"}
+00015 
+\hypertarget{_i_m_u_8h_source_l00016}{}\hyperlink{class_i_m_u_base}{00016} \textcolor{keyword}{class }\hyperlink{class_i_m_u_base}{IMUBase}
+00017 \{
+00018 \textcolor{keyword}{public}:
+00019     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_base_a27fdd96992dfa8867943407fc400d071}{Reset}() = 0;
+00020     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_base_ad4f6b6562edc0e2b76591d0deca191d7}{SampleRate}(uint16\_t) = 0;
+00021     
+00022     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_base_a74d84beba0da335f49aa7ce94612cf13}{Setup}() = 0;
+00023     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_base_af31c2ed51cd36cc3230ebbb58757784a}{Start}() = 0;
+00024     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_base_a5b136166ec3849cbc1f93a13367eb08d}{Stop}() = 0;
+00025     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_base_a60bf7f5f9728d11bae5ca64bc7a9c10b}{ForceStartStop}() = 0;
+00026     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{class_i_m_u_base_adb8539af8660d291fdde1f38b3d644f3}{Busy}() = 0;
+00027     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_base_a6e65b709e0212f95299ce9fa464b4651}{ResetTimer}() = 0;
+00028     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_base_a9b4cc325e9858a8bb204733dc7906ec2}{UseGyro}(\textcolor{keywordtype}{bool} bEnable) = 0;
+00029     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_base_aa9c09bfd70f81b4a2df20cc5ae1474c3}{NextIMU}(\hyperlink{class_i_m_u_base}{IMUBase}*) = 0;
+00030     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_base_a55327f28a0ad5e54d94f0c698b04827a}{BeginRead}() = 0;
+00031     
+00032     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{class_i_m_u_base_a53d56fa29c66935306e1dcca140aa9ff}{DataReady}() = 0;
+00033     \textcolor{keyword}{virtual} uint8\_t* \hyperlink{class_i_m_u_base_a13cf0868e2c3c31838fe889315ccfb0c}{GetPacketData}(uint8\_t* pPacket) = 0;       
+00034     
+00035     \textcolor{comment}{// Diags}
+00036     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_base_ab920218bb6630f9e91ef7d0f07599203}{CheckIDs}(\hyperlink{class_hardware_serial}{HardwareSerial}* pSerial) = 0;
+00037     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_base_a78622fbfb40a5bbee5e83bb8a0780d04}{ResetDevices}() = 0;
+00038 \};
+00039 
+\hypertarget{_i_m_u_8h_source_l00040}{}\hyperlink{class_i_m_u}{00040} \textcolor{keyword}{class }\hyperlink{class_i_m_u}{IMU} : \textcolor{keyword}{public} \hyperlink{class_i_m_u_base}{IMUBase}, \textcolor{keyword}{public} \hyperlink{class_i2_c_notify}{I2CNotify}, \textcolor{keyword}{public} \hyperlink{class_timer_notify}{TimerNotify}
+00041 \{
+\hypertarget{_i_m_u_8h_source_l00042}{}\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{00042}     \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{StateType} \{
+\hypertarget{_i_m_u_8h_source_l00043}{}\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{00043}         \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa82181a217d68f26cba06b38cfb94c1bc}{sIdle}           = 0,
+\hypertarget{_i_m_u_8h_source_l00044}{}\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae3a15f0845da0f426c48b6bd9ed01b21}{00044}         \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae3a15f0845da0f426c48b6bd9ed01b21}{sConfigure}      = 1,
+\hypertarget{_i_m_u_8h_source_l00045}{}\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa98a87654cac5bbc7d12c9701563dbae5}{00045}         \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa98a87654cac5bbc7d12c9701563dbae5}{sConfigured}     = 2,
+\hypertarget{_i_m_u_8h_source_l00046}{}\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{00046}         \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d7c7afff1b740c59d740b9b77a8d18c}{sWait}           = 5,       
+\hypertarget{_i_m_u_8h_source_l00047}{}\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa8f3b3efb815c4ee9396ccb1fda939f77}{00047}         \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa8f3b3efb815c4ee9396ccb1fda939f77}{sReadGyro1}      = 8,
+\hypertarget{_i_m_u_8h_source_l00048}{}\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa7e6ba39651fb8aca4abcdf80ed789d8b}{00048}         \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa7e6ba39651fb8aca4abcdf80ed789d8b}{sReadAcc1}       = 9,
+\hypertarget{_i_m_u_8h_source_l00049}{}\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa2e538ebe471a9482d15ab162ec3bdc6d}{00049}         \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa2e538ebe471a9482d15ab162ec3bdc6d}{sReadGyro2}      = 10,
+\hypertarget{_i_m_u_8h_source_l00050}{}\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d82e2432f2e2075cef6143740c4df59}{00050}         \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fa4d82e2432f2e2075cef6143740c4df59}{sReadAcc2}       = 11,
+\hypertarget{_i_m_u_8h_source_l00051}{}\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae27080f67607320b8cc57d8402a07277}{00051}         \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523fae27080f67607320b8cc57d8402a07277}{sErrRecover}     = 12
+00052     \} \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{StateType};
+00053     
+\hypertarget{_i_m_u_8h_source_l00054}{}\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144}{00054}     \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144}{PosType} \{
+\hypertarget{_i_m_u_8h_source_l00055}{}\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1d2d6c166c92bec6d19b37a6dbeeaf8c}{00055}         \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1d2d6c166c92bec6d19b37a6dbeeaf8c}{pStart}          = 0,
+\hypertarget{_i_m_u_8h_source_l00056}{}\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a9cb1b471b394a5a3a87c6bab61ae00e4}{00056}         \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a9cb1b471b394a5a3a87c6bab61ae00e4}{pRun}            = 1,
+\hypertarget{_i_m_u_8h_source_l00057}{}\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac2332a4383aa00818b3fc4ed83ec1f4d}{00057}         \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac2332a4383aa00818b3fc4ed83ec1f4d}{pWriteDn}        = 2,
+\hypertarget{_i_m_u_8h_source_l00058}{}\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1b257baca1eb9eb3e7192a01770cce76}{00058}         \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a1b257baca1eb9eb3e7192a01770cce76}{pReadDn}         = 3,
+\hypertarget{_i_m_u_8h_source_l00059}{}\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac361e1f3b3b93592825ae06da0309c62}{00059}         \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144ac361e1f3b3b93592825ae06da0309c62}{pNack}           = 4,
+\hypertarget{_i_m_u_8h_source_l00060}{}\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a3db70da4b0066e7738bed5e25f4fc405}{00060}         \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a3db70da4b0066e7738bed5e25f4fc405}{pBusErr}         = 5,
+\hypertarget{_i_m_u_8h_source_l00061}{}\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a5b061676aa01e1049ff07e5a191c9af8}{00061}         \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a5b061676aa01e1049ff07e5a191c9af8}{pArbLost}        = 6,
+\hypertarget{_i_m_u_8h_source_l00062}{}\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a73419f05716e41c972241a4fc0c6ead0}{00062}         \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144a73419f05716e41c972241a4fc0c6ead0}{pSetup}          = 7
+00063     \} \hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144}{PosType};
+00064     
+\hypertarget{_i_m_u_8h_source_l00065}{}\hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97}{00065}     \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97}{FailType} \{
+\hypertarget{_i_m_u_8h_source_l00066}{}\hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97ac049bda2fb043b649de1cdb8d203aac2}{00066}         \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97ac049bda2fb043b649de1cdb8d203aac2}{fNone}           = 0,
+\hypertarget{_i_m_u_8h_source_l00067}{}\hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a17dff6c1392332855f9e83033dff49f8}{00067}         \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a17dff6c1392332855f9e83033dff49f8}{fNack}           = 1,
+\hypertarget{_i_m_u_8h_source_l00068}{}\hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a4f33b2c6a17b90c350b4ad6f5f71cc34}{00068}         \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97a4f33b2c6a17b90c350b4ad6f5f71cc34}{fBusErr}         = 2,
+\hypertarget{_i_m_u_8h_source_l00069}{}\hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97acf94640c5a7cfb3a4fc806dabf005260}{00069}         \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97acf94640c5a7cfb3a4fc806dabf005260}{fArbLost}        = 3
+00070     \} \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97}{FailType};
+00071     
+\hypertarget{_i_m_u_8h_source_l00072}{}\hyperlink{struct_i_m_u_1_1reg_write}{00072}     \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{struct_i_m_u_1_1reg_write}{regWrite} \{
+\hypertarget{_i_m_u_8h_source_l00073}{}\hyperlink{struct_i_m_u_1_1reg_write_aca32b881a20ec7adc84956176aa65a7b}{00073}         uint8\_t     \hyperlink{struct_i_m_u_1_1reg_write_aca32b881a20ec7adc84956176aa65a7b}{ID};
+\hypertarget{_i_m_u_8h_source_l00074}{}\hyperlink{struct_i_m_u_1_1reg_write_a814db0ab3fab7c9d45784c8f0eba74c5}{00074}         uint8\_t     \hyperlink{struct_i_m_u_1_1reg_write_a814db0ab3fab7c9d45784c8f0eba74c5}{Addr};
+\hypertarget{_i_m_u_8h_source_l00075}{}\hyperlink{struct_i_m_u_1_1reg_write_ace45ec9e1c4549b73f81a62d409da7d9}{00075}         uint8\_t     \hyperlink{struct_i_m_u_1_1reg_write_ace45ec9e1c4549b73f81a62d409da7d9}{Data};
+00076     \} \hyperlink{class_i_m_u_a1960eeaec92b6b60d4f6c9e28b042b80}{RegWriteType};
+00077     
+\hypertarget{_i_m_u_8h_source_l00078}{}\hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ce}{00078}     \textcolor{keyword}{typedef} \textcolor{keyword}{enum}  \{
+\hypertarget{_i_m_u_8h_source_l00079}{}\hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea978a6a5569595a7e86fe7e48d2684a7f}{00079}         \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea978a6a5569595a7e86fe7e48d2684a7f}{ptTimer},
+\hypertarget{_i_m_u_8h_source_l00080}{}\hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea32f99524523d0d11cbd3348ee2fba9ea}{00080}         \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea32f99524523d0d11cbd3348ee2fba9ea}{ptI2CWrite},
+\hypertarget{_i_m_u_8h_source_l00081}{}\hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea5aabc602033dc4f845e45d33fe939688}{00081}         \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57cea5aabc602033dc4f845e45d33fe939688}{ptI2CRead},
+\hypertarget{_i_m_u_8h_source_l00082}{}\hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ceab11e066033d0049893742894a7252fc8}{00082}         \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ceab11e066033d0049893742894a7252fc8}{ptI2CNack}
+00083     \} \hyperlink{class_i_m_u_a5a642d4cba90a478ae8c3312a47a57ce}{ProcessType};
+00084     
+\hypertarget{_i_m_u_8h_source_l00085}{}\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{00085}     \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{StateType}       \hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State};
+\hypertarget{_i_m_u_8h_source_l00086}{}\hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{00086}     \hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{StateType}       \hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{_previousState}; \textcolor{comment}{// Used for error recovery.}
+\hypertarget{_i_m_u_8h_source_l00087}{}\hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{00087}     \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97}{FailType}        \hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{_failType};
+00088     
+\hypertarget{_i_m_u_8h_source_l00089}{}\hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{00089}     \hyperlink{class_i2_c___master}{I2C_Master}*     \hyperlink{class_i_m_u_a466148932203b7250c83a4c5bb684ca1}{_pMas};
+\hypertarget{_i_m_u_8h_source_l00090}{}\hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{00090}     \textcolor{keywordtype}{bool}            \hyperlink{class_i_m_u_a62978e791838c3b4829e1d3d683e99b2}{_bDualChan};
+\hypertarget{_i_m_u_8h_source_l00091}{}\hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{00091}     uint8\_t         \hyperlink{class_i_m_u_a27df580b4559aaf3234469bfe16eb158}{_numChans};
+\hypertarget{_i_m_u_8h_source_l00092}{}\hyperlink{class_i_m_u_a53aa928d2d68a5287da893bd157e7cbe}{00092}     \textcolor{keywordtype}{bool}            \hyperlink{class_i_m_u_a53aa928d2d68a5287da893bd157e7cbe}{_configOkay}[2];
+\hypertarget{_i_m_u_8h_source_l00093}{}\hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{00093}     uint8\_t         \hyperlink{class_i_m_u_a47ffe20a032e3a890cd3891793a60a40}{_gID}[2];
+\hypertarget{_i_m_u_8h_source_l00094}{}\hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{00094}     uint8\_t         \hyperlink{class_i_m_u_a10141bdc27465c95de6c8285d1542d78}{_aID}[2];
+\hypertarget{_i_m_u_8h_source_l00095}{}\hyperlink{class_i_m_u_a3f9e6159234449cde8f5e72da8acf751}{00095}     uint8\_t         \hyperlink{class_i_m_u_a3f9e6159234449cde8f5e72da8acf751}{_DLPF};
+\hypertarget{_i_m_u_8h_source_l00096}{}\hyperlink{class_i_m_u_a059c02011a10bb90aecc9692ed345771}{00096}     uint8\_t         \hyperlink{class_i_m_u_a059c02011a10bb90aecc9692ed345771}{_FullScale};
+\hypertarget{_i_m_u_8h_source_l00097}{}\hyperlink{class_i_m_u_a4dbeaf17fd1ae9b41b5c3fe61706e5f1}{00097}     uint8\_t         \hyperlink{class_i_m_u_a4dbeaf17fd1ae9b41b5c3fe61706e5f1}{_ClkSel};
+\hypertarget{_i_m_u_8h_source_l00098}{}\hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{00098}     uint16\_t        \hyperlink{class_i_m_u_aafe9be107385c7ccedeb1539cf6d7fce}{_Rate};
+00099     
+\hypertarget{_i_m_u_8h_source_l00100}{}\hyperlink{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{00100}     \textcolor{keywordtype}{bool}            \hyperlink{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{_bUseGyro};
+00101 
+\hypertarget{_i_m_u_8h_source_l00103}{}\hyperlink{class_i_m_u_ab87a54288295d4d10d605cf6c21d4d0f}{00103}     uint8\_t         \hyperlink{class_i_m_u_ab87a54288295d4d10d605cf6c21d4d0f}{_dataBuffer}[2][20];
+\hypertarget{_i_m_u_8h_source_l00104}{}\hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{00104}     \textcolor{keywordtype}{bool}            \hyperlink{class_i_m_u_a8a71f0728b2d849d1d8e54fcb58aad4e}{_bDataReady}[2];
+00105     
+\hypertarget{_i_m_u_8h_source_l00106}{}\hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{00106}     \hyperlink{class_timer_cntr}{TimerCntr}*      \hyperlink{class_i_m_u_a16e73b1457a346aed16d4b61fae7f2c4}{_pTimer};
+\hypertarget{_i_m_u_8h_source_l00107}{}\hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{00107}     \textcolor{keywordtype}{bool}            \hyperlink{class_i_m_u_a547fe1fb8adb34917aa08663919b97df}{_bRun};
+\hypertarget{_i_m_u_8h_source_l00108}{}\hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{00108}     uint16\_t        \hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{_failCount}; 
+\hypertarget{_i_m_u_8h_source_l00109}{}\hyperlink{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{00109}     uint8\_t         \hyperlink{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{_nackCount};
+\hypertarget{_i_m_u_8h_source_l00110}{}\hyperlink{class_i_m_u_a12238a84e20f54c5fe799e0b37feb0ea}{00110}     \textcolor{keywordtype}{bool}            \hyperlink{class_i_m_u_a12238a84e20f54c5fe799e0b37feb0ea}{_bFailDetected};
+\hypertarget{_i_m_u_8h_source_l00111}{}\hyperlink{class_i_m_u_adce31ce2a3317918d73b47e94a2d9227}{00111}     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}    \hyperlink{class_i_m_u_adce31ce2a3317918d73b47e94a2d9227}{_busyWaitTime};
+\hypertarget{_i_m_u_8h_source_l00112}{}\hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{00112}     DebugPort*      \hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{_pDBGPort};
+\hypertarget{_i_m_u_8h_source_l00113}{}\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{00113}     DebugPort*      \hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2};
+\hypertarget{_i_m_u_8h_source_l00114}{}\hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{00114}     \hyperlink{class_i_m_u_base}{IMUBase}*        \hyperlink{class_i_m_u_a72d5aa462d6627b458db76ca6567d130}{_pNextIMU};
+00115 
+00116 \textcolor{keyword}{public}:
+00117     \hyperlink{class_i_m_u_ab77a4c6c64f65642c42ebbf55a4e7a1e}{IMU}(\hyperlink{class_i2_c___master}{I2C_Master}* pMas);
+00118     \hyperlink{class_i_m_u_ab77a4c6c64f65642c42ebbf55a4e7a1e}{IMU}(\hyperlink{class_i2_c___master}{I2C_Master}* pMas, uint8\_t gID, uint8\_t aID);
+00119     \hyperlink{class_i_m_u_ab77a4c6c64f65642c42ebbf55a4e7a1e}{IMU}(\hyperlink{class_i2_c___master}{I2C_Master}* pMas, uint8\_t gID, uint8\_t aID,
+00120         uint8\_t gID2, uint8\_t aID2
+00121         );
+00122     
+00123     
+00124     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a496602369b71a85051ba0506a8af70a1}{QueryChannels}();
+00125     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_afedf46bdad68cb4002af8bf46530d265}{SetDebugPort}(DebugPort* pPort);
+00126     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a6f86c79e66c4262093c2d65fe3fee45c}{SetDebugPort2}(DebugPort* pPort);
+00127     
+00128     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a13191357ff93d02f6cc7aa7e55b13d67}{Reset}();
+00129     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a7705d9d642b093a670e78534c9b2d3db}{SampleRate}(uint16\_t);
+00130     
+00131     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_a290737d42de965c15c8327edfc516ffd}{Setup}();
+00132     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_a7c03f7a423240538756a62441b298d01}{Start}();
+00133     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_af0841bed4167f7a4eb12c40d7b8e615e}{Stop}();
+00134     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_a004d2bb9e6155f45edc9e46bce730644}{ForceStartStop}();
+00135     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{class_i_m_u_ade0f7e6be2eda441bfaa2cb372fec55a}{Busy}();
+00136     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a187dc9de30f97f5154e0ff904eb6ee1a}{ResetTimer}();
+\hypertarget{_i_m_u_8h_source_l00137}{}\hyperlink{class_i_m_u_a86f05be645d2096f0b2b3cfbe8ea0ce8}{00137}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a86f05be645d2096f0b2b3cfbe8ea0ce8}{UseGyro}(\textcolor{keywordtype}{bool} bEnable) \{ \hyperlink{class_i_m_u_a0cee90ebd5d0b57fa5ad3890c65108e2}{_bUseGyro} = bEnable; \};
+00138     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_ac46c8e580371cf97e4625dda450f01fd}{NextIMU}(\hyperlink{class_i_m_u_base}{IMUBase}* pNext);
+00139     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_a3c949edee15e2f618d7ee263b0a4bcb3}{BeginRead}();
+00140     
+00141     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{class_i_m_u_a078d2f3ad27475c9afcaf09c44886e4c}{DataReady}();
+00142     \textcolor{keyword}{virtual} uint8\_t* \hyperlink{class_i_m_u_a4f72b7f99fc42f30c9478ba7ed65654e}{GetPacketData}(uint8\_t*);
+00143 
+00144     \textcolor{comment}{// Diags}
+00145     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a74feb2946c48a92b251e28ac256d887b}{CheckIDs}(\hyperlink{class_hardware_serial}{HardwareSerial}* pSerial);
+00146     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a98f9a8244dd1a07f8771450097371b2c}{ResetDevices}();
+00147     
+00148     \textcolor{comment}{// Timer Notification}
+00149     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a66680475b844fbf334a0e4e7c5fe845b}{SetTimer}(\hyperlink{class_timer_cntr}{TimerCntr}* pTimer);
+00150     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a3ce9934e64dff87e18b6cc3f3700f72f}{SetTimerPeriod}();
+00151     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_ae56d268445b752f9720c814cb294ba40}{err}(uint8\_t \textcolor{keywordtype}{id});
+00152     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_aefbd4e2f7f3928cf44c00a96d61c3546}{ovf}(uint8\_t \textcolor{keywordtype}{id});
+00153     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_ad2215ab5585c1f9512b91ef309dabf88}{ccx}(uint8\_t \textcolor{keywordtype}{id}, uint8\_t idx);
+00154     
+00155     \textcolor{comment}{// I2C}
+00156     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a71568969beb6ee7d4b596f8c0a91faf9}{I2CWriteDone}();
+00157     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_ab4124ae29a64365787c2c03b3ab09c6c}{I2CReadDone}();
+00158     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_aad041ec91d266e9fc15d22de17ffccad}{I2CBusError}();
+00159     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a7d4a2a761fb4956ebd9ce0b0cda69556}{I2CArbLost}();
+00160     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a161f80bfcb7195196754a18eddedaf12}{I2CNack}();
+00161     
+00162     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_acf8e9ee1971e527c255c046d3d3c1fe9}{FailRecovery}();
+00163     
+00164 \textcolor{keyword}{protected}:
+00165     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_aadf38b912ad23374c4ee8e40fb9f3638}{Run}();
+00166     \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_a8dfecb837ea9fcf9d190423dca9beb7f}{StartTransaction}();
+00167     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_ac39f14c617d4eea9de6175497744465a}{ProcessTransaction}();
+00168     \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_af4bede5261a1d6018c72782d8c54445e}{Configure}(uint8\_t idx);
+00169     \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_af80eef2eb22d08faf697dd708b18303c}{Wr}(uint8\_t ID, uint8\_t addr, uint8\_t data);
+00170     \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_ab6c8ef618465524c88a021e2206b2de5}{Rd}(uint8\_t ID, uint8\_t addr, uint8\_t cnt, uint8\_t* pData);
+00171     \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_a2c38589ebcb357dfc8f987a5d41c845b}{WrAsync}(uint8\_t ID, uint8\_t addr, uint8\_t data);
+00172     \textcolor{keywordtype}{int} \hyperlink{class_i_m_u_ad39e85995898b9251032c89a3587974c}{RdAsync}(uint8\_t ID, uint8\_t addr, uint8\_t cnt);
+00173     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a07362afd858bca1ce960f3809248e4e9}{ReadWord}(uint16\_t *pData);
+00174     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a5b58d543be70886335e439a2b4f28a8e}{StoreGyroData}(uint8\_t idx);
+00175     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_ae9c290e496eb2a76aefc626c81fe4da9}{StoreAccData}(uint8\_t idx);
+00176     \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a14f3437170b38602f281b3f97d9ce129}{PushData}(uint8\_t idx);
+00177     
+\hypertarget{_i_m_u_8h_source_l00178}{}\hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{00178}     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a5d80a28d98df12c536f525b56b7e5abe}{SetState}(\hyperlink{class_i_m_u_a7b5e1bf1cf1407b3e4cf0dd2e18b523f}{StateType} s)
+00179     \{
+00180         \hyperlink{class_i_m_u_aca284ca1bcf10458005d4ca630833ea9}{_previousState} = \hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State};
+00181         \hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State} = s;
+00182         \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{_pDBGPort}) \hyperlink{class_i_m_u_a83a2ffaf84cc04f17ff0301181c45366}{_pDBGPort}->SetState((uint8\_t)\hyperlink{class_i_m_u_a2e3c70d02cc2b3dd98ce8153d02cf04e}{_State});
+00183     \}
+00184     
+\hypertarget{_i_m_u_8h_source_l00185}{}\hyperlink{class_i_m_u_a7f9a7744a4fa3ea40da008cabd5da7b7}{00185}     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a7f9a7744a4fa3ea40da008cabd5da7b7}{MarkPos}(\hyperlink{class_i_m_u_ad01128d82debc1e4213affe4858f3144}{PosType} p)
+00186     \{
+00187         \textcolor{keywordflow}{if} (\hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2}) \hyperlink{class_i_m_u_a1cf5672a28049d5885a2958010188928}{_pDBGPort2}->SetState((uint8\_t) p);
+00188     \}
+00189     
+\hypertarget{_i_m_u_8h_source_l00190}{}\hyperlink{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{00190}     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_ab3992da77876e9b5cae8bc9d1334ff7b}{ResetBusyTime}()
+00191     \{
+00192         \hyperlink{class_i_m_u_adce31ce2a3317918d73b47e94a2d9227}{_busyWaitTime} = millis();
+00193     \}
+00194     
+\hypertarget{_i_m_u_8h_source_l00195}{}\hyperlink{class_i_m_u_a6a61733d65cf2b60db212e0be9a00fed}{00195}     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \hyperlink{class_i_m_u_a6a61733d65cf2b60db212e0be9a00fed}{BusyTimeout}()
+00196     \{
+00197         \textcolor{keywordflow}{return} ((millis() - \hyperlink{class_i_m_u_adce31ce2a3317918d73b47e94a2d9227}{_busyWaitTime}) > 2);
+00198     \}
+00199     
+\hypertarget{_i_m_u_8h_source_l00200}{}\hyperlink{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{00200}     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \hyperlink{class_i_m_u_a89de27b845ce9e103436cfb7ae8e6441}{ResetFailStats}()
+00201     \{
+00202         \hyperlink{class_i_m_u_a12238a84e20f54c5fe799e0b37feb0ea}{_bFailDetected}      = \textcolor{keyword}{false};
+00203         \hyperlink{class_i_m_u_a30c8553ab21b5d6e618c2616f25dafb1}{_nackCount}          = 0;
+00204         \hyperlink{class_i_m_u_a1e646aa38b84721fc650ef5d3388cc14}{_failCount}          = 0;
+00205         \hyperlink{class_i_m_u_a39ed63b67b50c67520c5f8e5a2c26b26}{_failType}           = \hyperlink{class_i_m_u_a4edeb07a848734657792b4ef8749fb97ac049bda2fb043b649de1cdb8d203aac2}{fNone};
+00206     \}
+00207         
+00208 \};
+00209 
+00210 
+00211 \textcolor{preprocessor}{#endif}
+00212 \textcolor{preprocessor}{}
+\end{DoxyCode}

@@ -1,0 +1,261 @@
+\hypertarget{class_i_m_u_base}{
+\subsection{IMUBase Class Reference}
+\label{class_i_m_u_base}\index{IMUBase@{IMUBase}}
+}
+
+
+{\ttfamily \#include $<$IMU.h$>$}
+
+Inheritance diagram for IMUBase:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_m_u_base}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_i_m_u_base_a27fdd96992dfa8867943407fc400d071}{Reset} ()=0
+\item 
+virtual void \hyperlink{class_i_m_u_base_ad4f6b6562edc0e2b76591d0deca191d7}{SampleRate} (uint16\_\-t)=0
+\item 
+virtual int \hyperlink{class_i_m_u_base_a74d84beba0da335f49aa7ce94612cf13}{Setup} ()=0
+\item 
+virtual int \hyperlink{class_i_m_u_base_af31c2ed51cd36cc3230ebbb58757784a}{Start} ()=0
+\item 
+virtual int \hyperlink{class_i_m_u_base_a5b136166ec3849cbc1f93a13367eb08d}{Stop} ()=0
+\item 
+virtual int \hyperlink{class_i_m_u_base_a60bf7f5f9728d11bae5ca64bc7a9c10b}{ForceStartStop} ()=0
+\item 
+virtual bool \hyperlink{class_i_m_u_base_adb8539af8660d291fdde1f38b3d644f3}{Busy} ()=0
+\item 
+virtual void \hyperlink{class_i_m_u_base_a6e65b709e0212f95299ce9fa464b4651}{ResetTimer} ()=0
+\item 
+virtual void \hyperlink{class_i_m_u_base_a9b4cc325e9858a8bb204733dc7906ec2}{UseGyro} (bool bEnable)=0
+\item 
+virtual void \hyperlink{class_i_m_u_base_aa9c09bfd70f81b4a2df20cc5ae1474c3}{NextIMU} (\hyperlink{class_i_m_u_base}{IMUBase} $\ast$)=0
+\item 
+virtual int \hyperlink{class_i_m_u_base_a55327f28a0ad5e54d94f0c698b04827a}{BeginRead} ()=0
+\item 
+virtual bool \hyperlink{class_i_m_u_base_a53d56fa29c66935306e1dcca140aa9ff}{DataReady} ()=0
+\item 
+virtual uint8\_\-t $\ast$ \hyperlink{class_i_m_u_base_a13cf0868e2c3c31838fe889315ccfb0c}{GetPacketData} (uint8\_\-t $\ast$pPacket)=0
+\item 
+virtual void \hyperlink{class_i_m_u_base_ab920218bb6630f9e91ef7d0f07599203}{CheckIDs} (\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$pSerial)=0
+\item 
+virtual void \hyperlink{class_i_m_u_base_a78622fbfb40a5bbee5e83bb8a0780d04}{ResetDevices} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+
+Definition at line \hyperlink{_i_m_u_8h_source_l00016}{16} of file \hyperlink{_i_m_u_8h_source}{IMU.h}.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_i_m_u_base_a55327f28a0ad5e54d94f0c698b04827a}{
+\index{IMUBase@{IMUBase}!BeginRead@{BeginRead}}
+\index{BeginRead@{BeginRead}!IMUBase@{IMUBase}}
+\paragraph[{BeginRead}]{\setlength{\rightskip}{0pt plus 5cm}virtual int IMUBase::BeginRead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_a55327f28a0ad5e54d94f0c698b04827a}
+
+
+Implemented in \hyperlink{class_i_m_u_a3c949edee15e2f618d7ee263b0a4bcb3}{IMU}.
+
+
+
+Referenced by \hyperlink{_i_m_u_8cpp_source_l00108}{IMU::BeginRead()}, and \hyperlink{_i_m_u_8cpp_source_l00348}{IMU::ProcessTransaction()}.
+
+\hypertarget{class_i_m_u_base_adb8539af8660d291fdde1f38b3d644f3}{
+\index{IMUBase@{IMUBase}!Busy@{Busy}}
+\index{Busy@{Busy}!IMUBase@{IMUBase}}
+\paragraph[{Busy}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool IMUBase::Busy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_adb8539af8660d291fdde1f38b3d644f3}
+
+
+Implemented in \hyperlink{class_i_m_u_ade0f7e6be2eda441bfaa2cb372fec55a}{IMU}.
+
+\hypertarget{class_i_m_u_base_ab920218bb6630f9e91ef7d0f07599203}{
+\index{IMUBase@{IMUBase}!CheckIDs@{CheckIDs}}
+\index{CheckIDs@{CheckIDs}!IMUBase@{IMUBase}}
+\paragraph[{CheckIDs}]{\setlength{\rightskip}{0pt plus 5cm}virtual void IMUBase::CheckIDs (
+\begin{DoxyParamCaption}
+\item[{{\bf HardwareSerial} $\ast$}]{pSerial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_ab920218bb6630f9e91ef7d0f07599203}
+
+
+Implemented in \hyperlink{class_i_m_u_a74feb2946c48a92b251e28ac256d887b}{IMU}.
+
+\hypertarget{class_i_m_u_base_a53d56fa29c66935306e1dcca140aa9ff}{
+\index{IMUBase@{IMUBase}!DataReady@{DataReady}}
+\index{DataReady@{DataReady}!IMUBase@{IMUBase}}
+\paragraph[{DataReady}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool IMUBase::DataReady (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_a53d56fa29c66935306e1dcca140aa9ff}
+
+
+Implemented in \hyperlink{class_i_m_u_a078d2f3ad27475c9afcaf09c44886e4c}{IMU}.
+
+\hypertarget{class_i_m_u_base_a60bf7f5f9728d11bae5ca64bc7a9c10b}{
+\index{IMUBase@{IMUBase}!ForceStartStop@{ForceStartStop}}
+\index{ForceStartStop@{ForceStartStop}!IMUBase@{IMUBase}}
+\paragraph[{ForceStartStop}]{\setlength{\rightskip}{0pt plus 5cm}virtual int IMUBase::ForceStartStop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_a60bf7f5f9728d11bae5ca64bc7a9c10b}
+
+
+Implemented in \hyperlink{class_i_m_u_a004d2bb9e6155f45edc9e46bce730644}{IMU}.
+
+\hypertarget{class_i_m_u_base_a13cf0868e2c3c31838fe889315ccfb0c}{
+\index{IMUBase@{IMUBase}!GetPacketData@{GetPacketData}}
+\index{GetPacketData@{GetPacketData}!IMUBase@{IMUBase}}
+\paragraph[{GetPacketData}]{\setlength{\rightskip}{0pt plus 5cm}virtual uint8\_\-t$\ast$ IMUBase::GetPacketData (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t $\ast$}]{pPacket}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_a13cf0868e2c3c31838fe889315ccfb0c}
+
+
+Implemented in \hyperlink{class_i_m_u_a4f72b7f99fc42f30c9478ba7ed65654e}{IMU}.
+
+\hypertarget{class_i_m_u_base_aa9c09bfd70f81b4a2df20cc5ae1474c3}{
+\index{IMUBase@{IMUBase}!NextIMU@{NextIMU}}
+\index{NextIMU@{NextIMU}!IMUBase@{IMUBase}}
+\paragraph[{NextIMU}]{\setlength{\rightskip}{0pt plus 5cm}virtual void IMUBase::NextIMU (
+\begin{DoxyParamCaption}
+\item[{{\bf IMUBase} $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_aa9c09bfd70f81b4a2df20cc5ae1474c3}
+
+
+Implemented in \hyperlink{class_i_m_u_ac46c8e580371cf97e4625dda450f01fd}{IMU}.
+
+\hypertarget{class_i_m_u_base_a27fdd96992dfa8867943407fc400d071}{
+\index{IMUBase@{IMUBase}!Reset@{Reset}}
+\index{Reset@{Reset}!IMUBase@{IMUBase}}
+\paragraph[{Reset}]{\setlength{\rightskip}{0pt plus 5cm}virtual void IMUBase::Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_a27fdd96992dfa8867943407fc400d071}
+
+
+Implemented in \hyperlink{class_i_m_u_a13191357ff93d02f6cc7aa7e55b13d67}{IMU}.
+
+\hypertarget{class_i_m_u_base_a78622fbfb40a5bbee5e83bb8a0780d04}{
+\index{IMUBase@{IMUBase}!ResetDevices@{ResetDevices}}
+\index{ResetDevices@{ResetDevices}!IMUBase@{IMUBase}}
+\paragraph[{ResetDevices}]{\setlength{\rightskip}{0pt plus 5cm}virtual void IMUBase::ResetDevices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_a78622fbfb40a5bbee5e83bb8a0780d04}
+
+
+Implemented in \hyperlink{class_i_m_u_a98f9a8244dd1a07f8771450097371b2c}{IMU}.
+
+\hypertarget{class_i_m_u_base_a6e65b709e0212f95299ce9fa464b4651}{
+\index{IMUBase@{IMUBase}!ResetTimer@{ResetTimer}}
+\index{ResetTimer@{ResetTimer}!IMUBase@{IMUBase}}
+\paragraph[{ResetTimer}]{\setlength{\rightskip}{0pt plus 5cm}virtual void IMUBase::ResetTimer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_a6e65b709e0212f95299ce9fa464b4651}
+
+
+Implemented in \hyperlink{class_i_m_u_a187dc9de30f97f5154e0ff904eb6ee1a}{IMU}.
+
+\hypertarget{class_i_m_u_base_ad4f6b6562edc0e2b76591d0deca191d7}{
+\index{IMUBase@{IMUBase}!SampleRate@{SampleRate}}
+\index{SampleRate@{SampleRate}!IMUBase@{IMUBase}}
+\paragraph[{SampleRate}]{\setlength{\rightskip}{0pt plus 5cm}virtual void IMUBase::SampleRate (
+\begin{DoxyParamCaption}
+\item[{uint16\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_ad4f6b6562edc0e2b76591d0deca191d7}
+
+
+Implemented in \hyperlink{class_i_m_u_a7705d9d642b093a670e78534c9b2d3db}{IMU}.
+
+\hypertarget{class_i_m_u_base_a74d84beba0da335f49aa7ce94612cf13}{
+\index{IMUBase@{IMUBase}!Setup@{Setup}}
+\index{Setup@{Setup}!IMUBase@{IMUBase}}
+\paragraph[{Setup}]{\setlength{\rightskip}{0pt plus 5cm}virtual int IMUBase::Setup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_a74d84beba0da335f49aa7ce94612cf13}
+
+
+Implemented in \hyperlink{class_i_m_u_a290737d42de965c15c8327edfc516ffd}{IMU}.
+
+\hypertarget{class_i_m_u_base_af31c2ed51cd36cc3230ebbb58757784a}{
+\index{IMUBase@{IMUBase}!Start@{Start}}
+\index{Start@{Start}!IMUBase@{IMUBase}}
+\paragraph[{Start}]{\setlength{\rightskip}{0pt plus 5cm}virtual int IMUBase::Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_af31c2ed51cd36cc3230ebbb58757784a}
+
+
+Implemented in \hyperlink{class_i_m_u_a7c03f7a423240538756a62441b298d01}{IMU}.
+
+\hypertarget{class_i_m_u_base_a5b136166ec3849cbc1f93a13367eb08d}{
+\index{IMUBase@{IMUBase}!Stop@{Stop}}
+\index{Stop@{Stop}!IMUBase@{IMUBase}}
+\paragraph[{Stop}]{\setlength{\rightskip}{0pt plus 5cm}virtual int IMUBase::Stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_a5b136166ec3849cbc1f93a13367eb08d}
+
+
+Implemented in \hyperlink{class_i_m_u_af0841bed4167f7a4eb12c40d7b8e615e}{IMU}.
+
+\hypertarget{class_i_m_u_base_a9b4cc325e9858a8bb204733dc7906ec2}{
+\index{IMUBase@{IMUBase}!UseGyro@{UseGyro}}
+\index{UseGyro@{UseGyro}!IMUBase@{IMUBase}}
+\paragraph[{UseGyro}]{\setlength{\rightskip}{0pt plus 5cm}virtual void IMUBase::UseGyro (
+\begin{DoxyParamCaption}
+\item[{bool}]{bEnable}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}\hfill}
+\label{class_i_m_u_base_a9b4cc325e9858a8bb204733dc7906ec2}
+
+
+Implemented in \hyperlink{class_i_m_u_a86f05be645d2096f0b2b3cfbe8ea0ce8}{IMU}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_i_m_u_8h}{IMU.h}\end{DoxyCompactItemize}

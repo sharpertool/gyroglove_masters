@@ -1,0 +1,212 @@
+\hypertarget{_print_8cpp_source}{
+\subsection{Print.cpp}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{comment}{/*}
+00002 \textcolor{comment}{ Print.cpp - Base class that provides print() and println()}
+00003 \textcolor{comment}{ Copyright (c) 2008 David A. Mellis.  All right reserved.}
+00004 \textcolor{comment}{ }
+00005 \textcolor{comment}{ This library is free software; you can redistribute it and/or}
+00006 \textcolor{comment}{ modify it under the terms of the GNU Lesser General Public}
+00007 \textcolor{comment}{ License as published by the Free Software Foundation; either}
+00008 \textcolor{comment}{ version 2.1 of the License, or (at your option) any later version.}
+00009 \textcolor{comment}{ }
+00010 \textcolor{comment}{ This library is distributed in the hope that it will be useful,}
+00011 \textcolor{comment}{ but WITHOUT ANY WARRANTY; without even the implied warranty of}
+00012 \textcolor{comment}{ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU}
+00013 \textcolor{comment}{ Lesser General Public License for more details.}
+00014 \textcolor{comment}{ }
+00015 \textcolor{comment}{ You should have received a copy of the GNU Lesser General Public}
+00016 \textcolor{comment}{ License along with this library; if not, write to the Free Software}
+00017 \textcolor{comment}{ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA}
+00018 \textcolor{comment}{ }
+00019 \textcolor{comment}{ Modified 23 November 2006 by David A. Mellis}
+00020 \textcolor{comment}{ */}
+00021 
+00022 \textcolor{preprocessor}{#include <stdio.h>}
+00023 \textcolor{preprocessor}{#include <string.h>}
+00024 \textcolor{preprocessor}{#include <math.h>}
+00025 \textcolor{comment}{//#include "wiring.h"}
+00026 
+00027 \textcolor{preprocessor}{#include "Print.h"}
+00028 
+00029 \textcolor{comment}{// Public Methods //////////////////////////////////////////////////////////////}
+00030 
+00031 \textcolor{comment}{/* default implementation: may be overridden */}
+\hypertarget{_print_8cpp_source_l00032}{}\hyperlink{class_print_ae083258d224bae2e5d8a27a4f8338880}{00032} \textcolor{keywordtype}{void} \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{Print::write}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str)
+00033 \{
+00034   \textcolor{keywordflow}{while} (*str)
+00035     \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(*str++);
+00036 \}
+00037 
+00038 \textcolor{comment}{/* default implementation: may be overridden */}
+\hypertarget{_print_8cpp_source_l00039}{}\hyperlink{class_print_a03094428e21f210e59cc1be63353225d}{00039} \textcolor{keywordtype}{void} \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{Print::write}(\textcolor{keyword}{const} uint8\_t *\hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer}, \textcolor{keywordtype}{size\_t} size)
+00040 \{
+00041   \textcolor{keywordflow}{while} (size--)
+00042     \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(*buffer++);
+00043 \}
+00044 
+\hypertarget{_print_8cpp_source_l00045}{}\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{00045} \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{Print::print}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} str[])
+00046 \{
+00047   \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(str);
+00048 \}
+00049 
+\hypertarget{_print_8cpp_source_l00050}{}\hyperlink{class_print_ada24638921c2e86e13c5939c94cf67db}{00050} \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{Print::print}(\textcolor{keywordtype}{char} c, \textcolor{keywordtype}{int} base)
+00051 \{
+00052   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}((\textcolor{keywordtype}{long}) c, base);
+00053 \}
+00054 
+\hypertarget{_print_8cpp_source_l00055}{}\hyperlink{class_print_ad7778084a6fe96551d2ec9ce532c5164}{00055} \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{Print::print}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} b, \textcolor{keywordtype}{int} base)
+00056 \{
+00057   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}) b, base);
+00058 \}
+00059 
+\hypertarget{_print_8cpp_source_l00060}{}\hyperlink{class_print_a35a6196999c85e5afc5fd852d088e886}{00060} \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{Print::print}(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} base)
+00061 \{
+00062   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}((\textcolor{keywordtype}{long}) n, base);
+00063 \}
+00064 
+\hypertarget{_print_8cpp_source_l00065}{}\hyperlink{class_print_a5f8df5d4f941b411ce9d660b48996bea}{00065} \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{Print::print}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} base)
+00066 \{
+00067   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}) n, base);
+00068 \}
+00069 
+\hypertarget{_print_8cpp_source_l00070}{}\hyperlink{class_print_afab3f8d07a58a8d37fec32d7fcb67b56}{00070} \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{Print::print}(\textcolor{keywordtype}{long} n, \textcolor{keywordtype}{int} base)
+00071 \{
+00072   \textcolor{keywordflow}{if} (base == 0) \{
+00073     \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(n);
+00074   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (base == 10) \{
+00075     \textcolor{keywordflow}{if} (n < 0) \{
+00076       \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{charliteral}{'-'});
+00077       n = -n;
+00078     \}
+00079     \hyperlink{class_print_ae6dc349a48650e771a4443e93bfa9c65}{printNumber}(n, 10);
+00080   \} \textcolor{keywordflow}{else} \{
+00081     \hyperlink{class_print_ae6dc349a48650e771a4443e93bfa9c65}{printNumber}(n, base);
+00082   \}
+00083 \}
+00084 
+\hypertarget{_print_8cpp_source_l00085}{}\hyperlink{class_print_a4be58e920bdddcaf5496d0ba2ae4ea81}{00085} \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{Print::print}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} n, \textcolor{keywordtype}{int} base)
+00086 \{
+00087   \textcolor{keywordflow}{if} (base == 0) \hyperlink{class_print_ad9393033793cfc17f3e37202ba244892}{write}(n);
+00088   \textcolor{keywordflow}{else} \hyperlink{class_print_ae6dc349a48650e771a4443e93bfa9c65}{printNumber}(n, base);
+00089 \}
+00090 
+\hypertarget{_print_8cpp_source_l00091}{}\hyperlink{class_print_aa5fe80d3a3e8d2dc64f346eb08dcb43f}{00091} \textcolor{keywordtype}{void} \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{Print::print}(\textcolor{keywordtype}{double} n, \textcolor{keywordtype}{int} digits)
+00092 \{
+00093   \hyperlink{class_print_afd7abd9d94aa5210d2d0f97e614e4625}{printFloat}(n, digits);
+00094 \}
+00095 
+\hypertarget{_print_8cpp_source_l00096}{}\hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{00096} \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{Print::println}(\textcolor{keywordtype}{void})
+00097 \{
+00098   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{charliteral}{'\(\backslash\)r'});
+00099   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{charliteral}{'\(\backslash\)n'});  
+00100 \}
+00101 
+\hypertarget{_print_8cpp_source_l00102}{}\hyperlink{class_print_a09db74a8d51c6b2420c478267f958a51}{00102} \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{Print::println}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} c[])
+00103 \{
+00104   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(c);
+00105   \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+00106 \}
+00107 
+\hypertarget{_print_8cpp_source_l00108}{}\hyperlink{class_print_a49bbefc9016ddda486edf3dddaaa07e9}{00108} \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{Print::println}(\textcolor{keywordtype}{char} c, \textcolor{keywordtype}{int} base)
+00109 \{
+00110   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(c, base);
+00111   \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+00112 \}
+00113 
+\hypertarget{_print_8cpp_source_l00114}{}\hyperlink{class_print_a4eaaf09c278a5927ba2ddcffb6b01e64}{00114} \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{Print::println}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} b, \textcolor{keywordtype}{int} base)
+00115 \{
+00116   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(b, base);
+00117   \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+00118 \}
+00119 
+\hypertarget{_print_8cpp_source_l00120}{}\hyperlink{class_print_a350bdfe3569acb05a2fdefb7c54e292d}{00120} \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{Print::println}(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} base)
+00121 \{
+00122   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(n, base);
+00123   \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+00124 \}
+00125 
+\hypertarget{_print_8cpp_source_l00126}{}\hyperlink{class_print_af0aeb581689c6e9c9f8331b342a91e20}{00126} \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{Print::println}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} base)
+00127 \{
+00128   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(n, base);
+00129   \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+00130 \}
+00131 
+\hypertarget{_print_8cpp_source_l00132}{}\hyperlink{class_print_a1999020b07369721caa16c52fdba4341}{00132} \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{Print::println}(\textcolor{keywordtype}{long} n, \textcolor{keywordtype}{int} base)
+00133 \{
+00134   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(n, base);
+00135   \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+00136 \}
+00137 
+\hypertarget{_print_8cpp_source_l00138}{}\hyperlink{class_print_aacf64fb9630526fb6c666f038a9dc4e6}{00138} \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{Print::println}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} n, \textcolor{keywordtype}{int} base)
+00139 \{
+00140   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(n, base);
+00141   \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+00142 \}
+00143 
+\hypertarget{_print_8cpp_source_l00144}{}\hyperlink{class_print_a4302b58946b9355b0491118227beed07}{00144} \textcolor{keywordtype}{void} \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{Print::println}(\textcolor{keywordtype}{double} n, \textcolor{keywordtype}{int} digits)
+00145 \{
+00146   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(n, digits);
+00147   \hyperlink{class_print_a525b37c566658ff8113a067f6e8d5bf1}{println}();
+00148 \}
+00149 
+00150 \textcolor{comment}{// Private Methods /////////////////////////////////////////////////////////////}
+00151 
+\hypertarget{_print_8cpp_source_l00152}{}\hyperlink{class_print_ae6dc349a48650e771a4443e93bfa9c65}{00152} \textcolor{keywordtype}{void} \hyperlink{class_print_ae6dc349a48650e771a4443e93bfa9c65}{Print::printNumber}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} n, uint8\_t base)
+00153 \{
+00154   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} buf[8 * \textcolor{keyword}{sizeof}(long)]; \textcolor{comment}{// Assumes 8-bit chars. }
+00155   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} i = 0;
+00156 
+00157   \textcolor{keywordflow}{if} (n == 0) \{
+00158     \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{charliteral}{'0'});
+00159     \textcolor{keywordflow}{return};
+00160   \} 
+00161 
+00162   \textcolor{keywordflow}{while} (n > 0) \{
+00163     buf[i++] = n % base;
+00164     n /= base;
+00165   \}
+00166 
+00167   \textcolor{keywordflow}{for} (; i > 0; i--)
+00168     \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}((\textcolor{keywordtype}{char}) (buf[i - 1] < 10 ?
+00169       \textcolor{charliteral}{'0'} + buf[i - 1] :
+00170       \textcolor{charliteral}{'A'} + buf[i - 1] - 10));
+00171 \}
+00172 
+\hypertarget{_print_8cpp_source_l00173}{}\hyperlink{class_print_afd7abd9d94aa5210d2d0f97e614e4625}{00173} \textcolor{keywordtype}{void} \hyperlink{class_print_afd7abd9d94aa5210d2d0f97e614e4625}{Print::printFloat}(\textcolor{keywordtype}{double} number, uint8\_t digits) 
+00174 \{ 
+00175   \textcolor{comment}{// Handle negative numbers}
+00176   \textcolor{keywordflow}{if} (number < 0.0)
+00177   \{
+00178      \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{charliteral}{'-'});
+00179      number = -number;
+00180   \}
+00181 
+00182   \textcolor{comment}{// Round correctly so that print(1.999, 2) prints as "2.00"}
+00183   \textcolor{keywordtype}{double} rounding = 0.5;
+00184   \textcolor{keywordflow}{for} (uint8\_t i=0; i<digits; ++i)
+00185     rounding /= 10.0;
+00186   
+00187   number += rounding;
+00188 
+00189   \textcolor{comment}{// Extract the integer part of the number and print it}
+00190   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} int\_part = (\textcolor{keywordtype}{unsigned} long)number;
+00191   \textcolor{keywordtype}{double} remainder = number - (double)int\_part;
+00192   \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(int\_part);
+00193 
+00194   \textcolor{comment}{// Print the decimal point, but only if there are digits beyond}
+00195   \textcolor{keywordflow}{if} (digits > 0)
+00196     \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{stringliteral}{"."}); 
+00197 
+00198   \textcolor{comment}{// Extract digits from the remainder one at a time}
+00199   \textcolor{keywordflow}{while} (digits-- > 0)
+00200   \{
+00201     remainder *= 10.0;
+00202     \textcolor{keywordtype}{int} toPrint = int(remainder);
+00203     \hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(toPrint);
+00204     remainder -= toPrint; 
+00205   \} 
+00206 \}
+\end{DoxyCode}

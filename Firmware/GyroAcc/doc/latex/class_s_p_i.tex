@@ -1,0 +1,132 @@
+\hypertarget{class_s_p_i}{
+\section{SPI Class Reference}
+\label{class_s_p_i}\index{SPI@{SPI}}
+}
+
+
+{\ttfamily \#include $<$SPI.h$>$}
+
+Inheritance diagram for SPI:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_s_p_i}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_s_p_i_aeda8d6fc62e1db6f05945b7923312ee4}{send} (uint8\_\-t $\ast$pBuffer, size\_\-t nBytes)=0
+\item 
+virtual void \hyperlink{class_s_p_i_a4ad8350cf35bf7150f46ed043d25620c}{getdata} (uint8\_\-t $\ast$pBuffer, size\_\-t maxBytes)=0
+\item 
+virtual void \hyperlink{class_s_p_i_a59fcfa31babefe505f5bf9e597267798}{begin} ()=0
+\item 
+virtual void \hyperlink{class_s_p_i_a4a4f16e93237dbc3b35982542a3364d3}{end} ()=0
+\item 
+virtual void \hyperlink{class_s_p_i_a4dc12c1b1895005387c98d1ba3f24a3d}{setBitOrder} (uint8\_\-t)=0
+\item 
+virtual void \hyperlink{class_s_p_i_a481cf184f96637c5ecaac4d904926bde}{setDataMode} (uint8\_\-t)=0
+\item 
+virtual void \hyperlink{class_s_p_i_ab463b50c659bcef8b9654c4c6a546341}{setClockDivider} (uint8\_\-t)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_s_p_i_a59fcfa31babefe505f5bf9e597267798}{
+\index{SPI@{SPI}!begin@{begin}}
+\index{begin@{begin}!SPI@{SPI}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}virtual void SPI::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_s_p_i_a59fcfa31babefe505f5bf9e597267798}
+
+
+Implemented in \hyperlink{class_s_p_i__hw_a1ae87333baec9fd4df321619e7db4c70}{SPI\_\-hw}, and \hyperlink{class_s_p_i__sw_aa5228e93ab0fffe53518994825bb0f18}{SPI\_\-sw}.
+
+\hypertarget{class_s_p_i_a4a4f16e93237dbc3b35982542a3364d3}{
+\index{SPI@{SPI}!end@{end}}
+\index{end@{end}!SPI@{SPI}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}virtual void SPI::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_s_p_i_a4a4f16e93237dbc3b35982542a3364d3}
+
+
+Implemented in \hyperlink{class_s_p_i__hw_a62aaf0047809780b5804cc2acead7d7a}{SPI\_\-hw}, and \hyperlink{class_s_p_i__sw_a2d15c91288c9aa7629b20e3c0f43d11d}{SPI\_\-sw}.
+
+\hypertarget{class_s_p_i_a4ad8350cf35bf7150f46ed043d25620c}{
+\index{SPI@{SPI}!getdata@{getdata}}
+\index{getdata@{getdata}!SPI@{SPI}}
+\subsubsection[{getdata}]{\setlength{\rightskip}{0pt plus 5cm}virtual void SPI::getdata (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t $\ast$}]{pBuffer, }
+\item[{size\_\-t}]{maxBytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_s_p_i_a4ad8350cf35bf7150f46ed043d25620c}
+
+
+Implemented in \hyperlink{class_s_p_i__hw_a5dfc85f3959bb7639985fa53a9688f80}{SPI\_\-hw}, and \hyperlink{class_s_p_i__sw_aa7f2684a7b431419652fc2833b4f2518}{SPI\_\-sw}.
+
+\hypertarget{class_s_p_i_aeda8d6fc62e1db6f05945b7923312ee4}{
+\index{SPI@{SPI}!send@{send}}
+\index{send@{send}!SPI@{SPI}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}virtual void SPI::send (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t $\ast$}]{pBuffer, }
+\item[{size\_\-t}]{nBytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_s_p_i_aeda8d6fc62e1db6f05945b7923312ee4}
+
+
+Implemented in \hyperlink{class_s_p_i__hw_ae90647f5555d139cbbf98ac50deb5487}{SPI\_\-hw}, and \hyperlink{class_s_p_i__sw_a49e3cb0b30ef2ff8bbaa1b223a234321}{SPI\_\-sw}.
+
+\hypertarget{class_s_p_i_a4dc12c1b1895005387c98d1ba3f24a3d}{
+\index{SPI@{SPI}!setBitOrder@{setBitOrder}}
+\index{setBitOrder@{setBitOrder}!SPI@{SPI}}
+\subsubsection[{setBitOrder}]{\setlength{\rightskip}{0pt plus 5cm}virtual void SPI::setBitOrder (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_s_p_i_a4dc12c1b1895005387c98d1ba3f24a3d}
+
+
+Implemented in \hyperlink{class_s_p_i__hw_ada01136f7847c2d3a27d5a9d37e958c5}{SPI\_\-hw}, and \hyperlink{class_s_p_i__sw_aa8ef3eb3301d8fa2f14b128197088e58}{SPI\_\-sw}.
+
+\hypertarget{class_s_p_i_ab463b50c659bcef8b9654c4c6a546341}{
+\index{SPI@{SPI}!setClockDivider@{setClockDivider}}
+\index{setClockDivider@{setClockDivider}!SPI@{SPI}}
+\subsubsection[{setClockDivider}]{\setlength{\rightskip}{0pt plus 5cm}virtual void SPI::setClockDivider (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_s_p_i_ab463b50c659bcef8b9654c4c6a546341}
+
+
+Implemented in \hyperlink{class_s_p_i__hw_a06e4626e6a5e299f384ff73f7849c40e}{SPI\_\-hw}, and \hyperlink{class_s_p_i__sw_aa4677361fe909a317011db12ec8675e1}{SPI\_\-sw}.
+
+\hypertarget{class_s_p_i_a481cf184f96637c5ecaac4d904926bde}{
+\index{SPI@{SPI}!setDataMode@{setDataMode}}
+\index{setDataMode@{setDataMode}!SPI@{SPI}}
+\subsubsection[{setDataMode}]{\setlength{\rightskip}{0pt plus 5cm}virtual void SPI::setDataMode (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_s_p_i_a481cf184f96637c5ecaac4d904926bde}
+
+
+Implemented in \hyperlink{class_s_p_i__hw_ac7ad2285241535b622899ca2c4e4b706}{SPI\_\-hw}, and \hyperlink{class_s_p_i__sw_a6ee0c57a75caaa32f222de669ffb3f73}{SPI\_\-sw}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+FWLib/inc/\hyperlink{_s_p_i_8h}{SPI.h}\end{DoxyCompactItemize}

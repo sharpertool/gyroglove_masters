@@ -1,0 +1,54 @@
+\hypertarget{_new_del_8h}{
+\subsection{NewDel.h File Reference}
+\label{_new_del_8h}\index{NewDel.h@{NewDel.h}}
+}
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{_new_del_8h_a205ed048fdf5259c2e8e0cb60ee8f719}{operator new} (size\_\-t size)
+\item 
+void \hyperlink{_new_del_8h_a3d97a7e2a0208075b4b37328c96ed390}{operator delete} (void $\ast$ptr)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{_new_del_8h_a3d97a7e2a0208075b4b37328c96ed390}{
+\index{NewDel.h@{NewDel.h}!operator delete@{operator delete}}
+\index{operator delete@{operator delete}!NewDel.h@{NewDel.h}}
+\paragraph[{operator delete}]{\setlength{\rightskip}{0pt plus 5cm}void operator delete (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_new_del_8h_a3d97a7e2a0208075b4b37328c96ed390}
+
+
+Definition at line \hyperlink{_new_del_8cpp_source_l00008}{8} of file \hyperlink{_new_del_8cpp_source}{NewDel.cpp}.
+
+
+\begin{DoxyCode}
+\{
+  free(ptr);
+\} 
+\end{DoxyCode}
+\hypertarget{_new_del_8h_a205ed048fdf5259c2e8e0cb60ee8f719}{
+\index{NewDel.h@{NewDel.h}!operator new@{operator new}}
+\index{operator new@{operator new}!NewDel.h@{NewDel.h}}
+\paragraph[{operator new}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ operator new (
+\begin{DoxyParamCaption}
+\item[{size\_\-t}]{size}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_new_del_8h_a205ed048fdf5259c2e8e0cb60ee8f719}
+
+
+Definition at line \hyperlink{_new_del_8cpp_source_l00003}{3} of file \hyperlink{_new_del_8cpp_source}{NewDel.cpp}.
+
+
+\begin{DoxyCode}
+\{
+  \textcolor{keywordflow}{return} malloc(size);
+\}
+\end{DoxyCode}

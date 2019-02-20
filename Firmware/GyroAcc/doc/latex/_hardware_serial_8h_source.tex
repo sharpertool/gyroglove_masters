@@ -1,0 +1,52 @@
+\hypertarget{_hardware_serial_8h_source}{
+\subsection{HardwareSerial.h}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef HardwareSerial\_h}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HardwareSerial\_h}
+00003 \textcolor{preprocessor}{}
+00004 \textcolor{preprocessor}{#include <avr/io.h>}
+00005 \textcolor{preprocessor}{#include <inttypes.h>}
+00006 
+00007 \textcolor{preprocessor}{#include "\hyperlink{_print_8h}{Print.h}"}
+00008 
+00009 \textcolor{keyword}{struct }\hyperlink{structring__buffer}{ring_buffer};
+00010 
+00012 
+\hypertarget{_hardware_serial_8h_source_l00023}{}\hyperlink{class_hardware_serial}{00023} \textcolor{keyword}{class }\hyperlink{class_hardware_serial}{HardwareSerial} : \textcolor{keyword}{public} \hyperlink{class_print}{Print}
+00024 \{
+00025   \textcolor{keyword}{protected}:
+\hypertarget{_hardware_serial_8h_source_l00026}{}\hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{00026}     \hyperlink{structring__buffer}{ring_buffer} *\hyperlink{class_hardware_serial_a9ee5f8b61e049f98dfd0b5ae53e97273}{_rx_buffer};
+\hypertarget{_hardware_serial_8h_source_l00027}{}\hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{00027}     USART\_t     *\hyperlink{class_hardware_serial_a3a3bd56aa561ae7e1eb1fd252b5b69a0}{_usart};
+\hypertarget{_hardware_serial_8h_source_l00028}{}\hyperlink{class_hardware_serial_add54c7d986c6122e8e8c23303f5b4845}{00028}     PORT\_t      *\hyperlink{class_hardware_serial_add54c7d986c6122e8e8c23303f5b4845}{_port};
+\hypertarget{_hardware_serial_8h_source_l00029}{}\hyperlink{class_hardware_serial_a8724fdfd3955eeff5d3ed535624ce79a}{00029}     uint8\_t     \hyperlink{class_hardware_serial_a8724fdfd3955eeff5d3ed535624ce79a}{_in_bm};
+\hypertarget{_hardware_serial_8h_source_l00030}{}\hyperlink{class_hardware_serial_a751a284e15af72b026143a8091be1b70}{00030}     uint8\_t     \hyperlink{class_hardware_serial_a751a284e15af72b026143a8091be1b70}{_out_bm};
+\hypertarget{_hardware_serial_8h_source_l00031}{}\hyperlink{class_hardware_serial_acc6c13c76a56c8b4bb88c3385b7bc791}{00031}     uint8\_t     \hyperlink{class_hardware_serial_acc6c13c76a56c8b4bb88c3385b7bc791}{_bsel};
+\hypertarget{_hardware_serial_8h_source_l00032}{}\hyperlink{class_hardware_serial_a37dd406c01fd6432618925f0aeb329f3}{00032}     int8\_t     \hyperlink{class_hardware_serial_a37dd406c01fd6432618925f0aeb329f3}{_bscale};
+\hypertarget{_hardware_serial_8h_source_l00033}{}\hyperlink{class_hardware_serial_ae692ab4a0a8aad73c74a10066fa9da24}{00033}     \textcolor{keywordtype}{long}        \hyperlink{class_hardware_serial_ae692ab4a0a8aad73c74a10066fa9da24}{_baudrate};
+\hypertarget{_hardware_serial_8h_source_l00034}{}\hyperlink{class_hardware_serial_a8040fbab1f9197a9935df23a4c5e9a3b}{00034}     \textcolor{keywordtype}{bool}        \hyperlink{class_hardware_serial_a8040fbab1f9197a9935df23a4c5e9a3b}{_bEn};
+00035   \textcolor{keyword}{public}:
+00036     \hyperlink{class_hardware_serial_ab96331f0886097eb802a7839676ef645}{HardwareSerial}(
+00037         USART\_t     *usart,
+00038         PORT\_t      *port,
+00039         uint8\_t     in\_bm,
+00040         uint8\_t     out\_bm);
+00041     \hyperlink{class_hardware_serial_a1c7aae049aba33b03fe030960c1c4aa7}{~HardwareSerial}();
+00042     \textcolor{keywordtype}{void} \hyperlink{class_hardware_serial_a11049d350f4cf4bfdaafb24bb2738556}{begin}(\textcolor{keywordtype}{long} baudrate,int8\_t bscale = 0);
+00043     \textcolor{keywordtype}{void} \hyperlink{class_hardware_serial_adcfab60db442174cb53f005df6d2996d}{begin2x}(\textcolor{keywordtype}{long} baudrate,int8\_t bscale = 0);
+00044     \textcolor{keywordtype}{void} \hyperlink{class_hardware_serial_a0f86c41f580e04bdf30ea00e9014eacd}{end}();
+00045     uint8\_t \hyperlink{class_hardware_serial_a10e05fa62dc473d0d8a7ee8184f504ba}{available}(\textcolor{keywordtype}{void});
+00046     \textcolor{keywordtype}{int} \hyperlink{class_hardware_serial_a618696608a5fddcf3cb48ad6f044e756}{read}(\textcolor{keywordtype}{void});
+00047     \textcolor{keywordtype}{void} \hyperlink{class_hardware_serial_a1eeb094d8da77e0292f95f4498a5396f}{flush}(\textcolor{keywordtype}{void});
+00048     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{class_hardware_serial_aced05ab99953383a235ccfb366f5c98f}{write}(uint8\_t);
+00049     \textcolor{keyword}{using} \hyperlink{class_hardware_serial_aced05ab99953383a235ccfb366f5c98f}{Print::write}; \textcolor{comment}{// pull in write(str) and write(buf, size) from Print}
+00050     \textcolor{keywordtype}{void} \hyperlink{class_hardware_serial_ac52002a727070c45b765d0dc55106cad}{rxc}();
+00051     \textcolor{keywordtype}{void} \hyperlink{class_hardware_serial_ac33af9a86da3e3ae7ac1e2791c8eaf22}{dre}();
+00052     \textcolor{keywordtype}{void} \hyperlink{class_hardware_serial_a82779b03507bc07f3bf2e090d3733015}{txc}();
+00053     \textcolor{keywordtype}{void} \hyperlink{class_hardware_serial_a2e13244413a84a259cadab3fb452921a}{enable}(\textcolor{keywordtype}{bool} bEn);
+00054 \};
+00055 
+00056 
+00057 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

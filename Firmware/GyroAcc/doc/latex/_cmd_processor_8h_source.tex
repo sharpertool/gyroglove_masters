@@ -1,0 +1,49 @@
+\hypertarget{_cmd_processor_8h_source}{
+\subsection{CmdProcessor.h}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef CMDPROCESSOR\_H}
+00002 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define CMDPROCESSOR\_H}
+00003 \textcolor{preprocessor}{}
+00004 \textcolor{preprocessor}{#include <avr/io.h>}
+00005 \textcolor{preprocessor}{#include "\hyperlink{_hardware_serial_8h}{HardwareSerial.h}"}
+00006 
+\hypertarget{_cmd_processor_8h_source_l00007}{}\hyperlink{class_cmd_processor}{00007} \textcolor{keyword}{class }\hyperlink{class_cmd_processor}{CmdProcessor}
+00008 \{
+00009 \textcolor{keyword}{protected}:
+\hypertarget{_cmd_processor_8h_source_l00010}{}\hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{00010}     \hyperlink{class_hardware_serial}{HardwareSerial}* \hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW};           
+\hypertarget{_cmd_processor_8h_source_l00011}{}\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{00011}     \textcolor{keywordtype}{char}*           \hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[10];   
+\hypertarget{_cmd_processor_8h_source_l00012}{}\hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{00012}     \textcolor{keywordtype}{char}*           \hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{_pCmd};          
+\hypertarget{_cmd_processor_8h_source_l00013}{}\hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{00013}     \textcolor{keywordtype}{char}*           \hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString};    
+\hypertarget{_cmd_processor_8h_source_l00014}{}\hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{00014}     uint8\_t         \hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{_cmdPos};        
+\hypertarget{_cmd_processor_8h_source_l00015}{}\hyperlink{class_cmd_processor_a18b0886303779762a37096d6446aefa6}{00015}     \textcolor{keywordtype}{bool}            \hyperlink{class_cmd_processor_a18b0886303779762a37096d6446aefa6}{_validCmd};      
+\hypertarget{_cmd_processor_8h_source_l00016}{}\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{00016}     \textcolor{keywordtype}{char}*           \hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm};      
+\hypertarget{_cmd_processor_8h_source_l00017}{}\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{00017}     \textcolor{keywordtype}{char}*           \hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim};     
+\hypertarget{_cmd_processor_8h_source_l00018}{}\hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{00018}     uint8\_t         \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt};      
+00019     
+00020 \textcolor{keyword}{public}:
+00021     \hyperlink{class_cmd_processor_a3594ccb1d9cb0f381315781ad3ac39dc}{CmdProcessor}(\hyperlink{class_hardware_serial}{HardwareSerial}* pHW);
+00022     \hyperlink{class_cmd_processor_a0e93fa7c4984326769ae51072638f50f}{~CmdProcessor}();
+00023     
+00024     \textcolor{keywordtype}{bool} \hyperlink{class_cmd_processor_ab674755157e105adb18ddeed073f0031}{checkCommands}();
+00025     \textcolor{keywordtype}{char}* \hyperlink{class_cmd_processor_a6044256dfce5684d00563c5a73f965d9}{cmdTerm}();
+00026     \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a6044256dfce5684d00563c5a73f965d9}{cmdTerm}(\textcolor{keywordtype}{char}*);
+00027     \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_ab6265f95bc945842d519de1aaf5874c9}{resetCmd}();
+00028     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \hyperlink{class_cmd_processor_a4dc02963de9f314346c028c9ea0c02ae}{cmdDelim}();
+00029     \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a4dc02963de9f314346c028c9ea0c02ae}{cmdDelim}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}*);
+00030     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \hyperlink{class_cmd_processor_ad50f4ad388976a233cbb28877f87ed7e}{getCmd}();
+00031     uint8\_t \hyperlink{class_cmd_processor_acdf54848c152fe7d2f43b51b1e2e366d}{paramCnt}();
+00032     \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{getParam}(uint8\_t idx,uint8\_t &p);
+00033     \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{getParam}(uint8\_t idx,uint16\_t &p);
+00034     \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{getParam}(uint8\_t idx,\textcolor{keywordtype}{long} &l);
+00035     \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{getParam}(uint8\_t idx,\textcolor{keywordtype}{int} &p);
+00036     \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{getParam}(uint8\_t idx,\textcolor{keywordtype}{double} &f);
+00037     \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{getParam}(uint8\_t idx,\textcolor{keywordtype}{char}*& p, uint8\_t maxlen=128);
+00038 \textcolor{keyword}{protected}:
+00039     \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a56ce7cebb2a72262ba0d1ba0937739d5}{processCmd}();
+00040 
+00041 \};
+00042 
+00043 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}

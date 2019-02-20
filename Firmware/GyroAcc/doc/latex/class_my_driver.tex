@@ -1,0 +1,172 @@
+\hypertarget{class_my_driver}{
+\section{MyDriver Class Reference}
+\label{class_my_driver}\index{MyDriver@{MyDriver}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_my_driver_a2dc19dd08809d9c8de8e5c0a8af5dd37}{MyDriver} ()
+\item 
+void \hyperlink{class_my_driver_ad8b8d999dfe35efdde3fb6a98aea036c}{doThis} ()
+\item 
+void \hyperlink{class_my_driver_aed46d7dedc9753db28ec031079fcbae1}{toggleBlueLed} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \hyperlink{class_my_driver_abbda5bbd4b31df4e179c06afd7e9fd1d}{aValue}
+\item 
+unsigned char \hyperlink{class_my_driver_a8c999beb402c2ae78c7e66463188aadf}{bBlueState}
+\item 
+volatile PORT\_\-t $\ast$ \hyperlink{class_my_driver_a2ff747dc440f916889ca47eb83c6c8bb}{aPort}
+\item 
+volatile PORT\_\-t $\ast$ \hyperlink{class_my_driver_a01b211ba5fc4f33e42a314496546c0cb}{bPort}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 24 of file GyroAcc.cpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_my_driver_a2dc19dd08809d9c8de8e5c0a8af5dd37}{
+\index{MyDriver@{MyDriver}!MyDriver@{MyDriver}}
+\index{MyDriver@{MyDriver}!MyDriver@{MyDriver}}
+\subsubsection[{MyDriver}]{\setlength{\rightskip}{0pt plus 5cm}MyDriver::MyDriver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_my_driver_a2dc19dd08809d9c8de8e5c0a8af5dd37}
+
+
+Definition at line 33 of file GyroAcc.cpp.
+
+
+
+References aPort, bBlueState, and bPort.
+
+
+\begin{DoxyCode}
+               {
+        bBlueState = 0;
+        aPort = (volatile PORT_t*)&PORTJ;
+        bPort = (volatile PORT_t*)&PORTC;
+        aPort->DIRSET = PIN7_bm;
+        bPort->DIRSET = PIN6_bm;
+    }
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_my_driver_ad8b8d999dfe35efdde3fb6a98aea036c}{
+\index{MyDriver@{MyDriver}!doThis@{doThis}}
+\index{doThis@{doThis}!MyDriver@{MyDriver}}
+\subsubsection[{doThis}]{\setlength{\rightskip}{0pt plus 5cm}void MyDriver::doThis (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_my_driver_ad8b8d999dfe35efdde3fb6a98aea036c}
+
+
+Definition at line 41 of file GyroAcc.cpp.
+
+
+\begin{DoxyCode}
+                  {
+        // do something cool.
+    }
+\end{DoxyCode}
+\hypertarget{class_my_driver_aed46d7dedc9753db28ec031079fcbae1}{
+\index{MyDriver@{MyDriver}!toggleBlueLed@{toggleBlueLed}}
+\index{toggleBlueLed@{toggleBlueLed}!MyDriver@{MyDriver}}
+\subsubsection[{toggleBlueLed}]{\setlength{\rightskip}{0pt plus 5cm}void MyDriver::toggleBlueLed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_my_driver_aed46d7dedc9753db28ec031079fcbae1}
+
+
+Definition at line 44 of file GyroAcc.cpp.
+
+
+
+References aPort, bBlueState, and bPort.
+
+
+\begin{DoxyCode}
+                         {
+        if (bBlueState == 0) {
+            // Set State On
+            bBlueState = 1;
+            aPort->OUTSET = PIN7_bm;
+            bPort->OUTCLR = PIN6_bm;
+
+        } else {
+            bBlueState = 0;
+            aPort->OUTCLR = PIN7_bm;
+            bPort->OUTSET = PIN6_bm;
+        }
+    }
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_my_driver_a2ff747dc440f916889ca47eb83c6c8bb}{
+\index{MyDriver@{MyDriver}!aPort@{aPort}}
+\index{aPort@{aPort}!MyDriver@{MyDriver}}
+\subsubsection[{aPort}]{\setlength{\rightskip}{0pt plus 5cm}volatile PORT\_\-t$\ast$ {\bf MyDriver::aPort}}}
+\label{class_my_driver_a2ff747dc440f916889ca47eb83c6c8bb}
+
+
+Definition at line 30 of file GyroAcc.cpp.
+
+
+
+Referenced by MyDriver(), and toggleBlueLed().
+
+\hypertarget{class_my_driver_abbda5bbd4b31df4e179c06afd7e9fd1d}{
+\index{MyDriver@{MyDriver}!aValue@{aValue}}
+\index{aValue@{aValue}!MyDriver@{MyDriver}}
+\subsubsection[{aValue}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char {\bf MyDriver::aValue}}}
+\label{class_my_driver_abbda5bbd4b31df4e179c06afd7e9fd1d}
+
+
+Definition at line 27 of file GyroAcc.cpp.
+
+\hypertarget{class_my_driver_a8c999beb402c2ae78c7e66463188aadf}{
+\index{MyDriver@{MyDriver}!bBlueState@{bBlueState}}
+\index{bBlueState@{bBlueState}!MyDriver@{MyDriver}}
+\subsubsection[{bBlueState}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char {\bf MyDriver::bBlueState}}}
+\label{class_my_driver_a8c999beb402c2ae78c7e66463188aadf}
+
+
+Definition at line 28 of file GyroAcc.cpp.
+
+
+
+Referenced by MyDriver(), and toggleBlueLed().
+
+\hypertarget{class_my_driver_a01b211ba5fc4f33e42a314496546c0cb}{
+\index{MyDriver@{MyDriver}!bPort@{bPort}}
+\index{bPort@{bPort}!MyDriver@{MyDriver}}
+\subsubsection[{bPort}]{\setlength{\rightskip}{0pt plus 5cm}volatile PORT\_\-t$\ast$ {\bf MyDriver::bPort}}}
+\label{class_my_driver_a01b211ba5fc4f33e42a314496546c0cb}
+
+
+Definition at line 31 of file GyroAcc.cpp.
+
+
+
+Referenced by MyDriver(), and toggleBlueLed().
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_gyro_acc_8cpp}{GyroAcc.cpp}\end{DoxyCompactItemize}

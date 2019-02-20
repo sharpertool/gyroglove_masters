@@ -1,0 +1,211 @@
+\hypertarget{class_i2_c_transaction}{
+\section{I2CTransaction Class Reference}
+\label{class_i2_c_transaction}\index{I2CTransaction@{I2CTransaction}}
+}
+
+
+{\ttfamily \#include $<$I2CTransaction.h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446f}{StateType} \{ \par
+\hyperlink{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446faa828ace844e5f7ecec483496f37459b5}{sIdle}, 
+\hyperlink{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa63ea5eb4a0a62b8a4a237badf4d9463b}{sSendID}, 
+\hyperlink{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa0b8f329c3c3c143c29fecf1328529692}{sSendAddr}, 
+\hyperlink{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa46b087426b19cab99c02a5fa01292f64}{sWrite}, 
+\par
+\hyperlink{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa789e39ddceca595f12798e522aca6a25}{sRead}
+ \}
+\item 
+enum \hyperlink{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954}{TransactionType} \{ \hyperlink{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954af23ada7d0de7976bc0199107e040d9d4}{tWrite}, 
+\hyperlink{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954aa2aafaccef30332edcb253e266c0dc03}{tRead}, 
+\hyperlink{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954ac2ccb7ede7c62ad2b3bf82b7144bf6df}{tIDScan}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_i2_c_transaction_a641b9323acdca47fb0921f11b86f09bf}{I2CTransaction} (uint8\_\-t ID)
+\item 
+\hyperlink{class_i2_c_transaction_a322719d06a89a7c7c55ab8ced4db93ee}{I2CTransaction} (uint8\_\-t ID, uint8\_\-t Addr, uint8\_\-t nBytes)
+\item 
+\hyperlink{class_i2_c_transaction_a45df817ef6dc63877d17ff66978d3a5e}{I2CTransaction} (uint8\_\-t ID, uint8\_\-t Addr, uint8\_\-t $\ast$pData, uint8\_\-t nBytes)
+\item 
+\hyperlink{class_i2_c_transaction_a982ccf2b98baad291ccefe89b7889e59}{$\sim$I2CTransaction} ()
+\item 
+\hyperlink{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446f}{StateType} \hyperlink{class_i2_c_transaction_aaf612ee96d10927772a7d16f55265eff}{state} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446f}{StateType} \hyperlink{class_i2_c_transaction_a5daa64c9e4deb1ff734be7666c31bc46}{\_\-state}
+\item 
+\hyperlink{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954}{TransactionType} \hyperlink{class_i2_c_transaction_ad74d7751b9a37ffdf302da62a9ed804e}{\_\-type}
+\item 
+uint8\_\-t $\ast$ \hyperlink{class_i2_c_transaction_a3c04420a4def944e055fd66b262a51c7}{\_\-pBytes}
+\item 
+uint8\_\-t \hyperlink{class_i2_c_transaction_a24d497d1c5fd010ece230d977a0dd003}{\_\-nByteCount}
+\item 
+uint8\_\-t \hyperlink{class_i2_c_transaction_a952231ca793a8c72e879e44fd3fff4bc}{\_\-nCurrPos}
+\item 
+uint8\_\-t \hyperlink{class_i2_c_transaction_a64c7dc84f6e108ef1c2106a4c729c5fd}{\_\-nCurrID}
+\item 
+uint8\_\-t \hyperlink{class_i2_c_transaction_aa0ab915c4be9e95b5e2322c881512de6}{\_\-nCurrAddr}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446f}{
+\index{I2CTransaction@{I2CTransaction}!StateType@{StateType}}
+\index{StateType@{StateType}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{StateType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf I2CTransaction::StateType}}}
+\label{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446f}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{sIdle@{sIdle}!I2CTransaction@{I2CTransaction}}\index{I2CTransaction@{I2CTransaction}!sIdle@{sIdle}}\item[{\em 
+\hypertarget{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446faa828ace844e5f7ecec483496f37459b5}{
+sIdle}
+\label{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446faa828ace844e5f7ecec483496f37459b5}
+}]\index{sSendID@{sSendID}!I2CTransaction@{I2CTransaction}}\index{I2CTransaction@{I2CTransaction}!sSendID@{sSendID}}\item[{\em 
+\hypertarget{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa63ea5eb4a0a62b8a4a237badf4d9463b}{
+sSendID}
+\label{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa63ea5eb4a0a62b8a4a237badf4d9463b}
+}]\index{sSendAddr@{sSendAddr}!I2CTransaction@{I2CTransaction}}\index{I2CTransaction@{I2CTransaction}!sSendAddr@{sSendAddr}}\item[{\em 
+\hypertarget{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa0b8f329c3c3c143c29fecf1328529692}{
+sSendAddr}
+\label{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa0b8f329c3c3c143c29fecf1328529692}
+}]\index{sWrite@{sWrite}!I2CTransaction@{I2CTransaction}}\index{I2CTransaction@{I2CTransaction}!sWrite@{sWrite}}\item[{\em 
+\hypertarget{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa46b087426b19cab99c02a5fa01292f64}{
+sWrite}
+\label{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa46b087426b19cab99c02a5fa01292f64}
+}]\index{sRead@{sRead}!I2CTransaction@{I2CTransaction}}\index{I2CTransaction@{I2CTransaction}!sRead@{sRead}}\item[{\em 
+\hypertarget{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa789e39ddceca595f12798e522aca6a25}{
+sRead}
+\label{class_i2_c_transaction_ac9b45f04b6b09e815d88b0a516a4446fa789e39ddceca595f12798e522aca6a25}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954}{
+\index{I2CTransaction@{I2CTransaction}!TransactionType@{TransactionType}}
+\index{TransactionType@{TransactionType}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{TransactionType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf I2CTransaction::TransactionType}}}
+\label{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{tWrite@{tWrite}!I2CTransaction@{I2CTransaction}}\index{I2CTransaction@{I2CTransaction}!tWrite@{tWrite}}\item[{\em 
+\hypertarget{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954af23ada7d0de7976bc0199107e040d9d4}{
+tWrite}
+\label{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954af23ada7d0de7976bc0199107e040d9d4}
+}]\index{tRead@{tRead}!I2CTransaction@{I2CTransaction}}\index{I2CTransaction@{I2CTransaction}!tRead@{tRead}}\item[{\em 
+\hypertarget{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954aa2aafaccef30332edcb253e266c0dc03}{
+tRead}
+\label{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954aa2aafaccef30332edcb253e266c0dc03}
+}]\index{tIDScan@{tIDScan}!I2CTransaction@{I2CTransaction}}\index{I2CTransaction@{I2CTransaction}!tIDScan@{tIDScan}}\item[{\em 
+\hypertarget{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954ac2ccb7ede7c62ad2b3bf82b7144bf6df}{
+tIDScan}
+\label{class_i2_c_transaction_a743bc8172b552e938eaee7c8ce3fe954ac2ccb7ede7c62ad2b3bf82b7144bf6df}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_i2_c_transaction_a641b9323acdca47fb0921f11b86f09bf}{
+\index{I2CTransaction@{I2CTransaction}!I2CTransaction@{I2CTransaction}}
+\index{I2CTransaction@{I2CTransaction}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{I2CTransaction}]{\setlength{\rightskip}{0pt plus 5cm}I2CTransaction::I2CTransaction (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{ID}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_i2_c_transaction_a641b9323acdca47fb0921f11b86f09bf}
+\hypertarget{class_i2_c_transaction_a322719d06a89a7c7c55ab8ced4db93ee}{
+\index{I2CTransaction@{I2CTransaction}!I2CTransaction@{I2CTransaction}}
+\index{I2CTransaction@{I2CTransaction}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{I2CTransaction}]{\setlength{\rightskip}{0pt plus 5cm}I2CTransaction::I2CTransaction (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{ID, }
+\item[{uint8\_\-t}]{Addr, }
+\item[{uint8\_\-t}]{nBytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_i2_c_transaction_a322719d06a89a7c7c55ab8ced4db93ee}
+\hypertarget{class_i2_c_transaction_a45df817ef6dc63877d17ff66978d3a5e}{
+\index{I2CTransaction@{I2CTransaction}!I2CTransaction@{I2CTransaction}}
+\index{I2CTransaction@{I2CTransaction}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{I2CTransaction}]{\setlength{\rightskip}{0pt plus 5cm}I2CTransaction::I2CTransaction (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{ID, }
+\item[{uint8\_\-t}]{Addr, }
+\item[{uint8\_\-t $\ast$}]{pData, }
+\item[{uint8\_\-t}]{nBytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_i2_c_transaction_a45df817ef6dc63877d17ff66978d3a5e}
+\hypertarget{class_i2_c_transaction_a982ccf2b98baad291ccefe89b7889e59}{
+\index{I2CTransaction@{I2CTransaction}!$\sim$I2CTransaction@{$\sim$I2CTransaction}}
+\index{$\sim$I2CTransaction@{$\sim$I2CTransaction}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{$\sim$I2CTransaction}]{\setlength{\rightskip}{0pt plus 5cm}I2CTransaction::$\sim$I2CTransaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_i2_c_transaction_a982ccf2b98baad291ccefe89b7889e59}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_i2_c_transaction_aaf612ee96d10927772a7d16f55265eff}{
+\index{I2CTransaction@{I2CTransaction}!state@{state}}
+\index{state@{state}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf StateType} I2CTransaction::state (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_i2_c_transaction_aaf612ee96d10927772a7d16f55265eff}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_i2_c_transaction_a24d497d1c5fd010ece230d977a0dd003}{
+\index{I2CTransaction@{I2CTransaction}!\_\-nByteCount@{\_\-nByteCount}}
+\index{\_\-nByteCount@{\_\-nByteCount}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{\_\-nByteCount}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf I2CTransaction::\_\-nByteCount}}}
+\label{class_i2_c_transaction_a24d497d1c5fd010ece230d977a0dd003}
+\hypertarget{class_i2_c_transaction_aa0ab915c4be9e95b5e2322c881512de6}{
+\index{I2CTransaction@{I2CTransaction}!\_\-nCurrAddr@{\_\-nCurrAddr}}
+\index{\_\-nCurrAddr@{\_\-nCurrAddr}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{\_\-nCurrAddr}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf I2CTransaction::\_\-nCurrAddr}}}
+\label{class_i2_c_transaction_aa0ab915c4be9e95b5e2322c881512de6}
+\hypertarget{class_i2_c_transaction_a64c7dc84f6e108ef1c2106a4c729c5fd}{
+\index{I2CTransaction@{I2CTransaction}!\_\-nCurrID@{\_\-nCurrID}}
+\index{\_\-nCurrID@{\_\-nCurrID}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{\_\-nCurrID}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf I2CTransaction::\_\-nCurrID}}}
+\label{class_i2_c_transaction_a64c7dc84f6e108ef1c2106a4c729c5fd}
+\hypertarget{class_i2_c_transaction_a952231ca793a8c72e879e44fd3fff4bc}{
+\index{I2CTransaction@{I2CTransaction}!\_\-nCurrPos@{\_\-nCurrPos}}
+\index{\_\-nCurrPos@{\_\-nCurrPos}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{\_\-nCurrPos}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t {\bf I2CTransaction::\_\-nCurrPos}}}
+\label{class_i2_c_transaction_a952231ca793a8c72e879e44fd3fff4bc}
+\hypertarget{class_i2_c_transaction_a3c04420a4def944e055fd66b262a51c7}{
+\index{I2CTransaction@{I2CTransaction}!\_\-pBytes@{\_\-pBytes}}
+\index{\_\-pBytes@{\_\-pBytes}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{\_\-pBytes}]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t$\ast$ {\bf I2CTransaction::\_\-pBytes}}}
+\label{class_i2_c_transaction_a3c04420a4def944e055fd66b262a51c7}
+\hypertarget{class_i2_c_transaction_a5daa64c9e4deb1ff734be7666c31bc46}{
+\index{I2CTransaction@{I2CTransaction}!\_\-state@{\_\-state}}
+\index{\_\-state@{\_\-state}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf StateType} {\bf I2CTransaction::\_\-state}}}
+\label{class_i2_c_transaction_a5daa64c9e4deb1ff734be7666c31bc46}
+\hypertarget{class_i2_c_transaction_ad74d7751b9a37ffdf302da62a9ed804e}{
+\index{I2CTransaction@{I2CTransaction}!\_\-type@{\_\-type}}
+\index{\_\-type@{\_\-type}!I2CTransaction@{I2CTransaction}}
+\subsubsection[{\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TransactionType} {\bf I2CTransaction::\_\-type}}}
+\label{class_i2_c_transaction_ad74d7751b9a37ffdf302da62a9ed804e}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+FWLib/inc/\hyperlink{_i2_c_transaction_8h}{I2CTransaction.h}\end{DoxyCompactItemize}

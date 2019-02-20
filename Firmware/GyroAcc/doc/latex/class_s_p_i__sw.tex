@@ -1,0 +1,167 @@
+\hypertarget{class_s_p_i__sw}{
+\section{SPI\_\-sw Class Reference}
+\label{class_s_p_i__sw}\index{SPI\_\-sw@{SPI\_\-sw}}
+}
+
+
+{\ttfamily \#include $<$SPI\_\-sw.h$>$}
+
+Inheritance diagram for SPI\_\-sw:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_s_p_i__sw}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_s_p_i__sw_a4011529b5f50b920fdc7a2634e7f0b58}{SPI\_\-sw} (\hyperlink{struct_p_o_r_t__struct}{PORT\_\-t} $\ast$port, uint8\_\-t sck\_\-pin, uint8\_\-t miso\_\-pin, uint8\_\-t mosi\_\-pin, uint8\_\-t cs\_\-pin, uint8\_\-t clk2x, uint8\_\-t dataOrder, uint8\_\-t enMaster, uint8\_\-t spiMode, uint8\_\-t preScale)
+\item 
+\hyperlink{class_s_p_i__sw_a86f122807a6264f203c4c18123eccbec}{$\sim$SPI\_\-sw} ()
+\item 
+void \hyperlink{class_s_p_i__sw_a49e3cb0b30ef2ff8bbaa1b223a234321}{send} (uint8\_\-t $\ast$pBuffer, size\_\-t nBytes)
+\item 
+void \hyperlink{class_s_p_i__sw_aa7f2684a7b431419652fc2833b4f2518}{getdata} (uint8\_\-t $\ast$pBuffer, size\_\-t maxBytes)
+\item 
+void \hyperlink{class_s_p_i__sw_aa5228e93ab0fffe53518994825bb0f18}{begin} ()
+\item 
+void \hyperlink{class_s_p_i__sw_a2d15c91288c9aa7629b20e3c0f43d11d}{end} ()
+\item 
+void \hyperlink{class_s_p_i__sw_aa8ef3eb3301d8fa2f14b128197088e58}{setBitOrder} (uint8\_\-t)
+\item 
+void \hyperlink{class_s_p_i__sw_a6ee0c57a75caaa32f222de669ffb3f73}{setDataMode} (uint8\_\-t)
+\item 
+void \hyperlink{class_s_p_i__sw_aa4677361fe909a317011db12ec8675e1}{setClockDivider} (uint8\_\-t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_s_p_i__sw_a4011529b5f50b920fdc7a2634e7f0b58}{
+\index{SPI\_\-sw@{SPI\_\-sw}!SPI\_\-sw@{SPI\_\-sw}}
+\index{SPI\_\-sw@{SPI\_\-sw}!SPI_sw@{SPI\_\-sw}}
+\subsubsection[{SPI\_\-sw}]{\setlength{\rightskip}{0pt plus 5cm}SPI\_\-sw::SPI\_\-sw (
+\begin{DoxyParamCaption}
+\item[{{\bf PORT\_\-t} $\ast$}]{port, }
+\item[{uint8\_\-t}]{sck\_\-pin, }
+\item[{uint8\_\-t}]{miso\_\-pin, }
+\item[{uint8\_\-t}]{mosi\_\-pin, }
+\item[{uint8\_\-t}]{cs\_\-pin, }
+\item[{uint8\_\-t}]{clk2x, }
+\item[{uint8\_\-t}]{dataOrder, }
+\item[{uint8\_\-t}]{enMaster, }
+\item[{uint8\_\-t}]{spiMode, }
+\item[{uint8\_\-t}]{preScale}
+\end{DoxyParamCaption}
+)}}
+\label{class_s_p_i__sw_a4011529b5f50b920fdc7a2634e7f0b58}
+\hypertarget{class_s_p_i__sw_a86f122807a6264f203c4c18123eccbec}{
+\index{SPI\_\-sw@{SPI\_\-sw}!$\sim$SPI\_\-sw@{$\sim$SPI\_\-sw}}
+\index{$\sim$SPI\_\-sw@{$\sim$SPI\_\-sw}!SPI_sw@{SPI\_\-sw}}
+\subsubsection[{$\sim$SPI\_\-sw}]{\setlength{\rightskip}{0pt plus 5cm}SPI\_\-sw::$\sim$SPI\_\-sw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_s_p_i__sw_a86f122807a6264f203c4c18123eccbec}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_s_p_i__sw_aa5228e93ab0fffe53518994825bb0f18}{
+\index{SPI\_\-sw@{SPI\_\-sw}!begin@{begin}}
+\index{begin@{begin}!SPI_sw@{SPI\_\-sw}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}void SPI\_\-sw::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_s_p_i__sw_aa5228e93ab0fffe53518994825bb0f18}
+
+
+Implements \hyperlink{class_s_p_i_a59fcfa31babefe505f5bf9e597267798}{SPI}.
+
+\hypertarget{class_s_p_i__sw_a2d15c91288c9aa7629b20e3c0f43d11d}{
+\index{SPI\_\-sw@{SPI\_\-sw}!end@{end}}
+\index{end@{end}!SPI_sw@{SPI\_\-sw}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}void SPI\_\-sw::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_s_p_i__sw_a2d15c91288c9aa7629b20e3c0f43d11d}
+
+
+Implements \hyperlink{class_s_p_i_a4a4f16e93237dbc3b35982542a3364d3}{SPI}.
+
+\hypertarget{class_s_p_i__sw_aa7f2684a7b431419652fc2833b4f2518}{
+\index{SPI\_\-sw@{SPI\_\-sw}!getdata@{getdata}}
+\index{getdata@{getdata}!SPI_sw@{SPI\_\-sw}}
+\subsubsection[{getdata}]{\setlength{\rightskip}{0pt plus 5cm}void SPI\_\-sw::getdata (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t $\ast$}]{pBuffer, }
+\item[{size\_\-t}]{maxBytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_s_p_i__sw_aa7f2684a7b431419652fc2833b4f2518}
+
+
+Implements \hyperlink{class_s_p_i_a4ad8350cf35bf7150f46ed043d25620c}{SPI}.
+
+\hypertarget{class_s_p_i__sw_a49e3cb0b30ef2ff8bbaa1b223a234321}{
+\index{SPI\_\-sw@{SPI\_\-sw}!send@{send}}
+\index{send@{send}!SPI_sw@{SPI\_\-sw}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}void SPI\_\-sw::send (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t $\ast$}]{pBuffer, }
+\item[{size\_\-t}]{nBytes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_s_p_i__sw_a49e3cb0b30ef2ff8bbaa1b223a234321}
+
+
+Implements \hyperlink{class_s_p_i_aeda8d6fc62e1db6f05945b7923312ee4}{SPI}.
+
+\hypertarget{class_s_p_i__sw_aa8ef3eb3301d8fa2f14b128197088e58}{
+\index{SPI\_\-sw@{SPI\_\-sw}!setBitOrder@{setBitOrder}}
+\index{setBitOrder@{setBitOrder}!SPI_sw@{SPI\_\-sw}}
+\subsubsection[{setBitOrder}]{\setlength{\rightskip}{0pt plus 5cm}void SPI\_\-sw::setBitOrder (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_s_p_i__sw_aa8ef3eb3301d8fa2f14b128197088e58}
+
+
+Implements \hyperlink{class_s_p_i_a4dc12c1b1895005387c98d1ba3f24a3d}{SPI}.
+
+\hypertarget{class_s_p_i__sw_aa4677361fe909a317011db12ec8675e1}{
+\index{SPI\_\-sw@{SPI\_\-sw}!setClockDivider@{setClockDivider}}
+\index{setClockDivider@{setClockDivider}!SPI_sw@{SPI\_\-sw}}
+\subsubsection[{setClockDivider}]{\setlength{\rightskip}{0pt plus 5cm}void SPI\_\-sw::setClockDivider (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{div}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_s_p_i__sw_aa4677361fe909a317011db12ec8675e1}
+
+
+Implements \hyperlink{class_s_p_i_ab463b50c659bcef8b9654c4c6a546341}{SPI}.
+
+\hypertarget{class_s_p_i__sw_a6ee0c57a75caaa32f222de669ffb3f73}{
+\index{SPI\_\-sw@{SPI\_\-sw}!setDataMode@{setDataMode}}
+\index{setDataMode@{setDataMode}!SPI_sw@{SPI\_\-sw}}
+\subsubsection[{setDataMode}]{\setlength{\rightskip}{0pt plus 5cm}void SPI\_\-sw::setDataMode (
+\begin{DoxyParamCaption}
+\item[{uint8\_\-t}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_s_p_i__sw_a6ee0c57a75caaa32f222de669ffb3f73}
+
+
+Implements \hyperlink{class_s_p_i_a481cf184f96637c5ecaac4d904926bde}{SPI}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+FWLib/inc/\hyperlink{_s_p_i__sw_8h}{SPI\_\-sw.h}\item 
+FWLib/src/\hyperlink{_s_p_i__sw_8cpp}{SPI\_\-sw.cpp}\end{DoxyCompactItemize}

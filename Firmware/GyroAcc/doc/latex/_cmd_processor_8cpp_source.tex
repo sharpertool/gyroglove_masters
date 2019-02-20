@@ -1,0 +1,160 @@
+\hypertarget{_cmd_processor_8cpp_source}{
+\subsection{CmdProcessor.cpp}
+}
+
+\begin{DoxyCode}
+00001 
+00002 \textcolor{preprocessor}{#include <stdlib.h>}
+00003 \textcolor{preprocessor}{#include <string.h>}
+00004 \textcolor{preprocessor}{#include "CmdProcessor.h"}
+00005 
+\hypertarget{_cmd_processor_8cpp_source_l00011}{}\hyperlink{class_cmd_processor_a3594ccb1d9cb0f381315781ad3ac39dc}{00011} \hyperlink{class_cmd_processor_a3594ccb1d9cb0f381315781ad3ac39dc}{CmdProcessor::CmdProcessor}(\hyperlink{class_hardware_serial}{HardwareSerial}* pHW)
+00012 \{
+00013     \hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW} = pHW;
+00014     
+00015     \hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString} = (\textcolor{keywordtype}{char}*)malloc(128);
+00016     \hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{_pCmd} = 0;
+00017     \hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm} = (\textcolor{keywordtype}{char}*)malloc(3);
+00018     strcpy(\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm},\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)r"});
+00019     \hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim} = (\textcolor{keywordtype}{char}*)malloc(3);
+00020     strcpy(\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim},\textcolor{stringliteral}{" \(\backslash\)t"});
+00021     \hyperlink{class_cmd_processor_ab6265f95bc945842d519de1aaf5874c9}{resetCmd}();
+00022 \}
+00023 
+\hypertarget{_cmd_processor_8cpp_source_l00025}{}\hyperlink{class_cmd_processor_a0e93fa7c4984326769ae51072638f50f}{00025} \hyperlink{class_cmd_processor_a0e93fa7c4984326769ae51072638f50f}{CmdProcessor::~CmdProcessor}()
+00026 \{
+00027     \textcolor{keywordflow}{if} (\hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW}) \{
+00028         \hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW}->\hyperlink{class_hardware_serial_a0f86c41f580e04bdf30ea00e9014eacd}{end}();
+00029     \}
+00030     free(\hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString});
+00031     free(\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim});
+00032     free(\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm});
+00033 \}
+00034 
+\hypertarget{_cmd_processor_8cpp_source_l00036}{}\hyperlink{class_cmd_processor_a6044256dfce5684d00563c5a73f965d9}{00036} \textcolor{keywordtype}{char}* \hyperlink{class_cmd_processor_a6044256dfce5684d00563c5a73f965d9}{CmdProcessor::cmdTerm}() \{ \textcolor{keywordflow}{return} \hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm}; \}
+00037 
+\hypertarget{_cmd_processor_8cpp_source_l00040}{}\hyperlink{class_cmd_processor_a8cf275a12c84c86b9311612d134481aa}{00040} \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a6044256dfce5684d00563c5a73f965d9}{CmdProcessor::cmdTerm}(\textcolor{keywordtype}{char}* t) 
+00041 \{ 
+00042     free(\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm});
+00043     \hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm} = (\textcolor{keywordtype}{char}*)malloc(strlen(t) + 1);
+00044     strcpy(\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm},t);
+00045 \}
+00046 
+\hypertarget{_cmd_processor_8cpp_source_l00048}{}\hyperlink{class_cmd_processor_a4dc02963de9f314346c028c9ea0c02ae}{00048} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \hyperlink{class_cmd_processor_a4dc02963de9f314346c028c9ea0c02ae}{CmdProcessor::cmdDelim}()
+00049 \{
+00050     \textcolor{keywordflow}{return} \hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim};
+00051 \}
+00052 
+\hypertarget{_cmd_processor_8cpp_source_l00055}{}\hyperlink{class_cmd_processor_a7b4a871cb83f57986fdea9423d6197cf}{00055} \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a4dc02963de9f314346c028c9ea0c02ae}{CmdProcessor::cmdDelim}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* d)
+00056 \{
+00057     free(\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim});
+00058     \hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim} = (\textcolor{keywordtype}{char}*)malloc(strlen(d) + 1);
+00059     strcpy(\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim},d);
+00060 \}
+00061 
+\hypertarget{_cmd_processor_8cpp_source_l00068}{}\hyperlink{class_cmd_processor_ab674755157e105adb18ddeed073f0031}{00068} \textcolor{keywordtype}{bool} \hyperlink{class_cmd_processor_ab674755157e105adb18ddeed073f0031}{CmdProcessor::checkCommands}()
+00069 \{
+00070     \textcolor{keywordflow}{while} (\hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW}->\hyperlink{class_hardware_serial_a10e05fa62dc473d0d8a7ee8184f504ba}{available}() > 0) \{
+00071         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} c = \hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW}->\hyperlink{class_hardware_serial_a618696608a5fddcf3cb48ad6f044e756}{read}();
+00072         \textcolor{keywordflow}{if} (strchr(\hyperlink{class_cmd_processor_ac3499e23267a4f54dc409e51555d4b26}{_pCmdTerm},c) != 0) \{
+00073             \textcolor{keywordflow}{if} (\hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{_cmdPos} > 0) \{
+00074                 \textcolor{comment}{// Done with this command.}
+00075                 \hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString}[\hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{_cmdPos}] = 0; \textcolor{comment}{// Null terminate command}
+00076                 \hyperlink{class_cmd_processor_a56ce7cebb2a72262ba0d1ba0937739d5}{processCmd}();
+00077                 \textcolor{keywordflow}{return} 1;
+00078             \} \textcolor{keywordflow}{else} \{
+00079                 \hyperlink{class_cmd_processor_a8df6f12b27223c1f1876ea7221cd2413}{_pHW}->\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(\textcolor{stringliteral}{"Ok\(\backslash\)n"});
+00080             \}
+00081         \} \textcolor{keywordflow}{else} \{
+00082             \hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString}[\hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{_cmdPos}++] = c;
+00083         \}
+00084     \}
+00085     \textcolor{keywordflow}{return} 0;
+00086 \}
+00087 
+\hypertarget{_cmd_processor_8cpp_source_l00092}{}\hyperlink{class_cmd_processor_a56ce7cebb2a72262ba0d1ba0937739d5}{00092} \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a56ce7cebb2a72262ba0d1ba0937739d5}{CmdProcessor::processCmd}()
+00093 \{
+00094     \textcolor{comment}{// See if the command delimiter exists in the}
+00095     \textcolor{comment}{// command. if it does not, then the command}
+00096     \textcolor{comment}{// is the entire string.}
+00097     \textcolor{keywordflow}{if} (strpbrk(\hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString},\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim})) \{
+00098         \hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{_pCmd} = strtok(\hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString},\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim});
+00099         \textcolor{keywordtype}{char}* pTok = strtok(0,\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim});
+00100         \textcolor{keywordtype}{int} i = 0;
+00101         \textcolor{keywordflow}{while} (i < 10 && pTok) \{
+00102             \hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[i++] = pTok;
+00103             pTok = strtok(0,\hyperlink{class_cmd_processor_a0f926649b612897af1cbee71d6a1a90a}{_pCmdDelim});
+00104         \}
+00105         \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt} = i;
+00106         \hyperlink{class_cmd_processor_a18b0886303779762a37096d6446aefa6}{_validCmd} = \textcolor{keyword}{true};
+00107     \} \textcolor{keywordflow}{else} \{
+00108         \hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{_pCmd} = \hyperlink{class_cmd_processor_acc77d1f9a20e535e1073950001c0cc36}{_pCmdString};
+00109         \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt} = 0;
+00110         \hyperlink{class_cmd_processor_a18b0886303779762a37096d6446aefa6}{_validCmd} = \textcolor{keyword}{true};
+00111     \}
+00112 \}
+00113 
+\hypertarget{_cmd_processor_8cpp_source_l00115}{}\hyperlink{class_cmd_processor_ab6265f95bc945842d519de1aaf5874c9}{00115} \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_ab6265f95bc945842d519de1aaf5874c9}{CmdProcessor::resetCmd}()
+00116 \{
+00117     \hyperlink{class_cmd_processor_a6201596327a378c5317c1f6a8a9d5bc4}{_cmdPos} = 0;
+00118     \hyperlink{class_cmd_processor_a18b0886303779762a37096d6446aefa6}{_validCmd} = \textcolor{keyword}{false};
+00119     \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt} = 0;
+00120 \}
+00121 
+\hypertarget{_cmd_processor_8cpp_source_l00123}{}\hyperlink{class_cmd_processor_ad50f4ad388976a233cbb28877f87ed7e}{00123} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \hyperlink{class_cmd_processor_ad50f4ad388976a233cbb28877f87ed7e}{CmdProcessor::getCmd}()
+00124 \{
+00125     \textcolor{keywordflow}{return} \hyperlink{class_cmd_processor_a2017c885b275984549385ba246ec37f5}{_pCmd};
+00126 \}
+00127 
+\hypertarget{_cmd_processor_8cpp_source_l00129}{}\hyperlink{class_cmd_processor_acdf54848c152fe7d2f43b51b1e2e366d}{00129} uint8\_t \hyperlink{class_cmd_processor_acdf54848c152fe7d2f43b51b1e2e366d}{CmdProcessor::paramCnt}()
+00130 \{
+00131     \textcolor{keywordflow}{return} \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt};
+00132 \}
+00133 
+00134 
+00144 
+\hypertarget{_cmd_processor_8cpp_source_l00146}{}\hyperlink{class_cmd_processor_a6ecb6c34b183926aeb224b660eb03b73}{00146} \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{CmdProcessor::getParam}(uint8\_t idx,uint16\_t &p)
+00147 \{
+00148     \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+00149         p = atoi(\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx]);
+00150     \}
+00151 \}
+00152 
+\hypertarget{_cmd_processor_8cpp_source_l00154}{}\hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{00154} \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{CmdProcessor::getParam}(uint8\_t idx,uint8\_t &p)
+00155 \{
+00156     \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+00157         p = atoi(\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx]);
+00158     \}
+00159 \}
+00160 
+\hypertarget{_cmd_processor_8cpp_source_l00161}{}\hyperlink{class_cmd_processor_a8cac703be39a93f638732e67b361fea0}{00161} \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{CmdProcessor::getParam}(uint8\_t idx,\textcolor{keywordtype}{int} &p)
+00162 \{
+00163     \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+00164         p = atoi(\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx]);
+00165     \}
+00166 \}
+00167 
+\hypertarget{_cmd_processor_8cpp_source_l00168}{}\hyperlink{class_cmd_processor_abb99f82aa0e9c1c7023c334745e5b92d}{00168} \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{CmdProcessor::getParam}(uint8\_t idx,\textcolor{keywordtype}{long} &l)
+00169 \{
+00170     \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+00171         l = atol(\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx]);
+00172     \}
+00173 \}
+00174 
+\hypertarget{_cmd_processor_8cpp_source_l00176}{}\hyperlink{class_cmd_processor_aa0a295be3ce1557d86c5cc98394c3da1}{00176} \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{CmdProcessor::getParam}(uint8\_t idx,\textcolor{keywordtype}{double} &p)
+00177 \{
+00178     \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+00179         uint8\_t nScans;
+00180         nScans = sscanf(\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx],\textcolor{stringliteral}{"%lf"}, &p);
+00181         \textcolor{comment}{//p = atof(\_pTokens[idx]);}
+00182     \}
+00183 \}
+00184 
+\hypertarget{_cmd_processor_8cpp_source_l00186}{}\hyperlink{class_cmd_processor_a3d0f2ffbbf0400d21c957da7c92109d5}{00186} \textcolor{keywordtype}{void} \hyperlink{class_cmd_processor_a904eb6afbd77b68ec05d9c9043d4e0de}{CmdProcessor::getParam}(uint8\_t idx,\textcolor{keywordtype}{char}*& p, uint8\_t maxlen)
+00187 \{
+00188     \textcolor{keywordflow}{if} (idx < \hyperlink{class_cmd_processor_aff0622d6e4fca6bf1352392936d6c5ea}{_paramCnt}) \{
+00189         strncpy(p,\hyperlink{class_cmd_processor_a2b857367533cd33ba9a68746c71c5e3d}{_pTokens}[idx],maxlen);
+00190     \}
+00191 \}
+00192 
+\end{DoxyCode}

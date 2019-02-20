@@ -1,0 +1,66 @@
+\hypertarget{fifo_8h}{
+\subsection{fifo.h File Reference}
+\label{fifo_8h}\index{fifo.h@{fifo.h}}
+}
+{\ttfamily \#include $<$inttypes.h$>$}\par
+{\ttfamily \#include \char`\"{}HardwareSerial.h\char`\"{}}\par
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_fifo}{Fifo}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_fifo}{Fifo} Class for unsigned 8 bit values. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{fifo_8h_a9a948b7bfe866c00cfb8e3a5fea891ad}{FifoTest} (\hyperlink{class_hardware_serial}{HardwareSerial} \&ds)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{fifo_8h_a9a948b7bfe866c00cfb8e3a5fea891ad}{
+\index{fifo.h@{fifo.h}!FifoTest@{FifoTest}}
+\index{FifoTest@{FifoTest}!fifo.h@{fifo.h}}
+\paragraph[{FifoTest}]{\setlength{\rightskip}{0pt plus 5cm}void FifoTest (
+\begin{DoxyParamCaption}
+\item[{{\bf HardwareSerial} \&}]{ds}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{fifo_8h_a9a948b7bfe866c00cfb8e3a5fea891ad}
+Test function to validate that the fifo works as expected. It is always a good idea to validate your data structures. Languages like Python or Perl have such validation built in, while C++ does not. This function can be used in a special build to run through some test cases and make sure that the fifo behaves as we exect, especially in the edge cases, such as when it gets full, wraps around, etc. 
+
+Definition at line \hyperlink{fifo_8cpp_source_l00110}{110} of file \hyperlink{fifo_8cpp_source}{fifo.cpp}.
+
+
+
+References \hyperlink{_i_m_u_8cpp_source_l00016}{buffer}, \hyperlink{fifo_8cpp_source_l00022}{Fifo::clear()}, \hyperlink{fifo_8cpp_source_l00050}{Fifo::count()}, \hyperlink{fifo_8cpp_source_l00092}{Fifo::pop()}, \hyperlink{_print_8cpp_source_l00045}{Print::print()}, and \hyperlink{fifo_8cpp_source_l00074}{Fifo::push()}.
+
+
+\begin{DoxyCode}
+\{
+    \hyperlink{class_fifo}{Fifo} f1(20);
+    \hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{Fifo::FifoType} x;
+    \textcolor{keywordtype}{char}    \hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer}[128];
+    
+    \textcolor{keywordflow}{for} (x=1;x<25;x++) \{
+        f1.push(&x);
+        sprintf(buffer,\textcolor{stringliteral}{"Fifo push %d count %d\(\backslash\)n"},x,f1.count());
+        ds.\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+    \}
+    f1.clear();
+    sprintf(buffer,\textcolor{stringliteral}{"Fifo count %d\(\backslash\)n"},f1.count());
+    ds.\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+    
+    \textcolor{keywordflow}{for} (x=0;x<10;x++) \{
+        f1.push(&x);
+    \}
+    sprintf(buffer,\textcolor{stringliteral}{"Fifo count %d. Expected 10\(\backslash\)n"},f1.count());
+    ds.\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+    
+    \hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{Fifo::FifoType} y;
+    \textcolor{keywordflow}{for} (x=1;x<15;x++) \{
+        f1.pop(&y);
+        sprintf(buffer,\textcolor{stringliteral}{"Fifo pop %d count %d\(\backslash\)n"},y,f1.count());
+        ds.\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+    \}
+\}
+\end{DoxyCode}

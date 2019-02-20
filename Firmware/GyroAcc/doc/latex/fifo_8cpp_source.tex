@@ -1,0 +1,100 @@
+\hypertarget{fifo_8cpp_source}{
+\subsection{fifo.cpp}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include <stdio.h>}
+00002 \textcolor{preprocessor}{#include <string.h>}
+00003 \textcolor{preprocessor}{#include <math.h>}
+00004 
+00005 \textcolor{preprocessor}{#include "NewDel.h"}
+00006 \textcolor{preprocessor}{#include "fifo.h"}
+00007 
+\hypertarget{fifo_8cpp_source_l00014}{}\hyperlink{class_fifo_a68ef51a0abbde28576475176bea5ee77}{00014} \hyperlink{class_fifo_a68ef51a0abbde28576475176bea5ee77}{Fifo::Fifo}(uint8\_t size)
+00015 \{
+00016     \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size} = size;
+00017     \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata} = (\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}*)malloc(\hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size} * \textcolor{keyword}{sizeof}(\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}));
+00018     \hyperlink{class_fifo_a61aa8164d2e6fbdb2718835755495c95}{clear}();
+00019 \}
+00020 
+\hypertarget{fifo_8cpp_source_l00022}{}\hyperlink{class_fifo_a61aa8164d2e6fbdb2718835755495c95}{00022} \textcolor{keywordtype}{void} \hyperlink{class_fifo_a61aa8164d2e6fbdb2718835755495c95}{Fifo::clear}()
+00023 \{
+00024     \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} = \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} = \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata};
+00025 \}
+00026 
+00033 
+00040 
+\hypertarget{fifo_8cpp_source_l00050}{}\hyperlink{class_fifo_a0a741f582688e9f956fd9e8c4cd1da37}{00050} uint8\_t \hyperlink{class_fifo_a0a741f582688e9f956fd9e8c4cd1da37}{Fifo::count}()
+00051 \{
+00052     \textcolor{keywordflow}{if} (\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} == \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start}) \textcolor{keywordflow}{return} 0;
+00053     \textcolor{keywordflow}{if} (\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} > \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start}) \{
+00054         \textcolor{keywordflow}{return} \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} - \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start};
+00055     \}
+00056     \textcolor{keywordflow}{return} \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size} - (\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} - \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end});
+00057 \}
+00058 
+\hypertarget{fifo_8cpp_source_l00060}{}\hyperlink{class_fifo_a2b09a5751fc2a301a341245e98f1e44a}{00060} \textcolor{keywordtype}{bool} \hyperlink{class_fifo_a2b09a5751fc2a301a341245e98f1e44a}{Fifo::full}()
+00061 \{
+00062     \textcolor{keywordflow}{return} (\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} - \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end})  == 1 || (\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} - \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start}) == \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size};
+00063 \}
+00064 
+\hypertarget{fifo_8cpp_source_l00066}{}\hyperlink{class_fifo_af0223af74146f1e800aa0a7b44a2cfda}{00066} \textcolor{keywordtype}{bool} \hyperlink{class_fifo_af0223af74146f1e800aa0a7b44a2cfda}{Fifo::empty}()
+00067 \{
+00068     \textcolor{keywordflow}{return} (\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} == \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end});
+00069 \}
+00070 
+\hypertarget{fifo_8cpp_source_l00074}{}\hyperlink{class_fifo_a56e69165c03aa37aa174505386737430}{00074} int8\_t \hyperlink{class_fifo_a56e69165c03aa37aa174505386737430}{Fifo::push}(\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}* d) 
+00075 \{
+00076     \textcolor{keywordflow}{if} (\hyperlink{class_fifo_a2b09a5751fc2a301a341245e98f1e44a}{full}()) \textcolor{keywordflow}{return} -1;
+00077     *(\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end}++) = *d;
+00078     
+00079     \textcolor{comment}{// Wrap the end back to the beginning.}
+00080     \textcolor{keywordflow}{if} ((\hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} - \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata}) > \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size}) \{
+00081         \hyperlink{class_fifo_a5dea8e3ee360dd0555d25f1a57938a8f}{_end} = \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata};
+00082     \}
+00083 
+00084         \textcolor{keywordflow}{return} 0;
+00085 \}
+00086 
+\hypertarget{fifo_8cpp_source_l00092}{}\hyperlink{class_fifo_aa5aa61cf236c38b141bd1bbeaf1addbd}{00092} int8\_t \hyperlink{class_fifo_aa5aa61cf236c38b141bd1bbeaf1addbd}{Fifo::pop}(\hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{FifoType}* pD) 
+00093 \{
+00094     \textcolor{keywordflow}{if} (\hyperlink{class_fifo_af0223af74146f1e800aa0a7b44a2cfda}{empty}()) \{
+00095         \textcolor{keywordflow}{return} -1; \textcolor{comment}{// Nothing else to do}
+00096     \}
+00097     *pD = *(\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start}++);
+00098     \textcolor{keywordflow}{if} ((\hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} - \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata}) > \hyperlink{class_fifo_a0eb7824d54929e385223ef2e32c45c91}{_size}) \{
+00099         \hyperlink{class_fifo_a440e9cfd5fd73a4f571a4027ff74d8d2}{_start} = \hyperlink{class_fifo_adb3c9f91291d0af42197c7b30a718506}{_pdata};
+00100     \}
+00101     \textcolor{keywordflow}{return} 0;
+00102 \}
+00103 
+\hypertarget{fifo_8cpp_source_l00110}{}\hyperlink{fifo_8cpp_a9a948b7bfe866c00cfb8e3a5fea891ad}{00110} \textcolor{keywordtype}{void} \hyperlink{fifo_8h_a9a948b7bfe866c00cfb8e3a5fea891ad}{FifoTest}(\hyperlink{class_hardware_serial}{HardwareSerial}& ds)
+00111 \{
+00112     \hyperlink{class_fifo}{Fifo} f1(20);
+00113     \hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{Fifo::FifoType} x;
+00114     \textcolor{keywordtype}{char}    \hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer}[128];
+00115     
+00116     \textcolor{keywordflow}{for} (x=1;x<25;x++) \{
+00117         f1.\hyperlink{class_fifo_a56e69165c03aa37aa174505386737430}{push}(&x);
+00118         sprintf(buffer,\textcolor{stringliteral}{"Fifo push %d count %d\(\backslash\)n"},x,f1.\hyperlink{class_fifo_a0a741f582688e9f956fd9e8c4cd1da37}{count}());
+00119         ds.\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+00120     \}
+00121     f1.\hyperlink{class_fifo_a61aa8164d2e6fbdb2718835755495c95}{clear}();
+00122     sprintf(buffer,\textcolor{stringliteral}{"Fifo count %d\(\backslash\)n"},f1.\hyperlink{class_fifo_a0a741f582688e9f956fd9e8c4cd1da37}{count}());
+00123     ds.\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+00124     
+00125     \textcolor{keywordflow}{for} (x=0;x<10;x++) \{
+00126         f1.\hyperlink{class_fifo_a56e69165c03aa37aa174505386737430}{push}(&x);
+00127     \}
+00128     sprintf(buffer,\textcolor{stringliteral}{"Fifo count %d. Expected 10\(\backslash\)n"},f1.\hyperlink{class_fifo_a0a741f582688e9f956fd9e8c4cd1da37}{count}());
+00129     ds.\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+00130     
+00131     \hyperlink{class_fifo_abc2a9e471beb538424db9e33955ec5f7}{Fifo::FifoType} y;
+00132     \textcolor{keywordflow}{for} (x=1;x<15;x++) \{
+00133         f1.\hyperlink{class_fifo_aa5aa61cf236c38b141bd1bbeaf1addbd}{pop}(&y);
+00134         sprintf(buffer,\textcolor{stringliteral}{"Fifo pop %d count %d\(\backslash\)n"},y,f1.\hyperlink{class_fifo_a0a741f582688e9f956fd9e8c4cd1da37}{count}());
+00135         ds.\hyperlink{class_print_aa7b0a6dc63e3d27effd8459e3d443b83}{print}(buffer);
+00136     \}
+00137 \}
+00138 
+\end{DoxyCode}

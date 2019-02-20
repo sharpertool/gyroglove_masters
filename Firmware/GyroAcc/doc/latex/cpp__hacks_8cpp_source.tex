@@ -1,0 +1,14 @@
+\hypertarget{cpp__hacks_8cpp_source}{
+\subsection{cpp\_\-hacks.cpp}
+}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "cpp\_hacks.h"}
+00002 
+\hypertarget{cpp__hacks_8cpp_source_l00003}{}\hyperlink{cpp__hacks_8cpp_ad9a42607fb7932f44ba914ac49972e62}{00003} \textcolor{keywordtype}{int} \hyperlink{cpp__hacks_8h_a239ddd7f6e7ee1b05b59b2e56d8afb40}{__cxa_guard_acquire}(\_\_guard *g) \{\textcolor{keywordflow}{return} !*(\textcolor{keywordtype}{char} *)(g);\}; 
+\hypertarget{cpp__hacks_8cpp_source_l00004}{}\hyperlink{cpp__hacks_8cpp_adef76ddddaddf969efa3bfad968fd430}{00004} \textcolor{keywordtype}{void} \hyperlink{cpp__hacks_8h_aab72c37f0b3e6fc38d293bd4f8dd61ed}{__cxa_guard_release} (\_\_guard *g) \{*(\textcolor{keywordtype}{char} *)g = 1;\}; 
+\hypertarget{cpp__hacks_8cpp_source_l00005}{}\hyperlink{cpp__hacks_8cpp_a357afb2dc20a652447f3a529dbda60e4}{00005} \textcolor{keywordtype}{void} \hyperlink{cpp__hacks_8h_a357afb2dc20a652447f3a529dbda60e4}{__cxa_guard_abort} (\_\_guard *) \{\}; 
+00006 
+\hypertarget{cpp__hacks_8cpp_source_l00007}{}\hyperlink{cpp__hacks_8cpp_a4464d4205cf92370b8d5077d93bc48a6}{00007} \textcolor{keywordtype}{void} \hyperlink{cpp__hacks_8h_a4464d4205cf92370b8d5077d93bc48a6}{__cxa_pure_virtual}(\textcolor{keywordtype}{void}) \{\}; 
+00008 
+\end{DoxyCode}

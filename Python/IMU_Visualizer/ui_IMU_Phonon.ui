@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>IMU_Phonon</class>
+ <widget class="QMainWindow" name="IMU_Phonon">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1027</width>
+    <height>904</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>IMU Window</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>-1</number>
+      </property>
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="hzTop">
+        <item>
+         <widget class="Phonon::VideoPlayer" name="videoPlayer"/>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="vertPlots"/>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="gyroPlots"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>IMU</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QComboBox" name="comboIMU"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QComboBox" name="comboData"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Data Set</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="btnExit">
+          <property name="text">
+           <string>Exit</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QPushButton" name="buttonPlay">
+            <property name="text">
+             <string>Play</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="buttonPause">
+            <property name="text">
+             <string>Pause</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="buttonStop">
+            <property name="text">
+             <string>Stop</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <widget class="QSlider" name="positionSlider">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1027</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuExit">
+    <property name="title">
+     <string>Exit</string>
+    </property>
+   </widget>
+   <addaction name="menuExit"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Phonon::VideoPlayer</class>
+   <extends>QWidget</extends>
+   <header location="global">phonon/videoplayer.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>btnExit</tabstop>
+  <tabstop>comboData</tabstop>
+  <tabstop>comboIMU</tabstop>
+  <tabstop>buttonPlay</tabstop>
+  <tabstop>buttonPause</tabstop>
+  <tabstop>buttonStop</tabstop>
+  <tabstop>positionSlider</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btnExit</sender>
+   <signal>clicked()</signal>
+   <receiver>IMU_Phonon</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>102</x>
+     <y>619</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>426</x>
+     <y>370</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

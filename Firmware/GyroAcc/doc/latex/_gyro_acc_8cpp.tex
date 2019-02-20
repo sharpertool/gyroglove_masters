@@ -1,0 +1,263 @@
+\hypertarget{_gyro_acc_8cpp}{
+\subsection{GyroAcc.cpp File Reference}
+\label{_gyro_acc_8cpp}\index{GyroAcc.cpp@{GyroAcc.cpp}}
+}
+{\ttfamily \#include $<$avr/io.h$>$}\par
+{\ttfamily \#include $<$avr/interrupt.h$>$}\par
+{\ttfamily \#include $<$util/delay.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include \char`\"{}NewDel.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}clksystem.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}time.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}HardwareSerial.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}GyroCmdProcessor.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}I2C\_\-Master.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}IMU.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}IMUManager.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TimerCntr.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Port.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}MyDriver.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Revision.h\char`\"{}}\par
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_gyro_acc_8cpp_a896a4c37c6ecf8868ef0dc758e5a598c}{timer\_\-init} ()
+\begin{DoxyCompactList}\small\item\em Declared in TimerCore.cpp. \item\end{DoxyCompactList}\item 
+void \hyperlink{_gyro_acc_8cpp_a02fd73d861ef2e4aabb38c0c9ff82947}{init} ()
+\item 
+void \hyperlink{_gyro_acc_8cpp_a04545dccf7a169ce181b81c5376c9ec7}{processCmd} (\hyperlink{class_cmd_processor}{CmdProcessor} \&cmdproc)
+\item 
+int \hyperlink{_gyro_acc_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_hardware_serial}{HardwareSerial} $\ast$ \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial} = 0
+\item 
+DebugPort $\ast$ \hyperlink{_gyro_acc_8cpp_ab6b6625a30d84db3519866cb8c32dd39}{pdbgport} = 0
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{_gyro_acc_8cpp_a02fd73d861ef2e4aabb38c0c9ff82947}{
+\index{GyroAcc.cpp@{GyroAcc.cpp}!init@{init}}
+\index{init@{init}!GyroAcc.cpp@{GyroAcc.cpp}}
+\paragraph[{init}]{\setlength{\rightskip}{0pt plus 5cm}void init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_gyro_acc_8cpp_a02fd73d861ef2e4aabb38c0c9ff82947}
+
+
+Definition at line \hyperlink{_gyro_acc_8cpp_source_l00023}{23} of file \hyperlink{_gyro_acc_8cpp_source}{GyroAcc.cpp}.
+
+
+
+References \hyperlink{clksystem_8cpp_source_l00058}{clksystem\_\-init()}, and \hyperlink{_gyro_acc_8cpp_a896a4c37c6ecf8868ef0dc758e5a598c}{timer\_\-init()}.
+
+
+
+Referenced by \hyperlink{_gyro_acc_8cpp_source_l00034}{main()}.
+
+
+\begin{DoxyCode}
+            \{
+
+    \hyperlink{clksystem_8cpp_a098d30ebaad7a94505407605314930e5}{clksystem_init}();
+    \hyperlink{_gyro_acc_8cpp_a896a4c37c6ecf8868ef0dc758e5a598c}{timer_init}();
+\}
+\end{DoxyCode}
+\hypertarget{_gyro_acc_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{
+\index{GyroAcc.cpp@{GyroAcc.cpp}!main@{main}}
+\index{main@{main}!GyroAcc.cpp@{GyroAcc.cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_gyro_acc_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+Create timers for each of the \hyperlink{class_i_m_u}{IMU} Masters. I use the TCx1 timers which are less capable, but it hardly matters as these are just setting a timer callback.
+
+Give the rate a default value. Start low
+
+This bit just toggles the light 
+
+
+
+Definition at line \hyperlink{_gyro_acc_8cpp_source_l00034}{34} of file \hyperlink{_gyro_acc_8cpp_source}{GyroAcc.cpp}.
+
+
+
+References \hyperlink{class_i2_c___master_a4e6323d0c9dc60723d850c3783008319}{I2C\_\-Master::begin()}, \hyperlink{_hardware_serial_8cpp_source_l00140}{HardwareSerial::begin()}, \hyperlink{_i_m_u_8cpp_source_l00016}{buffer}, \hyperlink{_hardware_serial_8cpp_source_l00248}{HardwareSerial::enable()}, \hyperlink{_gyro_acc_8cpp_source_l00023}{init()}, \hyperlink{_gyro_acc_8cpp_source_l00032}{pdbgport}, \hyperlink{_print_8cpp_source_l00045}{Print::print()}, \hyperlink{_i_m_u_8cpp_source_l00143}{IMU::SetDebugPort()}, and \hyperlink{_i_m_u_8cpp_source_l00148}{IMU::SetDebugPort2()}.
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{keywordtype}{char}    \hyperlink{_i_m_u_8cpp_a38e7c3f1ce348a3ed20459d277245263}{buffer}[100];
+    \hyperlink{_gyro_acc_8cpp_a02fd73d861ef2e4aabb38c0c9ff82947}{init}();
+
+    PMIC.CTRL |= PMIC\_HILVLEN\_bm | PMIC\_LOLVLEN\_bm | PMIC\_MEDLVLEN\_bm;
+    sei();
+    
+\textcolor{preprocessor}{#ifdef USE\_DEBUGPORT\_2}
+\textcolor{preprocessor}{}    DebugPort dbgPort2(&PORTE);
+    dbgPort2.PinMask(0xF0,5);
+    dbgPort2.SetState(0);
+\textcolor{preprocessor}{#endif}
+\textcolor{preprocessor}{}    
+    \hyperlink{class_hardware_serial}{HardwareSerial} dbgserial(&USARTF1, &PORTF, PIN6\_bm, PIN7\_bm);
+    dbgserial.begin(115200);
+    \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial} = &dbgserial;
+    \hyperlink{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{pdbgserial}->\hyperlink{class_hardware_serial_a2e13244413a84a259cadab3fb452921a}{enable}(\textcolor{keyword}{false});
+
+    \textcolor{comment}{// Instantiate a commad processor.}
+    \textcolor{comment}{// Specify the USART, PORT, rxPin and txPin and the baud rate.}
+    \hyperlink{class_hardware_serial}{HardwareSerial} cmdSerial(&USARTD0, &PORTD, PIN2\_bm, PIN3\_bm);
+    cmdSerial.begin(115200);
+    \textcolor{comment}{//cmdSerial.begin(285000);}
+    \textcolor{comment}{//cmdSerial.begin(921600);}
+    
+    CCP = CCP\_IOREG\_gc;
+    MCU.MCUCR = MCU\_JTAGD\_bm;
+    DebugPort dbgPort(&PORTB);
+    dbgPort.PinMask(0xF0,4);
+    dbgPort.SetState(0xf);
+    dbgPort.SetState(0);
+    \hyperlink{_gyro_acc_8cpp_ab6b6625a30d84db3519866cb8c32dd39}{pdbgport} = &dbgPort;
+
+    \hyperlink{class_i2_c___master}{I2C_Master}  *pMaster[4];
+    \hyperlink{class_i2_c___master}{I2C_Master} hand(&TWIC);
+    \hyperlink{class_i2_c___master}{I2C_Master} single(&TWID);
+    \hyperlink{class_i2_c___master}{I2C_Master} pair1(&TWIE);
+    \hyperlink{class_i2_c___master}{I2C_Master} pair2(&TWIF);
+
+    pMaster[0] = &hand;
+    pMaster[1] = &single; \textcolor{comment}{// Pinkie}
+    pMaster[2] = &pair1;  \textcolor{comment}{// Ring + Middle}
+    pMaster[3] = &pair2;  \textcolor{comment}{// Index + Thumb}
+    
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x=0;x<4;x++) \{
+        \textcolor{keywordflow}{if} (pMaster[x]) \{
+            pMaster[x]->\hyperlink{class_i2_c___master_a4e6323d0c9dc60723d850c3783008319}{begin}(400e3);
+        \}
+    \}
+
+    \textcolor{comment}{// Give the hardware time to stabilize..}
+    \_delay\_ms(1000);
+    
+    \textcolor{comment}{// When constructed without a list of ID's, the IMU will query known}
+    \textcolor{comment}{// ID's 0xD0 and 0xD2 for the Gyro, and then 0x30 and 0x32 respectively}
+    \textcolor{comment}{// for the ACC.}
+    \hyperlink{class_i_m_u}{IMU}     hand\_imu(&hand);    
+    \hyperlink{class_i_m_u}{IMU}     single\_imu(&single);
+    \hyperlink{class_i_m_u}{IMU}     pair1\_imu(&pair1);  
+    \hyperlink{class_i_m_u}{IMU}     pair2\_imu(&pair2);  
+
+    \textcolor{comment}{// These all share the debug port, so they must operate}
+    \textcolor{comment}{// in sequence. If I went back to a parallel operation, then}
+    \textcolor{comment}{// this would have to change.}
+    hand\_imu.SetDebugPort(&dbgPort);
+
+    single\_imu.SetDebugPort(&dbgPort);
+
+    pair1\_imu.SetDebugPort(&dbgPort);
+
+    pair2\_imu.SetDebugPort(&dbgPort);
+
+\textcolor{preprocessor}{#ifdef USE\_DEBUGPORT\_2}
+\textcolor{preprocessor}{}    hand\_imu.SetDebugPort2(&dbgPort2);
+    single\_imu.SetDebugPort2(&dbgPort2);
+    pair1\_imu.SetDebugPort2(&dbgPort2);
+    pair2\_imu.SetDebugPort2(&dbgPort2);
+\textcolor{preprocessor}{#endif}
+\textcolor{preprocessor}{}    
+    \hyperlink{class_timer_cntr}{TimerCntr}   tcA(&TCC1);
+    
+    IMUManager imumgr(&cmdSerial);
+    imumgr.SetBlueLed(&PORTJ, PIN7\_bm);
+    imumgr.LedOff();
+    imumgr.SetTimer(&tcA);
+    imumgr.AddIMU(&hand\_imu);
+    imumgr.AddIMU(&single\_imu);
+    imumgr.AddIMU(&pair1\_imu);
+    imumgr.AddIMU(&pair2\_imu);
+    imumgr.SampleRate(10); 
+    
+    GyroCmdProcessor cmdproc(&cmdSerial,&pMaster[0],&imumgr);
+
+    sprintf(buffer,\textcolor{stringliteral}{"Welcome to Gyro Glove.\(\backslash\)nRev %d.%d.%d Date: %02d/%02d/%04d Bui
+      lt at: %02d:%02d\(\backslash\)n"},
+        RevMajor, RevMinor, RevInc,
+        DateMonth, DateDay, DateYear,
+        TimeHour, TimeMin
+        );
+    cmdSerial.print(buffer);
+    
+    \hyperlink{class_timer_cntr}{TimerCntr} mdtc(&TCD0);
+    MyDriver md;
+    md.SetTimer(&mdtc);
+    
+    cmdSerial.print(\textcolor{stringliteral}{"Starting endless loop\(\backslash\)n"});
+    
+    \textcolor{keywordflow}{while}(1) \{
+        cmdproc.Loop();        
+        imumgr.Loop();
+    \}
+
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+\hypertarget{_gyro_acc_8cpp_a04545dccf7a169ce181b81c5376c9ec7}{
+\index{GyroAcc.cpp@{GyroAcc.cpp}!processCmd@{processCmd}}
+\index{processCmd@{processCmd}!GyroAcc.cpp@{GyroAcc.cpp}}
+\paragraph[{processCmd}]{\setlength{\rightskip}{0pt plus 5cm}void processCmd (
+\begin{DoxyParamCaption}
+\item[{{\bf CmdProcessor} \&}]{cmdproc}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_gyro_acc_8cpp_a04545dccf7a169ce181b81c5376c9ec7}
+\hypertarget{_gyro_acc_8cpp_a896a4c37c6ecf8868ef0dc758e5a598c}{
+\index{GyroAcc.cpp@{GyroAcc.cpp}!timer\_\-init@{timer\_\-init}}
+\index{timer\_\-init@{timer\_\-init}!GyroAcc.cpp@{GyroAcc.cpp}}
+\paragraph[{timer\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void timer\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hfill}
+\label{_gyro_acc_8cpp_a896a4c37c6ecf8868ef0dc758e5a598c}
+
+
+Declared in TimerCore.cpp. 
+
+
+
+Referenced by \hyperlink{_gyro_acc_8cpp_source_l00023}{init()}.
+
+
+
+\subsubsection{Variable Documentation}
+\hypertarget{_gyro_acc_8cpp_ab6b6625a30d84db3519866cb8c32dd39}{
+\index{GyroAcc.cpp@{GyroAcc.cpp}!pdbgport@{pdbgport}}
+\index{pdbgport@{pdbgport}!GyroAcc.cpp@{GyroAcc.cpp}}
+\paragraph[{pdbgport}]{\setlength{\rightskip}{0pt plus 5cm}DebugPort$\ast$ {\bf pdbgport} = 0}\hfill}
+\label{_gyro_acc_8cpp_ab6b6625a30d84db3519866cb8c32dd39}
+
+
+Definition at line \hyperlink{_gyro_acc_8cpp_source_l00032}{32} of file \hyperlink{_gyro_acc_8cpp_source}{GyroAcc.cpp}.
+
+
+
+Referenced by \hyperlink{_gyro_acc_8cpp_source_l00034}{main()}.
+
+\hypertarget{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}{
+\index{GyroAcc.cpp@{GyroAcc.cpp}!pdbgserial@{pdbgserial}}
+\index{pdbgserial@{pdbgserial}!GyroAcc.cpp@{GyroAcc.cpp}}
+\paragraph[{pdbgserial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf HardwareSerial}$\ast$ {\bf pdbgserial} = 0}\hfill}
+\label{_gyro_acc_8cpp_a953e918236b1fd18b8f07bad1217ecbe}
+
+
+Definition at line \hyperlink{_gyro_acc_8cpp_source_l00031}{31} of file \hyperlink{_gyro_acc_8cpp_source}{GyroAcc.cpp}.
+
